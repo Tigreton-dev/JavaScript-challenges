@@ -3,8 +3,6 @@ body{
   margin: 0;
   padding: 0;
 }
-.keys {
-}
 .file {
   display: flex;
   margin: 10px;
@@ -26,7 +24,7 @@ body{
 .key span {
   margin: auto;
 }
-.sound {
+.order {
   font-size: 12px;
   font-weight: bold;
 }
