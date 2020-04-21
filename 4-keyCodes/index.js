@@ -15,7 +15,7 @@ function createInfoBox() {
     //creating the description
     const description = document.createElement('p');
     description.classList.add('box-description');
-    description.innerHTML = 'The canvas element is part of HTML5 and allows for dynamic, scriptable rendering of 2D shapes and bitmap images. This small project is an example on how to draw on a html canvas. When click and move inside the box it will draw a line following the mouse and changein the color of the line while the line ins drawing.';
+    description.innerHTML = 'This project show how every single button of the keypad has a unique key-code that allow to perform specific task when that key is pushed.';
     infoBox.appendChild(description);
 
     //creating the button
