@@ -1,0 +1,110 @@
+.container {
+  width: 500px;
+  height: 500px;
+  margin: auto;
+  margin-top: 50px;
+  position: relative;
+  border-radius: 50%;
+  background-image: url("clock.png");
+  background-size: 500px 500px;
+}
+.needle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transition: all 0.05s;
+  transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+}
+.hours {
+  width: 160px;
+  height: 15px;
+  background: black;
+  transform-origin: 30px;
+}
+.minits {
+  width: 250px;
+  height: 10px;
+  background: black;
+  transform-origin: 50px;
+}
+.seconds {
+  width: 220px;
+  height: 4px;
+  background: rgb(196, 19, 19);
+  transform-origin: 60px;
+}
+.center {
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.center1 {
+  width: 25px;
+  height: 25px;
+  background: black;
+  
+}
+.center2 {
+  width: 15px;
+  height: 15px;
+  background: rgb(196, 19, 19);
+}
+
+
+
+/*Message box -----------------------------------------*/
+
+#infoBox-id {
+  width: 450px;
+  height: 450px;
+  position: absolute;
+  top: 20px;
+  transform: translateX(-50%);
+  left: 50%;
+  background: rgb(248, 248, 248);
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+}
+.box-description {
+  height: 300px;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  padding: 10px;
+  overflow-y: scroll;
+}
+.box-button {
+  position: relative;
+  transform: translateX(-50%);
+  left: 50%;
+}
+
+
+
+
+/*BOX SCROLLBAR-------------------------------------------------------------*/
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: white; 
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background: black); 
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+::-webkit-scrollbar-thumb:window-inactive {
+background: rgba(255,0,0,0.4); 
+}
+
