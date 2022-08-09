@@ -1,5 +1,5 @@
 import Header from "../components/Header";
-import Initial from "../components/Home/Initial";
+import Initial from "../components/Initial";
 
 const Home = () => {
 	return (
