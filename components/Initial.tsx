@@ -15,11 +15,12 @@ export default function Initial() {
                 display: "flex",
                 top: "50%",
                 left: "50%",
-                transform: "translate(-50%, -50%)"
+                transform: "translate(-50%, -50%)",
+                textAlign:"center"
             }}>
-                <div style={{ width: "40%", height: "300px", zIndex: "1", marginTop: "40px" }}>
-                    <Typography variant="h4" component="h3" sx={{ color: "white" }}>Increase your algorithms skills</Typography>
-                    <Typography variant="body1" component="p" sx={{ color: "white", margin: "15px 0" }}>Build durable and robust knowledge of data structures & algorithms with Structy. Build durable and robust knowledge of data structures & algorithms with Structy.</Typography>
+                <div style={{ width: "100%", height: "300px", zIndex: "1", marginTop: "40px", backdropFilter: "blur(5px)" }}>
+                    <Typography variant="h4" component="h3" sx={{ color: "white", fontSize:"50px", marginBottom:"20px" }}>JavaScript Challenges</Typography>
+                    <Typography variant="body1" component="p" sx={{ color: "white", margin: "auto", width:"60%", fontSize:"20px", marginBottom:"20px" }}>Build durable and robust knowledge of data structures & algorithms with Structy. Build durable and robust knowledge of data structures & algorithms with Structy.</Typography>
                     <Button size="large" variant="contained" sx={{ marginTop: "10px" }}>Challenges</Button>
                 </div>
                 <img
@@ -29,6 +30,7 @@ export default function Initial() {
                         left: "450px",
                         width: "800px",
                         height: "500px",
+                        opacity:"1",
                         transform: "perspective(1000px) rotateY(340deg)",
                     }}
                     src="/images/editorDark.png"
