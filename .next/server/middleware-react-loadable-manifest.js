@@ -1,1 +1,1 @@
-self.__REACT_LOADABLE_MANIFEST={}
+self.__REACT_LOADABLE_MANIFEST={"challenges/[id].tsx -> ../../components/CodeEnviroment/CodeEnviroment":{"id":"challenges/[id].tsx -> ../../components/CodeEnviroment/CodeEnviroment","files":["static/chunks/components_CodeEnviroment_CodeEnviroment_tsx.js"]}}

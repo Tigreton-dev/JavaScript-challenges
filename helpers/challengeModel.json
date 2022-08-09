@@ -1,0 +1,70 @@
+{
+    "mergeSortedArray": {
+        "refName": "mergeSortedArray",
+        "category": "Array",
+        "dificulty": "Easy",
+        "title": "Merged Sorted Array",
+        "tags": ["Easy", "Array"],
+        "description": "<p>You are given two integer arrays nums1 and nums2, sorted in non-decreasing order, and two integers m and n, representing the number of elements in nums1 and nums2 respectively.</p><p>Merge nums1 and nums2 into a single array sorted in non-decreasing order.</p><p>The final sorted array should not be returned by the function, but instead be stored inside the array nums1. To accommodate this, nums1 has a length of m + n, where the first m elements denote the elements that should be merged, and the last n elements are set to 0 and should be ignored. nums2 has a length of n.</p>",
+        "examples": {
+            "example1": {
+                "input": "nums1 = [1,2,3,0,0,0];\nm = 3;\nnums2 = [2,5,6];\nn = 3;",
+                "output": "[1,2,2,3,5,6]\n//Explanation:\n//The arrays we are merging are [1,2,3] and [2,5,6]"
+            },
+            "example2": {
+                "input": "      5\n    /   |x5C \n  5      5</",
+                "output": "[1,2,2,3,5,6]"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function mergeSortedArray(nums1, m, nums2, n) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// Solution 1\nfunction mergeSortedArray(nums1, m, nums2, n) {\n    let first = m - 1;\n    let second = n - 1;\n    let i = m + n - 1;\n    while (second >= 0) {\n        let fVal = nums1[first];\n        let sVal = nums2[second];\n        if (fVal > sVal) {\n            nums1[i] = fVal;\n            i--;\n            first--;\n        } else {\n            nums1[i] = sVal;\n            i--;\n            second--;\n        }\n    }\n    return nums1;\n}",
+                "// Solution 2\nfunction mergeSortedArray(nums1, m, nums2, n) {\n    let p1 = m - 1;\n    let p2 = n - 1;\n    let p3 = m + n - 1;\n    while (p2 >= 0) {\n      nums1[p3--] = p1 >= 0 && nums1[p1] > nums2[p2] ? nums1[p1--] : nums2[p2--];\n    }\n}"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": [[1, 2, 3, 0, 0, 0], 3, [2, 5, 6], 3],
+                "test_expected": [1, 2, 2, 3, 5, 6],
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_2": {
+                "test_input": [[1], 1, [], 0],
+                "test_expected": [1],
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_3": {
+                "test_input": [[0], 0, [1], 1],
+                "test_expected": [1],
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_4": {
+                "test_input": [[2, 5, 6], 3, [1, 2, 3, 0, 0, 0], 3],
+                "test_expected": [1, 2, 2, 3, 5, 6],
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_5": {
+                "test_input": [[1, 2, 3, 4, 5], 3, [4, 5, 6, 7, 8], 3],
+                "test_expected": [1, 2, 3, 4, 5, 6],
+                "code_output": null,
+                "passed_test": false
+            }
+        }
+    }
+}
