@@ -23,7 +23,7 @@ export default function PostPage() {
             updateData({ currentProblem: myData[pathID] });
     }, [pathID]);
 
-    if (Object.keys(currentProblem).length === 0) return <h1>loading</h1>
+    if (Object.keys(currentProblem).length === 0) return <h1>Problem Not Found</h1>
 
     return (
         <>
