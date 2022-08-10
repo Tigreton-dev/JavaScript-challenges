@@ -7,7 +7,6 @@ import Box from '@mui/material/Box';
 import ExampleCode from "./ExampleCode";
 import Hints from "./Hints";
 import Title from "./Title";
-
 import { DataContext } from '../../../context/dataContext';
 import { DataContextType } from '../../../context/@types.data';
 
@@ -16,12 +15,8 @@ const ChallengeDescription = () => {
 
     const currentProblem = data.currentProblem;
     const currentLanguage = data.currentLanguage;
-    const isProblemSubmitted = currentProblem?.submittedCode && currentProblem.submittedCode[currentLanguage] ? true : false;
-    const [problemDescription, setProblemDescription] = React.useState("");
-
-    React.useEffect(() => {
-        setProblemDescription(currentProblem.description);
-    }, [currentProblem]);
+    const isProblemSubmitted = currentProblem?.submittedCode &&
+        currentProblem.submittedCode[currentLanguage] ? true : false;
 
     const containerStyle = {
         padding: "20px",
@@ -44,8 +39,8 @@ const ChallengeDescription = () => {
             <Title title={currentProblem.title} isProblemSubmitted={isProblemSubmitted} />
             <Stack direction="row" spacing={1}>
                 {currentProblem.tags.map((tagName: string) => {
-                    return <Chip 
-                        key={tagName} 
+                    return <Chip
+                        key={tagName}
                         label={tagName}
                         variant="outlined"
                         sx={{ fontWeight: "bold" }}
@@ -53,9 +48,9 @@ const ChallengeDescription = () => {
                     />
                 })}
             </Stack>
-            <div style={{ fontSize: "18px", fontFamily: "Roboto", fontWeight: "300"}}>{
+            <Box style={{ fontSize: "18px", fontFamily: "Roboto", fontWeight: "300" }}>{
                 parse(currentProblem.description)}
-            </div>
+            </Box>
             <ExampleCode />
             <Hints />
         </Box>

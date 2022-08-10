@@ -13,7 +13,6 @@ const Title = (props: TitleProps) => {
     const titleBox = {
         display: "flex",
         height: "45px",
-        position: "relative",
         marginTop: "15px",
         marginBottom: "10px"
     }

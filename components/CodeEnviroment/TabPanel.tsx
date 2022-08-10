@@ -6,15 +6,13 @@ import SolutionCode from './SolutionCode'
 import CodeMirrorEditor from './CodeMirrorEditor'
 import ChallengeDescription from './ChallengeDescription/ChallengeDescription'
 import TestCases from './TestCases'
-import NewChallengeForm from './NewChallengeForm'
 import TabPanelBar from "./TabPanelBar"
 import Terminal from "./Terminal";
-
 import { DataContext } from '../../context/dataContext';
 import { DataContextType } from '../../context/@types.data';
 
 interface propsInterface {
-    isCodeEditor: boolean; 
+    isCodeEditor: boolean;
     firstTitle: string;
     secondTitle: string;
     thirdTitle: string;
@@ -29,10 +27,10 @@ const TabPanel = (props: propsInterface) => {
     const [value, setValue] = React.useState(0);
 
     const menuBarProps = {
-        isCodeEditor, 
-        firstTitle, 
-        secondTitle, 
-        thirdTitle, 
+        isCodeEditor,
+        firstTitle,
+        secondTitle,
+        thirdTitle,
         fourthTitle,
         value
     }

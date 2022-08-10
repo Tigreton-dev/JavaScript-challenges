@@ -1,4 +1,3 @@
-import Header from "../components/Header";
 import Initial from "../components/Initial";
 import ChallengeList from "../components/ChallengeList/ChallengeList";
 

@@ -58,7 +58,7 @@ export default function Theme() {
 						top: "-28.5px",
 						alignItems: 'center',
 						display: 'flex',
-                		flexWrap: 'wrap',
+						flexWrap: 'wrap',
 					}}>
 						<LightModeIcon style={{ width: "47px", color: currentTheme.color }} />
 						<DarkModeIcon style={{ width: "47px", color: currentTheme.color }} />

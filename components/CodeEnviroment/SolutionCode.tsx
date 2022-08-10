@@ -4,7 +4,6 @@ import { javascript } from '@codemirror/lang-javascript'
 import beautify from 'js-beautify';
 
 import { lightTheme, darkTheme } from "../../helpers/CodeEditorTheme";
-
 import { DataContext } from '../../context/dataContext';
 import { DataContextType } from '../../context/@types.data';
 
@@ -35,7 +34,7 @@ const SolutionCode = () => {
 					highlightActiveLine: false,
 				}}
 				extensions={[javascript({ jsx: true })]}
-				onChange={(value, viewUpdate) => {}}
+				onChange={(value, viewUpdate) => { }}
 			/>
 		</div>
 	)

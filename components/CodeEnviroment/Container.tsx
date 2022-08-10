@@ -3,7 +3,6 @@ import { Split } from '@geoffcox/react-splitter'
 import Paper from '@mui/material/Paper'
 
 import TabPanel from './TabPanel'
-
 import { DataContext } from '../../context/dataContext';
 import { DataContextType } from '../../context/@types.data';
 
@@ -41,7 +40,7 @@ const Container = () => {
 						fourthTitle="Terminal"
 					/>
 				</Paper>
-				
+
 				<Paper sx={{ ...styles, top: '5px', left: '5px', marginLeft: '0' }}>
 					<TabPanel
 						isCodeEditor={true}

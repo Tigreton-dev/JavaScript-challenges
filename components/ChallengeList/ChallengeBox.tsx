@@ -11,7 +11,7 @@ import { DataContext } from '../../context/dataContext';
 import { DataContextType } from '../../context/@types.data';
 
 export default function BoxSx(props) {
-    const { isChallengeSubmitted, title, tags, refName, index } = props;
+    const { isChallengeSubmitted, title, tags, refName } = props;
     const { data } = React.useContext(DataContext) as DataContextType;
     const currentTheme = data.currentTheme;
     const icon = isChallengeSubmitted ?
@@ -35,10 +35,10 @@ export default function BoxSx(props) {
                 height: "auto",
                 padding: "15px",
                 borderRadius: "5px",
-                backgroundColor: currentTheme.secondary,
+                backgroundColor: "#f8fcff",
                 boxShadow: currentTheme.borderShadow,
                 marginBottom: "15px",
-                boxSizing:"border-box",
+                boxSizing: "border-box",
                 borderRight: "20px solid green",
             }}
         >
@@ -46,15 +46,15 @@ export default function BoxSx(props) {
                 display: 'flex',
                 alignItems: 'center',
                 flexWrap: 'wrap',
-                position:"relative"
+                position: "relative"
             }}>
                 {icon}
-                <Typography variant="h7" component="h7" style={{ marginLeft: "10px", width: "250px", fontSize: "18px", fontWeight:"bold" }}>
+                <Typography variant="h1" component="h1" style={{ marginLeft: "10px", width: "250px", fontSize: "18px", fontWeight: "bold" }}>
                     <Link href={`/challenges/${refName}`}>
-                        <a style={{ textDecoration: "none", color: currentTheme.color }}>{title}</a>
+                        <a style={{ textDecoration: "none", color: "#6d6e6d" }}>{title}</a>
                     </Link>
                 </Typography>
-                <Stack direction="row" spacing={1} style={{position:"absolute", right:"0"}}>
+                <Stack direction="row" spacing={1} style={{ position: "absolute", right: "0" }}>
                     {tags.map((tagName: string) => {
                         return <Chip
                             key={tagName}

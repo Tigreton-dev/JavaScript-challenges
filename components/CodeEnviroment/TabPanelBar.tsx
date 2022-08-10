@@ -52,7 +52,7 @@ const TabPanelBar = (props: propsInterface) => {
                     <Badge
                         badgeContent={numOfTests}
                         color="primary"
-                        style={{ position:"absolute", top: '15px', left: '330px' }}
+                        style={{ position:"absolute", top: '15px', left: '365px' }}
                     />
 
                 )}

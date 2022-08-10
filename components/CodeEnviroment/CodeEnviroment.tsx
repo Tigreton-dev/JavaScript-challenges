@@ -5,7 +5,6 @@ import Container from './Container'
 import MenuBar from './MenuBar/MenuBar'
 import SolutionCodeModal from './SolutionCodeModal'
 import { muiTheme } from "../../helpers/MuiTheme";
-
 import { DataContext } from '../../context/dataContext';
 import { DataContextType } from '../../context/@types.data';
 
@@ -18,11 +17,11 @@ export default function App() {
 	const codeValue = data.codeValue
 	const [windowDimensions, setWindowDimensions] = React.useState(window.innerWidth);
 	const muiThemeProps = {
-        color: currentTheme.color,
-        primary: currentTheme.primary,
-        secondary_color: currentTheme.secondary_color,
-        tertiary: currentTheme.tertiary,
-    };
+		color: currentTheme.color,
+		primary: currentTheme.primary,
+		secondary_color: currentTheme.secondary_color,
+		tertiary: currentTheme.tertiary,
+	};
 
 	React.useEffect(() => {
 		const setWidth = () => {
@@ -81,8 +80,6 @@ export default function App() {
 	const closeModal = () => {
 		updateData({ displayCodeResultModal: false })
 	}
-
-	if (Object.keys(currentProblem).length === 0) return <h1>loading</h1>
 
 	return (
 		<>

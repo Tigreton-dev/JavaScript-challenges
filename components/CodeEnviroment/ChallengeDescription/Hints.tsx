@@ -24,7 +24,7 @@ const Hints = () => {
             <Typography variant="h5" style={fontStyles}>Hints</Typography>
             {Object.entries(currentProblem.hints).map(([key, value]) => {
                 return (
-                    <Accordion key={key} style={{ backgroundColor:currentTheme.primary, borderRadius: "8px" }} >
+                    <Accordion key={key} style={{ backgroundColor: currentTheme.primary, borderRadius: "8px" }} >
                         <AccordionSummary
                             expandIcon={<ExpandMoreIcon sx={{ color: currentTheme.color }} />}
                             aria-controls="panel1a-content"

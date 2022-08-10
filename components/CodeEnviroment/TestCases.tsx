@@ -33,9 +33,7 @@ const TestCases = () => {
             mirror.style.backgroundColor = currentTheme.secondary;
         })
 
-    }, [currentTheme])
-
-
+    }, [currentTheme]);
 
 	return (
 		<div

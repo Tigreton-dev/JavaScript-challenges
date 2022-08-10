@@ -40,7 +40,7 @@ const LanguageMenu = () => {
 				}}
 			>
 				<MenuItem onClick={handleClose} style={{ minWidth: '135px' }}>
-				JavaScript
+					JavaScript
 				</MenuItem>
 			</Menu>
 		</div>

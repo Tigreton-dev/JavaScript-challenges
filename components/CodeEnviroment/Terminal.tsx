@@ -5,7 +5,6 @@ import { javascript } from '@codemirror/lang-javascript';
 
 
 import { lightTheme, darkTheme } from "../../helpers/CodeEditorTheme";
-
 import { DataContext } from '../../context/dataContext';
 import { DataContextType } from '../../context/@types.data';
 
@@ -99,7 +98,7 @@ const Terminal = () => {
                     }
                 })
 
-            } 
+            }
             )}
         </div>
     )

@@ -2,12 +2,10 @@ import * as React from 'react'
 import CodeMirror from '@uiw/react-codemirror'
 import { javascript } from '@codemirror/lang-javascript'
 import Button from '@mui/material/Button'
-import LoadingButton from '@mui/lab/LoadingButton';
 import SendIcon from '@mui/icons-material/Send'
-import { lightTheme, darkTheme } from "../../helpers/CodeEditorTheme";
 import beautify from 'js-beautify';
 
-
+import { lightTheme, darkTheme } from "../../helpers/CodeEditorTheme";
 import { DataContext } from '../../context/dataContext';
 import { DataContextType } from '../../context/@types.data';
 
@@ -19,7 +17,6 @@ interface propsInterface {
 const CodeMirrorEditor = (props: propsInterface) => {
 	const { isSubmittedCodeEditor } = props
 	const { data, updateData } = React.useContext(DataContext) as DataContextType;
-	const [isLoading, setIsLoading] = React.useState(false);
 	const currentProblem = data.currentProblem
 	const currentLanguage = data.currentLanguage
 	const fontSize = data.fontSize;
@@ -59,25 +56,6 @@ const CodeMirrorEditor = (props: propsInterface) => {
 
 	const sendCodeHandler = () => {
 		updateData({ codeValue: code })
-	}
-
-	const submittedCodeHandler = async () => {
-		setIsLoading(true);
-		const updatedProblem = await fetch(`/api/post/submitCode`, {
-			method: 'POST',
-			mode: 'cors',
-			cache: 'no-cache',
-			credentials: 'same-origin',
-			headers: {
-			  'Content-Type': 'application/json'
-			},
-			redirect: 'follow',
-			referrerPolicy: 'no-referrer',
-			body: JSON.stringify({ problem: currentProblem.refName, code })
-		  });
-		  const result = await updatedProblem.json();
-		  updateData({currentProblem: result})
-		  setIsLoading(false);
 	}
 
 	return (
@@ -162,24 +140,11 @@ const CodeMirrorEditor = (props: propsInterface) => {
 						variant="contained"
 						size="small"
 						endIcon={<SendIcon />}
-						style={{ boxShadow: currentTheme.borderShadow, bottom: 40, left: "calc(100% - 180px)", position: 'relative', color: "white", backgroundColor: currentTheme.secondary_color }}
+						style={{ boxShadow: currentTheme.borderShadow, bottom: 40, left: "calc(100% - 80px)", position: 'relative', color: "white", backgroundColor: currentTheme.secondary_color }}
 					>
 						Run
 					</Button>
-
-					<LoadingButton
-						size="small"
-						endIcon={<SendIcon />}
-						loading={isLoading}
-						onClick={submittedCodeHandler}
-						loadingPosition="end"
-						variant="contained"
-						style={{ boxShadow: currentTheme.borderShadow, bottom: 40, left: "calc(100% - 175px)", position: 'relative', color: "white", backgroundColor: "green" }}
-					>
-						Submit
-					</LoadingButton>
 				</>
-
 			}
 		</div>
 	)
