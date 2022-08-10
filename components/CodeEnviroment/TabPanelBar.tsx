@@ -63,7 +63,7 @@ const TabPanelBar = (props: propsInterface) => {
                 style={{ boxShadow: 'none' }}
             >
                 <Tab label={firstTitle} id="tab-0" sx={{fontSize:"16px"}} />
-                <Tab label={secondTitle} id="tab-1" sx={{fontSize:"16px"}} />
+                {!isCodeEditor && <Tab label={secondTitle} id="tab-1" sx={{fontSize:"16px"}} />}
                 {!isCodeEditor &&
                     <Tab
                         label={thirdTitle}
@@ -72,10 +72,7 @@ const TabPanelBar = (props: propsInterface) => {
                         onClick={() => updateData({ displayBadge: false })}
                     />
                 }
-                
                 {!isCodeEditor && <Tab label={fourthTitle} id="tab-3" sx={{fontSize:"16px"}} />}
-                
-
                 {!isCodeEditor && value === 3 && (
                     <Box sx={{ flexGrow: 1 }} style={{ textAlign: 'right' }}>
                         <IconButton

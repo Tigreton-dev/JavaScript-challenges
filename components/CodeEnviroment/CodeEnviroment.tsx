@@ -57,7 +57,17 @@ export default function App() {
 			const parameters = JSON.parse(
 				JSON.stringify(testCases[testCase].test_input),
 			)
-			updateCurrentProblem.testCases[testCase].code_output = window[functionName](...parameters)
+			try {
+				if (window[functionName] === !undefined) {
+					updateCurrentProblem.testCases[testCase].code_output = window[functionName](...parameters)
+				} else {
+					console.error(`TypeError: window.${functionName} is undefined`)
+				}
+					
+			} catch (err) {
+				console.error(err)
+			}
+			
 			JSON.stringify(testCases[testCase].test_expected) ===
 				JSON.stringify(updateCurrentProblem.testCases[testCase].code_output)
 				? (updateCurrentProblem.testCases[testCase].passed_test = true)

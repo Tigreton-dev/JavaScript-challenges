@@ -51,7 +51,6 @@ const TabPanel = (props: propsInterface) => {
                     onChangeIndex={(index: number) => setValue(index)}
                 >
                     <CodeMirrorEditor isSubmittedCodeEditor={false} />
-                    <CodeMirrorEditor isSubmittedCodeEditor={true} />
                 </SwipeableViews>
             ) : (
                 <SwipeableViews
