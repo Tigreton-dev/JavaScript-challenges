@@ -40,14 +40,8 @@ const LanguageMenu = () => {
 				}}
 			>
 				<MenuItem onClick={handleClose} style={{ minWidth: '135px' }}>
-					Python
+				JavaScript
 				</MenuItem>
-				<MenuItem onClick={handleClose}>JavaScript</MenuItem>
-				<MenuItem onClick={handleClose}>Java</MenuItem>
-				<MenuItem onClick={handleClose}>C++</MenuItem>
-				<MenuItem onClick={handleClose}>C#</MenuItem>
-				<MenuItem onClick={handleClose}>Go</MenuItem>
-				<MenuItem onClick={handleClose}>Kotlin</MenuItem>
 			</Menu>
 		</div>
 	)

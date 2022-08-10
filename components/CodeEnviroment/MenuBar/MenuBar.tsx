@@ -76,7 +76,7 @@ const MenuBar = () => {
 					<Theme />
 					<LanguageMenu />
 					<FontSize />
-					<UserSettings />
+					
 				</Stack>
 			</Toolbar>
 		</AppBar>
