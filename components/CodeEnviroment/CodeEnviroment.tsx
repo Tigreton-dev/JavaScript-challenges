@@ -58,7 +58,7 @@ export default function App() {
 				JSON.stringify(testCases[testCase].test_input),
 			)
 			try {
-				if (window[functionName] === !undefined) {
+				if (window[functionName] !== undefined) {
 					updateCurrentProblem.testCases[testCase].code_output = window[functionName](...parameters)
 				} else {
 					console.error(`TypeError: window.${functionName} is undefined`)

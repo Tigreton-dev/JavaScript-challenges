@@ -140,7 +140,14 @@ const CodeMirrorEditor = (props: propsInterface) => {
 						variant="contained"
 						size="small"
 						endIcon={<SendIcon />}
-						style={{ boxShadow: currentTheme.borderShadow, bottom: 40, left: "calc(100% - 80px)", position: 'relative', color: "white", backgroundColor: currentTheme.secondary_color }}
+						style={{ 
+							boxShadow: currentTheme.borderShadow, 
+							bottom: 40, 
+							left: "calc(100% - 80px)", 
+							position: 'relative', 
+							color: "white", 
+							backgroundColor: currentTheme.secondary_color 
+						}}
 					>
 						Run
 					</Button>

@@ -30,7 +30,7 @@ const Hints = () => {
                             aria-controls="panel1a-content"
                             id="panel1a-header"
                         >
-                            <Typography variant="h6">{key}</Typography>
+                            <Typography variant="h6">{key.replaceAll("_", " ")}</Typography>
                         </AccordionSummary>
                         <AccordionDetails>
                             <Typography>{value}</Typography>
