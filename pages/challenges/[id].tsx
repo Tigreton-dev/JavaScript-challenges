@@ -14,8 +14,22 @@ const DynamicComponentWithNoSSR = dynamic(
 export default function PostPage() {
     const { data, updateData } = React.useContext(DataContext) as DataContextType;
     const currentProblem = data.currentProblem;
+    const lightTheme = data.lightTheme;
+    const darkTheme = data.darkTheme;
     const router = useRouter();
     const pathID = router.query.id;
+
+    React.useEffect(() => {
+        const theme = localStorage.getItem('theme');
+        if (theme === null) {
+            localStorage.setItem('theme', JSON.stringify(lightTheme));
+            updateData({ currentTheme: lightTheme })
+        } else {
+            if (JSON.parse(theme).isDarkTheme) updateData({ currentTheme: darkTheme })
+            if (!JSON.parse(theme).isDarkTheme) updateData({ currentTheme: lightTheme })
+        }
+
+    }, []);
 
     React.useEffect(() => {
         const updateCurrentProblem = myData[pathID];

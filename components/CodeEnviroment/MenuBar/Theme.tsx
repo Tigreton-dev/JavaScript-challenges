@@ -14,13 +14,20 @@ export default function Theme() {
 	const darkTheme = data.darkTheme;
 	const boxRef = React.useRef(null);
 
+	React.useEffect(() => {
+		if (currentTheme.isDarkTheme) boxRef.current.style.transform = "translateX(47px)";
+		if (!currentTheme.isDarkTheme) boxRef.current.style.transform = "translateX(0px)";
+	}, [])
+
 	const clickHandler = () => {
 		const position = boxRef.current.style.transform;
 		if (position === "translateX(47px)") {
 			updateData({ currentTheme: lightTheme })
+			localStorage.setItem('theme', JSON.stringify(lightTheme));
 			boxRef.current.style.transform = "translateX(0px)";
 		} else {
 			updateData({ currentTheme: darkTheme })
+			localStorage.setItem('theme', JSON.stringify(darkTheme));
 			boxRef.current.style.transform = "translateX(47px)";
 		}
 	}
