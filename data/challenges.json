@@ -1,5 +1,6 @@
 {
     "mergeSortedArray": {
+        "url": "https://www.gillmeister-software.com/online-tools/text/remove-line-breaks.aspx",
         "refName": "mergeSortedArray",
         "category": "Array",
         "dificulty": "Easy",
@@ -207,6 +208,79 @@
               },
               "Test_6": {
                 "test_input": ["fgjeW_fug"],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+              }
+        }
+    },
+    "checkPermutation": {
+        "refName": "checkPermutation",
+        "category": "String",
+        "dificulty": "Easy",
+        "title": "Check Permutation",
+        "tags": ["Easy", "String"],
+        "description": "<p>Write a function to check whether two given strings are Permutation of each other or not.</p><p>A Permutation of a string is another string that contains same characters, only the order of characters can be different.</p>",
+        "examples": {
+            "example1": {
+                "input": "str1 = 'abcd';\nstr2 = 'dabc';",
+                "output": "true"
+            },
+            "example2": {
+                "input": "str1 = 'abcd';\nstr2 = 'mfd';",
+                "output": "false"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function checkPermutation(str1, str2) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// Solution 1\n/*\n * N = str1, M = str2\n * Time: O(N + M)\n * Additional space: O(N)\n */\nfunction checkPermutation(str1, str2) {\n  if (str1.length !== str2.length) return false;\n  const list = new Map();\n  for (const letter of str1) {\n    if (list.has(letter)) {\n      const val = list.get(letter);\n      list.set(letter, val + 1);\n    } else {\n      list.set(letter, 1);\n    }\n  }\n  for (const letter of str2) {\n    if (list.has(letter)) {\n      let val = list.get(letter);\n      list.set(letter, val - 1);\n      val = list.get(letter);\n      if (val === 0) list.delete(letter);\n    } else {\n      return false;\n    }\n  }\n  return list.size === 0;\n}\n/**\n * Sort both strings and check if they are equal afterwards. Permutations will\n * be identical sorted strings.\n *\n * N = |str1| && M = |str2|\n * Time: O(N lg N + M lg M)\n * Additional space: O(1) if able to modify original strings, O(N + M) otherwise\n */\nfunction isPermutationSorted(str1, str2) {\n  if (str1.length === 0 || str1.length !== str2.length) {\n    return false;\n  }\n  const arr1 = str1.split('');\n  const arr2 = str2.split('');\n  arr1.sort();\n  arr2.sort();\n  return arr1.every((v, i) => v === arr2[i]);\n}"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": ["abcd", "dabc"],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": ["ABC", "BAC"],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_3": {
+                "test_input": ["hfWmdVpqcd", "mdVpqchfWd"],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_4": {
+                "test_input": ["abc", "adeg"],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_5": {
+                "test_input": ["opKrs", "abCd"],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_6": {
+                "test_input": ["aabb", "abcd"],
                 "test_expected": false,
                 "code_output": null,
                 "passed_test": false
