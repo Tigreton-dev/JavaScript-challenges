@@ -511,5 +511,54 @@
                 "passed_test": false
               }
         }
+    },
+    "numJewelsInStones": {
+        "refName": "numJewelsInStones",
+        "category": "String",
+        "dificulty": "Easy",
+        "title": "Num Jewels In Stones",
+        "tags": ["Easy", "String"],
+        "description": "<p>You're given strings jewels representing the types of stones that are jewels, and stones representing the stones you have. Each character in stones is a type of stone you have. You want to know how many of the stones you have are also jewels.</p><p>Letters are case sensitive, so 'a' is considered a different type of stone from 'A'.</p>",
+        "examples": {
+            "example1": {
+                "input": "jewels = 'aA';\nstones = 'aAAbbbb';",
+                "output": "3"
+            },
+            "example2": {
+                "input": "jewels = 'z';\nstones = 'ZZ';",
+                "output": "0"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function numJewelsInStones(J, S) {\n    // Write your solution...\n    return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// solution 1\nfunction numJewelsInStones(J, S) {\n   let result = 0;\n   for (let char of S) {\n       if (J.includes(char)) result++;\n   }\n    \n    return result;\n}\n// solution 2\nfunction numJewelsInStones(J, S) {\n   let result = 0;\n   const list = new Set();\n   for (let char of J) {\n       list.add(char);\n   }\n   for (let char of S) {\n       if (list.has(char)) result++;\n   }\n    \n    return result;\n}"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": ["aA", "aAAbbbb"],
+                "test_expected": 3,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": ["z", "ZZ"],
+                "test_expected": 0,
+                "code_output": null,
+                "passed_test": false
+              }
+        }
     }
 }
