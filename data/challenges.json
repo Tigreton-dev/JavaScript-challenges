@@ -108,37 +108,37 @@
                 "test_expected": true,
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_2": {
+            },
+            "Test_2": {
                 "test_input": ["teaspoon", "poonteas"],
                 "test_expected": true,
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_3": {
+            },
+            "Test_3": {
                 "test_input": ["miniCar", "Carmini"],
                 "test_expected": true,
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_4": {
+            },
+            "Test_4": {
                 "test_input": ["houses", "sehou"],
                 "test_expected": false,
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_5": {
+            },
+            "Test_5": {
                 "test_input": ["power-bank", "bankpower"],
                 "test_expected": false,
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_6": {
+            },
+            "Test_6": {
                 "test_input": ["Jhony", "JhonY"],
                 "test_expected": false,
                 "code_output": null,
                 "passed_test": false
-              }
+            }
         }
     },
     "uniqueChar": {
@@ -181,37 +181,37 @@
                 "test_expected": true,
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_2": {
+            },
+            "Test_2": {
                 "test_input": ["table"],
                 "test_expected": true,
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_3": {
+            },
+            "Test_3": {
                 "test_input": ["superman"],
                 "test_expected": true,
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_4": {
+            },
+            "Test_4": {
                 "test_input": ["aaaa"],
                 "test_expected": false,
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_5": {
+            },
+            "Test_5": {
                 "test_input": ["supermarket"],
                 "test_expected": false,
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_6": {
+            },
+            "Test_6": {
                 "test_input": ["fgjeW_fug"],
                 "test_expected": false,
                 "code_output": null,
                 "passed_test": false
-              }
+            }
         }
     },
     "checkPermutation": {
@@ -254,34 +254,259 @@
                 "test_expected": true,
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_2": {
+            },
+            "Test_2": {
                 "test_input": ["ABC", "BAC"],
                 "test_expected": true,
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_3": {
+            },
+            "Test_3": {
                 "test_input": ["hfWmdVpqcd", "mdVpqchfWd"],
                 "test_expected": true,
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_4": {
+            },
+            "Test_4": {
                 "test_input": ["abc", "adeg"],
                 "test_expected": false,
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_5": {
+            },
+            "Test_5": {
                 "test_input": ["opKrs", "abCd"],
                 "test_expected": false,
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_6": {
+            },
+            "Test_6": {
                 "test_input": ["aabb", "abcd"],
                 "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+            }
+        }
+    },
+    "palindromePermutation": {
+        "refName": "palindromePermutation",
+        "category": "String",
+        "dificulty": "Easy",
+        "title": "Palindrome Permutation",
+        "tags": ["Easy", "String"],
+        "description": "<p>Write a function that checks whether any permutation of a string is a palindrome. The palindrome does not need to be limited to just dictionary words.</p><p>A palindrome is a word or phrase that is the same forwards and backwards.</p><p>A permutation is a rearrangement of letters.</p>",
+        "examples": {
+            "example1": {
+                "input": "str1 = 'redivider';",
+                "output": "true"
+            },
+            "example2": {
+                "input": "str1 = 'house'",
+                "output": "false"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function palindromePermutation(str) {\n    // Write your solution...\n    return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// Solution 1\nfunction palindromePermutation(str) {\n    let p1 = 0;\n    let p2 = str.length - 1;\n    while (p1 <= p2) {\n        if (str[p1] !== str[p2]) return false;\n        p1++;\n        p2--;\n    }\n    return true;\n}\n// Solution 2\nfunction palindromePermutation(str) {\n    for (let i = 0; i < str.length / 2; i++) {\n        if (str[i] !== str[str.length - 1 - i]) return false;\n    }   \n    return true;\n}"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": ["redivider"],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_2": {
+                "test_input": ["deified"],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_3": {
+                "test_input": ["_reviver_"],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_4": {
+                "test_input": ["kayak"],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_5": {
+                "test_input": ["fhe4"],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_6": {
+                "test_input": ["A_fgp"],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_7": {
+                "test_input": ["deified."],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_8": {
+                "test_input": ["a_ia"],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+            }
+        }
+    },
+    "oneWay": {
+        "refName": "oneWay",
+        "category": "String",
+        "dificulty": "Easy",
+        "title": "One Way",
+        "tags": ["Easy", "String"],
+        "description": "<p>There are three types of edits that can be performed on strings:</p>\n<ul>\n  <li>insert a character.</li>\n  <li>remove a character.</li>\n  <li>replace a character.</li>\n</ul>\n<p>Given two strings, write a function to check if they are one edit (or zero edits) away.</p>",
+        "examples": {
+            "example1": {
+                "input": "str1 = 'geeks;\nstr2 = 'geek';",
+                "output": "true"
+            },
+            "example2": {
+                "input": "str1 = 'peaks';\nstr2 = 'geeks';",
+                "output": "false"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function oneWay(str1, str2) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// Solution 1\nfunction oneWay(str1, str2) {\n    const diff = Math.abs(str1.length - str2.length);\n    const maxLength = Math.max(str1.length, str2.length);\n    if (diff > 1) return false;\n    let isEdited = 0;\n    for (let p1 = 0, p2 = 0; p1 < maxLength || p2 < maxLength; p1++, p2++) {\n        if (str1[p1] !== str2[p2]) {\n            isEdited++;\n            if (isEdited > 1) return false;\n            if(str1[p1] === str2[p2 + 1]) p2++;\n            if (str1[p1 + 1] === str2[p2]) p1++;\n        }\n    }\n    return true;\n}\n// Solution 2\nfunction oneWay(str1, str2) {\n    const diff = Math.abs(str1.length - str2.length);\n    const maxLength = Math.max(str1.length, str2.length);\n    if (diff > 1) return false;\n    let p1 = 0;\n    let p2 = 0;\n    let isEdited = 0;\n    while (p1 < maxLength || p2 < maxLength) {\n        if (str1[p1] !== str2[p2]) {\n            isEdited++;\n            if (isEdited > 1) return false;\n            if(str1[p1] === str2[p2 + 1]) p2++;\n            if (str1[p1 + 1] === str2[p2]) p1++;\n        }\n        p1++;\n        p2++;\n    }\n    return true;\n}"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": ["geeks", "geek"],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_2": {
+                "test_input": ["book", "books"],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_3": {
+                "test_input": ["demon", "dem"],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_4": {
+                "test_input": ["discovery", "discovery"],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_5": {
+                "test_input": ["Moon", "Moonlight"],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+            }
+        }
+    },
+    "stringCompression": {
+        "refName": "stringCompression",
+        "category": "String",
+        "dificulty": "Easy",
+        "title": "String Compression",
+        "tags": ["Easy", "String"],
+        "description": "<p>Implement a method to perform basic string compression using the counts of repeated characters. For example, the string aabcccccaaa would become a2blc5a3.</p><p>If the 'compressed' string would not become smaller than the original string, your method should return the original string. You can assume the string has only uppercase and lowercase letters (a - z).</p>",
+        "examples": {
+            "example1": {
+                "input": "str1 = 'mdddoppppmmmm';",
+                "output": "'m1d2d1o1p1m4'"
+            },
+            "example2": {
+                "input": "str1 = 'abcd'",
+                "output": "'abcd'"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function stringCompression(str) {\n    // Write your solution...\n    return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// n = length of string\n// Time: O(n)\n// Space: O(n)\nfunction stringCompression(str) {\n    let counter = 1;\n    const result = [];\n    for (let p2=0; p2<str.length; p2++) {\n        if (str[p2] === str[p2+1]) {\n            counter++;\n        }else {\n            result.push(str[p2] + counter);\n            counter = 1;\n        }\n    }\n    return result.join('').length > str.length ? str : result.join('');\n}\n// n = length of string\n// Time: O(n)\n// Space: O(n)\nfunction stringCompression(str) {\n    const result = [];\n    let p1 = 0;\n    let p2 = 0;\n    while(p1<= str.length){\n        if (str[p1] === str[p2]) {\n            p1++;\n        } else {\n            const num = p1 - p2;\n            result.push(str[p2] + num);\n            p2=p1;\n        }\n    }\n    return result.join('').length > str.length ? str : result.join('');\n}"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": ["mdddoppppmmmm"],
+                "test_expected": "m1d3o1p4m4",
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": ["aabcccccaaa"],
+                "test_expected": "a2b1c5a3",
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_3": {
+                "test_input": ["abcd"],
+                "test_expected": "abcd",
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_4": {
+                "test_input": ["doopwwwwwvvvvvvvmsssssssdkjkzzzpp"],
+                "test_expected": "d1o2p1w5v7m1s7d1k1j1k1z3p2",
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_5": {
+                "test_input": ["cbdklwysmdsh"],
+                "test_expected": "cbdklwysmdsh",
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_6": {
+                "test_input": ["abcdefghijklmnopqrst"],
+                "test_expected": "abcdefghijklmnopqrst",
                 "code_output": null,
                 "passed_test": false
               }
