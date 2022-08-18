@@ -878,5 +878,60 @@
                 "passed_test": false
             }
         }
+    },
+    "implementStrStr": {
+        "refName": "implementStrStr",
+        "category": "String",
+        "dificulty": "Easy",
+        "title": "Implement StrStr",
+        "tags": ["Easy", "String"],
+        "description": "<p>Given two strings needle and haystack, return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.</p><p><b>Clarification:</b></p><p>What should we return when needle is an empty string? This is a great question to ask during an interview. For the purpose of this problem, we will return 0 when needle is an empty string. This is consistent to C's strstr() and Java's indexOf().</p>",
+        "examples": {
+            "example1": {
+                "input": "haystack = 'hello'\nneedle = 'll'",
+                "output": "2"
+            },
+            "example2": {
+                "input": "haystack = 'aaaaa', needle = 'bba'",
+                "output": "-1"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function implementStrStr(haystack, needle)  {\n    // Write your solution...\n    return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// solution 1\nfunction implementStrStr(haystack, needle) {\n    if (needle.length === 0) return 0;\n    if (needle === haystack) return 0;\n    for (let i = 0; i <= haystack.length - needle.length; i++) {\n        if (needle === haystack.substring(i, i + needle.length)) {\n            return i;\n        }\n    }\n    return -1;\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": ["hello", "ll"],
+                "test_expected": 2,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": ["aaaaa", "bba"],
+                "test_expected": -1,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_3": {
+                "test_input": ["", ""],
+                "test_expected": 0,
+                "code_output": null,
+                "passed_test": false
+              }
+        }
     }
 }
