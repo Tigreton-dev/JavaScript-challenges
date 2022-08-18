@@ -560,5 +560,60 @@
                 "passed_test": false
               }
         }
+    },
+    "maximumBalancedStringPartitions": {
+        "refName": "maximumBalancedStringPartitions",
+        "category": "String",
+        "dificulty": "Easy",
+        "title": "Maximum Balanced String Partitions",
+        "tags": ["Easy", "String"],
+        "description": "<p>Given a balanced string str of size N with an equal number of L and R, the task is to find a maximum number X, such that a given string can be partitioned into X balanced substring. A string called to be balanced if the number of ‘L’s in the string equals the number of ‘R’s.</p>",
+        "examples": {
+            "example1": {
+                "input": "str = 'LRLLRRLRRL';",
+                "output": "4 // { 'LR', 'LLRR', 'LR', 'RL'} are the possible partitions."
+            },
+            "example2": {
+                "input": "'LRRRRLLRLLRL'",
+                "output": "3 //{'LR', 'RRRLLRLL', “RL”} are the possible partitions."
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function maximumBalancedStringPartitions(str, n) {\n// Write your solution...\nreturn true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// solution 1\nfunction maximumBalancedStringPartitions(str) {\nlet L = 0;\nlet R = 0;\nlet LBlock = false;\nlet RBlock = false;\nlet result = 0;\nfor (let char of str) {\nif (char === 'L') {\nif (LBlock) {\nL++;\n} else {\nL = 1;\nLBlock = true;\nRBlock = false;\n}\n}\nif (char === 'R') {\nif (RBlock) {\nR++;\n} else {\nR = 1;\nLBlock = false;\nRBlock = true;\n}\n}\nif (R === L) {\nresult++;\nR = 0;\nL = 0;\n}\n}\nreturn result;\n}"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": ["LRLLRRLRRL", 10],
+                "test_expected": 4,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": ["LRRRRLLRLLRL", 12],
+                "test_expected": 3,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_3": {
+                "test_input": ["LLLLRLLRRLRLLLRRRLLLRRLLLLRRLLRRLR", 12],
+                "test_expected": 9,
+                "code_output": null,
+                "passed_test": false
+              }
+        }
     }
 }
