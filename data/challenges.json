@@ -719,5 +719,66 @@
                 "passed_test": false
               }
         }
+    },
+    "uniqueMorseWords": {
+        "refName": "uniqueMorseWords",
+        "category": "String",
+        "dificulty": "Easy",
+        "title": "Unique Morse Words",
+        "tags": ["Easy", "String"],
+        "description": "<p>International Morse Code defines a standard encoding where each letter is mapped to a series of dots and dashes, as follows:</p>\n<p>'a' maps to '.-', 'b' maps to '-...', 'c' maps to '-.-.', and so on.</p>\n<p>For convenience, the full table for the 26 letters of the English alphabet is given below:</p>\n<p>['.-','-...','-.-.','-..','.','..-.','--.','....','..','.---','-.-','.-..','--','-.','---','.--.','--.-','.-.','...','-','..-','...-','.--','-..-','-.--','--..']</p>\n<p>Given an array of strings words where each word can be written as a concatenation of the Morse code of each letter. For example, 'cab' can be written as '-.-..--...', which is the concatenation of '-.-.', '.-', and '-...'. We will call such a concatenation the transformation of a word.</p>\n<p>Return the number of different transformations among all words we have. Constraints:</p>\n<ul>\n<li>\nThe length of words will be at most 100.\n</li>\n<li>\nEach words[i] will have length in range [1, 12].\n</li>\n<li>\nwords[i] will only consist of lowercase letters.\n</li>\n</ul>",
+        "examples": {
+            "example1": {
+                "input": "words = ['gin', 'zen', 'gig', 'msg']",
+                "output": "2\n// gin -> '--...-.'\nzen -> '--...-.'\ngig -> '--...--.''\nmsg' -> '--...--.'"
+            },
+            "example2": {
+                "input": "words = ['a']",
+                "output": "1"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function uniqueMorseWords(words) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// solution 1\nfunction uniqueMorseWords(words) {\nconst morseCodes = ['.-', '-...', '-.-.', '-..', '.', '..-.', '--.', '....', '..', '.---', '-.-', '.-..', '--', '-.', '---', '.--.', '--.-', '.-.', '...', '-', '..-', '...-', '.--', '-..-', '-.--', '--..'];\nlet morseWords = [];\nlet word;\nfor (let i = 0; i < words.length; i++) {\nword = words[i].split('').map((c) => morseCodes[c.charCodeAt(0) - 97]).join('');\nif (morseWords.indexOf(word) === -1) {\nmorseWords.push(word);\n}\n}\nreturn morseWords.length;\n}"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": [["zocd", "gjkl", "hzqk", "hzgq", "gjkl"]],
+                "test_expected": 2,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": [["yxmine", "yxzd", "eljys", "uiaopi", "pwlk"]],
+                "test_expected": 3,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_3": {
+                "test_input": [["gin","zen","gig","msg"]],
+                "test_expected": 2,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_4": {
+                "test_input":[["a"]],
+                "test_expected": 1,
+                "code_output": null,
+                "passed_test": false
+              }
+        }
     }
 }
