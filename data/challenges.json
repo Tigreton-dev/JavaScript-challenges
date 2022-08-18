@@ -664,5 +664,60 @@
                 "passed_test": false
               }
         }
+    },
+    "toLowerCase": {
+        "refName": "toLowerCase",
+        "category": "String",
+        "dificulty": "Easy",
+        "title": "To LowerCase",
+        "tags": ["Easy", "String"],
+        "description": "<p>Given a string s, return the string after replacing every uppercase letter with the same lowercase letter.</p>",
+        "examples": {
+            "example1": {
+                "input": "'HELLO",
+                "output": "'hello'"
+            },
+            "example2": {
+                "input": "'LOVELY'",
+                "output": "'lovely'"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function toLowerCase(s) {\n// Write your solution...\nreturn true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// solution 1\nfunction toLowerCase(s) {\nlet ans = ''\nfor (let c of s) {\nlet n = c.charCodeAt()\nans += n > 64 && n < 91 ? String.fromCharCode(n + 32) : c\n}\nreturn ans\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": ["Hello"],
+                "test_expected": "hello",
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": ["here"],
+                "test_expected": "here",
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_3": {
+                "test_input": ["LOVELY"],
+                "test_expected": "lovely",
+                "code_output": null,
+                "passed_test": false
+              }
+        }
     }
 }
