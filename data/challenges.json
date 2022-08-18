@@ -479,37 +479,37 @@
                 "test_expected": "m1d3o1p4m4",
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_2": {
+            },
+            "Test_2": {
                 "test_input": ["aabcccccaaa"],
                 "test_expected": "a2b1c5a3",
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_3": {
+            },
+            "Test_3": {
                 "test_input": ["abcd"],
                 "test_expected": "abcd",
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_4": {
+            },
+            "Test_4": {
                 "test_input": ["doopwwwwwvvvvvvvmsssssssdkjkzzzpp"],
                 "test_expected": "d1o2p1w5v7m1s7d1k1j1k1z3p2",
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_5": {
+            },
+            "Test_5": {
                 "test_input": ["cbdklwysmdsh"],
                 "test_expected": "cbdklwysmdsh",
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_6": {
+            },
+            "Test_6": {
                 "test_input": ["abcdefghijklmnopqrst"],
                 "test_expected": "abcdefghijklmnopqrst",
                 "code_output": null,
                 "passed_test": false
-              }
+            }
         }
     },
     "numJewelsInStones": {
@@ -552,13 +552,13 @@
                 "test_expected": 3,
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_2": {
+            },
+            "Test_2": {
                 "test_input": ["z", "ZZ"],
                 "test_expected": 0,
                 "code_output": null,
                 "passed_test": false
-              }
+            }
         }
     },
     "maximumBalancedStringPartitions": {
@@ -601,19 +601,19 @@
                 "test_expected": 4,
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_2": {
+            },
+            "Test_2": {
                 "test_input": ["LRRRRLLRLLRL", 12],
                 "test_expected": 3,
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_3": {
+            },
+            "Test_3": {
                 "test_input": ["LLLLRLLRRLRLLLRRRLLLRRLLLLRRLLRRLR", 12],
                 "test_expected": 9,
                 "code_output": null,
                 "passed_test": false
-              }
+            }
         }
     },
     "shuffleString": {
@@ -652,17 +652,17 @@
         },
         "testCases": {
             "Test_1": {
-                "test_input": ["codeleet", [4,5,6,7,0,2,1,3]],
+                "test_input": ["codeleet", [4, 5, 6, 7, 0, 2, 1, 3]],
                 "test_expected": "leetcode",
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_2": {
-                "test_input": ["abc", [0,1,2]],
-                "test_expected":"abc",
+            },
+            "Test_2": {
+                "test_input": ["abc", [0, 1, 2]],
+                "test_expected": "abc",
                 "code_output": null,
                 "passed_test": false
-              }
+            }
         }
     },
     "toLowerCase": {
@@ -705,19 +705,19 @@
                 "test_expected": "hello",
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_2": {
+            },
+            "Test_2": {
                 "test_input": ["here"],
                 "test_expected": "here",
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_3": {
+            },
+            "Test_3": {
                 "test_input": ["LOVELY"],
                 "test_expected": "lovely",
                 "code_output": null,
                 "passed_test": false
-              }
+            }
         }
     },
     "uniqueMorseWords": {
@@ -760,25 +760,25 @@
                 "test_expected": 2,
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_2": {
+            },
+            "Test_2": {
                 "test_input": [["yxmine", "yxzd", "eljys", "uiaopi", "pwlk"]],
                 "test_expected": 3,
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_3": {
-                "test_input": [["gin","zen","gig","msg"]],
+            },
+            "Test_3": {
+                "test_input": [["gin", "zen", "gig", "msg"]],
                 "test_expected": 2,
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_4": {
-                "test_input":[["a"]],
+            },
+            "Test_4": {
+                "test_input": [["a"]],
                 "test_expected": 1,
                 "code_output": null,
                 "passed_test": false
-              }
+            }
         }
     },
     "robotReturnToOrigin": {
@@ -821,13 +821,62 @@
                 "test_expected": true,
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_2": {
+            },
+            "Test_2": {
                 "test_input": ["LL"],
                 "test_expected": false,
                 "code_output": null,
                 "passed_test": false
-              }
+            }
+        }
+    },
+    "reverseString": {
+        "refName": "reverseString",
+        "category": "String",
+        "dificulty": "Easy",
+        "title": "Reverse String",
+        "tags": ["Easy", "String"],
+        "description": "<p>Write a function that reverses a string. The input string is given as an array of characters s. You must do this by modifying the input array in-place with O(1) extra memory.</p>",
+        "examples": {
+            "example1": {
+                "input": "str = ['h','e','l','l','o']",
+                "output": "['o','l','l','e','h']"
+            },
+            "example2": {
+                "input": "str = ['H','a','n','n','a','h']",
+                "output": "['h','a','n','n','a','H']"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function reverseString(s) {\n    // Write your solution...\n    return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// solution 1\nfunction reverseString(s) {\n    for (let i = 0; i < s.length/2; i++) {\n        let n = s[i]\n        s[i] = s[s.length-i-1]\n        s[s.length-i-1] = n\n    }\n    return s\n}"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": [["h", "e", "l", "l", "o"]],
+                "test_expected": ["o", "l", "l", "e", "h"],
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_2": {
+                "test_input": [["H", "a", "n", "n", "a", "h"]],
+                "test_expected": ["h", "a", "n", "n", "a", "H"],
+                "code_output": null,
+                "passed_test": false
+            }
         }
     }
 }
