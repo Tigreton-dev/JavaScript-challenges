@@ -780,5 +780,54 @@
                 "passed_test": false
               }
         }
+    },
+    "robotReturnToOrigin": {
+        "refName": "robotReturnToOrigin",
+        "category": "String",
+        "dificulty": "Easy",
+        "title": "Robot Return To Origin",
+        "tags": ["Easy", "String"],
+        "description": "<p>There is a robot starting at the position (0, 0), the origin, on a 2D plane. Given a sequence of its moves, judge if this robot ends up at (0, 0) after it completes its moves.</p><p>You are given a string moves that represents the move sequence of the robot where moves[i] represents its ith move. Valid moves are 'R' (right), 'L' (left), 'U' (up), and 'D' (down). Return true if the robot returns to the origin after it finishes all of its moves, or false otherwise.</p><p>Note: The way that the robot is 'facing' is irrelevant. 'R' will always make the robot move to the right once, 'L' will always make it move left, etc. Also, assume that the magnitude of the robot's movement is the same for each move.</p><p>Constraints:</p><p>1 <= moves.length <= 2 * 104 moves only contains the characters 'U', 'D', 'L' and 'R'.</p>",
+        "examples": {
+            "example1": {
+                "input": "moves = 'UD'",
+                "output": "true\n// Explanation:The robot moves up once, and then down once. All moves have the same magnitude, so it ended up at the origin where it started. Therefore, we return true."
+            },
+            "example2": {
+                "input": "moves = 'LL'",
+                "output": "false\nExplanation: The robot moves left twice. It ends up two 'moves' to the left of the origin. We return false because it is not at the origin at the end of its moves."
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function robotReturnToOrigin(moves) {\n    // Write your solution...\n    return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// solution 1\nfunction robotReturnToOrigin(moves) {\n    let x = 0, y = 0;\n    for (let move of moves) {\n        if (move == 'U') y -= 1\n        if (move == 'D') y += 1\n        if (move == 'L') x -= 1\n        if (move == 'R') x += 1\n    }\n    return x == 0 && y == 0;\n}"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": ["UD"],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": ["LL"],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+              }
+        }
     }
 }
