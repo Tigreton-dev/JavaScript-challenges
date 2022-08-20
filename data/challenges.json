@@ -1630,5 +1630,55 @@
                 "passed_test": false
               }
         }
+    },
+    "groupAnagrams": {
+        "refName": "groupAnagrams",
+        "refNumber": 27,
+        "category": "String",
+        "dificulty": "Medium",
+        "title": "Group Anagrams",
+        "tags": ["Medium", "String"],
+        "description": "<p>Given an array of strings strs, group the anagrams together. You can return the answer in any order.</p><p>An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.</p><p>Constraints:</p><ul><li>1 <= strs.length <= 104</li><li>0 <= strs[i].length <= 100</li><li>strs[i] consists of lowercase English letters.</li></ul>",
+        "examples": {
+            "example1": {
+                "input": "strs = ['eat','tea','tan','ate','nat','bat']",
+                "output": "[['bat'],['nat','tan'],['ate','eat','tea']]"
+            },
+            "example2": {
+                "input": "strs = ['']",
+                "output": "[['']]"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function groupAnagrams(input) {\n    // Write your solution...\n    return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "function groupAnagrams(input) {\n    const map = new Map();\n    let key;\n    for (let i = 0; i < input.length; ++i) {\n        if (map.has(key = [...input[i]].sort().join('')))\n            map.get(key).push(input[i]);\n        else map.set(key, [input[i]]);\n    }\n    return [...map.values()];\n}"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": [["eat", "tea", "tan", "ate", "nat", "bat"]],
+                "test_expected": [["eat","tea","ate"],["tan","nat"],["bat"]],
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": [[""]],
+                "test_expected": [[""]],
+                "code_output": null,
+                "passed_test": false
+              }
+        }
     }
 }
