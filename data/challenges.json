@@ -1400,5 +1400,73 @@
                 "passed_test": false
               }
         }
+    },
+    "stringToInteger": {
+        "refName": "stringToInteger",
+        "refNumber": 23,
+        "category": "String",
+        "dificulty": "Medium",
+        "title": "String To Integer",
+        "tags": ["Medium", "String"],
+        "description": "<p>Implement the myAtoi(string s) function, which converts a string to a 32-bit signed integer (similar to C/C++'s atoi function). The algorithm for myAtoi(string s) is as follows:</p><ul><li>Read in and ignore any leading whitespace.</li><li>Check if the next character (if not already at the end of the string) is '-' or '+'.</li><li>Read this character in if it is either. This determines if the final result is negative or positive respectively. Assume the result is positive if neither is present.</li><li>Read in next the characters until the next non-digit character or the end of the input is reached. The rest of the string is ignored.</li><li>Convert these digits into an integer (i.e. '123' -> 123, '0032' -> 32). If no digits were read, then the integer is 0. Change the sign as necessary (from step 2).</li><li>If the integer is out of the 32-bit signed integer range [-231, 231 - 1], then clamp the integer so that it remains in the range. Specifically, integers less than -231 should be clamped to -231, and integers greater than 231 - 1 should be clamped to 231 - 1.</li><li>Return the integer as the final result.</li></ul><p>Note:</p><ul><li>Only the space character ' ' is considered a whitespace character.</li><li>Do not ignore any characters other than the leading whitespace or the rest of the string after the digits.</li></ul>",
+        "examples": {
+            "example1": {
+                "input": "str = 42;",
+                "output": "42\nExplanation: The underlined characters are what is read in, the caret is the current reader position.\nStep 1: '42' (no characters read because there is no leading whitespace).\nStep 2: '42' (no characters read because there is neither a '-' nor '+')\nStep 3: '42' ('42' is read in)\nThe parsed integer is 42. Since 42 is in the range [-231, 231 - 1], the final result is 42."
+            },
+            "example2": {
+                "input": "str = '4193 with words';",
+                "output": "4193\nExplanation: Conversion stops at digit '3' as the next character is not a numerical digit."
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function stringToInteger(str) {\n    // Write your solution...\n    return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// Time complexity : O(n).\n// Space complexity : O(1).\nfunction stringToInteger(str) {\n    var i = 0;\n    var sign = 1;\n    var res = 0;\n    var len = str.length;\n    var INT_MAX = 2147483647;\n    var INT_MIN = - INT_MAX - 1;\n    while (str[i] === ' ') i++;\n    if (str[i] === '+' || str[i] === '-') {\n        sign = str[i] === '+' ? 1 : -1;\n        i++;\n    }\n    while (str[i] >= '0' && str[i] <= '9') {\n        res = (res * 10) + (str[i] - 0);\n        if (sign === 1 && res > INT_MAX) return INT_MAX;\n        if (sign === -1 && res > INT_MAX + 1) return INT_MIN;\n        i++;\n    }\n    return res * sign;\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": ["42"],
+                "test_expected": 42,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": ["   -42"],
+                "test_expected": -42,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_3": {
+                "test_input": ["4193 with words"],
+                "test_expected": 4193,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_4": {
+                "test_input": ["words and 987"],
+                "test_expected": 0,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_5": {
+                "test_input": ["-91283472332"],
+                "test_expected": -2147483648,
+                "code_output": null,
+                "passed_test": false
+              }
+        }
     }
 }
