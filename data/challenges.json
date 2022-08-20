@@ -2,6 +2,7 @@
     "mergeSortedArray": {
         "url": "https://www.gillmeister-software.com/online-tools/text/remove-line-breaks.aspx",
         "refName": "mergeSortedArray",
+        "refNumber": 1,
         "category": "Array",
         "dificulty": "Easy",
         "title": "Merged Sorted Array",
@@ -70,6 +71,7 @@
     },
     "stringRotation": {
         "refName": "stringRotation",
+        "refNumber": 2,
         "category": "String",
         "dificulty": "Easy",
         "title": "String Rotation",
@@ -143,6 +145,7 @@
     },
     "uniqueChar": {
         "refName": "uniqueChar",
+        "refNumber": 3,
         "category": "String",
         "dificulty": "Easy",
         "title": "Unique Char",
@@ -216,6 +219,7 @@
     },
     "checkPermutation": {
         "refName": "checkPermutation",
+        "refNumber": 4,
         "category": "String",
         "dificulty": "Easy",
         "title": "Check Permutation",
@@ -289,6 +293,7 @@
     },
     "palindromePermutation": {
         "refName": "palindromePermutation",
+        "refNumber": 5,
         "category": "String",
         "dificulty": "Easy",
         "title": "Palindrome Permutation",
@@ -374,6 +379,7 @@
     },
     "oneWay": {
         "refName": "oneWay",
+        "refNumber": 6,
         "category": "String",
         "dificulty": "Easy",
         "title": "One Way",
@@ -441,6 +447,7 @@
     },
     "stringCompression": {
         "refName": "stringCompression",
+        "refNumber": 7,
         "category": "String",
         "dificulty": "Easy",
         "title": "String Compression",
@@ -514,6 +521,7 @@
     },
     "numJewelsInStones": {
         "refName": "numJewelsInStones",
+        "refNumber": 8,
         "category": "String",
         "dificulty": "Easy",
         "title": "Num Jewels In Stones",
@@ -563,6 +571,7 @@
     },
     "maximumBalancedStringPartitions": {
         "refName": "maximumBalancedStringPartitions",
+        "refNumber": 9,
         "category": "String",
         "dificulty": "Easy",
         "title": "Maximum Balanced String Partitions",
@@ -618,6 +627,7 @@
     },
     "shuffleString": {
         "refName": "shuffleString",
+        "refNumber": 10,
         "category": "String",
         "dificulty": "Easy",
         "title": "Shuffle String",
@@ -667,6 +677,7 @@
     },
     "toLowerCase": {
         "refName": "toLowerCase",
+        "refNumber": 11,
         "category": "String",
         "dificulty": "Easy",
         "title": "To LowerCase",
@@ -722,6 +733,7 @@
     },
     "uniqueMorseWords": {
         "refName": "uniqueMorseWords",
+        "refNumber": 12,
         "category": "String",
         "dificulty": "Easy",
         "title": "Unique Morse Words",
@@ -783,6 +795,7 @@
     },
     "robotReturnToOrigin": {
         "refName": "robotReturnToOrigin",
+        "refNumber": 13,
         "category": "String",
         "dificulty": "Easy",
         "title": "Robot Return To Origin",
@@ -832,6 +845,7 @@
     },
     "reverseString": {
         "refName": "reverseString",
+        "refNumber": 14,
         "category": "String",
         "dificulty": "Easy",
         "title": "Reverse String",
@@ -881,6 +895,7 @@
     },
     "implementStrStr": {
         "refName": "implementStrStr",
+        "refNumber": 15,
         "category": "String",
         "dificulty": "Easy",
         "title": "Implement StrStr",
@@ -929,6 +944,62 @@
               "Test_3": {
                 "test_input": ["", ""],
                 "test_expected": 0,
+                "code_output": null,
+                "passed_test": false
+              }
+        }
+    },
+    "validParentheses": {
+        "refName": "validParentheses",
+        "refNumber": 16,
+        "category": "String",
+        "dificulty": "Easy",
+        "title": "Valid Parentheses",
+        "tags": ["Easy", "String"],
+        "description": "<p>Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.</p><p>Open brackets must be closed by the same type of brackets. Open brackets must be closed in the correct order.</p>",
+        "examples": {
+            "example1": {
+                "input": "s = '()'",
+                "output": "true"
+            },
+            "example2": {
+                "input": "s = '(]'",
+                "output": "false"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function validParentheses(s) {\n    // Write your solution...\n    return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// solution 1\nfunction validParentheses(s) {\n    const stack = [];\n    const characters = { ')': '(', '}': '{', ']': '[' };\n    for (const char of s) {\n        if (!characters[char]) stack.push(char);\n        else if (stack.pop() !== characters[char]) {\n            return false;\n        }\n    }\n    return stack.length === 0;\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": ["()"],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": ["()[]{}"],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_3": {
+                "test_input": ["(]"],
+                "test_expected": false,
                 "code_output": null,
                 "passed_test": false
               }
