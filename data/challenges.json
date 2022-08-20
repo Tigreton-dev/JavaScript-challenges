@@ -1524,5 +1524,55 @@
                 "passed_test": false
               }
         }
+    },
+    "generateParentheses": {
+        "refName": "generateParentheses",
+        "refNumber": 25,
+        "category": "String",
+        "dificulty": "Medium",
+        "title": "Generate Parentheses",
+        "tags": ["Medium", "String"],
+        "description": "<p>Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.</p>",
+        "examples": {
+            "example1": {
+                "input": "num = 3;",
+                "output": "['((()))','(()())','(())()','()(())','()()()']"
+            },
+            "example2": {
+                "input": "num = 1;",
+                "output": "['()']"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function generateParentheses(n) {\n    // Write your solution...\n    return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "function generateParentheses(n) {\n    // Resultant list\n    const result = [];\n    // Recursively generate parentheses\n    generate(result, '', 0, 0, n);\n    return result;\n};\nfunction generate(result, s, open, close, n) {\n    // Base condition\n    if (open === n && close === n) {\n        result.push(s);\n        return;\n    }\n    // If the number of _open parentheses is less than the given n\n    if (open < n) {\n        generate(result, s + '(', open + 1, close, n);\n    }\n    // If we need more close parentheses to balance\n    if (close < open) {\n        generate(result, s + ')', open, close + 1, n);\n    }\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": [3],
+                "test_expected": ["((()))","(()())","(())()","()(())","()()()"],
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": [1],
+                "test_expected": ["()"],
+                "code_output": null,
+                "passed_test": false
+              }
+        }
     }
 }
