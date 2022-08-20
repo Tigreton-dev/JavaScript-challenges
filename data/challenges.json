@@ -1680,5 +1680,61 @@
                 "passed_test": false
               }
         }
+    },
+    "decodeWays": {
+        "refName": "decodeWays",
+        "refNumber": 28,
+        "category": "String",
+        "dificulty": "Medium",
+        "title": "Decode Ways",
+        "tags": ["Medium", "String"],
+        "description": "<p>A message containing letters from A-Z can be encoded into numbers using the following mapping:</p><p>'A' -> '1' 'B' -> '2' ... 'Z' -> '26'</p><p>To decode an encoded message, all the digits must be grouped then mapped back into letters using the reverse of the mapping above (there may be multiple ways). For example, '11106' can be mapped into:</p><ul><li>'AAJF' with the grouping (1 1 10 6)</li><li>'KJF' with the grouping (11 10 6)</li></ul><p>Note that the grouping (1 11 06) is invalid because '06' cannot be mapped into 'F' since '6' is different from '06'.</p><p>Given a string s containing only digits, return the number of ways to decode it.<p/><p>The test cases are generated so that the answer fits in a 32-bit integer.</p>",
+        "examples": {
+            "example1": {
+                "input": "strs = '12'",
+                "output": "2\nExplanation: '12' could be decoded as 'AB' (1 2) or 'L' (12)."
+            },
+            "example2": {
+                "input": "strs = '226'",
+                "output": "3\nExplanation: '226' could be decoded as 'BZ' (2 26), 'VF' (22 6), or 'BBF' (2 2 6)."
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function decodeWays(s) {\n    // Write your solution...\n    return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "function decodeWays(s) {\n    var len = s.length;\n    var tmp = 0;\n    var tmp1 = 1;\n    var tmp2 = 0;\n    var num1 = 0;\n    var num2 = 0;\n    if (s === '' || s[0] === '0') return 0;\n    for (var i = 1; i <= len; i++) {\n        num1 = Number(s.substr(i - 1, 1));\n        num2 = Number(s.substr(i - 2, 2));\n        if (num1 !== 0) tmp += tmp1;\n        if (10 <= num2 && num2 <= 26) tmp += tmp2;\n        tmp2 = tmp1;\n        tmp1 = tmp;\n        tmp = 0;\n    }\n    return tmp1;\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": ["12"],
+                "test_expected": 2,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": ["226"],
+                "test_expected": 3,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_3": {
+                "test_input": ["06"],
+                "test_expected": 0,
+                "code_output": null,
+                "passed_test": false
+              }
+        }
     }
 }
