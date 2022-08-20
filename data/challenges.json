@@ -1736,5 +1736,55 @@
                 "passed_test": false
               }
         }
+    },
+    "palindromePartitioning": {
+        "refName": "palindromePartitioning",
+        "refNumber": 29,
+        "category": "String",
+        "dificulty": "Medium",
+        "title": "Palindrome Partitioning",
+        "tags": ["Medium", "String"],
+        "description": "<p>Given a string s, partition s such that every substring of the partition is a palindrome. Return all possible palindrome partitioning of s.</p><p>A palindrome string is a string that reads the same backward as forward.</p><p>Constraints:</p><ul><li>1 <= s.length <= 16</li><li>s contains only lowercase English letters.</li></ul>",
+        "examples": {
+            "example1": {
+                "input": "strs = 'abb'",
+                "output": "[['a','a','b'],['aa','b']]"
+            },
+            "example2": {
+                "input": "strs = 'a'",
+                "output": "[['a']]"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function palindromePartitioning(s) {\n    // Write your solution...\n    return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "function palindromePartitioning(s) {\n    var dp = getDp(s);\n    var res = [];\n    var now = [];\n    dfs(dp, res, now, s, 0);\n    return res;\n};\nvar dfs = function (dp, res, now, s, index) {\n    var len = s.length;\n    if (index === len) {\n        res.push(Array.from(now));\n        return;\n    }\n    for (var i = index; i < len; i++) {\n        if (dp[index][i]) {\n            now.push(s.substring(index, i + 1));\n            dfs(dp, res, now, s, i + 1);\n            now.pop();\n        }\n    }\n};\nvar getDp = function (s) {\n    var len = s.length;\n    var dp = Array(len);\n    for (var i = 0; i < len; i++) {\n        for (var j = 0; j <= i; j++) {\n            if (!dp[j]) dp[j] = Array(len);\n            dp[j][i] = (s[i] === s[j]) && (i - j <= 2 || dp[j + 1][i - 1]);\n        }\n    }\n    return dp;\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": ["aab"],
+                "test_expected": [["a","a","b"],["aa","b"]],
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input":["a"],
+                "test_expected": [["a"]],
+                "code_output": null,
+                "passed_test": false
+              }
+        }
     }
 }
