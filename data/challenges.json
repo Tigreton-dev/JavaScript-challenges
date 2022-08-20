@@ -1332,5 +1332,73 @@
                 "passed_test": false
               }
         }
+    },
+    "longestPalindromicSubstring": {
+        "refName": "longestPalindromicSubstring",
+        "refNumber": 22,
+        "category": "String",
+        "dificulty": "Medium",
+        "title": "Longest Palindromic Substring",
+        "tags": ["Medium", "String"],
+        "description": "<p>Given a string s, return the longest palindromic substring in s.</p><p>Constraints</p><ul><li>1 <= s.length <= 1000</li><li>s consist of only digits and English letters (lower-case and/or upper-case).</li></ul>",
+        "examples": {
+            "example1": {
+                "input": "str = 'babad';",
+                "output": "'bab'\n// 'aba' is also a valid answer."
+            },
+            "example2": {
+                "input": "str = 'cbbd';",
+                "output": "'bb'"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function longestPalindromicSubstring(string) {\n    // Write your solution...\n    return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "function longestPalindromicSubstring(string) {\n    let longestPalLength = 0;\n    let longestPalLeft = 0;\n    let longestPalRight = 0;\n    function getLongestPalindrome (leftPosition, rightPosition) {\n        // While there is space to expand, and the expanded strings match\n        while (\n            leftPosition >= 0 &&\n            rightPosition < string.length &&\n            string[leftPosition] === string[rightPosition]\n        ) {\n            //expand in each direction.\n            leftPosition--;\n            rightPosition++;\n        }\n        // Store the longest palindrome (if it's the longest one found so far)\n        if (rightPosition - leftPosition > longestPalLength) {\n            longestPalLeft = leftPosition + 1;\n            longestPalRight = rightPosition - 1;\n            longestPalLength = longestPalRight - longestPalLeft + 1;\n        }\n    };\n    // Loop through the letters\n    for (let i = 0; i < string.length; i++) {\n        // Find the longest odd palendrome\n        getLongestPalindrome(i, i + 1);\n        // Find the longest even palendrome\n        getLongestPalindrome(i, i);\n        // Check if a longer palindrome cannot be found\n        if ((string.length - i) * 2 < longestPalLength) {\n            // Break out to avoid unnecessary computation\n            break;\n        }\n    }\n    return string.slice(longestPalLeft, longestPalRight + 1);\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": ["book"],
+                "test_expected": "oo",
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": ["cbbd"],
+                "test_expected": "bb",
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_3": {
+                "test_input": ["a"],
+                "test_expected": "a",
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_4": {
+                "test_input": ["forgeeksskeegfor"],
+                "test_expected": "geeksskeeg",
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_5": {
+                "test_input": ["bananas" ],
+                "test_expected": "anana",
+                "code_output": null,
+                "passed_test": false
+              }
+        }
     }
 }
