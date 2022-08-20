@@ -1134,5 +1134,85 @@
                 "passed_test": false
               }
         }
+    },
+    "mostFrequentChar": {
+        "refName": "mostFrequentChar",
+        "refNumber": 19,
+        "category": "String",
+        "dificulty": "Easy",
+        "title": "Most Frequent Char",
+        "tags": ["Easy", "String"],
+        "description": "<p>Write a function, mostFrequentChar, that takes in a string as an argument. The function should return the most frequent character of the string. If there are ties, return the character that appears earlier in the string.</p><p>You can assume that the input string is non-empty.</p>",
+        "examples": {
+            "example1": {
+                "input": "str = 'bookeeper';",
+                "output": "'e'"
+            },
+            "example2": {
+                "input": "str = 'david';",
+                "output": "'d'"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function mostFrequentChar(s) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// solution 1\n// n = length of string\n// Time: O(n)\n// Space: O(n)\nfunction mostFrequentChar(s) {\n    const list = new Map();\n    for (const char of s) {\n        if (list.has(char)) {\n            const val = list.get(char);\n            list.set(char, val + 1);\n        } else {\n            list.set(char, 1);\n        }\n    }\n    let best = null;\n    for (const char of s) {\n        if (best === null || list.get(char) > list.get(best)) {\n            best = char;\n        }\n    }\n    return best;\n}"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": ["bookeeper"],
+                "test_expected": "e",
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": ["david"],
+                "test_expected": "d",
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_3": {
+                "test_input": ["abby"],
+                "test_expected": "b",
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_4": {
+                "test_input": ["mississippi"],
+                "test_expected": "i",
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_5": {
+                "test_input": ["potato"],
+                "test_expected": "o",
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_6": {
+                "test_input": ["eleventennine"],
+                "test_expected": "e",
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_7": {
+                "test_input": ["riverbed"],
+                "test_expected": "r",
+                "code_output": null,
+                "passed_test": false
+              }
+        }
     }
 }
