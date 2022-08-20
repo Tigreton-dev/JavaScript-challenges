@@ -1270,5 +1270,67 @@
                 "passed_test": false
               }
         }
+    },
+    "lengthOfLongestSubString": {
+        "refName": "lengthOfLongestSubString",
+        "refNumber": 21,
+        "category": "String",
+        "dificulty": "Medium",
+        "title": "length Of Longest SubString",
+        "tags": ["Medium", "String"],
+        "description": "<p>Given a string s, find the length of the longest substring without repeating characters.</p>",
+        "examples": {
+            "example1": {
+                "input": "str = 'abcabcbb';",
+                "output": "3\nExplanation: The answer is 'abc', with the length of 3."
+            },
+            "example2": {
+                "input": "str = 'bbbbb';",
+                "output": "1\nExplanation: The answer is 'b', with the length of 1."
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function lengthOfLongestSubString(str) {\n    // Write your solution...\n    return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// O(n) time | O(n) space\nfunction lengthOfLongestSubString(str) {\n    let maxLength = 0,\n        windowStart = 0,\n        charIndexMap = {}\n    for (let windowEnd = 0; windowEnd < str.length; windowEnd++) {\n        const rightChar = str[windowEnd]\n        if (rightChar in charIndexMap) {\n            windowStart = Math.max(windowStart, charIndexMap[rightChar] + 1)\n        }\n        charIndexMap[rightChar] = windowEnd\n        maxLength = Math.max(maxLength, windowEnd - windowStart + 1)\n    }\n    return maxLength\n}"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": ["abcabcbb"],
+                "test_expected": 3,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": ["bbbbb"],
+                "test_expected": 1,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_3": {
+                "test_input": ["pwwkew"],
+                "test_expected": 3,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_4": {
+                "test_input": [""],
+                "test_expected": 0,
+                "code_output": null,
+                "passed_test": false
+              }
+        }
     }
 }
