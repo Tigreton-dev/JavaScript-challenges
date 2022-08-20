@@ -1066,5 +1066,73 @@
                 "passed_test": false
               }
         }
+    },
+    "uncompress": {
+        "refName": "uncompress",
+        "refNumber": 18,
+        "category": "String",
+        "dificulty": "Easy",
+        "title": "Uncompress",
+        "tags": ["Easy", "String"],
+        "description": "<p>Write a function, uncompress, that takes in a string as an argument. The input string will be formatted into multiple groups according to the following pattern:</p><p><number><char></p><p>for example, '2c' or '3a'.</p><p>The function should return an uncompressed version of the string where each 'char' of a group is repeated 'number' times consecutively. You may assume that the input string is well-formed according to the previously mentioned pattern.</p>",
+        "examples": {
+            "example1": {
+                "input": "str = '2c3a1t';",
+                "output": "'ccaaat'"
+            },
+            "example2": {
+                "input": "str = '4s2b';",
+                "output": "'ssssbb'"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function uncompress(s) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// solution 1\nfunction uncompress(s) {\n    const numbers = '0123456789';\n    const result = [];\n    let p1 = 0;\n    let p2 = 0;\n    while (p2 <= s.length) {\n        if (numbers.includes(s[p2])) {\n            p2++;\n        } else {\n            const val = Number(s.slice(p1, p2));\n            for (let x = 0; x < val; x++) {\n                result.push(s[p2]);\n            }\n            p2++;\n            p1 = p2;\n        }\n    }\n    return result.join('')\n}"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": ["2c3a1t"],
+                "test_expected": "ccaaat",
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": ["4s2b"],
+                "test_expected": "ssssbb",
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_3": {
+                "test_input": ["2p1o5p"],
+                "test_expected": "ppoppppp",
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_4": {
+                "test_input": ["3n12e2z"],
+                "test_expected": "nnneeeeeeeeeeeezz",
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_5": {
+                "test_input": ["127y"],
+                "test_expected": "yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy",
+                "code_output": null,
+                "passed_test": false
+              }
+        }
     }
 }
