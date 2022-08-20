@@ -1214,5 +1214,61 @@
                 "passed_test": false
               }
         }
+    },
+    "longestWord": {
+        "refName": "longestWord",
+        "refNumber": 20,
+        "category": "String",
+        "dificulty": "Easy",
+        "title": "Longest Word",
+        "tags": ["Easy", "String"],
+        "description": "<p>Find the Longest Word in a String Return the length of the longest word in the provided sentence. Your response should be a number.</p>",
+        "examples": {
+            "example1": {
+                "input": "str = 'This is an example';",
+                "output": "'example'"
+            },
+            "example2": {
+                "input": "str = 'the longest word';",
+                "output": "'longest'"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function longestWord(str) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// EXAMPLE 1 BAD\nfunction longestWord(str) {\n  return str.split(' ').reduce((c, v) => (c.length > v.length ? c : v)).length;\n}\n// EXAMPLE 2 BAD\nfunction longestWord(str) {\n  return str.split(' ').sort((a, b) => b.length - a.length)[0].length;\n}\n// EXAMPLE 3\nfunction longestWord(str) {\n    let counter = 0;\n    let maxLength = 0;\n    let currentword = '';\n    let longestWord = '';\n    for (const char of str) {\n        if (char !== ' ') {\n            counter++;\n            currentword += char;\n            longestWord = counter > maxLength ? currentword : longestWord;\n            maxLength = Math.max(maxLength, counter);\n        } else {\n            currentword = '';\n            counter = 0;\n        }\n    }\n    return longestWord;\n}"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": ["this is an example"],
+                "test_expected": "example",
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": ["an apple"],
+                "test_expected": "apple",
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_3": {
+                "test_input": ["Tokyo is widely considered the world's largest city"],
+                "test_expected": "considered",
+                "code_output": null,
+                "passed_test": false
+              }
+        }
     }
 }
