@@ -1468,5 +1468,61 @@
                 "passed_test": false
               }
         }
+    },
+    "letterCombinations": {
+        "refName": "letterCombinations",
+        "refNumber": 24,
+        "category": "String",
+        "dificulty": "Medium",
+        "title": "Letter Combinations",
+        "tags": ["Medium", "String"],
+        "description": "<p>Given a string containing digits from 2-9 inclusive, return all possible letter combinations that the number could represent. Return the answer in any order.</p><p>A mapping of digit to letters (just like on the telephone buttons) is given below. Note that 1 does not map to any letters.</p><p>Constraints:</p><ul><li>0 <= digits.length <= 4</li><li>digits[i] is a digit in the range ['2', '9'].</li</ul>",
+        "examples": {
+            "example1": {
+                "input": "str = '23';",
+                "output": "['ad','ae','af','bd','be','bf','cd','ce','cf']"
+            },
+            "example2": {
+                "input": "str = '2';",
+                "output": "['a','b','c']"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function letterCombinations(D) {\n    // Write your solution...\n    return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "const L = {\n    '2': 'abc', '3': 'def', '4': 'ghi', '5': 'jkl',\n    '6': 'mno', '7': 'pqrs', '8': 'tuv', '9': 'wxyz'\n}\nfunction letterCombinations(D) {\n    let len = D.length, ans = []\n    if (!len) return []\n    const bfs = (pos, str) => {\n        if (pos === len) ans.push(str)\n        else {\n            let letters = L[D[pos]]\n            for (let i = 0; i < letters.length; i++)\n                bfs(pos + 1, str + letters[i])\n        }\n    }\n    bfs(0, '')\n    return ans\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": [""],
+                "test_expected": [],
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": ["23"],
+                "test_expected": ["ad","ae","af","bd","be","bf","cd","ce","cf"],
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_3": {
+                "test_input": ["2"],
+                "test_expected": ["a","b","c"],
+                "code_output": null,
+                "passed_test": false
+              }
+        }
     }
 }
