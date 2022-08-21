@@ -1791,7 +1791,7 @@
         "refName": "rotateMatrix",
         "refNumber": 30,
         "category": "Array",
-        "dificulty": "Medium",
+        "dificulty": "Easy",
         "title": "Rotate Matrix",
         "tags": ["Easy", "Array"],
         "description": "<p>Given a matrix, clockwise rotate elements in it.</p>",
@@ -1832,6 +1832,56 @@
               "Test_2": {
                 "test_input": [[[1, 2, 3],   [4, 5, 6],   [7, 8, 9]]],
                 "test_expected": [[7, 4, 1],   [8, 5, 2],   [9, 6, 3]],
+                "code_output": null,
+                "passed_test": false
+              }
+        }
+    },
+    "zeroMatrix": {
+        "refName": "zeroMatrix",
+        "refNumber": 31,
+        "category": "Array",
+        "dificulty": "Medium",
+        "title": "Zero Matrix",
+        "tags": ["Medium", "Array"],
+        "description": "<p>Write an algorithm such that if an element in an MxN matrix is 0, its entire row and column are set to 0.</p>",
+        "examples": {
+            "example1": {
+                "input": "const testMatrix = [\n    [1, 2, 3, 4],\n    [0, 1, 2, 3],\n    [0, 0, 1, 2],\n    [1, 0, 0, 1],\n];",
+                "output": "const testMatrix = [\n    [0, 0, 0, 4],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0],\n    [0, 0, 0, 0],\n];"
+            },
+            "example2": {
+                "input": "const testMatrix = [\n    [1, 2, 3, 4],\n    [0, 1, 2, 3],\n    [0, 5, 1, 2],\n    [1, 3, 0, 1],\n];",
+                "output": "const testMatrix = [ [0, 2, 0, 4], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], ];"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function zeroMatrix(array) {\n    // Write your solution...\n    return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "function zeroMatrix(array) {\n    const matrix = JSON.parse(JSON.stringify(array));\n    let rows = new Array(matrix.length).fill(false);\n    let cols = new Array(matrix[0].length).fill(false);\n    for (let y = 0; y < rows.length; ++y) {\n        for (let x = 0; x < cols.length; ++x) {\n            if (matrix[y][x] === 0) {\n                rows[y] = true;\n                cols[x] = true;\n            }\n        }\n    }\n    for (let y = 0; y < rows.length; ++y) {\n        for (let x = 0; x < cols.length; ++x) {\n            if (rows[y] || cols[x]) {\n                matrix[y][x] = 0;\n            }\n        }\n    }\n    return matrix;\n}"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": [[[1, 2, 3, 4], [0, 1, 2, 3], [0, 5, 1, 2], [1, 3, 0, 1]]],
+                "test_expected": [[0, 2, 0, 4], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]],
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": [[[1, 2, 3, 4], [0, 1, 2, 3], [0, 0, 1, 2], [1, 0, 0, 1]]],
+                "test_expected": [[0, 0, 0, 4], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]],
                 "code_output": null,
                 "passed_test": false
               }
