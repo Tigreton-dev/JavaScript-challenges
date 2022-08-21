@@ -2016,5 +2016,67 @@
                 "passed_test": false
               }
         }
+    },
+    "removeDuplicates": {
+        "refName": "removeDuplicates",
+        "refNumber": 34,
+        "category": "Array",
+        "dificulty": "Easy",
+        "title": "Remove Duplicates",
+        "tags": ["Easy", "Array"],
+        "description": "<p>Given an integer array, create a function removeDuplicates that remove the duplicate numbers and return the number of elements removed. The relative order of the elements should be kept the same.</p><p>Do not allocate extra space for another array. You must do this by modifying the input array in-place with O(1) extra memory.</p>",
+        "examples": {
+            "example1": {
+                "input": "nums = [1,1,2]",
+                "output": "2"
+            },
+            "example2": {
+                "input": "nums = [0,0,1,1,1,2,2,3,3,4]",
+                "output": "5"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function removeDuplicates(nums) {\n    // Write your solution...\n    return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// Solution 1\n// Time: O(n^2)\nfunction removeDuplicates(nums) {\n   return nums.filter((item, pos, self) => {\n        return self.indexOf(item) == pos;\n    }).length\n};\n// Solution 2\nfunction removeDuplicates(nums) {\n   return [...new Set(nums)].length\n}"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": [[1,1,2]],
+                "test_expected": 2,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": [[0,0,1,1,1,2,2,3,3,4]],
+                "test_expected": 5,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_3": {
+                "test_input": [[0,0,1,1,1,2,2,3,3,4, 5, 2, 2, 5, 6]],
+                "test_expected": 7,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_4": {
+                "test_input": [[1,2,3,1,4,6,2,2,5,6,1,8,9,8,11,12,13,14,15,16]],
+                "test_expected": 14,
+                "code_output": null,
+                "passed_test": false
+              }
+        }
     }
 }
