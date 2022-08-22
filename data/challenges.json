@@ -2258,5 +2258,67 @@
                 "passed_test": false
               }
         }
+    },
+    "thirdMaximumNumber": {
+        "refName": "thirdMaximumNumber",
+        "refNumber": 38,
+        "category": "Array",
+        "dificulty": "Easy",
+        "title": "Third Maximum Number",
+        "tags": ["Easy", "Array"],
+        "description": "<p>Given an integer array nums, return the third distinct maximum number in this array. If the third maximum does not exist, return the maximum number.</p>",
+        "examples": {
+            "example1": {
+                "input": "nums = [3,2,1]",
+                "output": "3"
+            },
+            "example2": {
+                "input": "nums = [1,2]",
+                "output": "2"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function thirdMaximumNumber(nums) {\n    // Write your solution...\n    return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// Time O(n)\n// Space O(1)\nfunction thirdMaximumNumber(nums) {\n    let min = -Infinity;\n    let mid = -Infinity;\n    let max = -Infinity;\n    for (const num of nums) {\n        if (num > max) {\n            min = mid;\n            mid = max;\n            max = num;\n        }\n        if (num < max && num > mid) {\n            min = mid;\n            mid = num;\n        }\n        if (num < mid && num > min) {\n            min = num;\n        }\n    }\n    return min > -Infinity ? min : max;\n}"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": [[3,2,1]],
+                "test_expected": 1,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": [[1,2]],
+                "test_expected": 2,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_3": {
+                "test_input": [[2,2,3,1]],
+                "test_expected": 1,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_4": {
+                "test_input": [[1, 14, 2, 16, 10, 20]],
+                "test_expected": 14,
+                "code_output": null,
+                "passed_test": false
+              }
+        }
     }
 }
