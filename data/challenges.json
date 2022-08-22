@@ -2078,5 +2078,61 @@
                 "passed_test": false
               }
         }
+    },
+    "countingFrequenciesOfArray": {
+        "refName": "countingFrequenciesOfArray",
+        "refNumber": 35,
+        "category": "Array",
+        "dificulty": "Easy",
+        "title": "Counting Frequencies Of Array",
+        "tags": ["Easy", "Array"],
+        "description": "<p>Given an array which may contain duplicates, return an object with all elements and their frequencies.</p>",
+        "examples": {
+            "example1": {
+                "input": "arr = [10, 20, 20, 10, 10, 20, 5, 20]",
+                "output": "{10: 3, 20: 4, 5: 1}"
+            },
+            "example2": {
+                "input": "arr = [10, 20, 20]",
+                "output": "{10: 1, 20: 1}"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function countingFrequenciesOfArray(arr, size) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "function countingFrequenciesOfArray(arr, size) {\n    let freqMap = new Map();\n    for (let i = 0; i < size; i++) {\n        if (freqMap.has(arr[i])) {\n            freqMap.set(arr[i], freqMap.get(arr[i]) + 1);\n        } else {\n            freqMap.set(arr[i], 1);\n        }\n    }\n    \n     return Object.fromEntries(freqMap);\n}"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": [[10, 20, 20, 10, 10, 20, 5, 20], 8],
+                "test_expected": {"10": 3, "20": 4, "5": 1},
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": [[10, 20, 20], 3],
+                "test_expected": {"10": 1, "20": 2},
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_3": {
+                "test_input": [[10, 20, 20], 3],
+                "test_expected": {"10": 1, "20": 2},
+                "code_output": null,
+                "passed_test": false
+              }
+        }
     }
 }
