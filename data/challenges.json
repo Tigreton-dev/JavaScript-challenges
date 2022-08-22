@@ -2134,5 +2134,61 @@
                 "passed_test": false
               }
         }
+    },
+    "twoSum": {
+        "refName": "twoSum",
+        "refNumber": 36,
+        "category": "Array",
+        "dificulty": "Easy",
+        "title": "Two Sum",
+        "tags": ["Easy", "Array"],
+        "description": "<p>Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.</p><p>You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order.</p><p>Constraints:</p><ul><li>2 <= nums.length <= 104</li><li>-109 <= nums[i] <= 109</li><li>-109 <= target <= 109</li><li>Only one valid answer exists.</li></ul><p>Follow-up: Can you come up with an algorithm that is less than O(n2) time complexity?</p>",
+        "examples": {
+            "example1": {
+                "input": "nums = [2,7,11,15], target = 9",
+                "output": "[0,1]"
+            },
+            "example2": {
+                "input": "nums = [3,2,4], target = 6",
+                "output": "[1,2]"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function twoSum(array, target) {\n    // Write your solution...\n    return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "function twoSum(array, goal) {\n    let indexes = [];\n    for (let i = 0; i < array.length; i++) {\n        for (let j = i + 1; j < array.length; j++) {\n            if (array[i] + array[j] === goal) {\n                indexes.push(i);\n                indexes.push(j);\n            }\n        }\n    }\n    return indexes;\n}\n// Optimal solution\nfunction twoSum(array, target) {\n    const list = new Map();\n    for ( let i = 0; i < array.length; i++) {\n        const complement = target - array[i];\n        if (list.has(complement)) return [list.get(complement), i]\n        list.set(array[i], i);\n    }\n}"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": [[2,7,11,15], 9],
+                "test_expected": [0, 1],
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": [[3,2,4], 6],
+                "test_expected": [1, 2],
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_3": {
+                "test_input": [[3,3], 6],
+                "test_expected": [0, 1],
+                "code_output": null,
+                "passed_test": false
+              }
+        }
     }
 }
