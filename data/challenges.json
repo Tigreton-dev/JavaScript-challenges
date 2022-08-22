@@ -2382,5 +2382,73 @@
                 "passed_test": false
               }
         }
+    },
+    "fiveSort": {
+        "refName": "fiveSort",
+        "refNumber": 40,
+        "category": "Array",
+        "dificulty": "Easy",
+        "title": "Five Sort",
+        "tags": ["Easy", "Array"],
+        "description": "<p>Write a function, fiveSort, that takes in an array of numbers as an argument. The function should rearrange elements of the array such that all 5s appear at the end. Your function should perform this operation in-place by mutating the original array. The function should return the array.</p><p>Elements that are not 5 can appear in any order in the output, as long as all 5s are at the end of the array.</p>",
+        "examples": {
+            "example1": {
+                "input": "arr1 = [12, 5, 1, 5, 12, 7]",
+                "output": "[12, 7, 1, 12, 5, 5]"
+            },
+            "example2": {
+                "input": "arr1 = [5, 2, 5, 6, 5, 1, 10, 2, 5, 5]",
+                "output": "[2, 2, 10, 6, 1, 5, 5, 5, 5, 5]"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function fiveSort(nums) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// n = array size\n// Time: O(n)\n// Space: O(1)\nfunction fiveSort(nums) {\n  let p1 = 0;\n  let p2 = nums.length - 1;\n  while(p1 < p2) {\n    if (nums[p2] === 5) {\n      p2--;\n    } else if(nums[p1] === 5) {\n      [nums[p1], nums[p2]] = [nums[p2], nums[p1]];\n      p1++;\n    }else {\n      p1++;\n    }\n  }\n  \n  return nums\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": [[12, 5, 1, 5, 12, 7]],
+                "test_expected": [12, 7, 1, 12, 5, 5] ,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": [[5, 2, 5, 6, 5, 1, 10, 2, 5, 5]],
+                "test_expected": [2, 2, 10, 6, 1, 5, 5, 5, 5, 5],
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_3": {
+                "test_input": [[5, 5, 5, 1, 1, 1, 4]],
+                "test_expected": [4, 1, 1, 1, 5, 5, 5] ,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": [[5, 5, 6, 5, 5, 5, 5]],
+                "test_expected": [6, 5, 5, 5, 5, 5, 5] ,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_3": {
+                "test_input": [[5, 1, 2, 5, 5, 3, 2, 5, 1, 5, 5, 5, 4, 5]],
+                "test_expected": [4, 1, 2, 1, 2, 3, 5, 5, 5, 5, 5, 5, 5, 5],
+                "code_output": null,
+                "passed_test": false
+              }
+        }
     }
 }
