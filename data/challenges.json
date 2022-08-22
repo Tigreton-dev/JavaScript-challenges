@@ -2450,5 +2450,85 @@
                 "passed_test": false
               }
         }
+    },
+    "sortByName": {
+        "refName": "sortByName",
+        "refNumber": 41,
+        "category": "Array",
+        "dificulty": "Easy",
+        "title": "Sort By Name",
+        "tags": ["Easy", "Array"],
+        "description": "<p>Giving an array of lastname and first name, order the arry by first name.</p>",
+        "examples": {
+            "example1": {
+                "input": "arr1 = [\n  'Beck, Glenn',\n  'Becker, Carl',\n  'Beckett, Samuel',\n  'Beddoes, Mick',\n  'Beecher, Henry',\n  'Beethoven, Ludwig',\n  'Begin, Menachem',\n];",
+                "output": "[\n  'Becker, Carl',\n  'Beck, Glenn',\n  'Beecher, Henry',\n  'Beethoven, Ludwig',\n  'Begin, Menachem',\n  'Beddoes, Mick',\n  'Beckett, Samuel',\n];"
+            },
+            "example2": {
+                "input": "arr1 = ['Beck, Glenn', 'Adam, Carl', 'Adam, Samuel', 'Wally, Mick', 'Beck, Henry'];",
+                "output": "['Adam, Carl', 'Adam, Samuel', 'Beck, Glenn', 'Beck, Henry', 'Wally, Mick'];"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function sortByName(arr) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// Solution 1\nfunction sortByName(arr) {\n  let unique_array = arr.filter((elem, index, self) => {\n    return index !== self.indexOf(elem);\n  });\n  return new Set(unique_array);\n}\n// Solution 2\nfunction sortByName(arr) {\n  return arr.filter((elem, index, self) => {\n    return self.lastIndexOf(elem) === index && self.indexOf(elem) !== index;\n  });\n}"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": [
+                  [
+                    "Beck, Glenn",
+                    "Adam, Carl",
+                    "Adam, Samuel",
+                    "Wally, Mick",
+                    "Beck, Henry"
+                  ]
+                ],
+                "test_expected": [
+                  "Becker, Carl",
+                  "Beck, Glenn",
+                  "Beecher, Henry",
+                  "Beethoven, Ludwig",
+                  "Begin, Menachem",
+                  "Beddoes, Mick",
+                  "Beckett, Samuel"
+                ],
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": [
+                  [
+                    "Beck, Glenn",
+                    "Adam, Carl",
+                    "Adam, Samuel",
+                    "Wally, Mick",
+                    "Beck, Henry"
+                  ]
+                ],
+                "test_expected": [
+                  "Adam, Carl",
+                  "Adam, Samuel",
+                  "Beck, Glenn",
+                  "Beck, Henry",
+                  "Wally, Mick"
+                ],
+                "code_output": null,
+                "passed_test": false
+              }
+        }
     }
 }
