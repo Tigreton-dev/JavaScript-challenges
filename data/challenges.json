@@ -2586,5 +2586,65 @@
                 "passed_test": false
               }
         }
+    },
+    "insertAtAllPositions": {
+        "refName": "insertAtAllPositions",
+        "refNumber": 43,
+        "category": "Array",
+        "dificulty": "Easy",
+        "title": "Insert At All Positions",
+        "tags": ["Easy", "Array"],
+        "description": "<p>Write a function, InsertAtAllPositions, that takes in an array of elements and a value. The function should return a 2D array where each subarray represents one of the possible permutations of the value in the array.</p><p>The subarrays may be returned in any order.</p><p>You may assume that the input array contains unique elements.</p>",
+        "examples": {
+            "example1": {
+                "input": "arr1 = [1, 2, 3]\ntarget = 4;",
+                "output": "[[4, 1, 2, 3], [1, 4, 2, 3], [1, 2, 4, 3], [1, 2, 3, 4]];"
+            },
+            "example2": {
+                "input": "arr1 = ['a', 'b', 'c']\ntarget = 'd';",
+                "output": "[['d', 'a', 'b', 'c'], ['a', 'd', 'b', 'c'], ['a', 'b', 'd', 'c'], ['a', 'b', 'c', 'd']];"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function insertAtAllPositions(arr, target) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "function insertAtAllPositions(arr, target) {\n    const fullPermutations = [];\n    for (let i = 0; i <= arr.length; i += 1) {\n        const newPerm = [...arr];\n        newPerm.splice(i, 0, target);\n        fullPermutations.push(newPerm);\n    }\n    return fullPermutations;\n}\nfunction insertAtAllPositions(arr, target) {\n    const fullPermutations = [];\n    for (let i = 0; i <= arr.length; i += 1) {\n        fullPermutations.push([...arr.slice(0, i), target, ...arr.slice(i)]);\n    }\n    return fullPermutations;\n}"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": [[1, 2, 3], 4],
+                "test_expected": [
+                  [4, 1, 2, 3],
+                  [1, 4, 2, 3],
+                  [1, 2, 4, 3],
+                  [1, 2, 3, 4]
+                ],
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": [["a", "b", "c"], "d"],
+                "test_expected": [
+                  ["d", "a", "b", "c"],
+                  ["a", "d", "b", "c"],
+                  ["a", "b", "d", "c"],
+                  ["a", "b", "c", "d"]
+                ],
+                "code_output": null,
+                "passed_test": false
+              }
+        }
     }
 }
