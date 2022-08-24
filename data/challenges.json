@@ -3229,5 +3229,55 @@
                 "passed_test": false
               }
         }
+    },
+    "combinationSum2": {
+        "refName": "combinationSum2",
+        "refNumber": 53,
+        "category": "Array",
+        "dificulty": "Medium",
+        "title": "Combination Sum 2",
+        "tags": ["Medium", "Array"],
+        "description": "<p>Given a collection of candidate numbers (candidates) and a target number (target), find all unique combinations in candidates where the candidate numbers sum to target.</p><p>Each number in candidates may only be used once in the combination.</p><p>Note: The solution set must not contain duplicate combinations.</p>",
+        "examples": {
+            "example1": {
+                "input": "candidates = [10,1,2,7,6,1,5]\ntarget = 8",
+                "output": "[ [1,1,6], [1,2,5], [1,7], [2,6] ]"
+            },
+            "example2": {
+                "input": "candidates = [2,5,2,1,2]\ntarget = 5",
+                "output": "[ [1,2,2], [5] ]"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function combinationSum2(candidates, target) {\n    // Write your solution...\n    return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// Time complexity : O(n^2).\n// Space complexity : O(n^2).\nfunction combinationSum2(candidates, target) {\n  var res = [];\n  var len = candidates.length;\n  candidates.sort((a, b) => (a - b));\n  dfs(res, [], 0, len, candidates, target);\n  return res;\n};\nvar dfs = function (res, stack, index, len, candidates, target) {\n  var tmp = null;\n  if (target < 0) return;\n  if (target === 0) return res.push(stack);\n  for (var i = index; i < len; i++) {\n    if (candidates[i] > target) break;\n    if (i > index && candidates[i] === candidates[i - 1]) continue;\n    tmp = Array.from(stack);\n    tmp.push(candidates[i]);\n    dfs(res, tmp, i + 1, len, candidates, target - candidates[i]);\n  }\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": [[10,1,2,7,6,1,5], 8],
+                "test_expected": [[1,1,6], [1,2,5], [1,7], [2,6]],
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": [[2,5,2,1,2], 5],
+                "test_expected": [[1,2,2], [5]],
+                "code_output": null,
+                "passed_test": false
+              }
+        }
     }
 }
