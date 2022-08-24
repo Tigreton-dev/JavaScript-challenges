@@ -3173,5 +3173,61 @@
                 "passed_test": false
               }
         }
+    },
+    "combinationSum": {
+        "refName": "combinationSum",
+        "refNumber": 52,
+        "category": "Array",
+        "dificulty": "Medium",
+        "title": "Combination Sum",
+        "tags": ["Medium", "Array"],
+        "description": "<p>Given an array of distinct integers candidates and a target integer target, return a list of all unique combinations of candidates where the chosen numbers sum to target. You may return the combinations in any order.</p><p>The same number may be chosen from candidates an unlimited number of times. Two combinations are unique if the frequency of at least one of the chosen numbers is different.</p><p>It is guaranteed that the number of unique combinations that sum up to target is less than 150 combinations for the given input.</p>",
+        "examples": {
+            "example1": {
+                "input": "candidates = [2,3,6,7]\ntarget = 7",
+                "output": "[[2,2,3],[7]]\nExplanation:\n2 and 3 are candidates, and 2 + 2 + 3 = 7. Note that 2 can be used multiple times.\n7 is a candidate, and 7 = 7.\nThese are the only two combinations."
+            },
+            "example2": {
+                "input": "candidates = [2,3,5]\ntarget = 8",
+                "output": "[[2,2,2,2],[2,3,3],[3,5]]"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function combinationSum(candidates, target) {\n    // Write your solution...\n    return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "function combinationSum(nums, target) {\n    let combinations = [];\n    nums.sort((a, b) => a - b);\n    function backtrack(tempList, remaining, start) {\n        for (let i = start; i < nums.length && nums[i] <= remaining; i++) {\n            if (nums[i] === remaining) {\n                combinations.push([...tempList, nums[i]]);\n            } else {\n                backtrack([...tempList, nums[i]], remaining - nums[i], i);\n            }\n        }\n    }\n    backtrack([], target, 0);\n    return combinations;\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": [[2,3,6,7], 7],
+                "test_expected": [[2,2,3],[7]],
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": [[2,3,5], 8],
+                "test_expected": [[2,2,2,2],[2,3,3],[3,5]],
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_3": {
+                "test_input": [[2]],
+                "test_expected": [],
+                "code_output": null,
+                "passed_test": false
+              }
+        }
     }
 }
