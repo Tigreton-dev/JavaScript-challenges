@@ -934,19 +934,19 @@
                 "test_expected": 2,
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_2": {
+            },
+            "Test_2": {
                 "test_input": ["aaaaa", "bba"],
                 "test_expected": -1,
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_3": {
+            },
+            "Test_3": {
                 "test_input": ["", ""],
                 "test_expected": 0,
                 "code_output": null,
                 "passed_test": false
-              }
+            }
         }
     },
     "validParentheses": {
@@ -990,19 +990,19 @@
                 "test_expected": true,
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_2": {
+            },
+            "Test_2": {
                 "test_input": ["()[]{}"],
                 "test_expected": true,
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_3": {
+            },
+            "Test_3": {
                 "test_input": ["(]"],
                 "test_expected": false,
                 "code_output": null,
                 "passed_test": false
-              }
+            }
         }
     },
     "romanToInteger": {
@@ -1046,25 +1046,25 @@
                 "test_expected": 3,
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_2": {
+            },
+            "Test_2": {
                 "test_input": ["LVIII"],
                 "test_expected": 58,
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_3": {
+            },
+            "Test_3": {
                 "test_input": ["MCMXCIV"],
                 "test_expected": 1994,
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_4": {
+            },
+            "Test_4": {
                 "test_input": ["IV"],
                 "test_expected": 4,
                 "code_output": null,
                 "passed_test": false
-              }
+            }
         }
     },
     "uncompress": {
@@ -1108,31 +1108,31 @@
                 "test_expected": "ccaaat",
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_2": {
+            },
+            "Test_2": {
                 "test_input": ["4s2b"],
                 "test_expected": "ssssbb",
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_3": {
+            },
+            "Test_3": {
                 "test_input": ["2p1o5p"],
                 "test_expected": "ppoppppp",
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_4": {
+            },
+            "Test_4": {
                 "test_input": ["3n12e2z"],
                 "test_expected": "nnneeeeeeeeeeeezz",
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_5": {
+            },
+            "Test_5": {
                 "test_input": ["127y"],
                 "test_expected": "yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy",
                 "code_output": null,
                 "passed_test": false
-              }
+            }
         }
     },
     "mostFrequentChar": {
@@ -1176,43 +1176,43 @@
                 "test_expected": "e",
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_2": {
+            },
+            "Test_2": {
                 "test_input": ["david"],
                 "test_expected": "d",
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_3": {
+            },
+            "Test_3": {
                 "test_input": ["abby"],
                 "test_expected": "b",
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_4": {
+            },
+            "Test_4": {
                 "test_input": ["mississippi"],
                 "test_expected": "i",
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_5": {
+            },
+            "Test_5": {
                 "test_input": ["potato"],
                 "test_expected": "o",
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_6": {
+            },
+            "Test_6": {
                 "test_input": ["eleventennine"],
                 "test_expected": "e",
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_7": {
+            },
+            "Test_7": {
                 "test_input": ["riverbed"],
                 "test_expected": "r",
                 "code_output": null,
                 "passed_test": false
-              }
+            }
         }
     },
     "longestWord": {
@@ -1256,19 +1256,21 @@
                 "test_expected": "example",
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_2": {
+            },
+            "Test_2": {
                 "test_input": ["an apple"],
                 "test_expected": "apple",
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_3": {
-                "test_input": ["Tokyo is widely considered the world's largest city"],
+            },
+            "Test_3": {
+                "test_input": [
+                    "Tokyo is widely considered the world's largest city"
+                ],
                 "test_expected": "considered",
                 "code_output": null,
                 "passed_test": false
-              }
+            }
         }
     },
     "lengthOfLongestSubString": {
@@ -1312,25 +1314,25 @@
                 "test_expected": 3,
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_2": {
+            },
+            "Test_2": {
                 "test_input": ["bbbbb"],
                 "test_expected": 1,
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_3": {
+            },
+            "Test_3": {
                 "test_input": ["pwwkew"],
                 "test_expected": 3,
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_4": {
+            },
+            "Test_4": {
                 "test_input": [""],
                 "test_expected": 0,
                 "code_output": null,
                 "passed_test": false
-              }
+            }
         }
     },
     "longestPalindromicSubstring": {
@@ -1374,31 +1376,31 @@
                 "test_expected": "oo",
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_2": {
+            },
+            "Test_2": {
                 "test_input": ["cbbd"],
                 "test_expected": "bb",
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_3": {
+            },
+            "Test_3": {
                 "test_input": ["a"],
                 "test_expected": "a",
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_4": {
+            },
+            "Test_4": {
                 "test_input": ["forgeeksskeegfor"],
                 "test_expected": "geeksskeeg",
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_5": {
-                "test_input": ["bananas" ],
+            },
+            "Test_5": {
+                "test_input": ["bananas"],
                 "test_expected": "anana",
                 "code_output": null,
                 "passed_test": false
-              }
+            }
         }
     },
     "stringToInteger": {
@@ -1442,31 +1444,31 @@
                 "test_expected": 42,
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_2": {
+            },
+            "Test_2": {
                 "test_input": ["   -42"],
                 "test_expected": -42,
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_3": {
+            },
+            "Test_3": {
                 "test_input": ["4193 with words"],
                 "test_expected": 4193,
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_4": {
+            },
+            "Test_4": {
                 "test_input": ["words and 987"],
                 "test_expected": 0,
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_5": {
+            },
+            "Test_5": {
                 "test_input": ["-91283472332"],
                 "test_expected": -2147483648,
                 "code_output": null,
                 "passed_test": false
-              }
+            }
         }
     },
     "letterCombinations": {
@@ -1510,19 +1512,29 @@
                 "test_expected": [],
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_2": {
+            },
+            "Test_2": {
                 "test_input": ["23"],
-                "test_expected": ["ad","ae","af","bd","be","bf","cd","ce","cf"],
+                "test_expected": [
+                    "ad",
+                    "ae",
+                    "af",
+                    "bd",
+                    "be",
+                    "bf",
+                    "cd",
+                    "ce",
+                    "cf"
+                ],
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_3": {
+            },
+            "Test_3": {
                 "test_input": ["2"],
-                "test_expected": ["a","b","c"],
+                "test_expected": ["a", "b", "c"],
                 "code_output": null,
                 "passed_test": false
-              }
+            }
         }
     },
     "generateParentheses": {
@@ -1563,16 +1575,22 @@
         "testCases": {
             "Test_1": {
                 "test_input": [3],
-                "test_expected": ["((()))","(()())","(())()","()(())","()()()"],
+                "test_expected": [
+                    "((()))",
+                    "(()())",
+                    "(())()",
+                    "()(())",
+                    "()()()"
+                ],
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_2": {
+            },
+            "Test_2": {
                 "test_input": [1],
                 "test_expected": ["()"],
                 "code_output": null,
                 "passed_test": false
-              }
+            }
         }
     },
     "countAndSay": {
@@ -1616,19 +1634,19 @@
                 "test_expected": "1",
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_2": {
+            },
+            "Test_2": {
                 "test_input": [4],
                 "test_expected": "1211",
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_3": {
+            },
+            "Test_3": {
                 "test_input": [6],
                 "test_expected": "312211",
                 "code_output": null,
                 "passed_test": false
-              }
+            }
         }
     },
     "groupAnagrams": {
@@ -1669,16 +1687,20 @@
         "testCases": {
             "Test_1": {
                 "test_input": [["eat", "tea", "tan", "ate", "nat", "bat"]],
-                "test_expected": [["eat","tea","ate"],["tan","nat"],["bat"]],
+                "test_expected": [
+                    ["eat", "tea", "ate"],
+                    ["tan", "nat"],
+                    ["bat"]
+                ],
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_2": {
+            },
+            "Test_2": {
                 "test_input": [[""]],
                 "test_expected": [[""]],
                 "code_output": null,
                 "passed_test": false
-              }
+            }
         }
     },
     "decodeWays": {
@@ -1722,19 +1744,19 @@
                 "test_expected": 2,
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_2": {
+            },
+            "Test_2": {
                 "test_input": ["226"],
                 "test_expected": 3,
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_3": {
+            },
+            "Test_3": {
                 "test_input": ["06"],
                 "test_expected": 0,
                 "code_output": null,
                 "passed_test": false
-              }
+            }
         }
     },
     "palindromePartitioning": {
@@ -1775,16 +1797,19 @@
         "testCases": {
             "Test_1": {
                 "test_input": ["aab"],
-                "test_expected": [["a","a","b"],["aa","b"]],
+                "test_expected": [
+                    ["a", "a", "b"],
+                    ["aa", "b"]
+                ],
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_2": {
-                "test_input":["a"],
+            },
+            "Test_2": {
+                "test_input": ["a"],
                 "test_expected": [["a"]],
                 "code_output": null,
                 "passed_test": false
-              }
+            }
         }
     },
     "rotateMatrix": {
@@ -1824,17 +1849,39 @@
         },
         "testCases": {
             "Test_1": {
-                "test_input": [[[1, 2, 3, 4],   [0, 1, 2, 3],   [0, 0, 1, 2],   [1, 0, 0, 1]]],
-                "test_expected": [[1, 0, 0, 1],   [0, 0, 1, 2],   [0, 1, 2, 3],   [1, 2, 3, 4]],
+                "test_input": [
+                    [
+                        [1, 2, 3, 4],
+                        [0, 1, 2, 3],
+                        [0, 0, 1, 2],
+                        [1, 0, 0, 1]
+                    ]
+                ],
+                "test_expected": [
+                    [1, 0, 0, 1],
+                    [0, 0, 1, 2],
+                    [0, 1, 2, 3],
+                    [1, 2, 3, 4]
+                ],
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_2": {
-                "test_input": [[[1, 2, 3],   [4, 5, 6],   [7, 8, 9]]],
-                "test_expected": [[7, 4, 1],   [8, 5, 2],   [9, 6, 3]],
+            },
+            "Test_2": {
+                "test_input": [
+                    [
+                        [1, 2, 3],
+                        [4, 5, 6],
+                        [7, 8, 9]
+                    ]
+                ],
+                "test_expected": [
+                    [7, 4, 1],
+                    [8, 5, 2],
+                    [9, 6, 3]
+                ],
                 "code_output": null,
                 "passed_test": false
-              }
+            }
         }
     },
     "zeroMatrix": {
@@ -1874,17 +1921,41 @@
         },
         "testCases": {
             "Test_1": {
-                "test_input": [[[1, 2, 3, 4], [0, 1, 2, 3], [0, 5, 1, 2], [1, 3, 0, 1]]],
-                "test_expected": [[0, 2, 0, 4], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]],
+                "test_input": [
+                    [
+                        [1, 2, 3, 4],
+                        [0, 1, 2, 3],
+                        [0, 5, 1, 2],
+                        [1, 3, 0, 1]
+                    ]
+                ],
+                "test_expected": [
+                    [0, 2, 0, 4],
+                    [0, 0, 0, 0],
+                    [0, 0, 0, 0],
+                    [0, 0, 0, 0]
+                ],
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_2": {
-                "test_input": [[[1, 2, 3, 4], [0, 1, 2, 3], [0, 0, 1, 2], [1, 0, 0, 1]]],
-                "test_expected": [[0, 0, 0, 4], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]],
+            },
+            "Test_2": {
+                "test_input": [
+                    [
+                        [1, 2, 3, 4],
+                        [0, 1, 2, 3],
+                        [0, 0, 1, 2],
+                        [1, 0, 0, 1]
+                    ]
+                ],
+                "test_expected": [
+                    [0, 0, 0, 4],
+                    [0, 0, 0, 0],
+                    [0, 0, 0, 0],
+                    [0, 0, 0, 0]
+                ],
                 "code_output": null,
                 "passed_test": false
-              }
+            }
         }
     },
     "searchEntryEqualToItsIndex": {
@@ -1928,25 +1999,25 @@
                 "test_expected": 2,
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_2": {
+            },
+            "Test_2": {
                 "test_input": [[-2, -1, 0, 0, 2, 5, 3]],
                 "test_expected": 5,
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_3": {
+            },
+            "Test_3": {
                 "test_input": [[-10, -5, 0, 3, 7]],
                 "test_expected": 3,
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_4": {
+            },
+            "Test_4": {
                 "test_input": [[-10, -5, 3, 4, 7, 9]],
                 "test_expected": -1,
                 "code_output": null,
                 "passed_test": false
-              }
+            }
         }
     },
     "mergeSortedArray": {
@@ -1990,31 +2061,31 @@
                 "test_expected": [1, 2, 2, 3, 5, 6],
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_2": {
+            },
+            "Test_2": {
                 "test_input": [[1], 1, [], 0],
                 "test_expected": [1],
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_3": {
+            },
+            "Test_3": {
                 "test_input": [[0], 0, [1], 1],
                 "test_expected": [1],
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_4": {
+            },
+            "Test_4": {
                 "test_input": [[2, 5, 6], 3, [1, 2, 3, 0, 0, 0], 3],
                 "test_expected": [1, 2, 2, 3, 5, 6],
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_5": {
+            },
+            "Test_5": {
                 "test_input": [[1, 2, 3, 4, 5], 3, [4, 5, 6, 7, 8], 3],
                 "test_expected": [1, 2, 3, 4, 5, 6],
                 "code_output": null,
                 "passed_test": false
-              }
+            }
         }
     },
     "removeDuplicates": {
@@ -2054,29 +2125,34 @@
         },
         "testCases": {
             "Test_1": {
-                "test_input": [[1,1,2]],
+                "test_input": [[1, 1, 2]],
                 "test_expected": 2,
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_2": {
-                "test_input": [[0,0,1,1,1,2,2,3,3,4]],
+            },
+            "Test_2": {
+                "test_input": [[0, 0, 1, 1, 1, 2, 2, 3, 3, 4]],
                 "test_expected": 5,
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_3": {
-                "test_input": [[0,0,1,1,1,2,2,3,3,4, 5, 2, 2, 5, 6]],
+            },
+            "Test_3": {
+                "test_input": [[0, 0, 1, 1, 1, 2, 2, 3, 3, 4, 5, 2, 2, 5, 6]],
                 "test_expected": 7,
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_4": {
-                "test_input": [[1,2,3,1,4,6,2,2,5,6,1,8,9,8,11,12,13,14,15,16]],
+            },
+            "Test_4": {
+                "test_input": [
+                    [
+                        1, 2, 3, 1, 4, 6, 2, 2, 5, 6, 1, 8, 9, 8, 11, 12, 13,
+                        14, 15, 16
+                    ]
+                ],
                 "test_expected": 14,
                 "code_output": null,
                 "passed_test": false
-              }
+            }
         }
     },
     "countingFrequenciesOfArray": {
@@ -2117,22 +2193,22 @@
         "testCases": {
             "Test_1": {
                 "test_input": [[10, 20, 20, 10, 10, 20, 5, 20], 8],
-                "test_expected": {"10": 3, "20": 4, "5": 1},
+                "test_expected": { "10": 3, "20": 4, "5": 1 },
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_2": {
+            },
+            "Test_2": {
                 "test_input": [[10, 20, 20], 3],
-                "test_expected": {"10": 1, "20": 2},
+                "test_expected": { "10": 1, "20": 2 },
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_3": {
+            },
+            "Test_3": {
                 "test_input": [[10, 20, 20], 3],
-                "test_expected": {"10": 1, "20": 2},
+                "test_expected": { "10": 1, "20": 2 },
                 "code_output": null,
                 "passed_test": false
-              }
+            }
         }
     },
     "twoSum": {
@@ -2172,23 +2248,23 @@
         },
         "testCases": {
             "Test_1": {
-                "test_input": [[2,7,11,15], 9],
+                "test_input": [[2, 7, 11, 15], 9],
                 "test_expected": [0, 1],
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_2": {
-                "test_input": [[3,2,4], 6],
+            },
+            "Test_2": {
+                "test_input": [[3, 2, 4], 6],
                 "test_expected": [1, 2],
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_3": {
-                "test_input": [[3,3], 6],
+            },
+            "Test_3": {
+                "test_input": [[3, 3], 6],
                 "test_expected": [0, 1],
                 "code_output": null,
                 "passed_test": false
-              }
+            }
         }
     },
     "singleNumber": {
@@ -2228,35 +2304,35 @@
         },
         "testCases": {
             "Test_1": {
-                "test_input": [[2,2,1]],
+                "test_input": [[2, 2, 1]],
                 "test_expected": 1,
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_2": {
-                "test_input": [[4,1,2,1,2]],
+            },
+            "Test_2": {
+                "test_input": [[4, 1, 2, 1, 2]],
                 "test_expected": 4,
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_3": {
+            },
+            "Test_3": {
                 "test_input": [[1]],
                 "test_expected": 1,
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_4": {
-                "test_input": [[1,1,3,4,5,3,4,8,8]],
+            },
+            "Test_4": {
+                "test_input": [[1, 1, 3, 4, 5, 3, 4, 8, 8]],
                 "test_expected": 5,
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_5": {
-                "test_input": [[1,1,2,2,3,3]],
+            },
+            "Test_5": {
+                "test_input": [[1, 1, 2, 2, 3, 3]],
                 "test_expected": -1,
                 "code_output": null,
                 "passed_test": false
-              }
+            }
         }
     },
     "thirdMaximumNumber": {
@@ -2296,29 +2372,29 @@
         },
         "testCases": {
             "Test_1": {
-                "test_input": [[3,2,1]],
+                "test_input": [[3, 2, 1]],
                 "test_expected": 1,
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_2": {
-                "test_input": [[1,2]],
+            },
+            "Test_2": {
+                "test_input": [[1, 2]],
                 "test_expected": 2,
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_3": {
-                "test_input": [[2,2,3,1]],
+            },
+            "Test_3": {
+                "test_input": [[2, 2, 3, 1]],
                 "test_expected": 1,
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_4": {
+            },
+            "Test_4": {
                 "test_input": [[1, 14, 2, 16, 10, 20]],
                 "test_expected": 14,
                 "code_output": null,
                 "passed_test": false
-              }
+            }
         }
     },
     "repitedNumbers": {
@@ -2358,29 +2434,41 @@
         },
         "testCases": {
             "Test_1": {
-                "test_input": [[4,2,1,6], [3,6,9,2,10]],
-                "test_expected": [2,6],
+                "test_input": [
+                    [4, 2, 1, 6],
+                    [3, 6, 9, 2, 10]
+                ],
+                "test_expected": [2, 6],
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_2": {
-                "test_input": [[2,4,6], [4,2]],
-                "test_expected": [2,4],
+            },
+            "Test_2": {
+                "test_input": [
+                    [2, 4, 6],
+                    [4, 2]
+                ],
+                "test_expected": [2, 4],
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_3": {
-                "test_input": [[4,2,1], [1,2,4,6]],
-                "test_expected": [1,2,4],
+            },
+            "Test_3": {
+                "test_input": [
+                    [4, 2, 1],
+                    [1, 2, 4, 6]
+                ],
+                "test_expected": [1, 2, 4],
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_4": {
-                "test_input": [[0,1,2], [10,11]],
+            },
+            "Test_4": {
+                "test_input": [
+                    [0, 1, 2],
+                    [10, 11]
+                ],
                 "test_expected": [],
                 "code_output": null,
                 "passed_test": false
-              }
+            }
         }
     },
     "fiveSort": {
@@ -2421,34 +2509,34 @@
         "testCases": {
             "Test_1": {
                 "test_input": [[12, 5, 1, 5, 12, 7]],
-                "test_expected": [12, 7, 1, 12, 5, 5] ,
+                "test_expected": [12, 7, 1, 12, 5, 5],
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_2": {
+            },
+            "Test_2": {
                 "test_input": [[5, 2, 5, 6, 5, 1, 10, 2, 5, 5]],
                 "test_expected": [2, 2, 10, 6, 1, 5, 5, 5, 5, 5],
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_3": {
+            },
+            "Test_3": {
                 "test_input": [[5, 5, 5, 1, 1, 1, 4]],
-                "test_expected": [4, 1, 1, 1, 5, 5, 5] ,
+                "test_expected": [4, 1, 1, 1, 5, 5, 5],
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_2": {
+            },
+            "Test_2": {
                 "test_input": [[5, 5, 6, 5, 5, 5, 5]],
-                "test_expected": [6, 5, 5, 5, 5, 5, 5] ,
+                "test_expected": [6, 5, 5, 5, 5, 5, 5],
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_3": {
+            },
+            "Test_3": {
                 "test_input": [[5, 1, 2, 5, 5, 3, 2, 5, 1, 5, 5, 5, 4, 5]],
                 "test_expected": [4, 1, 2, 1, 2, 3, 5, 5, 5, 5, 5, 5, 5, 5],
                 "code_output": null,
                 "passed_test": false
-              }
+            }
         }
     },
     "sortByName": {
@@ -2489,46 +2577,46 @@
         "testCases": {
             "Test_1": {
                 "test_input": [
-                  [
-                    "Beck, Glenn",
-                    "Adam, Carl",
-                    "Adam, Samuel",
-                    "Wally, Mick",
-                    "Beck, Henry"
-                  ]
+                    [
+                        "Beck, Glenn",
+                        "Adam, Carl",
+                        "Adam, Samuel",
+                        "Wally, Mick",
+                        "Beck, Henry"
+                    ]
                 ],
                 "test_expected": [
-                  "Becker, Carl",
-                  "Beck, Glenn",
-                  "Beecher, Henry",
-                  "Beethoven, Ludwig",
-                  "Begin, Menachem",
-                  "Beddoes, Mick",
-                  "Beckett, Samuel"
+                    "Becker, Carl",
+                    "Beck, Glenn",
+                    "Beecher, Henry",
+                    "Beethoven, Ludwig",
+                    "Begin, Menachem",
+                    "Beddoes, Mick",
+                    "Beckett, Samuel"
                 ],
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_2": {
+            },
+            "Test_2": {
                 "test_input": [
-                  [
-                    "Beck, Glenn",
-                    "Adam, Carl",
-                    "Adam, Samuel",
-                    "Wally, Mick",
-                    "Beck, Henry"
-                  ]
+                    [
+                        "Beck, Glenn",
+                        "Adam, Carl",
+                        "Adam, Samuel",
+                        "Wally, Mick",
+                        "Beck, Henry"
+                    ]
                 ],
                 "test_expected": [
-                  "Adam, Carl",
-                  "Adam, Samuel",
-                  "Beck, Glenn",
-                  "Beck, Henry",
-                  "Wally, Mick"
+                    "Adam, Carl",
+                    "Adam, Samuel",
+                    "Beck, Glenn",
+                    "Beck, Henry",
+                    "Wally, Mick"
                 ],
                 "code_output": null,
                 "passed_test": false
-              }
+            }
         }
     },
     "MaxSumConsecutiveElements": {
@@ -2572,19 +2660,19 @@
                 "test_expected": 9,
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_2": {
+            },
+            "Test_2": {
                 "test_input": [[1, 3, 2, 5, 9, 3, 12, 0, 1]],
                 "test_expected": 24,
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_3": {
+            },
+            "Test_3": {
                 "test_input": [[90, 3, 2, 5, 9, 3, 12, 0, 1]],
                 "test_expected": 95,
                 "code_output": null,
                 "passed_test": false
-              }
+            }
         }
     },
     "insertAtAllPositions": {
@@ -2626,25 +2714,25 @@
             "Test_1": {
                 "test_input": [[1, 2, 3], 4],
                 "test_expected": [
-                  [4, 1, 2, 3],
-                  [1, 4, 2, 3],
-                  [1, 2, 4, 3],
-                  [1, 2, 3, 4]
+                    [4, 1, 2, 3],
+                    [1, 4, 2, 3],
+                    [1, 2, 4, 3],
+                    [1, 2, 3, 4]
                 ],
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_2": {
+            },
+            "Test_2": {
                 "test_input": [["a", "b", "c"], "d"],
                 "test_expected": [
-                  ["d", "a", "b", "c"],
-                  ["a", "d", "b", "c"],
-                  ["a", "b", "d", "c"],
-                  ["a", "b", "c", "d"]
+                    ["d", "a", "b", "c"],
+                    ["a", "d", "b", "c"],
+                    ["a", "b", "d", "c"],
+                    ["a", "b", "c", "d"]
                 ],
                 "code_output": null,
                 "passed_test": false
-              }
+            }
         }
     },
     "binarySearch": {
@@ -2684,23 +2772,23 @@
         },
         "testCases": {
             "Test_1": {
-                "test_input": [[-1,0,3,5,9,12], 9],
+                "test_input": [[-1, 0, 3, 5, 9, 12], 9],
                 "test_expected": 4,
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_2": {
-                "test_input": [[-1,0,3,5,9,12], 2],
+            },
+            "Test_2": {
+                "test_input": [[-1, 0, 3, 5, 9, 12], 2],
                 "test_expected": -1,
                 "code_output": null,
                 "passed_test": false
-              },
-              "Test_3": {
+            },
+            "Test_3": {
                 "test_input": [[1, 3, 5, 7, 8, 9], 5],
                 "test_expected": 2,
                 "code_output": null,
                 "passed_test": false
-              }
+            }
         }
     },
     "rotateArray": {
@@ -2740,14 +2828,347 @@
         },
         "testCases": {
             "Test_1": {
-                "test_input": [[1,2,3,4,5,6,7], 3],
-                "test_expected": [5,6,7,1,2,3,4],
+                "test_input": [[1, 2, 3, 4, 5, 6, 7], 3],
+                "test_expected": [5, 6, 7, 1, 2, 3, 4],
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_2": {
+                "test_input": [[-1, -100, 3, 99], 2],
+                "test_expected": [3, 99, -1, -100],
+                "code_output": null,
+                "passed_test": false
+            }
+        }
+    },
+    "productOfArrayExceptSelf": {
+        "refName": "productOfArrayExceptSelf",
+        "refNumber": 46,
+        "category": "Array",
+        "dificulty": "Medium",
+        "title": "Product Of Array Except Self",
+        "tags": ["Medium", "Array"],
+        "description": "<p>Given an integer array nums, return an array answer such that answer[i] is equal to the product of all the elements of nums except nums[i].</p><p>The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit integer.</p><p>You must write an algorithm that runs in O(n) time and without using the division operation.</p>",
+        "examples": {
+            "example1": {
+                "input": "nums = [1,2,3,4]",
+                "output": "[24,12,8,6]"
+            },
+            "example2": {
+                "input": "nums = [-1,1,0,-3,3]",
+                "output": "[0,0,9,0,0]"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function productOfArrayExceptSelf(nums) {\n    // Write your solution...\n    return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "function productOfArrayExceptSelf(nums) {\n    let res = [];\n    let left = 1;\n    let right = 1;\n    for (let i = 0; i < nums.length; i++) {\n        res[i] = left;\n        left = left * nums[i];\n    }\n    for (let i = nums.length - 1; i >= 0; i--) {\n        res[i] = right * res[i];\n        right = right * nums[i];\n    }\n    return res;\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": [[1, 2, 3, 4]],
+                "test_expected": [24, 12, 8, 6],
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_2": {
+                "test_input": [[-1, 1, 0, -3, 3]],
+                "test_expected": [0, 0, 9, 0, 0],
+                "code_output": null,
+                "passed_test": false
+            }
+        }
+    },
+    "threeSum": {
+        "refName": "threeSum",
+        "refNumber": 47,
+        "category": "Array",
+        "dificulty": "Medium",
+        "title": "Three Sum",
+        "tags": ["Medium", "Array"],
+        "description": "<p>Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]] such that i != j, i != k, and j != k, and nums[i] + nums[j] + nums[k] == 0.</p><p>Notice that the solution set must not contain duplicate triplets.</p>",
+        "examples": {
+            "example1": {
+                "input": "nums = [-1,0,1,2,-1,-4]",
+                "output": "[[-1,-1,2],[-1,0,1]]"
+            },
+            "example2": {
+                "input": "nums = []",
+                "output": "[]"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function threeSum (nums) {\n    // Write your solution...\n    return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "function threeSum (nums) {\n    var len = nums.length;\n    var res = [];\n    var l = 0;\n    var r = 0;\n    nums.sort((a, b) => (a - b));\n    for (var i = 0; i < len; i++) {\n        if (i > 0 && nums[i] === nums[i - 1]) continue;\n        l = i + 1;\n        r = len - 1;\n        while (l < r) {\n            if (nums[i] + nums[l] + nums[r] < 0) {\n                l++;\n            } else if (nums[i] + nums[l] + nums[r] > 0) {\n                r--;\n            } else {\n                res.push([nums[i], nums[l], nums[r]]);\n                while (l < r && nums[l] === nums[l + 1]) l++;\n                while (l < r && nums[r] === nums[r - 1]) r--;\n                l++;\n                r--;\n            }\n        }\n    }\n    return res;\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": [[-1, 0, 1, 2, -1, -4]],
+                "test_expected": [
+                    [-1, -1, 2],
+                    [-1, 0, 1]
+                ],
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_2": {
+                "test_input": [[]],
+                "test_expected": [],
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_3": {
+                "test_input": [[0]],
+                "test_expected": [],
+                "code_output": null,
+                "passed_test": false
+            }
+        }
+    },
+    "containerWithMostWater": {
+        "refName": "containerWithMostWater",
+        "refNumber": 48,
+        "category": "Array",
+        "dificulty": "Medium",
+        "title": "Container With Most Water",
+        "tags": ["Medium", "Array"],
+        "description": "<p>Given n non-negative integers a1, a2, …, an, where each represents a point at coordinate (i, ai). n vertical lines are drawn such that the two endpoints of line i is at (i, ai) and (i, 0). Find two lines, which together with x-axis forms a container, such that the container contains the most water.</p><p>Note: You may not slant the container and n is at least 2.</p>",
+        "examples": {
+            "example1": {
+                "input": "height = [1,8,6,2,5,4,8,3,7]",
+                "output": "49\nExplanation: The above vertical lines are represented by array [1,8,6,2,5,4,8,3,7]. In this case, the max area of water (blue section) the container can contain is 49."
+            },
+            "example2": {
+                "input": "Input: height = [1,1]",
+                "output": "1"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function containerWithMostWater(height) {\n    // Write your solution...\n    return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// Time complexity : O(n).\n// Space complexity : O(1).\nfunction containerWithMostWater(height) {\n  var max = 0;\n  var l = 0;\n  var r = height.length - 1;\n  while (l < r) {\n    max = Math.max(max, Math.min(height[l], height[r]) * (r - l));\n    if (height[l] < height[r]) {\n      l++;\n    } else {\n      r--;\n    }\n  }\n  return max;\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": [[1, 8, 6, 2, 5, 4, 8, 3, 7]],
+                "test_expected": 49,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_2": {
+                "test_input": [[1, 1]],
+                "test_expected": 1,
+                "code_output": null,
+                "passed_test": false
+            }
+        }
+    },
+    "findSmallestDifference": {
+        "refName": "findSmallestDifference",
+        "refNumber": 49,
+        "category": "Array",
+        "dificulty": "Medium",
+        "title": "Find Smallest Difference",
+        "tags": ["Medium", "Array"],
+        "description": "<p>Given two arrays of integers, compute the pair of values (one value in each array) with the smallest (non-negative) difference.</p><p>Return the difference.</p>",
+        "examples": {
+            "example1": {
+                "input": "arr1 = [l, 3, 15, 11, 2];\narr2 = [23, 127, 235, 19, 8]",
+                "output": "3"
+            },
+            "example2": {
+                "input": "arr1 = [1, 2, 11, 5];\narr2B = [4, 12, 19, 23, 127, 235]",
+                "output": "1"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function findSmallestDifference(A, B) {\n    // Write your solution...\n    return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "function findSmallestDifference(A, B) {\n    A.sort((a, b) => a - b);\n    B.sort((a, b) => a - b);\n    let a = 0, b = 0;\n    let result = Number.MAX_SAFE_INTEGER;\n    while (a < A.length && b < B.length) {\n        if (Math.abs(A[a] - B[b]) < result) {\n            result = Math.abs(A[a] - B[b]);\n        }\n        A[a] < B[b] ? a++ : b++;\n    }\n    return result;\n}"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": [
+                    [1, 2, 11, 5],
+                    [4, 12, 19, 23, 127, 235]
+                ],
+                "test_expected": 1,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_2": {
+                "test_input": [
+                    [1, 3, 15, 11, 2],
+                    [23, 127, 235, 19, 8]
+                ],
+                "test_expected": 3,
+                "code_output": null,
+                "passed_test": false
+            }
+        }
+    },
+    "spiralMatrix": {
+        "refName": "spiralMatrix",
+        "refNumber": 50,
+        "category": "Array",
+        "dificulty": "Medium",
+        "title": "Spiral Matrix",
+        "tags": ["Medium", "Array"],
+        "description": "<p>Given a matrix of m x n elements (m rows, n columns), return all elements of the matrix in spiral order.</p>",
+        "examples": {
+            "example1": {
+                "input": "Input: [  [ 1, 2, 3 ],  [ 4, 5, 6 ],  [ 7, 8, 9 ] ]",
+                "output": "Output: [1,2,3,6,9,8,7,4,5]"
+            },
+            "example2": {
+                "input": "Input: [   [1, 2, 3, 4],   [5, 6, 7, 8],   [9,10,11,12] ]",
+                "output": "Output: [1,2,3,4,8,12,11,10,9,5,6,7]"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function spiralMatrix(matrix) {\n    // Write your solution...\n    return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "function spiralMatrix(matrix) {\n  var n = matrix.length;\n  var m = (matrix[0] || []).length;\n  var res = [];\n  var x1 = 0;\n  var x2 = m - 1;\n  var y1 = 0;\n  var y2 = n - 1;\n  while (x1 <= x2 && y1 <= y2) {\n    for (var x = x1; x <= x2; x++) res.push(matrix[y1][x]);\n    for (var y = y1 + 1; y <= y2; y++) res.push(matrix[y][x2]);\n    if (x1 < x2 && y1 < y2) {\n      for (var x = x2 - 1; x > x1; x--) res.push(matrix[y2][x]);\n      for (var y = y2; y > y1; y--) res.push(matrix[y][x1]);\n    }\n    x1++;\n    x2--;\n    y1++;\n    y2--;\n  }\n  return res;\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": [
+                    [
+                        [1, 2, 3],
+                        [4, 5, 6],
+                        [7, 8, 9]
+                    ]
+                ],
+                "test_expected": [1, 2, 3, 6, 9, 8, 7, 4, 5],
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_2": {
+                "test_input": [
+                    [
+                        [1, 2, 3, 4],
+                        [5, 6, 7, 8],
+                        [9, 10, 11, 12]
+                    ]
+                ],
+                "test_expected": [1, 2, 3, 4, 8, 12, 11, 10, 9, 5, 6, 7],
+                "code_output": null,
+                "passed_test": false
+            }
+        }
+    },
+    "searchForRange": {
+        "refName": "searchForRange",
+        "refNumber": 51,
+        "category": "Array",
+        "dificulty": "Medium",
+        "title": "Search For Range",
+        "tags": ["Medium", "Array"],
+        "description": "<p>Given an array of integers nums sorted in non-decreasing order, find the starting and ending position of a given target value.</p><p>If target is not found in the array, return [-1, -1].</p><p>You must write an algorithm with O(log n) runtime complexity.</p>",
+        "examples": {
+            "example1": {
+                "input": "nums = [5,7,7,8,8,10]\ntarget = 8",
+                "output": "[3,4]"
+            },
+            "example2": {
+                "input": "nums = [5,7,7,8,8,10]\ntarget = 6",
+                "output": "[-1,-1]"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function searchForRange(nums, target) {\n    // Write your solution...\n    return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "function searchForRange(nums, target) {\n  var res = [-1, -1];\n  var left = find(nums, target, true);\n  var right = find(nums, target, false);\n  if (!nums.length) return res;\n  if (left > right) return res;\n  return [left, right];\n};\nvar find = function (nums, target, findLeft) {\n  var left = 0;\n  var right = nums.length - 1;\n  var mid = 0;\n  while (left <= right) {\n    mid = Math.floor((left + right) / 2);\n    if (nums[mid] > target || (findLeft && nums[mid] === target)) {\n      right = mid - 1;\n    } else {\n      left = mid + 1;\n    }\n  }\n  return findLeft ? left : right;\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": [[5,7,7,8,8,10], 8],
+                "test_expected": [3, 4],
                 "code_output": null,
                 "passed_test": false
               },
               "Test_2": {
-                "test_input": [[-1,-100,3,99], 2],
-                "test_expected": [3,99,-1,-100],
+                "test_input": [[5,7,7,8,8,10], 6],
+                "test_expected": [-1,-1],
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_3": {
+                "test_input": [[], 0],
+                "test_expected": [-1,-1],
                 "code_output": null,
                 "passed_test": false
               }
