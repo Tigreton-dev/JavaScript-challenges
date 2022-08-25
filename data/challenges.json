@@ -3698,5 +3698,61 @@
                 "passed_test": false
               }
         }
+    },
+    "animalShelter": {
+        "refName": "animalShelter",
+        "refNumber": 60,
+        "category": "Stacks & Queues",
+        "dificulty": "Easy",
+        "title": "Animal Shelter",
+        "tags": ["Easy", "Stacks & Queues"],
+        "description": "<p>An animal shelter, which holds only dogs and cats, operates on a strictly 'first in, first out' basis.</p><p>People must adopt either the 'oldest' (based on arrival time) of all animals at the shelter, or they can select whether they would prefer a dog or a cat (and will receive the oldest animal of that type).</p><p>They cannot select which specific animal they would like. Create the data structures to maintain this system and implement operations such as enqueue, dequeueAny, dequeueDog, and dequeueCat. You may use the built-in Linked list data structure.</p>",
+        "examples": {
+            "example1": {
+                "input": "str1 = 'geeks'\nstr2 = 'geek'",
+                "output": "true"
+            },
+            "example2": {
+                "input": "str1 = 'peaks'\nstr2 = 'geeks'",
+                "output": "false"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "class AnimalShelter {\n  // Write your solution...\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "class AnimalShelter  {\n    constructor() {\n        this.dogs = [];\n        this.cats = [];\n        this._id = 0;\n    }\n    enqueueCat(value) {\n        this.cats.push({\n            name: value,\n            id: ++this._id,\n        })\n    }\n    encueueDog(value) {\n        this.dogs.push({\n            name: value,\n            id: ++this._id,\n        })\n    }\n    dequeue() {\n        const idDog = this.dogs.length > 0 ? this.dogs[0].id : Number.POSITIVE_INFINITY;\n        const idCat = this.cats.length > 0 ? this.cats[0].id : Number.POSITIVE_INFINITY;\n        if (idDog !== undefined && idCat !== undefined) {\n            return idCat < idDog ? this.cats.shift().name : this.dogs.shift().name\n        }\n    }\n    dequeueDog() {\n        return this.dogs.shift().name;\n    }\n    dequeueCat() {\n        return this.cats.shift().name;\n    }\n}"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": ["geeks", "geek"],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": ["book", "books"],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_3": {
+                "test_input": ["demon", "dem"],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+              }
+        }
     }
 }
