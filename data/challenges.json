@@ -3846,5 +3846,97 @@
                 "passed_test": false
               }
         }
+    },
+    "befittingBrackets": {
+        "refName": "befittingBrackets",
+        "refNumber": 62,
+        "category": "Stacks & Queues",
+        "dificulty": "Easy",
+        "title": "Befitting Brackets",
+        "tags": ["Easy", "Stacks & Queues"],
+        "description": "<p>Write a function, befittingBrackets, that takes in a string as an argument. The function should return a boolean indicating whether or not the string contains correctly matched brackets.</p><p>You may assume the string contains only characters: ( ) [ ]</p>",
+        "examples": {
+            "example1": {
+                "input": "input = '(){}'",
+                "output": "true"
+            },
+            "example2": {
+                "input": "input = '[][}'",
+                "output": "false"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function befittingBrackets(str) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// n = length of string\n// Time: O(n)\n// Space: O(n)\nfunction befittingBrackets(str) {\n  const stack = [];\n  \n  const brackets = {\n    '(': ')',\n    '[': ']',\n    '{': '}'\n  };\n  \n  for (let char of str) {\n    if (char in brackets) {\n      stack.push(brackets[char]);\n    } else {\n      if (stack.length > 0 && stack[stack.length - 1] === char) {\n        stack.pop();\n      } else {\n        return false;\n      }\n    }\n  }\n  \n  return stack.length === 0;\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": ["(){}[](())"],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": ["({[]})"],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_3": {
+                "test_input": ["[][}"],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_4": {
+                "test_input": ["{[]}({}"],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_5": {
+                "test_input": ["[]{}(}[]"],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_6": {
+                "test_input": ["[]{}()[]"],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_7": {
+                "test_input": ["]{}"],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_8": {
+                "test_input": [""],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_9": {
+                "test_input": ["{[(}])"],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+              }
+        }
     }
 }
