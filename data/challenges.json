@@ -4024,5 +4024,91 @@
                 "passed_test": false
               }
         }
+    },
+    "nestingScore": {
+        "refName": "nestingScore",
+        "refNumber": 64,
+        "category": "Stacks & Queues",
+        "dificulty": "Easy",
+        "title": "Nesting Score",
+        "tags": ["Easy", "Stacks & Queues"],
+        "description": "<p>Write a function, nestingScore, that takes in a string of brackets as an argument. The function should return the score of the string according to the following rules:</p><ul><li>[] is worth 1 point</li><li>XY is worth m + n points where X, Y are substrings of well-formed brackets and m, n are their respective scores</li><li>[S] is worth 2 * k points where S is a substring of well-formed brackets and k is the score of that substring</li></ul><p>You may assume that the input only contains well-formed square brackets.</p>",
+        "examples": {
+            "example1": {
+                "input": "input = '[]'",
+                "output": "1"
+            },
+            "example2": {
+                "input": "input = '[][][]'",
+                "output": "3"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function nestingScore(str) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// n = length of string\n// Time: O(n)\n// Space: O(n)\nfunction nestingScore(str) {\n  const stack = [0];\n  for (let char of str) {\n    if (char === '[') {\n      stack.push(0);\n    } else {\n      const popped = stack.pop();\n      if (popped === 0) {\n        stack[stack.length - 1] += 1;\n      } else {\n        stack[stack.length - 1] += 2 * popped;\n      }\n    }\n  }\n  \n  return stack[0];\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": ["[]"],
+                "test_expected": 1,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": ["[][][]"],
+                "test_expected": 3,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_3": {
+                "test_input": ["[[]]"],
+                "test_expected": 2,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_4": {
+                "test_input": ["[[][]]"],
+                "test_expected": 4,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_5": {
+                "test_input": ["[[][][]]"],
+                "test_expected": 6,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_6": {
+                "test_input": ["[[][]][]"],
+                "test_expected": 5,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_7": {
+                "test_input": ["[][[][]][[]]"],
+                "test_expected": 7,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_8": {
+                "test_input": ["[[[[[[[][]]]]]]][]"],
+                "test_expected": 129,
+                "code_output": null,
+                "passed_test": false
+              }
+        }
     }
 }
