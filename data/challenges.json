@@ -3471,5 +3471,61 @@
                 "passed_test": false
               }
         }
+    },
+    "threeInOne": {
+        "refName": "threeInOne",
+        "refNumber": 56,
+        "category": "Linked List",
+        "dificulty": "Easy",
+        "title": "Three In One",
+        "tags": ["Easy", "Linked List"],
+        "description": "<p>ThreeInOne is a data structure that holds 3 stacks in one array.</p><p>Write a class ThreeInOne that mimics three stacks. You can only use a single array as the underlying data structure.</p>",
+        "examples": {
+            "example1": {
+                "input": "",
+                "output": ""
+            },
+            "example2": {
+                "input": "",
+                "output": ""
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "class ThreeInOne {\n    // Write your solution...\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "class ThreeInOne {\n    constructor() {\n        this._array = [];\n        this.length = [0, 0, 0];\n    }\n    push(stack, value) {\n        let index = 0;\n        for (let i = 0; i < stack - 1; i++) {\n            index += this.length[i];\n        }\n        this._array.splice(index, 0, value);\n        ++this.length[stack - 1];\n    }\n    pop(stack) {\n        let index = 0;\n        for (let i = 0; i < stack - 1; i++) {\n            index += this.length[i];\n        }\n        this._array.splice(index, 1);\n        --this.length[stack - 1];\n    }\n    peek(stack) {\n        let index = 0;\n        for (let i = 0; i < stack - 1; i++) {\n            index += this.length[i];\n        }\n        return this._array[index];\n    }\n    isEmpty(stack) {\n        return this.length[stack - 1] === 0;\n    }\n    getStack() {\n        return this._array;\n    }\n}"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": ["geeks", "geek"],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": ["book", "books"],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_3": {
+                "test_input": ["demon", "dem"],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+              }
+        }
     }
 }
