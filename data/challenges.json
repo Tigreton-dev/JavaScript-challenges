@@ -3279,5 +3279,61 @@
                 "passed_test": false
               }
         }
+    },
+    "productExceptSelf": {
+        "refName": "productExceptSelf",
+        "refNumber": 54,
+        "category": "Array",
+        "dificulty": "Medium",
+        "title": "Product Except Self",
+        "tags": ["Medium", "Array"],
+        "description": "<p>Given an array nums of n integers where n > 1, return an array output such that output[i] is equal to the product of all the elements of nums except nums[i].</p>",
+        "examples": {
+            "example1": {
+                "input": "input = [1,2,3,4]",
+                "output": "Output = [24,12,8,6]"
+            },
+            "example2": {
+                "input": "input = [1,2,3,4]",
+                "output": "Output = [24,12,8,6]"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function productExceptSelf(nums) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// Solution 1\n// Time complexity : O(n).\n// Space complexity : O(n).\nfunction productExceptSelf(nums) {\n  var len = nums.length;\n  var left = Array(len + 1);\n  var right = Array(len + 1);\n  var res = Array(len);\n  left[0] = 1;\n  right[0] = 1;\n  for (var i = 0; i < len; i++) {\n    left[i + 1] = left[i] * nums[i];\n  }\n  for (var j = 0; j < len; j++) {\n    right[j + 1] = right[j] * nums[len - 1 - j];\n  }\n  for (var k = 0; k < len; k++) {\n    res[k] = left[k] * right[len - k - 1];\n  }\n  return res;\n};\n// Solution 2\n// Time complexity : O(n).\n// Space complexity : O(1).\nfunction productExceptSelf(nums) {\n  var len = nums.length;\n  var res = Array(len);\n  var right = 1;\n  res[0] = 1;\n  for (var i = 1; i < len; i++) {\n    res[i] = res[i - 1] * nums[i - 1];\n  }\n  for (var j = len - 1; j >= 0; j--) {\n    res[j] *= right;\n    right *= nums[j];\n  }\n  return res;\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": [[1,2,3,4]],
+                "test_expected": [24,12,8,6],
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": [[1]],
+                "test_expected": [1],
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_3": {
+                "test_input": [[2,2,8,8]],
+                "test_expected": [128,128,32,32],
+                "code_output": null,
+                "passed_test": false
+              }
+        }
     }
 }
