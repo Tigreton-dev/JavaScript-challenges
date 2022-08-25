@@ -47,6 +47,16 @@ export default function App() {
 		document.body.appendChild(oScript)
 	}
 
+	const createTestScript = (value:string) => {
+		const scriptElement = document.getElementById('testScript')
+		if (scriptElement !== null) document.body.removeChild(scriptElement)
+		const oScript = document.createElement('script')
+		const oScriptText = document.createTextNode(value)
+		oScript.id = 'testScript'
+		oScript.appendChild(oScriptText)
+		document.body.appendChild(oScript)
+	}
+
 	const run_tests = () => {
 		createScript()
 		const testCases = currentProblem.testCases
@@ -54,19 +64,23 @@ export default function App() {
 		const updateCurrentProblem = JSON.parse(JSON.stringify(currentProblem))
 		for (let testCase in testCases) {
 			console.log("---------- Test Case " + testCase + " ----------")
-			const parameters = JSON.parse(
-				JSON.stringify(testCases[testCase].test_input),
-			)
-			try {
-				if (window[functionName] !== undefined) {
-					updateCurrentProblem.testCases[testCase].code_output = window[functionName](...parameters)
-				} else {
-					console.error(`TypeError: window.${functionName} is undefined`)
+			if (updateCurrentProblem.testCases[testCase].functionTest) {
+				createTestScript(updateCurrentProblem.testCases[testCase].test_input)
+				updateCurrentProblem.testCases[testCase].code_output = window.test_input()
+			} else {
+				const parameters = JSON.parse(JSON.stringify(testCases[testCase].test_input))
+				try {
+					if (window[functionName] !== undefined) {
+						updateCurrentProblem.testCases[testCase].code_output = window[functionName](...parameters)
+					} else {
+						console.error(`TypeError: window.${functionName} is undefined`)
+					}
+						
+				} catch (err) {
+					console.error(err)
 				}
-					
-			} catch (err) {
-				console.error(err)
 			}
+			
 			
 			JSON.stringify(testCases[testCase].test_expected) ===
 				JSON.stringify(updateCurrentProblem.testCases[testCase].code_output)

@@ -3475,10 +3475,10 @@
     "threeInOne": {
         "refName": "threeInOne",
         "refNumber": 56,
-        "category": "Linked List",
+        "category": "Stacks & Queues",
         "dificulty": "Easy",
         "title": "Three In One",
-        "tags": ["Easy", "Linked List"],
+        "tags": ["Easy", "Stacks & Queues"],
         "description": "<p>ThreeInOne is a data structure that holds 3 stacks in one array.</p><p>Write a class ThreeInOne that mimics three stacks. You can only use a single array as the underlying data structure.</p>",
         "examples": {
             "example1": {
@@ -3525,6 +3525,65 @@
                 "test_expected": false,
                 "code_output": null,
                 "passed_test": false
+              }
+        }
+    },
+    "stackMin": {
+        "refName": "stackMin",
+        "refNumber": 57,
+        "category": "Stacks & Queues",
+        "dificulty": "Easy",
+        "title": "Stack Min",
+        "tags": ["Easy", "Stacks & Queues"],
+        "description": "<p>How would you design a stack which, in addition to push and pop, has a function min which returns the minimum element?</p><p>Push, pop and min should all operate in 0(1) time.</p>",
+        "examples": {
+            "example1": {
+                "input": "",
+                "output": ""
+            },
+            "example2": {
+                "input": "",
+                "output": ""
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "class StackMin {\n    // Write your solution...\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "class StackMin {\n    constructor() {\n        this.stack = [];\n    }\n    push(value) {\n        this.stack.push({\n            value: value,\n            minVal: this.isEmpty() ? value : Math.min(this.minVal(), value),\n        });\n    }\n    pop() {\n        if (this.isEmpty()) return;\n        const item = this.stack.pop();\n        return item.value;\n    }\n    peek() {\n        if (this.isEmpty()) return;\n        return this.stack[this._stack.length - 1].value;\n    }\n    minVal() {\n        if (this.isEmpty()) return;\n        return this.stack[this.stack.length - 1].minVal;\n    }\n    isEmpty() {\n        return this.stack.length === 0;\n    }\n    getVal() {\n        return this.stack\n    }\n}"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": "function test_input() { const stack = new StackMin(); stack.push(8); stack.push(21); stack.push(3); stack.push(12); const minVal = stack.minVal(); return minVal;}",
+                "test_expected": 3,
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              },
+              "Test_2": {
+                "test_input": "function test_input() { const stack = new StackMin(); stack.push(5); stack.push(21); stack.push(4); stack.push(1); stack.pop(); const minVal = stack.minVal(); return minVal;}",
+                "test_expected": 4,
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              },
+              "Test_3": {
+                "test_input": "function test_input() { const stack = new StackMin(); stack.push(1); stack.push(21); stack.push(4); stack.push(2); stack.pop(); const minVal = stack.minVal(); return minVal;}",
+                "test_expected": 1,
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
               }
         }
     }
