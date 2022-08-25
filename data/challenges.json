@@ -3754,5 +3754,97 @@
                 "passed_test": false
               }
         }
+    },
+    "pairedParentheses": {
+        "refName": "pairedParentheses",
+        "refNumber": 61,
+        "category": "Stacks & Queues",
+        "dificulty": "Easy",
+        "title": "Paired Parentheses",
+        "tags": ["Easy", "Stacks & Queues"],
+        "description": "<p>Write a function, pairedParentheses, that takes in a string as an argument. The function should return a boolean indicating whether or not the string has well-formed parentheses.</p><p>You may assume the string contains only alphabetic characters, '(', or ')'.</p>",
+        "examples": {
+            "example1": {
+                "input": "input = '(david)((abby))'",
+                "output": "true"
+            },
+            "example2": {
+                "input": "input = '()rose(jeff'",
+                "output": "false"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function pairedParentheses(str) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// n = length of string\n// Time: O(n)\n// Space: O(1)\nfunction pairedParentheses(str) {\n    let counter = 0;\n    for (const char of str) {\n        if (char === '(') counter++;\n        if (char === ')') {\n            if (counter === 0) return false;\n            counter--;\n        }\n    }\n    return counter === 0;\n}"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": ["(david)((abby))"],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": ["()rose(jeff"],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_3": {
+                "test_input": [")("],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_4": {
+                "test_input": ["()"],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_5": {
+                "test_input": ["(((potato())))"],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_6": {
+                "test_input": ["(())(water)()"],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_7": {
+                "test_input": ["(())(water()()"],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_8": {
+                "test_input": [""],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_9": {
+                "test_input": ["))()"],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+              }
+        }
     }
 }
