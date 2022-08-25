@@ -3938,5 +3938,91 @@
                 "passed_test": false
               }
         }
+    },
+    "decompressBraces": {
+        "refName": "decompressBraces",
+        "refNumber": 63,
+        "category": "Stacks & Queues",
+        "dificulty": "Easy",
+        "title": "Decompress Braces",
+        "tags": ["Easy", "Stacks & Queues"],
+        "description": "<p>Write a function, decompressBraces, that takes in a compressed string as an argument. The function should return the string decompressed.</p><p>The compression format of the input string is 'n{subString}', where the subString within braces should be repeated n times.</p><p>You may assume that every number n is guaranteed to be an integer between 1 through 9.</p><p>You may assume that the input is valid and the decompressed string will only contain alphabetic characters.</p>",
+        "examples": {
+            "example1": {
+                "input": "input = '2{q}3{tu}v'",
+                "output": "'qqtututuv'"
+            },
+            "example2": {
+                "input": "input = 'ch3{ao}",
+                "output": "'chaoaoao'"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function decompressBraces(s) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// s = length of string\n// m = count of brace pairs\n// Time: O((9^m) * s)\n// Space: O((9^m) * s)\nfunction decompressBraces(s) {\n  const nums = '123456789';\n  const stack = [];\n  for (let char of s) {\n    if (nums.includes(char)) {\n      stack.push(Number(char));\n    } else {\n      if (char === '}') {\n        let segment = '';\n        while (typeof stack[stack.length - 1] !== 'number') {\n          const popped = stack.pop();\n          segment = popped + segment;\n        }\n        const number = stack.pop();\n        stack.push(repeat(segment, number));\n      } else if (char !== '{') {\n        stack.push(char);\n      }\n    }\n  }\n  \n  return stack.join('');\n};\nconst repeat = (str, n) => {\n  let result = '';\n  for (let i = 0; i < n; i += 1) {\n    result += str;\n  }\n  return result;\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": ["2{q}3{tu}v"],
+                "test_expected": "qqtututuv",
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": ["ch3{ao}"],
+                "test_expected": "chaoaoao",
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_3": {
+                "test_input": ["2{y3{o}}s"],
+                "test_expected": "yoooyooos",
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_4": {
+                "test_input": ["z3{a2{xy}b}"],
+                "test_expected": "zaxyxybaxyxybaxyxyb",
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_5": {
+                "test_input": ["2{3{r4{e}r}io}"],
+                "test_expected": "reeeerreeeerreeeerioreeeerreeeerreeeerio",
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_6": {
+                "test_input": ["go3{spinn2{ing}s}"],
+                "test_expected": "gospinningingsspinningingsspinningings",
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_7": {
+                "test_input": ["2{l2{if}azu}l"],
+                "test_expected": "lififazulififazul",
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_8": {
+                "test_input": ["3{al4{ec}2{icia}}"],
+                "test_expected": "alececececiciaiciaalececececiciaiciaalececececiciaicia",
+                "code_output": null,
+                "passed_test": false
+              }
+        }
     }
 }
