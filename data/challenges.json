@@ -3586,5 +3586,61 @@
                 "functionTest": true
               }
         }
+    },
+    "setOfStacks": {
+        "refName": "setOfStacks",
+        "refNumber": 58,
+        "category": "Stacks & Queues",
+        "dificulty": "Easy",
+        "title": "Set Of Stacks",
+        "tags": ["Easy", "Stacks & Queues"],
+        "description": "<p>Imagine a (literal) stack of plates. If the stack gets too high, it might topple. Therefore, in real life, we would likely start a new stack when the previous stack exceeds some threshold.</p><p>Implement a data structure SetOfStacks that mimics this. SetO-fStacks should be composed of several stacks and should create a new stack once the previous one exceeds capacity.</p><p>SetOfStacks.push() and SetOfStacks.pop() should behave identically to a single stack (that is, pop () should return the same values as it would if there were just a single stack).</p><p>Implement a function popAt ( int index) which performs a pop operation on a specific sub-stack</p>",
+        "examples": {
+            "example1": {
+                "input": "",
+                "output": ""
+            },
+            "example2": {
+                "input": "",
+                "output": ""
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "class SetOfStacks {\n    // Write your solution...\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "class SetOfStacks {\n    constructor(threshold) {\n        this.stacks = [];\n        this.threshold = threshold;\n    }\n    push(value) {\n        if (!this.stacks.length) {\n            this.stacks.push([]);\n        }\n        if (this.stacks[this.stacks.length - 1].length === this.threshold) {\n            this.stacks.push([]);\n        }\n        this.stacks[this.stacks.length - 1].push(value);\n    }\n    pop() {\n        this.stacks[this.stacks.length - 1].pop();\n        if (this.stacks.length > 1 && !this.stacks[this.stacks.length - 1].length) {\n            this.stacks.pop();\n        }\n    }\n    popAt(i) {\n        const index = i - 1;\n        this.stacks[index].pop();\n        for (let i = index + 1; i < this.stacks.length - 1; i++) {\n            // we could use shift to do this simpler but \n            // that would be cheating.\n            // const val = this.stacks[i + 1].shift();\n            // this.stacks[i].push(val);\n            // -----\n            while (this.stacks[i].length > 0) {\n                tempStack.push(this.stacks[i].pop());\n            }\n            this.stacks[i - 1].push(tempStack.pop());\n            while (tempStack.length > 0) {\n                this.stacks[i].push(tempStack.pop());\n            }\n        }\n    }\n    getStack() {\n        return this.stacks;\n    }\n}"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": ["geeks", "geek"],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": ["book", "books"],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_3": {
+                "test_input": ["demon", "dem"],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+              }
+        }
     }
 }
