@@ -4718,5 +4718,50 @@
                 "functionTest": true
               }
         }
+    },
+    "partitionList": {
+        "refName": "partitionList",
+        "refNumber": 76,
+        "category": "Linked List",
+        "dificulty": "Medium",
+        "title": "Partition List",
+        "tags": ["Medium", "Linked List"],
+        "description": "<p>Given the head of a linked list and a value x, partition it such that all nodes less than x come before nodes greater than or equal to x.</p><p>You should preserve the original relative order of the nodes in each of the two partitions.</p>",
+        "examples": {
+            "example1": {
+                "input": "head = [1,4,3,2,5,2]\nx = 3",
+                "output": "[1,2,2,4,3,5]"
+            },
+            "example2": {
+                "input": "head = [2,1]\nx = 2",
+                "output": "[1, 2]"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function partitionList(head, x) {\n    // Write your solution...\n    return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "function partitionList(head, x) {\n    class Node {\n        constructor(data) {\n            this.data = data;\n            this.next = null;\n        }\n    }\n    var l1 = new Node(0);\n    var l2 = new Node(0);\n    var now1 = l1;\n    var now2 = l2;\n    var now = head;\n    while (now) {\n        if (now.data < x) {\n            now1.next = now;\n            now1 = now1.next;\n        } else {\n            now2.next = now;\n            now2 = now2.next;\n        }\n        now = now.next;\n    }\n    now1.next = l2.next;\n    now2.next = null;\n    return l1.next;\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": "function test_input() { class Node { constructor(data) { this.data = data; this.next = null; } } const a = new Node(1); const b = new Node(4); const c = new Node(3); const d = new Node(2); const e = new Node(5); const f = new Node(2); a.next = b; b.next = c; c.next = d; d.next = e; e.next = f; const val = window.partitionList(a, 3); let arr = []; let cur = val; while (cur) { arr.push(cur.data); cur = cur.next; } return [' 1>4>3>2>5>2', arr]; }",
+                "test_expected": [1,2,2,4,3,5],
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              }
+        }
     }
 }
