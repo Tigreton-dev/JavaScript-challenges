@@ -5032,5 +5032,50 @@
                 "passed_test": false
               }
         }
+    },
+    "zipperLists": {
+        "refName": "zipperLists",
+        "refNumber": 81,
+        "category": "Linked List",
+        "dificulty": "Easy",
+        "title": "Zipper Lists",
+        "tags": ["Easy", "Linked List"],
+        "description": "<p>Write a function, zipperLists, that takes in the head of two linked lists as arguments. The function should zipper the two lists together into single linked list by alternating nodes. If one of the linked lists is longer than the other, the resulting list should terminate with the remaining nodes. The function should return the head of the zippered linked list.</p><p>Do this in-place, by mutating the original Nodes.</p><p>You may assume that both input lists are non-empty.</p>",
+        "examples": {
+            "example1": {
+                "input": "l1 = a -> b -> c\nl2 = x -> y -> z",
+                "output": "a -> x -> b -> y -> c -> z"
+            },
+            "example2": {
+                "input": "l1 = a -> b -> c -> d -> e -> f\nl2 = x -> y -> z",
+                "output": "a -> x -> b -> y -> c -> z -> d -> e -> f"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function zipperLists(head1, head2) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// ITERATIVE\n// n = length of list 1\n// m = length of list 2\n// Time: O(min(n, m))\n// Space: O(1)\nfunction zipperLists(head1, head2) {\n    let currentNode1 = head1.next;\n    let currentNode2 = head2;\n    let list = head1;\n    let listToggle = false;\n    while (currentNode1 !== null && currentNode2 !== null) {\n        if (listToggle) {\n            list.next = currentNode1;\n            currentNode1 = currentNode1.next;\n        } else {\n            list.next = currentNode2;\n            currentNode2 = currentNode2.next;\n        }\n        list = list.next;\n        listToggle = !listToggle;\n    }\n    if (currentNode1 !== null) list.next = currentNode1;\n    if (currentNode2 !== null) list.next = currentNode2\n    return head1;\n};\n// RECURSIVE\n// n = length of list 1\n// m = length of list 2\n// Time: O(min(n, m))\n// Space: O(min(n, m))\nfunction zipperLists(head1, head2) {\n  if (head1 === null && head2 === null) return null;\n  if (head1 === null) return head2;\n  if (head2 === null) return head1;\n  const next1 = head1.next;\n  const next2 = head2.next;\n  head1.next = head2;\n  head2.next = zipperLists(next1, next2);\n  return head1;\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": "function test_input() { class Node { constructor(data) { this.data = data; this.next = null; } } const a = new Node('a'); const b = new Node('b'); const c = new Node('c'); a.next = b; b.next = c; const x = new Node('x'); const y = new Node('y'); const z = new Node('z'); x.next = y; y.next = z; const val = window.zipperLists(a, x); let arr = []; let cur = val; while (cur) { arr.push(cur.data); cur = cur.next; } return [' l1 = a -> b -> c; l2 = x -> y -> z', arr]; }",
+                "test_expected": ["a", "x", "b", "y", "c", "z"],
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              }
+        }
     }
 }
