@@ -4254,9 +4254,9 @@
         "refName": "partition",
         "refNumber": 67,
         "category": "Linked List",
-        "dificulty": "Easy",
+        "dificulty": "Medium",
         "title": "Partition",
-        "tags": ["Easy", "Linked List"],
+        "tags": ["medium", "Linked List"],
         "description": "<p>Write code to partition a linked list around a value x, such that all nodes less than x come before all nodes greater than or equal to x.</p><p>If x is contained within the list, the values of x only need to be after the elements less than x. The partition element x can appear anywhere in the 'right partition'; it does not need to appear between the left and right partitions.</p>",
         "examples": {
             "example1": {
@@ -4293,6 +4293,57 @@
                 "passed_test": false,
                 "functionTest": true
               }
+        }
+    },
+    "IsPalindrome": {
+        "refName": "IsPalindrome",
+        "refNumber": 68,
+        "category": "Linked List",
+        "dificulty": "Easy",
+        "title": "IsPalindrome",
+        "tags": ["Easy", "Linked List"],
+        "description": "<p>Implement a function to check if a linked list is a palindrome.</p>",
+        "examples": {
+            "example1": {
+                "input": "r -> e -> d -> i -> v -> i -> d -> e -> r",
+                "output": "true"
+            },
+            "example2": {
+                "input": "a -> w -> p -> u -> b -> o",
+                "output": "false"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function isPalindrome(head) {\n    // Write your solution...\n    return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "function isPalindrome(head) {\n    let currentNode = head;\n    const stack = [];\n    while (currentNode !== null) {\n        stack.push(currentNode.data);\n        currentNode = currentNode.next;\n    }\n    currentNode = head;\n    while (currentNode !== null) {\n        const i = stack.pop();\n        if (i !== currentNode.data) return false;\n        currentNode = currentNode.next;\n    }\n    return true;\n}"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {"Test_1": {
+            "test_input": "function test_input() { class Node { constructor(data) { this.data = data; this.next = null; } } const a = new Node('r'); const b = new Node('e'); const c = new Node('d'); const d = new Node('i'); const e = new Node('v'); const f = new Node('i'); const g = new Node('d'); const h = new Node('e'); const i = new Node('r'); a.next = b; b.next = c; c.next = d; d.next = e; e.next = f; f.next = g; g.next = h; h.next = i; const val = window.isPalindrome(a); return ['r -> e -> d -> i -> v -> i -> d -> e -> r', val] }",
+            "test_expected": true,
+            "code_output": null,
+            "passed_test": false,
+            "functionTest": true
+          },
+          "Test_2": {
+            "test_input": "function test_input() { class Node { constructor(data) { this.data = data; this.next = null; } } const a = new Node('a'); const b = new Node('w'); const c = new Node('p'); const d = new Node('u'); const e = new Node('e'); const f = new Node('b'); const g = new Node('o'); const h = new Node('s'); const i = new Node('g'); a.next = b; b.next = c; c.next = d; d.next = e; e.next = f; f.next = g; g.next = h; h.next = i; const val = window.isPalindrome(a); return ['a -> w -> p -> u -> b -> o', val] }",
+            "test_expected": false,
+            "code_output": null,
+            "passed_test": false,
+            "functionTest": true
+          }
         }
     }
 }
