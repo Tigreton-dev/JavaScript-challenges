@@ -4190,5 +4190,64 @@
                 "functionTest": true
               }
         }
+    },
+    "findKTH": {
+        "refName": "findKTH",
+        "refNumber": 66,
+        "category": "Linked List",
+        "dificulty": "Easy",
+        "title": "Find KTH",
+        "tags": ["Easy", "Linked List"],
+        "description": "<p>Write a findKTH() function that takes a linked list and an integer index and returns the data value stored in the node at that index position.</p>",
+        "examples": {
+            "example1": {
+                "input": "Input: 1->10->30->14\nindex = 2",
+                "output": "Output: 30\nThe node at index 2 is 30"
+            },
+            "example2": {
+                "input": "Input: 1 -> 7 -> 230 -> 134\nindex = 3",
+                "output": "Output: 7\nThe node at index 3 is 7"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function findKTH(linkedList, n) {\n    // Write your solution...\n    return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "function findKTH(head, index) {\n    let currentNode = head;\n    let counter = 0;\n    while (currentNode !== null) {\n        counter++;\n        currentNode = currentNode.next;\n    }\n    let nodeIndex = counter - index;\n    currentNode = head;\n    for (let i =0; i<nodeIndex; i++) {\n        currentNode = currentNode.next;\n    }\n    return currentNode.data;\n}"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": "function test_input() { class Node { constructor(data) { this.data = data; this.next = null; } } const a = new Node(1); const b = new Node(10); const c = new Node(30); const d = new Node(14); a.next = b; b.next = c; c.next = d; const val = window.findKTH(a, 2); return val }",
+                "test_expected": 30,
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              },
+              "Test_2": {
+                "test_input": "function test_input() { class Node { constructor(data) { this.data = data; this.next = null; } } const a = new Node(1); const b = new Node(1); const c = new Node(4); const d = new Node(8); const e = new Node(9); const f = new Node(24); const g = new Node(4); a.next = b; b.next = c; c.next = d; d.next = e; e.next = f; f.next = g; const val = window.findKTH(a, 5); return val; }",
+                "test_expected": 4,
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              },
+              "Test_3": {
+                "test_input": "function test_input() { class Node { constructor(data) { this.data = data; this.next = null; } } const a = new Node(1); const b = new Node(1); const c = new Node(4); const d = new Node(8); const e = new Node(9); const f = new Node(24); const g = new Node(4); a.next = b; b.next = c; c.next = d; d.next = e; e.next = f; f.next = g; const val = window.findKTH(a, 1); return val }",
+                "test_expected": 4,
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              }
+        }
     }
 }
