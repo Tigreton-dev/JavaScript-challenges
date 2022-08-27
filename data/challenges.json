@@ -4583,5 +4583,50 @@
                 "functionTest": true
               }
         }
+    },
+    "swapNodesInPairs": {
+        "refName": "swapNodesInPairs",
+        "refNumber": 74,
+        "category": "Linked List",
+        "dificulty": "Medium",
+        "title": "Swap Nodes In Pairs",
+        "tags": ["Medium", "Linked List"],
+        "description": "<p>Given a linked list, swap every two adjacent nodes and return its head. You must solve the problem without modifying the values in the list's nodes (i.e., only nodes themselves may be changed.)</p>",
+        "examples": {
+            "example1": {
+                "input": "1->2->3->4",
+                "output": "[2->1->4->3"
+            },
+            "example2": {
+                "input": "head = []",
+                "output": "[]"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function swapNodesInPairs(head) {\n    // Write your solution...\n    return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// Time complexity : O(n).\n// Space complexity : O(1).\nfunction swapNodesInPairs(head) {\n    class Node {\n        constructor(data) {\n            this.data = data;\n            this.next = null;\n        }\n    }\n    var out = new Node(0);\n    var now = out;\n    out.next = head;\n    while (now.next && now.next.next) {\n        now = swap(now, now.next, now.next.next);\n    }\n    return out.next;\n};\nvar swap = function (a, b, c) {\n    a.next = c;\n    b.next = c.next;\n    c.next = b;\n    return b;\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+              "Test_1": {
+                "test_input": "function test_input() { class Node { constructor(data) { this.data = data; this.next = null; } } const a = new Node(1); const b = new Node(2); const c = new Node(6); const d = new Node(4); const e = new Node(5); const f = new Node(3); a.next = b; b.next = c; c.next = d; d.next = e; e.next = f; const val = window.swapNodesInPairs(a); let arr = []; let cur = val; while (cur) { arr.push(cur.data); cur = cur.next; } return [' 1>2>6>4>5>3', arr]; }",
+                "test_expected": [2, 1, 4, 6, 3, 5],
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              }
+        }
     }
 }
