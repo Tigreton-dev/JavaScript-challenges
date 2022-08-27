@@ -4404,5 +4404,50 @@
             "functionTest": true
           }
         }
+    },
+    "intersection": {
+        "refName": "intersection",
+        "refNumber": 70,
+        "category": "Linked List",
+        "dificulty": "Easy",
+        "title": "Intersection",
+        "tags": ["Easy", "Linked List"],
+        "description": "<p>Given two (singly) linked lists, determine if the two lists intersect.</p><p>Return the intersecting node. Note that the intersection is defined based on reference, not value. That is, if the kth node of the first linked list is the exact same node (by reference) as the jth node of the second linked list, then they are intersecting.</p>",
+        "examples": {
+            "example1": {
+                "input": "listA = [4,1,8,4,5]\nlistB = [5,6,1,8,4,5]",
+                "output": "8"
+            },
+            "example2": {
+                "input": "listA = [1,9,1,2,4]\nlistB = [3,2,4]",
+                "output": "2"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function intersection(l1, l2) {\n    // Write your solution...\n    return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "function intersection(headA, headB) {\n  if (!headA || !headB) return null;  \n  var nowA = headA;\n  var nowB = headB;\n  while (nowA !== nowB) {\n    nowA = nowA ? nowA.next : headB;\n    nowB = nowB ? nowB.next : headA;\n  }\n  return nowA;\n}"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+          "Test_1": {
+            "test_input": "function test_input() { class Node { constructor(data) { this.data = data; this.next = null; }}var a = new Node('a');var b = new Node('b');var c = new Node('c');var d = new Node('d');var e = new Node('e');var f = new Node('f');var g = new Node('g');var h = new Node('h');a.next = b;b.next = c;c.next = d;d.next = e;e.next = f;f.next = g;g.next = h;var a1 = new Node('a1');var b1 = new Node('b1');var c1 = new Node('c1');a1.next = b1;b1.next = c1;c1.next = d; const val = window.intersection(a, a1); return ['l1= a->b->c->d->f->g->h  l2= a1->b1->c1->d', val.data];}",
+            "test_expected": "d",
+            "code_output": null,
+            "passed_test": false,
+            "functionTest": true
+          }
+        }
     }
 }
