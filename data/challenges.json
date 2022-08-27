@@ -4494,5 +4494,49 @@
             "functionTest": true
           }
         }
+    },
+    "linkedListCycle": {
+        "refName": "linkedListCycle",
+        "refNumber": 72,
+        "category": "Linked List",
+        "dificulty": "Medium",
+        "title": "Linked List Cycle",
+        "tags": ["Medium", "Linked List"],
+        "description": "<p>Given head, the head of a linked list, determine if the linked list has a cycle in it.</p><p>There is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the next pointer. Internally, pos is used to denote the index of the node that tail's next pointer is connected to. Note that pos is not passed as a parameter.</p><p>Return true if there is a cycle in the linked list. Otherwise, return false.</p>",
+        "examples": {
+            "example1": {
+                "input": "head = [3,2,0,-4]\npos = 1\nExplanation: There is a cycle in the linked list, where the tail connects to the 1st node (0-indexed).",
+                "output": "true"
+            },
+            "example2": {
+                "input": "",
+                "output": ""
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function linkedListCycle(head) {\n    // Write your solution...\n    return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "function linkedListCycle(head) {\n  var slow = head;\n  var fast = head;\n  while (slow && fast) {\n    slow = slow.next;\n    fast = fast.next ? fast.next.next : undefined;\n    if (slow === fast) return true;\n  }\n  return false;\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+          "Test_1": {
+            "test_input": ["geeks", "geek"],
+            "test_expected": true,
+            "code_output": null,
+            "passed_test": false
+          }
+        }
     }
 }
