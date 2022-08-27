@@ -4628,5 +4628,95 @@
                 "functionTest": true
               }
         }
+    },
+    "rotateList": {
+        "refName": "rotateList",
+        "refNumber": 75,
+        "category": "Linked List",
+        "dificulty": "Medium",
+        "title": "Rotate List",
+        "tags": ["Medium", "Linked List"],
+        "description": "<p>Given the head of a linked list, rotate the list to the right by k places.</p>",
+        "examples": {
+            "example1": {
+                "input": "head = [1,2,3,4,5]\nk = 2",
+                "output": "4->5->1->2->3"
+            },
+            "example2": {
+                "input": "head = [0,1,2]\nk = 4",
+                "output": "2->0->1"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function rotateList(head, k) {\n    // Write your solution...\n    return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// Time complexity : O(n).\n// Space complexity : O(1).\nfunction rotateList(head, k) {\n    var count = 1;\n    var last = head;\n    var now = head;\n    if (!head || !head.next) return head;\n    while (last.next) {\n        last = last.next;\n        count++;\n    }\n    k %= count;\n    if (k === 0) return head;\n    while (k < count - 1) {\n        now = now.next;\n        k++;\n    }\n    last.next = head;\n    head = now.next;\n    now.next = null;\n    return head;\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": "function test_input() { class Node { constructor(data) { this.data = data; this.next = null; } } const a = new Node(1); const b = new Node(2); const c = new Node(3); const d = new Node(4); const e = new Node(5); const f = new Node(6); a.next = b; b.next = c; c.next = d; d.next = e; e.next = f; const val = window.rotateList(a, 2); let arr = []; let cur = val; while (cur) { arr.push(cur.data); cur = cur.next; } return [' 1>2>3>4>5>6', arr]; }",
+                "test_expected": [5,6,1,2,3,4],
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              }
+        }
+    },
+    "RemoveDuplicatesInLinkedList2": {
+        "refName": "RemoveDuplicatesInLinkedList2",
+        "refNumber": 75,
+        "category": "Linked List",
+        "dificulty": "Medium",
+        "title": "Remove Duplicates In Linked List 2",
+        "tags": ["Medium", "Linked List"],
+        "description": "<p>Given the head of a sorted linked list, delete all nodes that have duplicate numbers, leaving only distinct numbers from the original list. Return the linked list sorted as well.</p>",
+        "examples": {
+            "example1": {
+                "input": "head = [1,2,3,3,4,4,5]",
+                "output": "1->2->5"
+            },
+            "example2": {
+                "input": "head = [1,1,1,2,3]",
+                "output": "2->3"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function removeDuplicatesInLinkedList2(head) {\n    // Write your solution...\n    return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "function removeDuplicatesInLinkedList2(head) {\n    class Node {\n        constructor(data) {\n            this.data = data;\n            this.next = null;\n        }\n    }\n    var newHead = new Node(0);\n    var now = newHead;\n    var tmp = head;\n    var val = 0;\n    while (tmp) {\n        val = tmp.data;\n        if (tmp.next && tmp.next.data === val) {\n            tmp = tmp.next;\n            while (tmp && tmp.data === val) tmp = tmp.next;\n        } else {\n            now.next = tmp;\n            now = tmp;\n            tmp = tmp.next;\n            now.next = null;\n        }\n    }\n    return newHead.next;\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": "function test_input() { class Node { constructor(data) { this.data = data; this.next = null; } } const a = new Node(1); const b = new Node(2); const c = new Node(3); const d = new Node(3); const e = new Node(4); const f = new Node(4); const g = new Node(5); a.next = b; b.next = c; c.next = d; d.next = e; e.next = f; f.next = g; const val = window.removeDuplicatesInLinkedList2(a); let arr = []; let cur = val; while (cur) { arr.push(cur.data); cur = cur.next; } return [' 1>2>2>3>4>4>5', arr]; }",
+                "test_expected": [1,2,5],
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              }
+        }
     }
 }
