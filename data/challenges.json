@@ -5077,5 +5077,50 @@
                 "functionTest": true
               }
         }
+    },
+    "mergeLists": {
+        "refName": "mergeLists",
+        "refNumber": 81,
+        "category": "Linked List",
+        "dificulty": "Easy",
+        "title": "Merge Lists",
+        "tags": ["Easy", "Linked List"],
+        "description": "<p>Write a function, mergeLists, that takes in the head of two sorted linked lists as arguments. The function should merge the two lists together into single sorted linked list. The function should return the head of the merged linked list.</p><p>Do this in-place, by mutating the original Nodes.</p><p>You may assume that both input lists are non-empty and contain increasing sorted numbers.</p>",
+        "examples": {
+            "example1": {
+                "input": "l1 = 5 -> 7 -> 10 -> 12 -> 20 -> 28\nl2 = 6 -> 8 -> 9 -> 25",
+                "output": "5 -> 6 -> 7 -> 8 -> 9 -> 10 -> 12 -> 20 -> 25 -> 28"
+            },
+            "example2": {
+                "input": "l1 = 2 -> 4 -> 10 -> 12 -> 20 -> 28\nl2 = 1 -> 8 -> 9 -> 10 -> 45",
+                "output": "1 -> 2 -> 4 -> 8 -> 9 -> 10 -> 10 -> 12 -> 20 -> 28 -> 45"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function mergeLists(head1, head2) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// ITERATIVE\n// n = length of list 1\n// m = length of list 2\n// Time: O(min(n, m))\n// Space: O(1)\nfunction mergeLists(head1, head2) {\n  let dummyHead = new Node(null);\n  let tail = dummyHead;\n  let current1 = head1;\n  let current2 = head2;\n  \n  while (current1 !== null && current2 !== null) {\n    if (current1.val < current2.val) {\n      tail.next = current1;\n      current1 = current1.next;\n    } else {\n      tail.next = current2;\n      current2 = current2.next;\n    }\n    tail = tail.next;\n  }\n  \n  if (current1 !== null) tail.next = current1;\n  if (current2 !== null) tail.next = current2;\n  \n  return dummyHead.next;\n};\n// RECURSIVE\n// n = length of list 1\n// m = length of list 2\n// Time: O(min(n, m))\n// Space: O(min(n, m))\nfunction mergeLists(head1, head2) {\n  if (head1 === null && head2 === null) return null;\n  if (head1 === null) return head2;\n  if (head2 === null) return head1;\n  if (head1.data < head2.data) {\n    const next1 = head1.next;\n    head1.next = mergeLists(next1, head2);\n    return head1;\n  } else {\n    const next2 = head2.next;\n    head2.next = mergeLists(head1, next2);\n    return head2;\n  }\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": "function test_input() { class Node { constructor(data) { this.data = data; this.next = null; } } const a = new Node(5); const b = new Node(7); const c = new Node(10); const d = new Node(12); const e = new Node(20); const f = new Node(28); a.next = b; b.next = c; c.next = d; d.next = e; e.next = f; const q = new Node(6); const r = new Node(8); const s = new Node(9); const t = new Node(25); q.next = r; r.next = s; s.next = t; const val = window.mergeLists(a, q); let arr = []; let cur = val; while (cur) { arr.push(cur.data); cur = cur.next; } return [' l1 = 5 -> 7 -> 10 -> 12 -> 20 -> 28 l2 = 6 -> 8 -> 9 -> 25', arr]; }",
+                "test_expected": [5, 6, 7, 8, 9, 10, 12, 20, 25, 28],
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              }
+        }
     }
 }
