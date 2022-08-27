@@ -4864,5 +4864,61 @@
                 "passed_test": false
               }
         }
+    },
+    "reorderList": {
+        "refName": "reorderList",
+        "refNumber": 78,
+        "category": "Linked List",
+        "dificulty": "Medium",
+        "title": "Reorder List",
+        "tags": ["Medium", "Linked List"],
+        "description": "<p>You are given the head of a singly linked-list. The list can be represented as:</p><p>L0 → L1 → … → Ln - 1 → Ln</p><p>Reorder the list to be on the following form:</p><p>L0 → Ln → L1 → Ln - 1 → L2 → Ln - 2 → …</p><p>You may not modify the values in the list's nodes. Only nodes themselves may be changed.</p>",
+        "examples": {
+            "example1": {
+                "input": "head = [1,2,3,4]",
+                "output": "[1,4,2,3]"
+            },
+            "example2": {
+                "input": "head = [1,2,3,4,5]",
+                "output": "[1,5,2,4,3]"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function reorderList(head) {\n    // Write your solution...\n    return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "/**\n * Definition for singly-linked list.\n * function ListNode(val) {\n *     this.val = val;\n *     this.next = null;\n * }\n */\n/**\n * @param {ListNode} head\n * @return {void} Do not return anything, modify head in-place instead.\n */\n// Time complexity : O(n).\n// Space complexity : O(1).\nfunction reorderList(head) {\n  if (!head || !head.next || !head.next.next) return;\n  // find mid\n  var mid = null;\n  var fast = head;\n  var slow = head;\n  while (fast.next && fast.next.next && slow.next) {\n    slow = slow.next;\n    fast = fast.next.next;\n  }\n  mid = slow;\n  // reverse the later part\n  var now = mid.next.next;\n  var second = mid.next;\n  var tmp = null;\n  second.next = null;\n  while (now) {\n    tmp = now.next;\n    now.next = second;\n    second = now;\n    now = tmp;\n  }\n  mid.next = second;\n  // insert one after another\n  var before = head;\n  var after = mid.next;\n  mid.next = null;\n  while (after) {\n    tmp = before.next;\n    before.next = after;\n    before = tmp;\n    tmp = after.next;\n    after.next = before;\n    after = tmp\n  }\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": ["geeks", "geek"],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": ["book", "books"],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_3": {
+                "test_input": ["demon", "dem"],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+              }
+        }
     }
 }
