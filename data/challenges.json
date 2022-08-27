@@ -5080,7 +5080,7 @@
     },
     "mergeLists": {
         "refName": "mergeLists",
-        "refNumber": 81,
+        "refNumber": 82,
         "category": "Linked List",
         "dificulty": "Easy",
         "title": "Merge Lists",
@@ -5117,6 +5117,51 @@
             "Test_1": {
                 "test_input": "function test_input() { class Node { constructor(data) { this.data = data; this.next = null; } } const a = new Node(5); const b = new Node(7); const c = new Node(10); const d = new Node(12); const e = new Node(20); const f = new Node(28); a.next = b; b.next = c; c.next = d; d.next = e; e.next = f; const q = new Node(6); const r = new Node(8); const s = new Node(9); const t = new Node(25); q.next = r; r.next = s; s.next = t; const val = window.mergeLists(a, q); let arr = []; let cur = val; while (cur) { arr.push(cur.data); cur = cur.next; } return [' l1 = 5 -> 7 -> 10 -> 12 -> 20 -> 28 l2 = 6 -> 8 -> 9 -> 25', arr]; }",
                 "test_expected": [5, 6, 7, 8, 9, 10, 12, 20, 25, 28],
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              }
+        }
+    },
+    "removeNode": {
+        "refName": "removeNode",
+        "refNumber": 83,
+        "category": "Linked List",
+        "dificulty": "Easy",
+        "title": "Remove Node",
+        "tags": ["Easy", "Linked List"],
+        "description": "<p>Write a function, removeNode, that takes in the head of a linked list and a target value as arguments. The function should delete the node containing the target value from the linked list and return the head of the resulting linked list. If the target appears multiple times in the linked list, only remove the first instance of the target in the list. Do this in-place.</p><ul><li>You may assume that the input list is non-empty.</li><li>You may assume that the input list contains the target.</li></ul>",
+        "examples": {
+            "example1": {
+                "input": "a -> b -> c -> d -> e -> f",
+                "output": "a -> b -> d -> e -> f"
+            },
+            "example2": {
+                "input": "x -> y -> z",
+                "output": "x -> y"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function removeNode(head, targetVal) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// ITERATIVE\n// n = number of nodes\n// Time: O(n)\n// Space: O(1)\nfunction removeNode(head, targetVal) {\n  if (head.data === targetVal) return head.next;\n  \n  let current = head;\n  let prev = null;\n  while (current !== null) {\n    if (current.data === targetVal) {\n      prev.next = current.next;\n      break;\n    }\n    prev = current;\n    current = current.next;\n  }\n  \n  return head;\n};\n// RECURSIVE\n// n = number of nodes\n// Time: O(n)\n// Space: O(n)\nfunction removeNode(head, targetVal) {\n  if (head === null) return null;\n  if (head.data === targetVal) return head.next;\n  head.next = removeNode(head.next, targetVal);\n  return head;\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": "function test_input() { class Node { constructor(data) { this.data = data; this.next = null; } } const a = new Node('a'); const b = new Node('b'); const c = new Node('c'); const d = new Node('d'); const e = new Node('e'); const f = new Node('f'); a.next = b; b.next = c; c.next = d; d.next = e; e.next = f; const val = window.removeNode(a, 'c'); let arr = []; let cur = val; while (cur) { arr.push(cur.data); cur = cur.next; } return [' a -> b -> c -> d -> e -> f target= c', arr]; }",
+                "test_expected": ["a", "b", "d", "e", "f"],
                 "code_output": null,
                 "passed_test": false,
                 "functionTest": true
