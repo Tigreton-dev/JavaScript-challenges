@@ -5358,5 +5358,71 @@
                 "functionTest": true
               }
         }
+    },
+    "CreateLinkedList": {
+        "refName": "CreateLinkedList",
+        "refNumber": 87,
+        "category": "Linked List",
+        "dificulty": "Easy",
+        "title": "Create Linked List",
+        "tags": ["Easy", "Linked List"],
+        "description": "<p>Write a function, createLinkedList, that takes in an array of values as an argument. The function should create a linked list containing each element of the array as the values of the nodes. The function should return the head of the linked list.</p>",
+        "examples": {
+            "example1": {
+                "input": "arr = ['h', 'e', 'y']",
+                "output": "h -> e -> y"
+            },
+            "example2": {
+                "input": "arr = [1, 7, 1, 8]",
+                "output": "1 -> 7 -> 1 -> 8"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "class Node {\n  constructor(data) {\n    this.data = data;\n    this.next = null;\n  }\n}\nfunction createLinkedList(values) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// ITERATIVE\n// n = length of values\n// Time: O(n)\n// Space: O(n)\nfunction createLinkedList(values) {\n  const dummyHead = new Node(null);\n  let tail = dummyHead;\n  for (let val of values) {\n    tail.next = new Node(val);\n    tail = tail.next;\n  }\n  return dummyHead.next;\n};\n// RECURSIVE\n// n = length of values\n// Time: O(n)\n// Space: O(n)\nfunction createLinkedList(values, i = 0) {\n  if (i === values.length) return null;\n  const head = new Node(values[i]);\n  head.next = createLinkedList(values, i + 1);\n  return head;\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": "function test_input() { const val = window.createLinkedList(['h', 'e', 'y']); let arr = []; let cur = val; while (cur) { arr.push(cur.data); cur = cur.next; } return [ `['h', 'e','y']`, arr]; }",
+                "test_expected": ["h", "e", "y"],
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              },
+              "Test_2": {
+                "test_input": "function test_input() { const val = window.createLinkedList([1, 7, 1, 8]); let arr = []; let cur = val; while (cur) { arr.push(cur.data); cur = cur.next; } return [' [1, 7, 1, 8]', arr]; }",
+                "test_expected": [1, 7, 1, 8],
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              },
+              "Test_3": {
+                "test_input": "function test_input() { const val = window.createLinkedList(['a']); let arr = []; let cur = val; while (cur) { arr.push(cur.data); cur = cur.next; } return [` ['a']`, arr]; }",
+                "test_expected": ["a"],
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              },
+              "Test_4": {
+                "test_input": "function test_input() { const val = window.createLinkedList([]); let arr = []; let cur = val; while (cur) { arr.push(cur.data); cur = cur.next; } return [' []', arr]; }",
+                "test_expected": [],
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              }
+        }
     }
 }
