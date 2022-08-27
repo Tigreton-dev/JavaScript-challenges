@@ -5212,5 +5212,71 @@
                 "functionTest": true
               }
         }
+    },
+    "IsUnivalueList": {
+        "refName": "IsUnivalueList",
+        "refNumber": 85,
+        "category": "Linked List",
+        "dificulty": "Easy",
+        "title": "Is Univalue List",
+        "tags": ["Easy", "Linked List"],
+        "description": "<p>Write a function, isUnivalueList, that takes in the head of a linked list as an argument. The function should return a boolean indicating whether or not the linked list contains exactly one unique value.</p><p>You may assume that the input list is non-empty.</p>",
+        "examples": {
+            "example1": {
+                "input": "7 -> 7 -> 7",
+                "output": "true"
+            },
+            "example2": {
+                "input": "7 -> 7 -> 4",
+                "output": "false"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function isUnivalueList(head) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// n = number of nodes\n// Time: O(n)\n// Space: O(1)\nfunction isUnivalueList(head) {\n  let current = head;\n  \n  while (current !== null) {\n    if (current.data !== head.data) return false;\n    current = current.next;\n  }\n  \n  return true;\n}\n// n = number of nodes\n// Time: O(n)\n// Space: O(n)\nfunction isUnivalueList(head, prevVal = null) {\n  if (head === null) return true;\n  if (prevVal === null || prevVal === head.data) {\n    return isUnivalueList(head.next, head.data);\n  } else {\n    return false;\n  }\n}"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": "function test_input() { class Node { constructor(data) { this.data = data; this.next = null; } } const a = new Node(7); const b = new Node(7); const c = new Node(7); a.next = b; b.next = c; const val = window.isUnivalueList(a); return [' 7>7>7', val]; }",
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              },
+              "Test_2": {
+                "test_input": "function test_input() { class Node { constructor(data) { this.data = data; this.next = null; } } const a = new Node(7); const b = new Node(7); const c = new Node(4); a.next = b; b.next = c; const val = window.isUnivalueList(a); return [' 7 -> 7 -> 4', val]; }",
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              },
+              "Test_3": {
+                "test_input": "function test_input() { class Node { constructor(data) { this.data = data; this.next = null; } } const u = new Node(2); const v = new Node(2); const w = new Node(2); const x = new Node(2); const y = new Node(2); u.next = v; v.next = w; w.next = x; x.next = y; const val = window.isUnivalueList(u); return [' 2 -> 2 -> 2 -> 2 -> 2', val]; }",
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              },
+              "Test_4": {
+                "test_input": "function test_input() { class Node { constructor(data) { this.data = data; this.next = null; } } const u = new Node(2); const v = new Node(2); const w = new Node(3); const x = new Node(3); const y = new Node(2); u.next = v; v.next = w; w.next = x; x.next = y; const val = window.isUnivalueList(u); return [' 2 -> 2 -> 3 -> 3 -> 2', val]; }",
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              }
+        }
     }
 }
