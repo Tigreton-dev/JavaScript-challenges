@@ -4345,5 +4345,64 @@
             "functionTest": true
           }
         }
+    },
+    "sumLinkedLists": {
+        "refName": "sumLinkedLists",
+        "refNumber": 69,
+        "category": "Linked List",
+        "dificulty": "Medium",
+        "title": "Sum LinkedLists",
+        "tags": ["Medium", "Linked List"],
+        "description": "<p>Write a function, sumLinkedLists, that takes in the head of two linked lists, each representing a number. The nodes of the linked lists contain digits as values. The nodes in the input lists are reversed; this means that the least significant digit of the number is the head. The function should return the head of a new linked listed representing the sum of the input lists. The output list should have its digits reversed as well.</p>",
+        "examples": {
+            "example1": {
+                "input": "L1 = 5->6->3\nL2 = 8->4->2",
+                "output": "1->4->0->5"
+            },
+            "example2": {
+                "input": "L1 = 0\nL2 = 0",
+                "output": "0"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function sumLinkedLists(l1, l2) {\n  // Write your solution...\n  function ListNode(data, next) {\n    this.data = data;\n    this.next = next;\n  }\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// Time complexity : O(max(m,n)).\n// Space complexity : O(max(m,n)).\nfunction sumLinkedLists(l1, l2) {\n  function ListNode(data, next) {\n    this.data = data;\n    this.next = next;\n  }\n  let rootNode = new ListNode(0);\n  let node = rootNode;\n  let sum = 0;\n  let carry = 0;\n  while (l1 || l2 || sum > 0) {\n    if (l1) {\n      sum += l1.data;\n      l1 = l1.next;\n    }\n    if (l2) {\n      sum += l2.data;\n      l2 = l2.next;\n    }\n    carry = Math.floor(sum / 10);\n    sum = Math.floor(sum) % 10;\n    node.next = new ListNode(sum);\n    node = node.next;\n    sum = carry;\n    carry = 0;\n  }\n  return rootNode.next;\n}"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+          "Test_1": {
+            "test_input": "function test_input() { class Node { constructor(data) { this.data = data; this.next = null; } } const a = new Node(3); const b = new Node(6); const c = new Node(5); a.next = b; b.next = c; const d = new Node(2); const e = new Node(4); const f = new Node(8); d.next = e; e.next = f; const val = window.sumLinkedLists(a, d); let arr = []; let cur = val; while (cur) { arr.push(cur.data); cur = cur.next; } return [' L1 = 5->6->3 L2 = 8->4->2 ', arr] }",
+            "test_expected": [5, 0, 4, 1],
+            "code_output": null,
+            "passed_test": false,
+            "functionTest": true
+          },
+          "Test_2": {
+            "test_input": "function test_input() { class Node { constructor(data) { this.data = data; this.next = null; } } const a = new Node(2); const b = new Node(4); const c = new Node(3); a.next = b; b.next = c; const d = new Node(5); const e = new Node(6); const f = new Node(4); d.next = e; e.next = f; const val = window.sumLinkedLists(a, d); let arr = []; let cur = val; while (cur) { arr.push(cur.data); cur = cur.next; } return ['', arr] }",
+            "test_expected": [7, 0, 8],
+            "code_output": null,
+            "passed_test": false,
+            "functionTest": true
+          },
+          "Test_3": {
+            "test_input": "function test_input() { class Node { constructor(data) { this.data = data; this.next = null; } } const a1 = new Node(1); const a2 = new Node(2); const a3 = new Node(6); a1.next = a2; a2.next = a3; const b1 = new Node(4); const b2 = new Node(5); const b3 = new Node(3); b1.next = b2; b2.next = b3; const val = window.sumLinkedLists(a1, b1); let arr = []; let cur = val; while (cur) { arr.push(cur.data); cur = cur.next; } return [' l1 = 1 -> 2 -> 6; l2 = 4 -> 5 -> 3', arr]; }",
+            "test_expected": [5, 7, 9],
+            "code_output": null,
+            "passed_test": false,
+            "functionTest": true
+          }
+        }
     }
 }
