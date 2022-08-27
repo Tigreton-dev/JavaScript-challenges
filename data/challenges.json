@@ -4538,5 +4538,50 @@
             "passed_test": false
           }
         }
+    },
+    "reverseLinkedList": {
+        "refName": "reverseLinkedList",
+        "refNumber": 73,
+        "category": "Linked List",
+        "dificulty": "Easy",
+        "title": "Reverse Linked List",
+        "tags": ["Easy", "Linked List"],
+        "description": "<p>Given the head of a singly linked list, reverse the list, and return the reversed list.</p><p>A linked list can be reversed either iteratively or recursively. Could you implement both?</p>",
+        "examples": {
+            "example1": {
+                "input": "head = [1,2,3,4,5]",
+                "output": "[5,4,3,2,1]"
+            },
+            "example2": {
+                "input": "head = [1,2]",
+                "output": "[2,1]"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function reverseLinkedList(head) {\n    // Write your solution...\n    return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// Time complexity : O(n).\n// Space complexity : O(1).\nfunction reverseLinkedList(head) {\n    let currentNode = head;\n    let prevNode = null;\n    while (currentNode !== null) {\n        const temp = currentNode.next;\n        currentNode.next = prevNode;\n        prevNode = currentNode;\n        currentNode = temp;\n    }\n    return prevNode;\n}\n// Time complexity : O(n).\n// Space complexity : O(n).\nfunction reverseLinkedList(head) {\n  return reverse(null, head);\n};\nvar reverse = function (newHead, head) {\n  if (!head) return newHead;\n  var tmp = head.next;\n  head.next = newHead;\n  return reverse(head, tmp);\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": "function test_input() { class Node { constructor(data) { this.data = data; this.next = null; } } const a = new Node(2); const b = new Node(4); const c = new Node(3); const d = new Node(5); const e = new Node(6); a.next = b; b.next = c; c.next = d; d.next = e; const val = window.reverseLinkedList(a); let arr = []; let cur = val; while (cur) { arr.push(cur.data); cur = cur.next; } return ['2>4>3>5>6', arr]; }",
+                "test_expected": [6, 5, 3, 4, 2],
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              }
+        }
     }
 }
