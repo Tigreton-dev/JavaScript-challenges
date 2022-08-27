@@ -5167,5 +5167,50 @@
                 "functionTest": true
               }
         }
+    },
+    "insertNode": {
+        "refName": "insertNode",
+        "refNumber": 84,
+        "category": "Linked List",
+        "dificulty": "Easy",
+        "title": "Insert Node",
+        "tags": ["Easy", "Linked List"],
+        "description": "<p>Write a function, insertNode, that takes in the head of a linked list, a value, and an index. The function should insert a new node with the value into the list at the specified index. Consider the head of the linked list as index 0. The function should return the head of the resulting linked list.</p><p>Do this in-place.</p><p>You may assume that the input list is non-empty and the index is not greater than the length of the input list.</p>",
+        "examples": {
+            "example1": {
+                "input": "a -> b -> c -> d",
+                "output": "a -> b -> x -> c -> d"
+            },
+            "example2": {
+                "input": "a -> b -> c -> d",
+                "output": "a -> b -> c -> v -> d"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function insertNode(head, value, index, count = 0) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "class Node {\n    constructor(data) {\n        this.data = data\n        this.next = null;\n    }\n}\n// ITERATIVE\n// n = number of nodes\n// Time: O(n)\n// Space: O(1)\nfunction insertNode(head, value, index) {\n  if (index === 0) {\n    const newHead = new Node(value);\n    newHead.next = head;\n    return newHead;\n  }\n  \n  let count = 0;\n  let current = head;\n  while (current !== null) {\n    if (count === index - 1) {\n      const next = current.next;\n      current.next = new Node(value);\n      current.next.next = next;\n    }\n    \n    count += 1;\n    current = current.next;\n  }\n  return head;\n};\n// RECURSIVE \n// n = number of nodes\n// Time: O(n)\n// Space: O(n)\nfunction insertNode(head, value, index, count = 0) {\n  if (index === 0) {\n    const newHead = new Node(value);\n    newHead.next = head;\n    return newHead;\n  }\n  \n  if (count === index - 1) {\n    const next = head.next;\n    head.next = new Node(value);\n    head.next.next = next;\n    return head;\n  }\n  \n  insertNode(head.next, value, index, count + 1);\n  return head;\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": "function test_input() { class Node { constructor(data) { this.data = data; this.next = null; } } const a = new Node('a'); const b = new Node('b'); const c = new Node('c'); const d = new Node('d'); a.next = b; b.next = c; c.next = d; const val = window.insertNode(a, 'x', 2); let arr = []; let cur = val; while (cur) { arr.push(cur.data); cur = cur.next; } return [' a -> b -> c -> d', arr]; }",
+                "test_expected": ["a", "b", "x", "c", "d"],
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              }
+        }
     }
 }
