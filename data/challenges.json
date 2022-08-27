@@ -5278,5 +5278,85 @@
                 "functionTest": true
               }
         }
+    },
+    "longestStreak": {
+        "refName": "longestStreak",
+        "refNumber": 86,
+        "category": "Linked List",
+        "dificulty": "Easy",
+        "title": "Longest Streak",
+        "tags": ["Easy", "Linked List"],
+        "description": "<p>Write a function, longestStreak, that takes in the head of a linked list as an argument. The function should return the length of the longest consecutive streak of the same value within the list.</p>",
+        "examples": {
+            "example1": {
+                "input": "5 -> 5 -> 7 -> 7 -> 7 -> 6",
+                "output": "3"
+            },
+            "example2": {
+                "input": "3 -> 3 -> 3 -> 3 -> 9 -> 9",
+                "output": "4"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function longestStreak(head) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// n = number of nodes\n// Time: O(n)\n// Space: O(1)\nfunction longestStreak(head) {\n    if (head === null) return 0;\n    let currentNode = head;\n    let counter = 0;\n    let maxVal = 0;\n    let currentVal = head.data;\n    while (currentNode !== null) {\n        if (currentVal === currentNode.data) {\n            counter++;\n            maxVal = Math.max(maxVal, counter);\n        } else {\n            counter = 1;\n            currentVal = currentNode.data;\n        }\n        currentNode = currentNode.next;\n    }\n    return maxVal;\n}"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": "function test_input() { class Node { constructor(data) { this.data = data; this.next = null; } } const a = new Node(5); const b = new Node(5); const c = new Node(7); const d = new Node(7); const e = new Node(7); const f = new Node(6); a.next = b; b.next = c; c.next = d; d.next = e; e.next = f; const val = window.longestStreak(a); return [' 5 -> 5 -> 7 -> 7 -> 7 -> 6', val]; }",
+                "test_expected": 3,
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              },
+              "Test_2": {
+                "test_input": "function test_input() { class Node { constructor(data) { this.data = data; this.next = null; } } const a = new Node(3); const b = new Node(3); const c = new Node(3); const d = new Node(3); const e = new Node(9); const f = new Node(9); a.next = b; b.next = c; c.next = d; d.next = e; e.next = f; const val = window.longestStreak(a); return [' 3 -> 3 -> 3 -> 3 -> 9 -> 9', val]; }",
+                "test_expected": 4,
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              },
+              "Test_3": {
+                "test_input": "function test_input() { class Node { constructor(data) { this.data = data; this.next = null; } } const a = new Node(9); const b = new Node(9); const c = new Node(1); const d = new Node(9); const e = new Node(9); const f = new Node(9); a.next = b; b.next = c; c.next = d; d.next = e; e.next = f; const val = window.longestStreak(a); return [' 9 -> 9 -> 1 -> 9 -> 9 -> 9', val]; }",
+                "test_expected": 3,
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              },
+              "Test_4": {
+                "test_input": "function test_input() { class Node { constructor(data) { this.data = data; this.next = null; } } const a = new Node(5); const b = new Node(5); a.next = b; const val = window.longestStreak(a); return [' 5 -> 5', val]; }",
+                "test_expected": 2,
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              },
+              "Test_5": {
+                "test_input": "function test_input() { class Node { constructor(data) { this.data = data; this.next = null; } } const a = new Node(4); const val = window.longestStreak(a); return [' 5', val]; }",
+                "test_expected": 1,
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              },
+              "Test_6": {
+                "test_input": "function test_input() { class Node { constructor(data) { this.data = data; this.next = null; } } const a = new Node(4); const val = window.longestStreak(null); return [' null', val]; }",
+                "test_expected": 0,
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              }
+        }
     }
 }
