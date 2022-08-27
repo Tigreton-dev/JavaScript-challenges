@@ -4763,5 +4763,50 @@
                 "functionTest": true
               }
         }
+    },
+    "ReverseLinkedList2": {
+        "refName": "ReverseLinkedList2",
+        "refNumber": 76,
+        "category": "Linked List",
+        "dificulty": "Medium",
+        "title": "Reverse Linked List 2",
+        "tags": ["Medium", "Linked List"],
+        "description": "<p>Given the head of a singly linked list and two integers left and right where left <= right, reverse the nodes of the list from position left to position right, and return the reversed list.</p>",
+        "examples": {
+            "example1": {
+                "input": "head = [1,2,3,4,5]\nleft = 2\nright = 4",
+                "output": "[1,4,3,2,5]"
+            },
+            "example2": {
+                "input": "head = [5]\nleft = 1\nright = 1",
+                "output": "[5]"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function reverseLinkedList2(head, m, n) {\n    // Write your solution...\n    return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// Time complexity : O(n).\n// Space complexity : O(1).\nfunction reverseLinkedList2(head, m, n) {\n    class Node {\n        constructor(data) {\n            this.data = data;\n            this.next = null;\n        }\n    }\n    var newHead = new Node(0);\n    var now = newHead;\n    var tmp = null;\n    var reverseLast = null;\n    var reverseHead = null;\n    var reverseNow = null;\n    var i = 0;\n    newHead.next = head;\n    while (now) {\n        tmp = now.next;\n        if (i === m - 1) {\n            reverseHead = now;\n        }\n        if (i === m) {\n            reverseLast = now;\n            reverseNow = now;\n        }\n        if (i > m && i <= n) {\n            now.next = reverseNow;\n            reverseNow = now;\n        }\n        if (i === n) {\n            reverseLast.next = tmp;\n            reverseHead.next = reverseNow;\n        }\n        now = tmp;\n        i++;\n    }\n    return newHead.next;\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": "function test_input() { class Node { constructor(data) { this.data = data; this.next = null; } } const a = new Node(1); const b = new Node(2); const c = new Node(3); const d = new Node(4); const e = new Node(5); a.next = b; b.next = c; c.next = d; d.next = e; const val = window.reverseLinkedList2(a, 2, 4); let arr = []; let cur = val; while (cur) { arr.push(cur.data); cur = cur.next; } return [' 1>2>3>4>5', arr]; }",
+                "test_expected": [1,4,3,2,5],
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              }
+        }
     }
 }
