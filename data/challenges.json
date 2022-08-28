@@ -6963,5 +6963,64 @@
                 "functionTest": true
               }
         }
+    },
+    "treeSum": {
+        "refName": "treeSum",
+        "refNumber": 103,
+        "category": "Binary Tree",
+        "dificulty": "Easy",
+        "title": "Tree Sum",
+        "tags": ["Easy", "Binary Tree"],
+        "description": "<p>Write a function, treeSum, that takes in the root of a binary tree that contains number values. The function should return the total sum of all values in the tree.</p>",
+        "examples": {
+            "example1": {
+                "input": "const a = new Node(3);\nconst b = new Node(11);\nconst c = new Node(4);\nconst d = new Node(4);\nconst e = new Node(-2);\nconst f = new Node(1);\na.left = b;\na.right = c;\nb.left = d;\nb.right = e;\nc.right = f;",
+                "output": "21"
+            },
+            "example2": {
+                "input": "const a = new Node(1);\nconst b = new Node(6);\nconst c = new Node(0);\nconst d = new Node(3);\nconst e = new Node(-6);\nconst f = new Node(2);\nconst g = new Node(2);\nconst h = new Node(2);\na.left = b;\na.right = c;\nb.left = d;\nb.right = e;\nc.right = f;\ne.left = g;\nf.right = h;",
+                "output": "10"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function treeSum(root) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// depth first\n// n = number of nodes\n// Time: O(n)\n// Space: O(n)\nfunction treeSum(root) {\n  if (root === null) return 0;\n  return root.val + treeSum(root.left) + treeSum(root.right);\n};\n// breadth first\n// n = number of nodes\n// Time: O(n)\n// Space: O(n)\n/*\nNote: this solution should really be considered O(n^2) runtime because the JavaScript shift() methods runs in O(n). JavaScript does not have a native queue data structure that is maximally efficient.\n*/\nfunction treeSum(root, target) {\n  if (root === null) return 0;\n  const queue = [root];\n  let totalSum = 0;\n  while (queue.length > 0) {\n    const node = queue.shift();\n    totalSum += node.val;\n    if (node.left !== null) queue.push(node.left);\n    if (node.right !== null) queue.push(node.right);\n  }\n  return totalSum;\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": "function test_input() { function Node(val) { this.val = val; this.left = null; this.right = null; } const a = new Node(3); const b = new Node(11); const c = new Node(4); const d = new Node(4); const e = new Node(-2); const f = new Node(1); a.left = b; a.right = c; b.left = d; b.right = e; c.right = f; return window.treeSum(a) }",
+                "test_expected": 21,
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              },
+              "Test_2": {
+                "test_input": "function test_input() { function Node(val) { this.val = val; this.left = null; this.right = null;} const a = new Node(1); const b = new Node(6); const c = new Node(0); const d = new Node(3); const e = new Node(-6); const f = new Node(2); const g = new Node(2); const h = new Node(2); a.left = b; a.right = c; b.left = d; b.right = e; c.right = f; e.left = g; f.right = h; return  window.treeSum(a)}",
+                "test_expected": 10,
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              },
+              "Test_3": {
+                "test_input": "function test_input() { return  window.treeSum(null)}",
+                "test_expected": 0,
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              }
+        }
     }
 }
