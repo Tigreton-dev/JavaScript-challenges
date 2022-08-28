@@ -5737,5 +5737,179 @@
                 "passed_test": false
               }
         }
+    },
+    "shortestPath": {
+        "refName": "shortestPath",
+        "refNumber": 92,
+        "category": "Graphs",
+        "dificulty": "Easy",
+        "title": "Shortest Path",
+        "tags": ["Easy", "Graphs"],
+        "description": "<p>Write a function, shortestPath, that takes in an array of edges for an undirected graph and two nodes (nodeA, nodeB). The function should return the length of the shortest path between A and B. Consider the length as the number of edges in the path, not the number of nodes. If there is no path between A and B, then return -1.</p>",
+        "examples": {
+            "example1": {
+                "input": "const edges = [   ['w', 'x'],   ['x', 'y'],   ['z', 'y'],   ['z', 'v'],   ['w', 'v'], ];\nconst nodeA = 'w'\nconst nodeB = 'z'",
+                "output": "2"
+            },
+            "example2": {
+                "input": "const edges = [   ['w', 'x'],   ['x', 'y'],   ['z', 'y'],   ['z', 'v'],   ['w', 'v'], ];\nconst nodeA = 'y'\nconst nodeB = 'x'",
+                "output": "1"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function shortestPath(edges, nodeA, nodeB) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// breadth first\n// e = number edges\n// Time: O(e)\n// Space: O(e)\nfunction shortestPath(edges, nodeA, nodeB) {\n  const graph = buildGraph(edges);\n  const visited = new Set([nodeA]);\n  const queue = [[nodeA, 0]];\n  while (queue.length > 0) {\n    const [node, distance] = queue.shift();\n    if (node === nodeB) return distance;\n    for (let neighbor of graph[node]) {\n      if (!visited.has(neighbor)) {\n        visited.add(neighbor);\n        queue.push([neighbor, distance + 1]);\n      }\n    }\n  }\n  return -1;\n}\nconst buildGraph = (edges) => {\n  const graph = {};\n  for (let edge of edges) {\n    const [a, b] = edge;\n    if (!(a in graph)) graph[a] = [];\n    if (!(b in graph)) graph[b] = [];\n    graph[a].push(b);\n    graph[b].push(a);\n  }\n  return graph;\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": [
+                  [
+                    ["w", "x"],
+                    ["x", "y"],
+                    ["z", "y"],
+                    ["z", "v"],
+                    ["w", "v"]
+                  ],
+                  "w",
+                  "z"
+                ],
+                "test_expected": 2,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": [
+                  [
+                    ["w", "x"],
+                    ["x", "y"],
+                    ["z", "y"],
+                    ["z", "v"],
+                    ["w", "v"]
+                  ],
+                  "y",
+                  "x"
+                ],
+                "test_expected": 1,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_3": {
+                "test_input": [
+                  [
+                    ["a", "c"],
+                    ["a", "b"],
+                    ["c", "b"],
+                    ["c", "d"],
+                    ["b", "d"],
+                    ["e", "d"],
+                    ["g", "f"]
+                  ],
+                  "a",
+                  "e"
+                ],
+                "test_expected": 3,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_4": {
+                "test_input": [
+                  [
+                    ["a", "c"],
+                    ["a", "b"],
+                    ["c", "b"],
+                    ["c", "d"],
+                    ["b", "d"],
+                    ["e", "d"],
+                    ["g", "f"]
+                  ],
+                  "e",
+                  "c"
+                ],
+                "test_expected": 2,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_5": {
+                "test_input": [
+                  [
+                    ["a", "c"],
+                    ["a", "b"],
+                    ["c", "b"],
+                    ["c", "d"],
+                    ["b", "d"],
+                    ["e", "d"],
+                    ["g", "f"]
+                  ],
+                  "b",
+                  "g"
+                ],
+                "test_expected": -1,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_6": {
+                "test_input": [
+                  [
+                    ["c", "n"],
+                    ["c", "e"],
+                    ["c", "s"],
+                    ["c", "w"],
+                    ["w", "e"]
+                  ],
+                  "w",
+                  "e"
+                ],
+                "test_expected": 1,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_7": {
+                "test_input": [
+                  [
+                    ["c", "n"],
+                    ["c", "e"],
+                    ["c", "s"],
+                    ["c", "w"],
+                    ["w", "e"]
+                  ],
+                  "n",
+                  "e"
+                ],
+                "test_expected": 2,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_8": {
+                "test_input": [
+                  [
+                    ["m", "n"],
+                    ["n", "o"],
+                    ["o", "p"],
+                    ["p", "q"],
+                    ["t", "o"],
+                    ["r", "q"],
+                    ["r", "s"]
+                  ],
+                  "m",
+                  "s"
+                ],
+                "test_expected": 6,
+                "code_output": null,
+                "passed_test": false
+              }
+        }
     }
 }
