@@ -5628,5 +5628,114 @@
                 "passed_test": false
               }
         }
+    },
+    "largestComponent": {
+        "refName": "largestComponent",
+        "refNumber": 91,
+        "category": "Graphs",
+        "dificulty": "Easy",
+        "title": "Largest Component",
+        "tags": ["Easy", "Graphs"],
+        "description": "<p>Write a function, largestComponent, that takes in the adjacency list of an undirected graph. The function should return the size of the largest connected component in the graph.</p>",
+        "examples": {
+            "example1": {
+                "input": "const input = {   0: ['8', '1', '5'],   1: ['0'],   5: ['0', '8'],   8: ['0', '5'],   2: ['3', '4'],   3: ['2', '4'],   4: ['3', '2'], };",
+                "output": "4"
+            },
+            "example2": {
+                "input": "const input = {   1: ['2'],   2: ['1', '8'],   6: ['7'],   9: ['8'],   7: ['6', '8'],   8: ['9', '7', '2'], };",
+                "output": "6"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function largestComponent(graph) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "function largestComponent(graph) {\n  const visited = new Set();\n  let largest = 0;\n  for (let node in graph) {\n    const size = exploreSize(graph, node, visited);\n    if (size > largest) largest = size;\n  }\n  return largest;\n}\n// DFS\nconst exploreSize = (graph, node, visited) => {\n  if (visited.has(node)) return 0;\n  visited.add(node);\n  let size = 1;\n  for (let neighbor of graph[node]) {\n    size += exploreSize(graph, neighbor, visited);\n  }\n  return size;\n};\n// BFS\nfunction exploreSize(graph, node, visited) {\n    if (visited.has(node)) return 0;\n    const queue = [node];\n    let counter = 0;\n    while(queue.length) {\n        const current = queue.shift();\n        for (let neighbor of graph[current]) {\n            if (!visited.has(neighbor)) {\n                visited.add(neighbor);\n                counter++;\n                queue.push(neighbor);\n            }\n        }\n    }\n    return counter;\n}"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": [
+                  {
+                    "0": ["8", "1", "5"],
+                    "1": ["0"],
+                    "5": ["0", "8"],
+                    "8": ["0", "5"],
+                    "2": ["3", "4"],
+                    "3": ["2", "4"],
+                    "4": ["3", "2"]
+                  }
+                ],
+                "test_expected": 4,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": [
+                  {
+                    "1": ["2"],
+                    "2": ["1", "8"],
+                    "6": ["7"],
+                    "9": ["8"],
+                    "7": ["6", "8"],
+                    "8": ["9", "7", "2"]
+                  }
+                ],
+                "test_expected": 6,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_3": {
+                "test_input": [
+                  {
+                    "3": [],
+                    "4": ["6"],
+                    "6": ["4", "5", "7", "8"],
+                    "8": ["6"],
+                    "7": ["6"],
+                    "5": ["6"],
+                    "1": ["2"],
+                    "2": ["1"]
+                  }
+                ],
+                "test_expected": 5,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_4": {
+                "test_input": [{}],
+                "test_expected": 0,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_5": {
+                "test_input": [
+                  {
+                    "0": ["4", "7"],
+                    "1": [],
+                    "2": [],
+                    "3": ["6"],
+                    "4": ["0"],
+                    "6": ["3"],
+                    "7": ["0"],
+                    "8": []
+                  }
+                ],
+                "test_expected": 3,
+                "code_output": null,
+                "passed_test": false
+              }
+        }
     }
 }
