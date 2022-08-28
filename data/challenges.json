@@ -7105,7 +7105,7 @@
     },
     "treeMinValue": {
         "refName": "treeMinValue",
-        "refNumber": 104,
+        "refNumber": 105,
         "category": "Binary Tree",
         "dificulty": "Easy",
         "title": "Tree Min Value",
@@ -7162,6 +7162,72 @@
               },
               "Test_4": {
                 "test_input": "function test_input() { function Node(val) { this.val = val; this.left = null; this.right = null; } const a = new Node(42); return window.treeMinValue(a) }",
+                "test_expected": 42,
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              }
+        }
+    },
+    "MaxRootToLeafPathSum": {
+        "refName": "MaxRootToLeafPathSum",
+        "refNumber": 106,
+        "category": "Binary Tree",
+        "dificulty": "Easy",
+        "title": "Max Root To Leaf Path Sum",
+        "tags": ["Easy", "Binary Tree"],
+        "description": "<p>Write a function, MaxRootToLeafPathSum, that takes in the root of a binary tree that contains number values. The function should return the maximum sum of any root to leaf path within the tree.</p><p>You may assume that the input tree is non-empty.</p>",
+        "examples": {
+            "example1": {
+                "input": "const a = new Node(3);\nconst b = new Node(11);\nconst c = new Node(4);\nconst d = new Node(4);\nconst e = new Node(-2);\nconst f = new Node(1);\na.left = b;\na.right = c;\nb.left = d;\nb.right = e;\nc.right = f;",
+                "output": "18"
+            },
+            "example2": {
+                "input": "const a = new Node(5);\nconst b = new Node(11);\nconst c = new Node(54);\nconst d = new Node(20);\nconst e = new Node(15);\nconst f = new Node(1);\nconst g = new Node(3);\na.left = b;\na.right = c;\nb.left = d;\nb.right = e;\ne.left = f;\ne.right = g;",
+                "output": "59"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function maxRootToLeafPathSum(root) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// depth first (recursive)\n// n = number of nodes\n// Time: O(n)\n// Space: O(n)\nfunction maxRootToLeafPathSum(root) {\n  if (root === null) return -Infinity;\n  if (root.left === null && root.right === null) return root.val;\n  return root.val + Math.max(maxRootToLeafPathSum(root.left), maxRootToLeafPathSum(root.right));\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": "function test_input() { function Node(val) { this.val = val; this.left = null; this.right = null; } const a = new Node(3); const b = new Node(11); const c = new Node(4); const d = new Node(4); const e = new Node(-2); const f = new Node(1); a.left = b; a.right = c; b.left = d; b.right = e; c.right = f; return window.maxRootToLeafPathSum(a)}",
+                "test_expected": 18,
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              },
+              "Test_2": {
+                "test_input": "function test_input() { function Node(val) { this.val = val; this.left = null; this.right = null; } const a = new Node(5); const b = new Node(11); const c = new Node(54); const d = new Node(20); const e = new Node(15); const f = new Node(1); const g = new Node(3); a.left = b; a.right = c; b.left = d; b.right = e; e.left = f; e.right = g; return window.maxRootToLeafPathSum(a)}",
+                "test_expected": 59,
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              },
+              "Test_3": {
+                "test_input": "function test_input() { function Node(val) { this.val = val; this.left = null; this.right = null; } const a = new Node(-1); const b = new Node(-6); const c = new Node(-5); const d = new Node(-3); const e = new Node(0); const f = new Node(-13); const g = new Node(-1); const h = new Node(-2); a.left = b; a.right = c; b.left = d; b.right = e; c.right = f; e.left = g; f.right = h; return window.maxRootToLeafPathSum(a)}",
+                "test_expected": -8,
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              },
+              "Test_4": {
+                "test_input": "function test_input() { function Node(val) { this.val = val; this.left = null; this.right = null; } const a = new Node(42); return window.maxRootToLeafPathSum(a)}",
                 "test_expected": 42,
                 "code_output": null,
                 "passed_test": false,
