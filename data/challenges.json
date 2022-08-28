@@ -5911,5 +5911,96 @@
                 "passed_test": false
               }
         }
+    },
+    "islandCount": {
+        "refName": "islandCount",
+        "refNumber": 93,
+        "category": "Graphs",
+        "dificulty": "Easy",
+        "title": "Island Count",
+        "tags": ["Easy", "Graphs"],
+        "description": "<p>Write a function, islandCount, that takes in a grid containing Ws and Ls. W represents water and L represents land. The function should return the number of islands on the grid. An island is a vertically or horizontally connected region of land.</p>",
+        "examples": {
+            "example1": {
+                "input": "const grid = [   ['W', 'L', 'W', 'W', 'W'],   ['W', 'L', 'W', 'W', 'W'],   ['W', 'W', 'W', 'L', 'W'],   ['W', 'W', 'L', 'L', 'W'],   ['L', 'W', 'W', 'L', 'L'],   ['L', 'L', 'W', 'W', 'W'], ];",
+                "output": "3"
+            },
+            "example2": {
+                "input": "const grid = [   ['L', 'W', 'W', 'L', 'W'],   ['L', 'W', 'W', 'L', 'L'],   ['W', 'L', 'W', 'L', 'W'],   ['W', 'W', 'W', 'W', 'W'],   ['W', 'W', 'L', 'L', 'L'], ];",
+                "output": "4"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function islandCount(grid) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// depth first\n// r = number of rows\n// c = number of columns\n// Time: O(rc)\n// Space: O(rc)\nfunction islandCount(grid) {\n  const visited = new Set();\n  let count = 0;\n  for (let r = 0; r < grid.length; r += 1) {\n    for (let c = 0; c < grid[0].length; c += 1) {\n      if (explore(grid, r, c, visited) === true) {\n        count += 1;\n      }\n    }\n  }\n  return count;\n}\nconst explore = (grid, r, c, visited) => {\n  const rowInbounds = 0 <= r && r < grid.length;\n  const colInbounds = 0 <= c && c < grid[0].length;\n  if (!rowInbounds || !colInbounds) return false;\n  if (grid[r][c] === 'W') return false;\n  const pos = r + ',' + c;\n  if (visited.has(pos)) return false;\n  visited.add(pos);\n  explore(grid, r - 1, c, visited);\n  explore(grid, r + 1, c, visited);\n  explore(grid, r, c - 1, visited);\n  explore(grid, r, c + 1, visited);\n  return true;\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": [
+                  [
+                    ["W", "L", "W", "W", "W"],
+                    ["W", "L", "W", "W", "W"],
+                    ["W", "W", "W", "L", "W"],
+                    ["W", "W", "L", "L", "W"],
+                    ["L", "W", "W", "L", "L"],
+                    ["L", "L", "W", "W", "W"]
+                  ]
+                ],
+                "test_expected": 3,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": [
+                  [
+                    ["L", "W", "W", "L", "W"],
+                    ["L", "W", "W", "L", "L"],
+                    ["W", "L", "W", "L", "W"],
+                    ["W", "W", "W", "W", "W"],
+                    ["W", "W", "L", "L", "L"]
+                  ]
+                ],
+                "test_expected": 4,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_3": {
+                "test_input": [
+                  [
+                    ["L", "L", "L"],
+                    ["L", "L", "L"],
+                    ["L", "L", "L"]
+                  ]
+                ],
+                "test_expected": 1,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_3": {
+                "test_input": [
+                  [
+                    ["W", "W"],
+                    ["W", "W"],
+                    ["W", "W"]
+                  ]
+                ],
+                "test_expected": 0,
+                "code_output": null,
+                "passed_test": false
+              }
+        }
     }
 }
