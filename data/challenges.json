@@ -6817,5 +6817,78 @@
                 "passed_test": false
               }
         }
+    },
+    "depthFirstValues": {
+        "refName": "depthFirstValues",
+        "refNumber": 101,
+        "category": "Binary Tree",
+        "dificulty": "Easy",
+        "title": "Depth First Values",
+        "tags": ["Easy", "Binary Tree"],
+        "description": "<p>Write a function, depthFirstValues, that takes in the root of a binary tree. The function should return an array containing all values of the tree in depth-first order.</p><p>Hey. This is our first binary tree problem, so you should be liberal with watching the Approach and Walkthrough. Be productive, not stubborn. -AZ</p>",
+        "examples": {
+            "example1": {
+                "input": "const a = new Node('a');\nconst b = new Node('b');\nconst c = new Node('c');\nconst d = new Node('d');\nconst e = new Node('e');\nconst f = new Node('f');\na.left = b;\na.right = c;\nb.left = d;\nb.right = e;\nc.right = f;",
+                "output": "['a', 'b', 'd', 'e', 'c', 'f']"
+            },
+            "example2": {
+                "input": "const a = new Node('a');\nconst b = new Node('b');\nconst c = new Node('c');\nconst d = new Node('d');\nconst e = new Node('e');\nconst f = new Node('f');\nconst g = new Node('g');\na.left = b;\na.right = c;\nb.left = d;\nb.right = e;\nc.right = f;\ne.left = g;",
+                "output": "['a', 'b', 'd', 'e', 'g', 'c', 'f']"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function depthFirstValues(root) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// Iterative\n// n = number of nodes\n// Time: O(n)\n// Space: O(n)\nfunction depthFirstValues(root) {\n  if (root === null) return [];\n  const values = [];\n  const stack = [root];\n  while (stack.length > 0) {\n    const node = stack.pop();\n    values.push(node.val);\n    if (node.right !== null) stack.push(node.right);\n    if (node.left !== null) stack.push(node.left);\n  }\n  return values;\n}\n// recursive\n// n = number of nodes\n// Time: O(n)\n// Space: O(n)\nfunction depthFirstValues(root) {\n  if (root === null) return [];\n  const leftValues = depthFirstValues(root.left);\n  const rightValues = depthFirstValues(root.right);\n  return [root.val, ...leftValues, ...rightValues];\n}"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": "function test_input() {\n   function Node(val) {\n      this.val = val;\n      this.left = this.right = null;\n   }\n   const a = new Node('a');\n   const b = new Node('b');\n   const c = new Node('c');\n   const d = new Node('d');\n   const e = new Node('e');\n   const f = new Node('f');\n   const g = new Node('g');\n   a.left = b;\n   a.right = c;\n   b.left = d;\n   b.right = e;\n   c.right = f;\n   e.left = g;\n   return window.depthFirstValues(a);\n}",
+                "test_expected": ["a", "b", "d", "e", "g", "c", "f"],
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              },
+              "Test_2": {
+                "test_input": "function test_input(){function Node(val){this.val=val;this.left=null;this.right=null;}const a=new Node('a');const b=new Node('b');const c=new Node('c');const d=new Node('d');const e=new Node('e');const f=new Node('f');const g=new Node('g');a.left=b;a.right=c;b.left=d;b.right=e;c.right=f;e.left=g; return window.depthFirstValues(a);}",
+                "test_expected": ["a", "b", "d", "e", "g", "c", "f"],
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              },
+              "Test_3": {
+                "test_input": "function test_input(){function Node(val){this.val=val;this.left=null;this.right=null;}const a=new Node('a'); return window.depthFirstValues(a);}",
+                "test_expected": ["a"],
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              },
+              "Test_4": {
+                "test_input": "function test_input(){function Node(val){this.val=val;this.left=null;this.right=null;}const a=new Node('a');const b=new Node('b');const c=new Node('c');const d=new Node('d');const e=new Node('e');a.right=b;b.left=c;c.right=d;d.right=e; return window.depthFirstValues(a);}",
+                "test_expected": ["a", "b", "c", "d", "e"],
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              },
+              "Test_5": {
+                "test_input": "function test_input(){return window.depthFirstValues(null);}",
+                "test_expected": [],
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              }
+        }
     }
 }
