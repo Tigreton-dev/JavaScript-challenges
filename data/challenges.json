@@ -6890,5 +6890,78 @@
                 "functionTest": true
               }
         }
+    },
+    "breadthFirstValues": {
+        "refName": "breadthFirstValues",
+        "refNumber": 102,
+        "category": "Binary Tree",
+        "dificulty": "Easy",
+        "title": "Breadth First Values",
+        "tags": ["Easy", "Binary Tree"],
+        "description": "<p>Write a function, breadthFirstValues, that takes in the root of a binary tree. The function should return an array containing all values of the tree in breadth-first order.</p>",
+        "examples": {
+            "example1": {
+                "input": "const a = new Node('a');\nconst b = new Node('b');\nconst c = new Node('c');\nconst d = new Node('d');\nconst e = new Node('e');\nconst f = new Node('f');\na.left = b;\na.right = c;\nb.left = d;\nb.right = e;\nc.right = f;",
+                "output": "['a', 'b', 'c', 'd', 'e', 'f']"
+            },
+            "example2": {
+                "input": "const a = new Node('a');\nconst b = new Node('b');\nconst c = new Node('c');\nconst d = new Node('d');\nconst e = new Node('e');\nconst f = new Node('f');\nconst g = new Node('g');\nconst h = new Node('h');\na.left = b;\na.right = c;\nb.left = d;\nb.right = e;\nc.right = f;\ne.left = g;\nf.right = h",
+                "output": "['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function breadthFirstValues(root) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "/*\nn = number of nodes\nTime: O(n)\nSpace: O(n)\nNote: this solution should really be considered O(n^2) runtime because the JavaScript shift() methods runs in O(n). JavaScript does not have a native queue data structure that is maximally efficient.\n*/\nfunction breadthFirstValues(root) {\n  if (root === null) return [];\n  const values = [];\n  const queue = [root];\n  while (queue.length > 0) {\n    const node = queue.shift();\n    values.push(node.val);\n    if (node.left !== null) queue.push(node.left);\n    if (node.right !== null) queue.push(node.right);\n  }\n  return values;\n}"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": "function test_input() {function Node(val) {this.val = val;this.left = null;this.right = null;} const a = new Node('a'); const b = new Node('b'); const c = new Node('c'); const d = new Node('d'); const e = new Node('e'); const f = new Node('f'); a.left = b; a.right = c; b.left = d; b.right = e; c.right = f; return window.breadthFirstValues(a)}",
+                "test_expected": ["a", "b", "c", "d", "e", "f"],
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              },
+              "Test_2": {
+                "test_input": "function test_input() { function Node(val) { this.val = val; this.left = null; this.right = null;} const a = new Node('a'); const b = new Node('b'); const c = new Node('c'); const d = new Node('d'); const e = new Node('e'); const f = new Node('f'); const g = new Node('g'); const h = new Node('h'); a.left = b; a.right = c; b.left = d; b.right = e; c.right = f; e.left = g; f.right = h; return window.breadthFirstValues(a)}",
+                "test_expected": ["a", "b", "c", "d", "e", "f", "g", "h"],
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              },
+              "Test_3": {
+                "test_input": "function test_input() {function Node(val) {this.val = val;this.left = null;this.right = null;} const a = new Node('a'); return  window.breadthFirstValues(a)}",
+                "test_expected": ["a"],
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              },
+              "Test_4": {
+                "test_input": "function test_input() { function Node(val) { this.val = val; this.left = null; this.right = null;} const a = new Node('a'); const b = new Node('b'); const c = new Node('c');    const d = new Node('d'); const e = new Node('e'); const x = new Node('x'); a.right = b; b.left = c; c.left = x; c.right = d; d.right = e; return  window.breadthFirstValues(a)}",
+                "test_expected": ["a", "b", "c", "x", "d", "e"],
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              },
+              "Test_5": {
+                "test_input": "function test_input() { return  window.breadthFirstValues(null)}",
+                "test_expected": [],
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              }
+        }
     }
 }
