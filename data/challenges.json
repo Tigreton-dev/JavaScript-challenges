@@ -6094,5 +6094,147 @@
                 "passed_test": false
               }
         }
+    },
+    "closestCarrot": {
+        "refName": "closestCarrot",
+        "refNumber": 95,
+        "category": "Graphs",
+        "dificulty": "Easy",
+        "title": "Closest Carrot",
+        "tags": ["Easy", "Graphs"],
+        "description": "<p>Write a function, closestCarrot, that takes in a grid, a starting row, and a starting column. In the grid, 'X's are walls, 'O's are open spaces, and 'C's are carrots. The function should return a number representing the length of the shortest path from the starting position to a carrot. You may move up, down, left, or right, but cannot pass through walls (X). If there is no possible path to a carrot, then return -1.</p>",
+        "examples": {
+            "example1": {
+                "input": "const grid = [   ['O', 'O', 'O', 'O', 'O'],   ['O', 'X', 'O', 'O', 'O'],   ['O', 'X', 'X', 'O', 'O'],   ['O', 'X', 'C', 'O', 'O'],   ['O', 'X', 'X', 'O', 'O'],   ['C', 'O', 'O', 'O', 'O'], ];\nstartRow = 1\nstartCol= 2",
+                "output": "4"
+            },
+            "example2": {
+                "input": "const grid = [   ['O', 'O', 'O', 'O', 'O'],   ['O', 'X', 'O', 'O', 'O'],   ['O', 'X', 'X', 'O', 'O'],   ['O', 'X', 'C', 'O', 'O'],   ['O', 'X', 'X', 'O', 'O'],   ['C', 'O', 'O', 'O', 'O'], ]\n\nstartRow = 0\nstartCol= 0",
+                "output": "5"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function closestCarrot(grid, startRow, startCol) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// breadth first\n// r = number of rows\n// c = number of columns\n// Time: O(rc)\n// Space: O(rc)\nfunction closestCarrot(grid, startRow, startCol) {\n    const queue = [[startRow, startCol, 0]];\n    const visited = new Set([startRow + ',' + startCol]);\n    while (queue.length > 0) {\n        const [row, col, distance] = queue.shift();\n        if (grid[row][col] === 'C') return distance;\n        const deltas = [[1, 0], [-1, 0], [0, 1], [0, -1],];\n        for (let delta of deltas) {\n            const [deltaRow, deltaCol] = delta;\n            const neighborRow = row + deltaRow;\n            const neighborCol = col + deltaCol;\n            const neighborPos = neighborRow + ',' + neighborCol;\n            const rowInbounds = 0 <= neighborRow && neighborRow < grid.length;\n            const colInbounds = 0 <= neighborCol && neighborCol < grid[0].length;\n            if (\n                rowInbounds &&\n                colInbounds &&\n                !visited.has(neighborPos) &&\n                grid[neighborRow][neighborCol] !== 'X'\n            ) {\n                visited.add(neighborPos);\n                queue.push([neighborRow, neighborCol, distance + 1]);\n            }\n        }\n    }\n    return -1;\n}"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": [
+                  [
+                    ["O", "O", "O", "O", "O"],
+                    ["O", "X", "O", "O", "O"],
+                    ["O", "X", "X", "O", "O"],
+                    ["O", "X", "C", "O", "O"],
+                    ["O", "X", "X", "O", "O"],
+                    ["C", "O", "O", "O", "O"]
+                  ],
+                  1,
+                  2
+                ],
+                "test_expected": 4,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": [
+                  [
+                    ["O", "O", "O", "O", "O"],
+                    ["O", "X", "O", "O", "O"],
+                    ["O", "X", "X", "O", "O"],
+                    ["O", "X", "C", "O", "O"],
+                    ["O", "X", "X", "O", "O"],
+                    ["C", "O", "O", "O", "O"]
+                  ],
+                  0,
+                  0
+                ],
+                "test_expected": 5,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_3": {
+                "test_input": [
+                  [
+                    ["O", "O", "X", "X", "X"],
+                    ["O", "X", "X", "X", "C"],
+                    ["O", "X", "O", "X", "X"],
+                    ["O", "O", "O", "O", "O"],
+                    ["O", "X", "X", "X", "X"],
+                    ["O", "O", "O", "O", "O"],
+                    ["O", "O", "C", "O", "O"],
+                    ["O", "O", "O", "O", "O"]
+                  ],
+                  3,
+                  4
+                ],
+                "test_expected": 9,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_4": {
+                "test_input": [
+                  [
+                    ["O", "O", "X", "O", "O"],
+                    ["O", "X", "X", "X", "O"],
+                    ["O", "X", "C", "C", "O"]
+                  ],
+                  1,
+                  4
+                ],
+                "test_expected": 2,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_5": {
+                "test_input": [
+                  [
+                    ["O", "O", "X", "O", "O"],
+                    ["O", "X", "X", "X", "O"],
+                    ["O", "X", "C", "C", "O"]
+                  ],
+                  2,
+                  0
+                ],
+                "test_expected": -1,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_6": {
+                "test_input": [
+                  [
+                    ["O", "O", "O", "O", "O", "O", "O", "O", "O", "O"],
+                    ["O", "O", "O", "O", "O", "O", "O", "O", "O", "O"],
+                    ["O", "O", "O", "O", "O", "O", "O", "O", "O", "O"],
+                    ["O", "O", "O", "O", "O", "O", "O", "O", "O", "O"],
+                    ["O", "O", "O", "O", "O", "O", "O", "O", "O", "O"],
+                    ["O", "O", "O", "O", "O", "O", "O", "O", "O", "O"],
+                    ["O", "O", "O", "O", "O", "O", "O", "O", "O", "O"],
+                    ["O", "O", "O", "O", "O", "O", "O", "O", "O", "O"],
+                    ["O", "O", "O", "O", "O", "O", "O", "O", "O", "O"],
+                    ["O", "O", "O", "O", "O", "O", "O", "O", "O", "O"],
+                    ["O", "O", "O", "O", "O", "O", "O", "O", "X", "X"],
+                    ["O", "O", "O", "O", "O", "O", "O", "O", "X", "C"]
+                  ],
+                  0,
+                  0
+                ],
+                "test_expected": -1,
+                "code_output": null,
+                "passed_test": false
+              }
+        }
     }
 }
