@@ -6572,5 +6572,112 @@
                 "passed_test": false
               }
         }
+    },
+    "hasCycle": {
+        "refName": "hasCycle",
+        "refNumber": 99,
+        "category": "Graphs",
+        "dificulty": "Easy",
+        "title": "Has Cycle",
+        "tags": ["Easy", "Graphs"],
+        "description": "<p>Write a function, hasCycle, that takes in an object representing the adjacency list of a directed graph. The function should return a boolean indicating whether or not the graph contains a cycle.</p>",
+        "examples": {
+            "example1": {
+                "input": "input = {   a: ['b'],   b: ['c'],   c: ['a'], };",
+                "output": "true"
+            },
+            "example2": {
+                "input": "input = { a: ['b', 'c'], b: ['c'], c: ['d'], d: [], }",
+                "output": "false"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function hasCycle(graph) {\n    // Write your solution...\n    return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "function hasCycle(graph) {\n    const visited = new Set();\n    for (let startNode in graph) {\n        if (cycleDetect(graph, startNode, new Set(), visited)) return true;\n    }\n    return false;\n}\nconst cycleDetect = (graph, node, visiting, visited) => {\n    if (visited.has(node)) return false;\n    if (visiting.has(node)) return true;\n    visiting.add(node);\n    for (let neighbor of graph[node]) {\n        if (cycleDetect(graph, neighbor, visiting, visited)) return true;\n    }\n    visiting.delete(node);\n    visited.add(node);\n    return false;\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": [
+                  {
+                    "a": ["b"],
+                    "b": ["c"],
+                    "c": ["a"]
+                  }
+                ],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": [
+                  {
+                    "a": ["b", "c"],
+                    "b": ["c"],
+                    "c": ["d"],
+                    "d": []
+                  }
+                ],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_3": {
+                "test_input": [
+                  {
+                    "a": ["b", "c"],
+                    "b": [],
+                    "c": [],
+                    "e": ["f"],
+                    "f": ["e"]
+                  }
+                ],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_4": {
+                "test_input": [
+                  {
+                    "q": ["r", "s"],
+                    "r": ["t", "u"],
+                    "s": [],
+                    "t": [],
+                    "u": [],
+                    "v": ["w"],
+                    "w": [],
+                    "x": ["w"]
+                  }
+                ],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_5": {
+                "test_input": [
+                  {
+                    "a": ["b"],
+                    "b": ["c"],
+                    "c": ["a"],
+                    "g": []
+                  }
+                ],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+              }
+        }
     }
 }
