@@ -5519,5 +5519,114 @@
                 "passed_test": false
               }
         }
+    },
+    "connectComponentsCount": {
+        "refName": "connectComponentsCount",
+        "refNumber": 90,
+        "category": "Graphs",
+        "dificulty": "Easy",
+        "title": "Connect Components Count",
+        "tags": ["Easy", "Graphs"],
+        "description": "<p>Write a function, connectedComponentsCount, that takes in the adjacency list of an undirected graph. The function should return the number of connected components within the graph.</p>",
+        "examples": {
+            "example1": {
+                "input": "const list = {   0: [8, 1, 5],   1: [0],   5: [0, 8],   8: [0, 5],   2: [3, 4],   3: [2, 4],   4: [3, 2], };",
+                "output": "2"
+            },
+            "example2": {
+                "input": "const list = {   1: [2],   2: [1, 8],   6: [7],   9: [8],   7: [6, 8],   8: [9, 7, 2], };",
+                "output": "1"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function connectComponentsCount(graph) {\n    // Write your solution...\n    return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// depth first\n// n = number of nodes\n// e = number edges\n// Time: O(e)\n// Space: O(n)\nfunction connectComponentsCount(graph) {\n    const visited = new Set();\n    let count = 0;\n    for (let node in graph) {\n        if (explore(graph, node, visited) === true) {\n        count += 1;\n        }\n    }\n    return count;\n}\n// DFT\nconst explore = (graph, current, visited) => {\n    if (visited.has(String(current))) return false;\n    visited.add(String(current));\n    for (let neighbor of graph[current]) {\n        explore(graph, neighbor, visited);\n    }\n    return true;\n};\n// BFT\nfunction explore(graph, node, visited) {\n    if (visited.has(String(node))) return false;\n    const queue = [node];\n    while (queue.length) {\n        const current = queue.shift();\n        for (let neighbor of graph[current]) {\n            if (!visited.has(String(neighbor))) {\n                visited.add(String(neighbor));\n                queue.push(neighbor);\n            }\n        }\n    }\n    return true;\n}"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": [
+                  {
+                    "0": [8, 1, 5],
+                    "1": [0],
+                    "5": [0, 8],
+                    "8": [0, 5],
+                    "2": [3, 4],
+                    "3": [2, 4],
+                    "4": [3, 2]
+                  }
+                ],
+                "test_expected": 2,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": [
+                  {
+                    "1": [2],
+                    "2": [1, 8],
+                    "6": [7],
+                    "9": [8],
+                    "7": [6, 8],
+                    "8": [9, 7, 2]
+                  }
+                ],
+                "test_expected": 1,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_3": {
+                "test_input": [
+                  {
+                    "3": [],
+                    "4": [6],
+                    "6": [4, 5, 7, 8],
+                    "8": [6],
+                    "7": [6],
+                    "5": [6],
+                    "1": [2],
+                    "2": [1]
+                  }
+                ],
+                "test_expected": 3,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_4": {
+                "test_input": [{}],
+                "test_expected": 0,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_5": {
+                "test_input": [
+                  {
+                    "0": [4, 7],
+                    "1": [],
+                    "2": [],
+                    "3": [6],
+                    "4": [0],
+                    "6": [3],
+                    "7": [0],
+                    "8": []
+                  }
+                ],
+                "test_expected": 5,
+                "code_output": null,
+                "passed_test": false
+              }
+        }
     }
 }
