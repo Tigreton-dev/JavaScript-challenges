@@ -6236,5 +6236,88 @@
                 "passed_test": false
               }
         }
+    },
+    "longestPath": {
+        "refName": "longestPath",
+        "refNumber": 96,
+        "category": "Graphs",
+        "dificulty": "Easy",
+        "title": "Longest Path",
+        "tags": ["Easy", "Graphs"],
+        "description": "<p>Write a function, longestPath, that takes in an adjacency list for a directed acyclic graph. The function should return the length of the longest path within the graph. A path may start and end at any two nodes. The length of a path is considered the number of edges in the path, not the number of nodes.</p>",
+        "examples": {
+            "example1": {
+                "input": "input = {   a: ['c', 'b'],   b: ['c'],   c: [], }",
+                "output": "2"
+            },
+            "example2": {
+                "input": "input = {   a: ['c', 'b'],   b: ['c'],   c: [],   q: ['r'],   r: ['s', 'u', 't'],   s: ['t'],   t: ['u'],   u: [], }",
+                "output": "4"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function longestPath(graph) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// depth first\n// e = # edges\n// n = # nodes\n// Time: O(e)\n// Space: O(n)\nfunction longestPath(graph) {\n  const distance = {};\n  for (let node in graph) {\n    if (graph[node].length === 0) {\n      distance[node] = 0;\n    }\n  }\n  for (let node in graph) {\n    traverseDistance(graph, node, distance);\n  }\n  return Math.max(...Object.values(distance));\n}\nconst traverseDistance = (graph, node, distance) => {\n  if (node in distance) return distance[node];\n  let maxDistance = 0;\n  for (let neighbor of graph[node]) {\n    const attempt = traverseDistance(graph, neighbor, distance);\n    if (attempt > maxDistance) maxDistance = attempt;\n  }\n  distance[node] = 1 + maxDistance;\n  return distance[node];\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": [
+                  {
+                    "a": ["c", "b"],
+                    "b": ["c"],
+                    "c": []
+                  }
+                ],
+                "test_expected": 2,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": [
+                  {
+                    "a": ["c", "b"],
+                    "b": ["c"],
+                    "c": [],
+                    "q": ["r"],
+                    "r": ["s", "u", "t"],
+                    "s": ["t"],
+                    "t": ["u"],
+                    "u": []
+                  }
+                ],
+                "test_expected": 4,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_3": {
+                "test_input": [
+                  {
+                    "h": ["i", "j", "k"],
+                    "g": ["h"],
+                    "i": [],
+                    "j": [],
+                    "k": [],
+                    "x": ["y"],
+                    "y": []
+                  }
+                ],
+                "test_expected": 2,
+                "code_output": null,
+                "passed_test": false
+              }
+        }
     }
 }
