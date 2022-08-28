@@ -5469,5 +5469,55 @@
                 "functionTest": true
               }
         }
+    },
+    "hasPath": {
+        "refName": "hasPath",
+        "refNumber": 89,
+        "category": "Graphs",
+        "dificulty": "Easy",
+        "title": "Has Path",
+        "tags": ["Easy", "Graphs"],
+        "description": "<p>There is a bi-directional graph with n vertices, where each vertex is labeled from 0 to n - 1 (inclusive). The edges in the graph are represented as a 2D integer array edges, where each edges[i] = [ui, vi] denotes a bi-directional edge between vertex ui and vertex vi. Every vertex pair is connected by at most one edge, and no vertex has an edge to itself.</p><p>You want to determine if there is a valid path that exists from vertex source to vertex destination.</p><p>Given edges and the integers n, source, and destination, return true if there is a valid path from source to destination, or false otherwise.</p>",
+        "examples": {
+            "example1": {
+                "input": "edges = [[0,1],[1,2],[2,0]]\nsource = 0\ndestination = 2",
+                "output": "true"
+            },
+            "example2": {
+                "input": "edges = [[0,1],[0,2],[3,5],[5,4],[4,3]]\nsource = 0\ndestination = 5",
+                "output": "false"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function hasPath(edges, src, dst) {\n    // Write your solution...\n    return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "function hasPath(edges, src, dst) {\n    const graph = buildGraph(edges);\n    return path(graph, src, dst, new Set());\n};\n// depth first\n// n = number of nodes\n// e = number edges\n// Time: O(e)\n// Space: O(n)\nfunction path(graph, src, dst, visited) {\n    if (src === dst) return true;\n    if (visited.has(src)) return false;\n    visited.add(src);\n    for (let neighbor of graph[src]) {\n        if (path(graph, neighbor, dst, visited) === true) {\n            return true;\n        }\n    }\n    return false;\n}\n// breadth first\n// n = number of nodes\n// e = number edges\n// Time: O(e)\n// Space: O(n)\n// JavaScript shift() methods runs in linear time, so the complexity is really O(e^2).\nfunction path(graph, src, dst) {\n    const visited = new Set([ src ]);\n    const queue = [src];\n    while (queue.length) {\n        const current = queue.shift();\n        if (current === dst) return true;\n        for (let neighbor of graph[current]) {\n            if (!visited.has(neighbor)) {\n                visited.add(neighbor);\n                queue.push(neighbor);\n            }\n            \n        }\n    }\n    return false;\n};\nconst buildGraph = (edges) => {\n    const graph = {};\n    for (let edge of edges) {\n        const [ a, b ] = edge;\n        if (!(a in graph)) graph[a] = [];\n        if (!(b in graph)) graph[b] = [];\n        graph[a].push(b);\n        graph[b].push(a);\n    }\n    return graph;\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": [[[0,1],[1,2],[2,0]], 0, 2],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": [[[0,1],[0,2],[3,5],[5,4],[4,3]], 0, 5],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+              }
+        }
     }
 }
