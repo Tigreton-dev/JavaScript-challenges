@@ -7519,5 +7519,83 @@
                 "functionTest": true
               }
             }
+    },
+    "AllTreePaths": {
+        "refName": "AllTreePaths",
+        "refNumber": 111,
+        "category": "Binary Tree",
+        "dificulty": "Easy",
+        "title": "All Tree Paths",
+        "tags": ["Easy", "Binary Tree"],
+        "description": "<p>Write a function, allTreePaths, that takes in the root of a binary tree. The function should return a 2-Dimensional array where each subarray represents a root-to-leaf path in the tree.</p><p>The order within an individual path must start at the root and end at the leaf, but the relative order among paths in the outer array does not matter.</p><p>You may assume that the input tree is non-empty.</p>",
+        "examples": {
+            "example1": {
+                "input": "const a = new Node('a');\nconst b = new Node('b');\nconst c = new Node('c');\nconst d = new Node('d');\nconst e = new Node('e');\nconst f = new Node('f');\na.left = b;\na.right = c;\nb.left = d;\nb.right = e;\nc.right = f;",
+                "output": "[\n  ['a', 'b', 'd'],\n  ['a', 'b', 'e'],\n  ['a', 'c', 'f'],\n];"
+            },
+            "example2": {
+                "input": "const a = new Node('a');\nconst b = new Node('b');\nconst c = new Node('c');\nconst d = new Node('d');\nconst e = new Node('e');\nconst f = new Node('f');\nconst g = new Node('g');\nconst h = new Node('h');\nconst i = new Node('i');\na.left = b;\na.right = c;\nb.left = d;\nb.right = e;\nc.right = f;\ne.left = g;\ne.right = h;\nf.left = i;",
+                "output": "[\n  ['a', 'b', 'd'],\n  ['a', 'b', 'e', 'g'],\n  ['a', 'b', 'e', 'h'],\n  ['a', 'c', 'f', 'i'],\n];"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function allTreePaths(root) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// n = number of nodes\n// Time: ~O(n)\n// Space: ~O(n)\nfunction allTreePaths(root, paths = [], currentPath = []) {\n    if (root === null) return;\n    currentPath = [...currentPath, root.val];\n    if (root.left === null && root.right === null) {\n        paths.push(currentPath);\n    }\n    allTreePaths(root.left, paths, currentPath);\n    allTreePaths(root.right, paths, currentPath);\n    return paths;\n}"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": "function test_input() { function Node(val) { this.val = val; this.left = null; this.right = null; } const a = new Node('a'); const b = new Node('b'); const c = new Node('c'); const d = new Node('d'); const e = new Node('e'); const f = new Node('f'); a.left = b; a.right = c; b.left = d; b.right = e; c.right = f; return window.allTreePaths(a);}",
+                "test_expected": [
+                  ["a", "b", "d"],
+                  ["a", "b", "e"],
+                  ["a", "c", "f"]
+                ],
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              },
+              "Test_2": {
+                "test_input": "function test_input() { function Node(val) { this.val = val; this.left = null; this.right = null; } const a = new Node('a'); const b = new Node('b'); const c = new Node('c'); const d = new Node('d'); const e = new Node('e'); const f = new Node('f'); const g = new Node('g'); const h = new Node('h'); const i = new Node('i'); a.left = b; a.right = c; b.left = d; b.right = e; c.right = f; e.left = g; e.right = h; f.left = i; return window.allTreePaths(a);}",
+                "test_expected": [
+                  ["a", "b", "d"],
+                  ["a", "b", "e", "g"],
+                  ["a", "b", "e", "h"],
+                  ["a", "c", "f", "i"]
+                ],
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              },
+              "Test_3": {
+                "test_input": "function test_input() { function Node(val) { this.val = val; this.left = null; this.right = null; } const q = new Node('q'); const r = new Node('r'); const s = new Node('s'); const t = new Node('t'); const u = new Node('u'); const v = new Node('v'); q.left = r; q.right = s; r.right = t; t.left = u; u.right = v; return window.allTreePaths(q);}",
+                "test_expected": [
+                  ["q", "r", "t", "u", "v"],
+                  ["q", "s"]
+                ],
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              },
+              "Test_5": {
+                "test_input": "function test_input() { function Node(val) { this.val = val; this.left = null; this.right = null; } const z = new Node('z'); return window.allTreePaths(z);}",
+                "test_expected": [["z"]],
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              }
+            }
     }
 }
