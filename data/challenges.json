@@ -7597,5 +7597,71 @@
                 "functionTest": true
               }
             }
+    },
+    "treeLevels": {
+        "refName": "treeLevels",
+        "refNumber": 112,
+        "category": "Binary Tree",
+        "dificulty": "Easy",
+        "title": "Tree Levels",
+        "tags": ["Easy", "Binary Tree"],
+        "description": "<p>Write a function, treeLevels, that takes in the root of a binary tree. The function should return a 2-Dimensional array where each subarray represents a level of the tree.</p>",
+        "examples": {
+            "example1": {
+                "input": "const a = new Node('a');\nconst b = new Node('b');\nconst c = new Node('c');\nconst d = new Node('d');\nconst e = new Node('e');\nconst f = new Node('f');\na.left = b;\na.right = c;\nb.left = d;\nb.right = e;\nc.right = f;",
+                "output": "[['a'], ['b', 'c'], ['d', 'e', 'f']];"
+            },
+            "example2": {
+                "input": "const a = new Node('a');\nconst b = new Node('b');\nconst c = new Node('c');\nconst d = new Node('d');\nconst e = new Node('e');\nconst f = new Node('f');\nconst g = new Node('g');\nconst h = new Node('h');\nconst i = new Node('i');\na.left = b;\na.right = c;\nb.left = d;\nb.right = e;\nc.right = f;\ne.left = g;\ne.right = h;\nf.left = i;",
+                "output": "[['a'], ['b', 'c'], ['d', 'e', 'f'], ['g', 'h', 'i']]"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function treeLevels(root) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// breadth first (iterative)\n// n = number of nodes\n// Time: O(n)\n// Space: O(n)\nfunction treeLevels(root) {\n  if (root === null) return [];\n  const levels = [];\n  const queue = [{ node: root, levelNum: 0 }];\n  while (queue.length > 0) {\n    const { node, levelNum } = queue.shift();\n    if (levels.length === levelNum) {\n      levels[levelNum] = [node.val];\n    } else {\n      levels[levelNum].push(node.val);\n    }\n    if (node.left !== null)\n      queue.push({ node: node.left, levelNum: levelNum + 1 });\n    if (node.right !== null)\n      queue.push({ node: node.right, levelNum: levelNum + 1 });\n  }\n  return levels;\n}\n// depth first (recursive)\n// n = number of nodes\n// Time: O(n)\n// Space: O(n)\nfunction treeLevels(root, paths = [], currentPath = 0) {\n    if (root === null) return [];\n    if (paths.length === currentPath) {\n        paths[currentPath] = [root.val];\n    } else {\n        paths[currentPath].push(root.val);\n    }\n    treeLevels(root.left, paths, currentPath + 1);\n    treeLevels(root.right, paths, currentPath + 1);\n    return paths;\n}"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": "function test_input() { function Node(val) { this.val = val; this.left = null; this.right = null; } const a = new Node('a'); const b = new Node('b'); const c = new Node('c'); const d = new Node('d'); const e = new Node('e'); const f = new Node('f'); a.left = b; a.right = c; b.left = d; b.right = e; c.right = f; return window.treeLevels(a);}",
+                "test_expected": [["a"], ["b", "c"], ["d", "e", "f"]],
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              },
+              "Test_2": {
+                "test_input": "function test_input() { function Node(val) { this.val = val; this.left = null; this.right = null; } const a = new Node('a'); const b = new Node('b'); const c = new Node('c'); const d = new Node('d'); const e = new Node('e'); const f = new Node('f'); const g = new Node('g'); const h = new Node('h'); const i = new Node('i'); a.left = b; a.right = c; b.left = d; b.right = e; c.right = f; e.left = g; e.right = h; f.left = i; return window.treeLevels(a);}",
+                "test_expected": [["a"], ["b", "c"], ["d", "e", "f"], ["g", "h", "i"]],
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              },
+              "Test_3": {
+                "test_input": "function test_input() { function Node(val) { this.val = val; this.left = null; this.right = null; } const q = new Node('q'); const r = new Node('r'); const s = new Node('s'); const t = new Node('t'); const u = new Node('u'); const v = new Node('v'); q.left = r; q.right = s; r.right = t; t.left = u; u.right = v; return window.treeLevels(q);}",
+                "test_expected": [["q"], ["r", "s"], ["t"], ["u"], ["v"]],
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              },
+              "Test_4": {
+                "test_input": "function test_input() { return window.treeLevels(null);}",
+                "test_expected": [],
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              }
+            }
     }
 }
