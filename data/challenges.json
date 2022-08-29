@@ -7387,5 +7387,64 @@
                 "functionTest": true
               }
             }
+    },
+    "howHigh": {
+        "refName": "howHigh",
+        "refNumber": 109,
+        "category": "Binary Tree",
+        "dificulty": "Easy",
+        "title": "How High",
+        "tags": ["Easy", "Binary Tree"],
+        "description": "<p>Write a function, howHigh, that takes in the root of a binary tree. The function should return a number representing the height of the tree.</p><p>The height of a binary tree is defined as the maximal number of edges from the root node to any leaf node.</p><p>If the tree is empty, return -1.</p>",
+        "examples": {
+            "example1": {
+                "input": "const a = new Node('a');\nconst b = new Node('b');\nconst c = new Node('c');\nconst d = new Node('d');\nconst e = new Node('e');\nconst f = new Node('f');\na.left = b;\na.right = c;\nb.left = d;\nb.right = e;\nc.right = f;",
+                "output": "2"
+            },
+            "example2": {
+                "input": "const a = new Node('a');\nconst b = new Node('b');\nconst c = new Node('c');\nconst d = new Node('d');\nconst e = new Node('e');\nconst f = new Node('f');\nconst g = new Node('g');\na.left = b;\na.right = c;\nb.left = d;\nb.right = e;\nc.right = f;\ne.left = g",
+                "output": "3"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function howHigh(node) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// n = number of nodes\n// Time: O(n)\n// Space: O(n)\nfunction howHigh(node) {\n  if (node === null) return -1;\n  const leftHeight = howHigh(node.left);\n  const rightHeight = howHigh(node.right);\n  return 1 + Math.max(leftHeight, rightHeight);\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": "function test_input() { function Node(val) { this.val = val; this.left = null; this.right = null; } const a = new Node('a'); const b = new Node('b'); const c = new Node('c'); const d = new Node('d'); const e = new Node('e'); const f = new Node('f'); a.left = b; a.right = c; b.left = d; b.right = e; c.right = f; return window.howHigh(a);}",
+                "test_expected": 2,
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              },
+              "Test_2": {
+                "test_input": "function test_input() { function Node(val) { this.val = val; this.left = null; this.right = null; } const a = new Node('a'); const b = new Node('b'); const c = new Node('c'); const d = new Node('d'); const e = new Node('e'); const f = new Node('f'); const g = new Node('g'); a.left = b; a.right = c; b.left = d; b.right = e; c.right = f; e.left = g; return window.howHigh(a);}",
+                "test_expected": 3,
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              },
+              "Test_3": {
+                "test_input": "function test_input() { function Node(val) { this.val = val; this.left = null; this.right = null; } const a = new Node('a'); const c = new Node('c'); a.right = c; return window.howHigh(a);}",
+                "test_expected": 1,
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              }
+            }
     }
 }
