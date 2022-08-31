@@ -9022,7 +9022,7 @@
         "refNumber": 122,
         "category": "Dynamic Programming",
         "dificulty": "Easy",
-        "title": "SummingSquares",
+        "title": "Summing Squares",
         "tags": ["Easy", "Dynamic Programming"],
         "description": "<p>Write a function, summingSquares, that takes a target number as an argument. The function should return the minimum number of perfect squares that sum to the target. A perfect square is a number of the form (i*i) where i >= 1.</p><p>For example: 1, 4, 9, 16 are perfect squares, but 8 is not perfect square.</p>",
         "examples": {
@@ -9098,6 +9098,86 @@
               "Test_8": {
                 "test_input": [87],
                 "test_expected": 4,
+                "code_output": null,
+                "passed_test": false
+              }
+            }
+    },
+    "countingChange": {
+        "refName": "countingChange",
+        "refNumber": 123,
+        "category": "Dynamic Programming",
+        "dificulty": "Easy",
+        "title": "Counting Change",
+        "tags": ["Easy", "Dynamic Programming"],
+        "description": "<p>Write a function, countingChange, that takes in an amount and an array of coins. The function should return the number of different ways it is possible to make change for the given amount using the coins.</p><p>You may reuse a coin as many times as necessary.</p>",
+        "examples": {
+            "example1": {
+                "input": "amount = 4\ncoins= [1,2,3]",
+                "output": "4\nThere are four different ways to make an amount of 4:\n1 + 1 + 1 + 1\n1 + 1 + 2\n1 + 3\n2 + 2"
+            },
+            "example2": {
+                "input": "amount = 8\ncoins= [1,2,3]",
+                "output": "2"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function countingChange(amount, coins, i = 0, memo = {}) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// a = amount\n// c = # coins\n// Time: O(a*c)\n// Space: O(a*c)\nfunction countingChange(amount, coins, i = 0, memo = {}) {\n  const key = amount + ',' + i;\n  if (key in memo) return memo[key];\n  \n  if (amount === 0) return 1;\n  if (i === coins.length) return 0;\n    \n  const coin = coins[i];\n  \n  let count = 0;\n  for (let qty = 0; (qty * coin) <= amount; qty += 1) {\n    const remainder = amount - (coin * qty);\n    count += countingChange(remainder, coins, i + 1, memo);\n  }\n  \n  memo[key] = count;\n  return count;\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": [4, [1, 2, 3]],
+                "test_expected": 4,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": [8, [1, 2, 3]],
+                "test_expected": 10,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_3": {
+                "test_input": [24, [5, 7, 3]],
+                "test_expected": 5,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_4": {
+                "test_input": [13, [2, 6, 12, 10]],
+                "test_expected": 0,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_5": {
+                "test_input": [512, [1, 5, 10, 25]],
+                "test_expected": 20119,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_6": {
+                "test_input": [1000, [1, 5, 10, 25]],
+                "test_expected": 142511,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_7": {
+                "test_input": [240, [1, 2, 3, 4, 5, 6, 7, 8, 9]],
+                "test_expected": 1525987916,
                 "code_output": null,
                 "passed_test": false
               }
