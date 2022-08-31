@@ -9016,5 +9016,91 @@
                 "passed_test": false
               }
             }
+    },
+    "summingSquares": {
+        "refName": "summingSquares",
+        "refNumber": 122,
+        "category": "Dynamic Programming",
+        "dificulty": "Easy",
+        "title": "SummingSquares",
+        "tags": ["Easy", "Dynamic Programming"],
+        "description": "<p>Write a function, summingSquares, that takes a target number as an argument. The function should return the minimum number of perfect squares that sum to the target. A perfect square is a number of the form (i*i) where i >= 1.</p><p>For example: 1, 4, 9, 16 are perfect squares, but 8 is not perfect square.</p>",
+        "examples": {
+            "example1": {
+                "input": "12",
+                "output": "The minimum squares required for 12 is three, by doing 4 + 4 + 4.\nAnother way to make 12 is 9 + 1 + 1 + 1, but that requires four perfect squares."
+            },
+            "example2": {
+                "input": "8",
+                "output": "2"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function summingSquares(n, memo = {}) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// n = length of nums\n// Time: O(n * sqrt(n))\n// Space: O(n)\nfunction summingSquares(n, memo = {}) {\n  if (n in memo) return memo[n];\n  \n  if (n === 0) return 0;\n  \n  let minSquares = Infinity;\n  for (let i = 1; i <= Math.sqrt(n); i += 1) {\n    const square = i * i;\n    const numSquares = 1 + summingSquares(n - square, memo);\n    minSquares = Math.min(minSquares, numSquares);\n  }\n  \n  memo[n] = minSquares;\n  return minSquares;\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": [8],
+                "test_expected": 2,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": [9],
+                "test_expected": 1,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_3": {
+                "test_input": [12],
+                "test_expected": 3,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_4": {
+                "test_input": [1],
+                "test_expected": 1,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_5": {
+                "test_input": [31],
+                "test_expected": 4,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_6": {
+                "test_input": [50],
+                "test_expected": 2,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_7": {
+                "test_input": [68],
+                "test_expected": 2,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_8": {
+                "test_input": [87],
+                "test_expected": 4,
+                "code_output": null,
+                "passed_test": false
+              }
+            }
     }
 }
