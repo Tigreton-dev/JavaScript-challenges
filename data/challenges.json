@@ -7809,5 +7809,1010 @@
                 "functionTest": true
               }
             }
+    },
+    "wordBreak": {
+        "refName": "wordBreak",
+        "refNumber": 115,
+        "category": "Dynamic Programming",
+        "dificulty": "Easy",
+        "title": "Word Break",
+        "tags": ["Easy", "Dynamic Programming"],
+        "description": "<p>Given a string s and a dictionary of strings wordDict, return true if s can be segmented into a space-separated sequence of one or more dictionary words.</p><p>Note that the same word in the dictionary may be reused multiple times in the segmentation.</p>",
+        "examples": {
+            "example1": {
+                "input": "s = 'leetcode'\nwordDict = ['leet','code']",
+                "output": "true\nExplanation: Return true because 'leetcode' can be segmented as 'leet code'."
+            },
+            "example2": {
+                "input": "s = 'applepenapple', wordDict = ['apple','pen']",
+                "output": "true\nExplanation: Return true because 'applepenapple' can be segmented as 'apple pen apple'. Note that you are allowed to reuse a dictionary word."
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function wordBreak(s, wordDict) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// Time complexity : O(n^2).\n// Space complexity : O(n^2).\nfunction wordBreak(s, wordDict) {\n    var len = wordDict.length;\n    var dp = Array(len);\n    var map = {};\n    for (var i = 0; i < len; i++) {\n        map[wordDict[i]] = true;\n    }\n    return find(s, map, dp, 0);\n};\nvar find = function (s, map, dp, index) {\n    if (dp[index] !== undefined) return dp[index];\n    var str = '';\n    var res = false;\n    var len = s.length;\n    if (index === len) return true;\n    for (var i = index; i < len; i++) {\n        str = s.substring(index, i + 1);\n        if (map[str] && find(s, map, dp, i + 1)) {\n        res = true;\n        break;\n        }\n    }\n    dp[index] = res;\n    return res;\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": ["leetcode", ["leet","code"]],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": ["applepenapple", ["apple","pen"]],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_3": {
+                "test_input": ["demon", "dem"],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_4": {
+                "test_input": ["leetcodeleet", ["leet"]],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_5": {
+                "test_input": ["catsandog", ["cats","dog","sand","and","cat"]],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_6": {
+                "test_input": ["cars", ["car","ca","rs"]],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+              }
+            }
+    },
+    "fibonacci": {
+        "refName": "fibonacci",
+        "refNumber": 116,
+        "category": "Dynamic Programming",
+        "dificulty": "Easy",
+        "title": "Fibonacci",
+        "tags": ["Easy", "Dynamic Programming"],
+        "description": "<p>Write a function fibonacci that takes in a number argument, n, and returns the n-th number of the Fibonacci sequence.</p><ul><li>The 0-th number of the sequence is 0.</li><li>The 1-st number of the sequence is 1.</li></ul><p>To generate further numbers of the sequence, calculate the sum of previous two numbers.</p>",
+        "examples": {
+            "example1": {
+                "input": "1",
+                "output": "1"
+            },
+            "example2": {
+                "input": "35",
+                "output": "9227465"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function fibonacci(n) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// BRUTE-FORCE\n// Time: O(2^n)\n// Space: O(n)\nfunction fibonacci(n) {\n  if (n === 0 || n === 1) return n;\n  return fibonacci(n - 1) + fibonacci(n - 2);\n};\n// memoized (pass)\n// Time: O(n)\n// Space: O(n)\nfunction fibonacci(n, memo = {}) {\n  if (n === 0 || n === 1) return n;\n  if (n in memo) return memo[n];\n  memo[n] = fibonacci(n - 1, memo) + fibonacci(n - 2, memo);\n  return memo[n];\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": [0],
+                "test_expected": 0,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": [1],
+                "test_expected": 1,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_3": {
+                "test_input": [2],
+                "test_expected": 1,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_4": {
+                "test_input": [3],
+                "test_expected": 2,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_5": {
+                "test_input": [4],
+                "test_expected": 3,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_6": {
+                "test_input": [5],
+                "test_expected": 5,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_7": {
+                "test_input": [35],
+                "test_expected": 9227465,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_8": {
+                "test_input": [46],
+                "test_expected": 1836311903,
+                "code_output": null,
+                "passed_test": false
+              }
+            }
+    },
+    "sumPossible": {
+        "refName": "sumPossible",
+        "refNumber": 117,
+        "category": "Dynamic Programming",
+        "dificulty": "Easy",
+        "title": "Sum Possible",
+        "tags": ["Easy", "Dynamic Programming"],
+        "description": "<p>Write a function sumPossible that takes in an amount and an array of positive numbers. The function should return a boolean indicating whether or not it is possible to create the amount by summing numbers of the array. You may reuse numbers of the array as many times as necessary.</p><p>You may assume that the target amount is non-negative.</p>",
+        "examples": {
+            "example1": {
+                "input": "const amount = 8\nconst numbers = [5, 12, 4]",
+                "output": "true, 4 + 4"
+            },
+            "example2": {
+                "input": "const amount = 15\nconst numbers = [6, 2, 10, 19]",
+                "output": "false"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function sumPossible(amount, numbers, memo = {}) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// dynamic programming with memoization\n// a = amount\n// n = length of numbers\n// Time: O(a*n)\n// Space: O(a)\nfunction sumPossible(amount, numbers, memo = {}) {\n  if (amount === 0) return true;\n  \n  if (amount < 0) return false;\n  \n  if (amount in memo) return memo[amount];\n  \n  for (let num of numbers) {\n    if (sumPossible(amount - num, numbers, memo)) {\n      memo[amount] = true;\n      return true;\n    }\n  }\n  \n  memo[amount] = false;\n  return false;\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": [8, [5, 12, 4]],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": [15, [6, 2, 10, 19]],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_3": {
+                "test_input": [13, [6, 2, 1]],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_4": {
+                "test_input": [103, [6, 20, 1]],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_5": {
+                "test_input": [12, []],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_6": {
+                "test_input": [12, [12]],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_7": {
+                "test_input": [0, []],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_8": {
+                "test_input": [271, [10, 8, 265, 24]],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_9": {
+                "test_input": [2017, [4, 2, 10]],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_10": {
+                "test_input": [13, [3, 5]],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+              }
+            }
+    },
+    "minChange": {
+        "refName": "minChange",
+        "refNumber": 118,
+        "category": "Dynamic Programming",
+        "dificulty": "Easy",
+        "title": "Min Change",
+        "tags": ["Easy", "Dynamic Programming"],
+        "description": "<p>Write a function minChange that takes in an amount and an array of coins. The function should return the minimum number of coins required to create the amount. You may use each coin as many times as necessary.</p><p>If it is not possible to create the amount, then return -1.</p>",
+        "examples": {
+            "example1": {
+                "input": "const amount = 8\nconst coins = [1, 5, 4, 12]",
+                "output": "2, because 4+4 is the minimum coins possible"
+            },
+            "example2": {
+                "input": "const amount = 13\nconst coins = [1, 9, 5, 14, 30]",
+                "output": "5"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function minChange(amount, coins) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// a = amount\n// c = # coins\n// Time: O(a*c)\n// Space: O(a)\nfunction minChange(amount, coins) {\n  const answer = _minChange(amount, coins);\n  return answer === Infinity ? -1 : answer;\n};\nconst _minChange = (amount, coins, memo = {}) => {\n  if (amount < 0) return Infinity;\n  \n  if (amount === 0) return 0;\n  \n  if (amount in memo) return memo[amount];\n  \n  let min = Infinity;\n  for (let coin of coins) {\n    const numCoins = 1 + _minChange(amount - coin, coins, memo);\n    min = Math.min(numCoins, min);\n  }\n  return memo[amount] = min;\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": [8, [1, 5, 4, 12]],
+                "test_expected": 2,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": [13, [1, 9, 5, 14, 30]],
+                "test_expected": 5,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_3": {
+                "test_input": [23, [2, 5, 7]],
+                "test_expected": 4,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_4": {
+                "test_input": [102, [1, 5, 10, 25]],
+                "test_expected": 6,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_5": {
+                "test_input": [200, [1, 5, 10, 25]],
+                "test_expected": 8,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_6": {
+                "test_input": [2017, [4, 2, 10]],
+                "test_expected": -1,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_7": {
+                "test_input": [271, [10, 8, 265, 24]],
+                "test_expected": -1,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_8": {
+                "test_input": [0, [4, 2, 10]],
+                "test_expected": 0,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_9": {
+                "test_input": [0, []],
+                "test_expected": 0,
+                "code_output": null,
+                "passed_test": false
+              }
+            }
+    },
+    "countPaths": {
+        "refName": "countPaths",
+        "refNumber": 119,
+        "category": "Dynamic Programming",
+        "dificulty": "Easy",
+        "title": "Count Paths",
+        "tags": ["Easy", "Dynamic Programming"],
+        "description": "<p>Write a function, countPaths, that takes in a grid as an argument. In the grid, 'X' represents walls and 'O' represents open spaces. You may only move down or to the right and cannot pass through walls. The function should return the number of ways possible to travel from the top-left corner of the grid to the bottom-right corner.</p>",
+        "examples": {
+            "example1": {
+                "input": "const grid = [   ['O', 'O'],   ['O', 'O'], ]",
+                "output": "2"
+            },
+            "example2": {
+                "input": "const grid = [   ['O', 'O', 'X'],   ['O', 'O', 'O'],   ['O', 'O', 'O'], ];",
+                "output": "5"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function countPaths(grid, r = 0, c = 0, memo = {}) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// r = # rows\n// c = # columns\n// Time: O(r*c)\n// Space: O(r*c)\nfunction countPaths(grid, r = 0, c = 0, memo = {}) {\n  const pos = r + ',' + c;\n  if (pos in memo) return memo[pos];\n  if (r === grid.length || c === grid[0].length || grid[r][c] === 'X') return 0;\n  if (r === grid.length - 1 && c === grid[0].length - 1) return 1;\n  memo[pos] =\n    countPaths(grid, r + 1, c, memo) + countPaths(grid, r, c + 1, memo);\n  return memo[pos];\n}"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": [
+                  [
+                    ["O", "O"],
+                    ["O", "O"]
+                  ]
+                ],
+                "test_expected": 2,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": [
+                  [
+                    ["O", "O", "X"],
+                    ["O", "O", "O"],
+                    ["O", "O", "O"]
+                  ]
+                ],
+                "test_expected": 5,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_3": {
+                "test_input": [
+                  [
+                    ["O", "O", "O"],
+                    ["O", "O", "X"],
+                    ["O", "O", "O"]
+                  ]
+                ],
+                "test_expected": 3,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_4": {
+                "test_input": [
+                  [
+                    ["O", "O", "O"],
+                    ["O", "X", "X"],
+                    ["O", "O", "O"]
+                  ]
+                ],
+                "test_expected": 1,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_5": {
+                "test_input": [
+                  [
+                    ["O", "O", "X", "O", "O", "O"],
+                    ["O", "O", "X", "O", "O", "O"],
+                    ["X", "O", "X", "O", "O", "O"],
+                    ["X", "X", "X", "O", "O", "O"],
+                    ["O", "O", "O", "O", "O", "O"]
+                  ]
+                ],
+                "test_expected": 0,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_6": {
+                "test_input": [
+                  [
+                    ["O", "O", "X", "O", "O", "O"],
+                    ["O", "O", "O", "O", "O", "X"],
+                    ["X", "O", "O", "O", "O", "O"],
+                    ["X", "X", "X", "O", "O", "O"],
+                    ["O", "O", "O", "O", "O", "O"]
+                  ]
+                ],
+                "test_expected": 42,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_7": {
+                "test_input": [
+                  [
+                    ["O", "O", "X", "O", "O", "O"],
+                    ["O", "O", "O", "O", "O", "X"],
+                    ["X", "O", "O", "O", "O", "O"],
+                    ["X", "X", "X", "O", "O", "O"],
+                    ["O", "O", "O", "O", "O", "X"]
+                  ]
+                ],
+                "test_expected": 0,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_8": {
+                "test_input": [
+                  [
+                    [
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O"
+                    ],
+                    [
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O"
+                    ],
+                    [
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O"
+                    ],
+                    [
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O"
+                    ],
+                    [
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O"
+                    ],
+                    [
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O"
+                    ],
+                    [
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O"
+                    ],
+                    [
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O"
+                    ],
+                    [
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O"
+                    ],
+                    [
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O"
+                    ],
+                    [
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O"
+                    ],
+                    [
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O"
+                    ],
+                    [
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O"
+                    ],
+                    [
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O"
+                    ],
+                    [
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O"
+                    ]
+                  ]
+                ],
+                "test_expected": 40116600,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_9": {
+                "test_input": [
+                  [
+                    [
+                      "O",
+                      "O",
+                      "X",
+                      "X",
+                      "O",
+                      "O",
+                      "O",
+                      "X",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O"
+                    ],
+                    [
+                      "O",
+                      "O",
+                      "X",
+                      "X",
+                      "O",
+                      "O",
+                      "O",
+                      "X",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O"
+                    ],
+                    [
+                      "O",
+                      "O",
+                      "O",
+                      "X",
+                      "O",
+                      "O",
+                      "O",
+                      "X",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O"
+                    ],
+                    [
+                      "X",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "X",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O"
+                    ],
+                    [
+                      "X",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O"
+                    ],
+                    [
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "X",
+                      "X",
+                      "O"
+                    ],
+                    [
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "X",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "X",
+                      "O"
+                    ],
+                    [
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "X",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O"
+                    ],
+                    [
+                      "X",
+                      "X",
+                      "X",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "X",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O"
+                    ],
+                    [
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "X",
+                      "X",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "X",
+                      "O",
+                      "O",
+                      "O",
+                      "O"
+                    ],
+                    [
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O"
+                    ],
+                    [
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O"
+                    ],
+                    [
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "X",
+                      "X",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O"
+                    ],
+                    [
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "X",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O"
+                    ],
+                    [
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "X",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O",
+                      "O"
+                    ]
+                  ]
+                ],
+                "test_expected": 3190434,
+                "code_output": null,
+                "passed_test": false
+              }
+            }
     }
 }
