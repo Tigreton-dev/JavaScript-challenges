@@ -8936,5 +8936,85 @@
                 "passed_test": false
               }
             }
+    },
+    "nonAdjacentSum": {
+        "refName": "nonAdjacentSum",
+        "refNumber": 121,
+        "category": "Dynamic Programming",
+        "dificulty": "Easy",
+        "title": "Non Adjacent Sum",
+        "tags": ["Easy", "Dynamic Programming"],
+        "description": "<p>Write a function, nonAdjacentSum, that takes in an array of numbers as an argument. The function should return the maximum sum of non-adjacent elements in the array. There is no limit on how many elements can be taken into the sum as long as they are not adjacent.</p>",
+        "examples": {
+            "example1": {
+                "input": "nums = [2, 4, 5, 12, 7]",
+                "output": "16\nThe maximum non-adjacent sum is 16, because 4 + 12. 4 and 12 are not adjacent in the array."
+            },
+            "example2": {
+                "input": "nums = [7, 5, 5, 12];",
+                "output": "19"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function nonAdjacentSum(nums, i = 0, memo = {}) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// n = length of nums\n// Time: O(n)\n// Space: O(n)\nfunction nonAdjacentSum(nums, i = 0, memo = {}) {\n  if (i in memo) return memo[i];\n  if (i >= nums.length) return 0;\n  const include = nums[i] + nonAdjacentSum(nums, i + 2, memo);\n  const exclude = nonAdjacentSum(nums, i + 1, memo);\n  memo[i] = Math.max(include, exclude);\n  return memo[i];\n}"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": [[2, 4, 5, 12, 7]],
+                "test_expected": 16,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": [[7, 5, 5, 12]],
+                "test_expected": 19,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_3": {
+                "test_input": [[7, 5, 5, 12, 17, 29]],
+                "test_expected": 48,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_4": {
+                "test_input": [
+                  [
+                    72, 62, 10, 6, 20, 19, 42, 46, 24, 78, 30, 41, 75, 38, 23, 28, 66, 55,
+                    12, 17, 9, 12, 3, 1, 19, 30, 50, 20
+                  ]
+                ],
+                "test_expected": 488,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_5": {
+                "test_input": [
+                  [
+                    72, 62, 10, 6, 20, 19, 42, 46, 24, 78, 30, 41, 75, 38, 23, 28, 66, 55,
+                    12, 17, 83, 80, 56, 68, 6, 22, 56, 96, 77, 98, 61, 20, 0, 76, 53, 74, 8,
+                    22, 92, 37, 30, 41, 75, 38, 23, 28, 66, 55, 12, 17, 72, 62, 10, 6, 20,
+                    19, 42, 46, 24, 78, 42
+                  ]
+                ],
+                "test_expected": 1465,
+                "code_output": null,
+                "passed_test": false
+              }
+            }
     }
 }
