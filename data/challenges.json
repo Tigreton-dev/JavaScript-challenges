@@ -9510,5 +9510,94 @@
                 "passed_test": false
               }
             }
+    },
+    "quickestConcat": {
+        "refName": "quickestConcat",
+        "refNumber": 128,
+        "category": "Dynamic Programming",
+        "dificulty": "Easy",
+        "title": "Quickest Concat",
+        "tags": ["Easy", "Dynamic Programming"],
+        "description": "<p>Write a function, quickestConcat, that takes in a string and an array of words as arguments. The function should return the minimum number of words needed to build the string by concatenating words of the array.</p><p>You may use words of the array as many times as needed.</p>",
+        "examples": {
+            "example1": {
+                "input": "str = 'caution'\nwords = ['ca', 'ion', 'caut', 'ut']",
+                "output": "2"
+            },
+            "example2": {
+                "input": "str = 'caution'\nwords = ['ion', 'caut', 'caution']",
+                "output": "1"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function quickestConcat(s, words) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// s = length of string\n// w = # of words\n// Time: ~O(sw)\n// Space: O(s)\nfunction quickestConcat(s, words) {\n  const result = _quickestConcat(s, words);\n  if (result === Infinity) {\n    return -1;\n  } else {\n    return result;\n  }\n}\nconst _quickestConcat = (s, words, memo = {}) => {\n  if (s in memo) return memo[s];\n  if (s === '') return 0;\n  let min = Infinity;\n  for (let word of words) {\n    if (s.startsWith(word)) {\n      const suffix = s.slice(word.length);\n      const attempt = 1 + _quickestConcat(suffix, words, memo);\n      min = Math.min(min, attempt);\n    }\n  }\n  memo[s] = min;\n  return min;\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": ["caution", ["ca", "ion", "caut", "ut"]],
+                "test_expected": 2,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": ["caution", ["ion", "caut", "caution"]],
+                "test_expected": 1,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_3": {
+                "test_input": ["respondorreact", ["re", "or", "spond", "act", "respond"]],
+                "test_expected": 4,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_4": {
+                "test_input": ["simchacindy", ["sim", "simcha", "acindy", "ch"]],
+                "test_expected": 3,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_5": {
+                "test_input": ["simchacindy", ["sim", "simcha", "acindy"]],
+                "test_expected": -1,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_6": {
+                "test_input": ["uuuuuu", ["u", "uu", "uuu", "uuuu"]],
+                "test_expected": 2,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_7": {
+                "test_input": ["rongbetty", ["wrong", "bet"]],
+                "test_expected": -1,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_8": {
+                "test_input": [
+                  "uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu",
+                  ["u", "uu", "uuu", "uuuu", "uuuuu"]
+                ],
+                "test_expected": 7,
+                "code_output": null,
+                "passed_test": false
+              }
+            }
     }
 }
