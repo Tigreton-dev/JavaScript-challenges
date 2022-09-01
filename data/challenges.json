@@ -9430,5 +9430,85 @@
                 "passed_test": false
               }
             }
+    },
+    "canConcat": {
+        "refName": "canConcat",
+        "refNumber": 127,
+        "category": "Dynamic Programming",
+        "dificulty": "Easy",
+        "title": "Can Concat",
+        "tags": ["Easy", "Dynamic Programming"],
+        "description": "<p>Write a function, canConcat, that takes in a string and an array of words as arguments. The function should return boolean indicating whether or not it is possible to concatenate words of the array together to form the string.</p><p>You may reuse words of the array as many times as needed.</p>",
+        "examples": {
+            "example1": {
+                "input": "str = 'oneisnone'\nwords = ['one', 'none', 'is']",
+                "output": "true"
+            },
+            "example2": {
+                "input": "tr = 'oneisnone'\nwords = ['on', 'e', 'is']",
+                "output": "false"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function canConcat(s, words, memo = {}) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// s = length of string\n// w = # of words\n// Time: ~O(sw)\n// Space: O(s)\nfunction canConcat(s, words, memo = {}) {\n  if (s in memo) return memo[s];\n  \n  if (s.length === 0) return true;\n  \n  for (let word of words) {\n    if (s.startsWith(word)) {\n      const suffix = s.slice(word.length);\n      if (canConcat(suffix, words, memo)) {\n        memo[s] = true;\n        return true\n      }\n    }\n  }\n  \n  memo[s] = false;\n  return false;\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": ["oneisnone", ["one", "none", "is"]],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": ["oneisnone", ["on", "e", "is"]],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_3": {
+                "test_input": ["oneisnone", ["on", "e", "is", "n"]],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_4": {
+                "test_input": ["foodisgood", ["is", "g", "ood", "f"]],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_5": {
+                "test_input": ["santahat", ["santah", "hat"]],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_6": {
+                "test_input": ["santahat", ["santah", "san", "hat", "tahat"]],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_7": {
+                "test_input": ["rrrrrrrrrrrrrrrrrrrrrrrrrrx", ["r", "rr", "rrr", "rrrr", "rrrrr", "rrrrrr"]],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+              }
+            }
     }
 }
