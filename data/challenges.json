@@ -9359,5 +9359,76 @@
                 "passed_test": false
               }
             }
+    },
+    "overlapSubsequence": {
+        "refName": "overlapSubsequence",
+        "refNumber": 126,
+        "category": "Dynamic Programming",
+        "dificulty": "Easy",
+        "title": "Overlap Subsequence",
+        "tags": ["Easy", "Dynamic Programming"],
+        "description": "<p>Write a function, overlapSubsequence, that takes in two strings as arguments. The function should return the length of the longest overlapping subsequence.</p><p>A subsequence of a string can be created by deleting any characters of the string, while maintaining the relative order of characters.</p>",
+        "examples": {
+            "example1": {
+                "input": "str1 = 'dogs'\nstr2 = 'daogt'",
+                "output": "3"
+            },
+            "example2": {
+                "input": "str1 = 'xcyats'\nstr2 = 'criaotsi'",
+                "output": "4"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function overlapSubsequence(str1, str2, i = 0, j = 0, memo = {}) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// n = length of str1\n// m = length of str2\n// Time: O(nm)\n// Space: O(nm)\nfunction overlapSubsequence(str1, str2, i = 0, j = 0, memo = {}) {\n  const key = i + ',' + j;\n  if (key in memo) return memo[key];\n  if (i === str1.length || j === str2.length) return 0;\n  if (str1[i] === str2[j]) {\n    memo[key] = 1 + overlapSubsequence(str1, str2, i + 1, j + 1, memo);\n  } else {\n    memo[key] = Math.max(\n      overlapSubsequence(str1, str2, i + 1, j, memo),\n      overlapSubsequence(str1, str2, i, j + 1, memo)\n    );\n  }\n  return memo[key];\n}"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": ["dogs", "daogt"],
+                "test_expected": 3,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": ["xcyats", "criaotsi"],
+                "test_expected": 4,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_3": {
+                "test_input": ["xfeqortsver", "feeeuavoeqr"],
+                "test_expected": 5,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_4": {
+                "test_input": ["kinfolklivemustache", "bespokekinfolksnackwave"],
+                "test_expected": 11,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_5": {
+                "test_input": [
+                  "mumblecorebeardleggingsauthenticunicorn",
+                  "succulentspughumblemeditationlocavore"
+                ],
+                "test_expected": 15,
+                "code_output": null,
+                "passed_test": false
+              }
+            }
     }
 }
