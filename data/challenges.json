@@ -9273,5 +9273,91 @@
                 "passed_test": false
               }
             }
+    },
+    "maxPalinSubsequence": {
+        "refName": "maxPalinSubsequence",
+        "refNumber": 125,
+        "category": "Dynamic Programming",
+        "dificulty": "Easy",
+        "title": "Max Palin Subsequence",
+        "tags": ["Easy", "Dynamic Programming"],
+        "description": "<p>Write a function, maxPalinSubsequence, that takes in a string as an argument. The function should return the length of the longest subsequence of the string that is also a palindrome.</p><p>A subsequence of a string can be created by deleting any characters of the string, while maintaining the relative order of characters.</p>",
+        "examples": {
+            "example1": {
+                "input": "str = 'luwxult'",
+                "output": "5"
+            },
+            "example2": {
+                "input": "str = 'xyzaxxzy'",
+                "output": "6"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function maxPalinSubsequence(str, i = 0, j = str.length - 1, memo = {}) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// n = length of the string\n// Time: O(n^2)\n// Space: O(n^2)\nfunction maxPalinSubsequence(str, i = 0, j = str.length - 1, memo = {}) {\n    const key = i + ',' + j;\n    if (key in memo) return memo[key];\n  \n    if (i === j) return 1;\n    \n    if (i > j) return 0;\n  \n    if (str[i] === str[j]) {\n      memo[key] = 2 + maxPalinSubsequence(str, i + 1, j - 1, memo);\n    } else {\n      memo[key] = Math.max(\n        maxPalinSubsequence(str, i + 1, j, memo),\n        maxPalinSubsequence(str, i, j - 1, memo)\n      );\n    }\n  \n    return memo[key];\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": ["luwxult"],
+                "test_expected": 5,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": ["xyzaxxzy"],
+                "test_expected": 6,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_3": {
+                "test_input": ["lol"],
+                "test_expected": 3,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_4": {
+                "test_input": ["boabcdefop"],
+                "test_expected": 3,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_5": {
+                "test_input": ["z"],
+                "test_expected": 1,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_6": {
+                "test_input": ["chartreusepugvicefree"],
+                "test_expected": 7,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_7": {
+                "test_input": ["qwueoiuahsdjnweuueueunasdnmnqweuzqwerty"],
+                "test_expected": 15,
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_8": {
+                "test_input": ["enamelpinportlandtildecoldpressedironyflannelsemioticsedisonbulbfashionaxe"],
+                "test_expected": 31,
+                "code_output": null,
+                "passed_test": false
+              }
+            }
     }
 }
