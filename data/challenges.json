@@ -4295,14 +4295,14 @@
               }
         }
     },
-    "IsPalindrome": {
-        "refName": "IsPalindrome",
+    "linkedPalindrome": {
+        "refName": "linkedPalindrome",
         "refNumber": 68,
         "category": "Linked List",
         "dificulty": "Easy",
-        "title": "IsPalindrome",
+        "title": "Linked Palindrome",
         "tags": ["Easy", "Linked List"],
-        "description": "<p>Implement a function to check if a linked list is a palindrome.</p>",
+        "description": "<p>Write a function, linkedPalindrome, that takes in the head of a linked list as an argument. The function should return a boolean indicating whether or not the linked list is a palindrome. A palindrome is a sequence that is the same both forwards and backwards.</p>",
         "examples": {
             "example1": {
                 "input": "r -> e -> d -> i -> v -> i -> d -> e -> r",
@@ -4320,26 +4320,54 @@
             "Optimal_Space__Time_Complexity": "..."
         },
         "startedCode": {
-            "javaScript": "function isPalindrome(head) {\n    // Write your solution...\n    return true;\n}"
+            "javaScript": "function linkedPalindrome(head) {\n    // Write your solution...\n    return true;\n}"
         },
         "solutionCode": {
             "javaScript": [
-                "function isPalindrome(head) {\n    let currentNode = head;\n    const stack = [];\n    while (currentNode !== null) {\n        stack.push(currentNode.data);\n        currentNode = currentNode.next;\n    }\n    currentNode = head;\n    while (currentNode !== null) {\n        const i = stack.pop();\n        if (i !== currentNode.data) return false;\n        currentNode = currentNode.next;\n    }\n    return true;\n}"
+                "// Solution 1\n// n = number of nodes\n// Time: O(n)\n// Space: O(n)\nfunction linkedPalindrome(head) {\n   const values = [];\n   let current = head;\n   while (current !== null) {\n      values.push(current.data);\n      current = current.next;\n   }\n   return values.join(',') === values.reverse().join(',');\n};\n// Solution 2\nfunction linkedPalindrome(head) {\n    let currentNode = head;\n    const stack = [];\n    while (currentNode !== null) {\n        stack.push(currentNode.data);\n        currentNode = currentNode.next;\n    }\n    currentNode = head;\n    while (currentNode !== null) {\n        const i = stack.pop();\n        if (i !== currentNode.data) return false;\n        currentNode = currentNode.next;\n    }\n    return true;\n}"
             ]
         },
         "submittedCode": {
             "javaScript": ""
         },
         "testCases": {"Test_1": {
-            "test_input": "function test_input() { class Node { constructor(data) { this.data = data; this.next = null; } } const a = new Node('r'); const b = new Node('e'); const c = new Node('d'); const d = new Node('i'); const e = new Node('v'); const f = new Node('i'); const g = new Node('d'); const h = new Node('e'); const i = new Node('r'); a.next = b; b.next = c; c.next = d; d.next = e; e.next = f; f.next = g; g.next = h; h.next = i; const val = window.isPalindrome(a); return ['r -> e -> d -> i -> v -> i -> d -> e -> r', val] }",
+            "test_input": "function test_input() { class Node { constructor(data) { this.data = data; this.next = null; } } const a = new Node('r'); const b = new Node('e'); const c = new Node('d'); const d = new Node('i'); const e = new Node('v'); const f = new Node('i'); const g = new Node('d'); const h = new Node('e'); const i = new Node('r'); a.next = b; b.next = c; c.next = d; d.next = e; e.next = f; f.next = g; g.next = h; h.next = i; const val = window.linkedPalindrome(a); return ['r -> e -> d -> i -> v -> i -> d -> e -> r', val] }",
             "test_expected": true,
             "code_output": null,
             "passed_test": false,
             "functionTest": true
           },
           "Test_2": {
-            "test_input": "function test_input() { class Node { constructor(data) { this.data = data; this.next = null; } } const a = new Node('a'); const b = new Node('w'); const c = new Node('p'); const d = new Node('u'); const e = new Node('e'); const f = new Node('b'); const g = new Node('o'); const h = new Node('s'); const i = new Node('g'); a.next = b; b.next = c; c.next = d; d.next = e; e.next = f; f.next = g; g.next = h; h.next = i; const val = window.isPalindrome(a); return ['a -> w -> p -> u -> b -> o', val] }",
+            "test_input": "function test_input() { class Node { constructor(data) { this.data = data; this.next = null; } } const a = new Node('a'); const b = new Node('w'); const c = new Node('p'); const d = new Node('u'); const e = new Node('e'); const f = new Node('b'); const g = new Node('o'); const h = new Node('s'); const i = new Node('g'); a.next = b; b.next = c; c.next = d; d.next = e; e.next = f; f.next = g; g.next = h; h.next = i; const val = window.linkedPalindrome(a); return ['a -> w -> p -> u -> b -> o', val] }",
             "test_expected": false,
+            "code_output": null,
+            "passed_test": false,
+            "functionTest": true
+          },
+          "Test_3": {
+            "test_input": "function test_input() {   class Node {      constructor(data) {         this.data = data;         this.next = null;      }   }   const a = new Node(3);   const b = new Node(2);   const c = new Node(7);   const d = new Node(7);   const e = new Node(2);   const f = new Node(3);   a.next = b;   b.next = c;   c.next = d;   d.next = e;   e.next = f;   const val = window.linkedPalindrome(a);   return ['3 -> 2 -> 7 -> 7 -> 2 -> 3', val]}",
+            "test_expected": true,
+            "code_output": null,
+            "passed_test": false,
+            "functionTest": true
+          },
+          "Test_4": {
+            "test_input": "function test_input() {    class Node {       constructor(data) {          this.data = data;          this.next = null;       }    }    const a = new Node(3);    const b = new Node(2);    const c = new Node(4);    a.next = b;    b.next = c;    const val = window.linkedPalindrome(a);    return ['3 -> 2 -> 4', val] }",
+            "test_expected": false,
+            "code_output": null,
+            "passed_test": false,
+            "functionTest": true
+          },
+          "Test_5": {
+            "test_input": "function test_input() {    class Node {       constructor(data) {          this.data = data;          this.next = null;       }    }    const a = new Node(0);    const b = new Node(1);    const c = new Node(0);    const d = new Node(1);    const e = new Node(0);    a.next = b;    b.next = c;    c.next = d;    d.next = e;    const val = window.linkedPalindrome(a);    return ['0 -> 1 -> 0 -> 1 -> 0', val] }",
+            "test_expected": true,
+            "code_output": null,
+            "passed_test": false,
+            "functionTest": true
+          },
+          "Test_6": {
+            "test_input": "function test_input() {    class Node {       constructor(data) {          this.data = data;          this.next = null;       }    }    const a = new Node(5);    const val = window.linkedPalindrome(a);    return ['5', val] }",
+            "test_expected": true,
             "code_output": null,
             "passed_test": false,
             "functionTest": true
@@ -9669,6 +9697,496 @@
               "Test_6": {
                 "test_input": [[6, 4, 2, 8 ], 12],
                 "test_expected": [1, 3],
+                "code_output": null,
+                "passed_test": false
+              }
+            }
+    },
+    "subSets": {
+        "refName": "subSets",
+        "refNumber": 130,
+        "category": "Recursion",
+        "dificulty": "Easy",
+        "title": "SubSets",
+        "tags": ["Easy", "Recursion"],
+        "description": "<p>Write a function, subsets, that takes in an array as an argument. The function should return a 2D array where each subarray represents one of the possible subsets of the array.</p><p>The elements within the subsets and the subsets themselves may be returned in any order.</p><p>You may assume that the input array contains unique elements.</p>",
+        "examples": {
+            "example1": {
+                "input": "elements = ['a', 'b']",
+                "output": "[[], ['b'], ['a'], ['a', 'b']]"
+            },
+            "example2": {
+                "input": "elements = ['a', 'b', 'c']",
+                "output": "[[], ['c'], ['b'], ['b', 'c'], ['a'], ['a', 'c'], ['a', 'b'], ['a', 'b', 'c']];"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function subSets(elements) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// n = length of elements array\n// Time: ~O(2^n)\n// Space: ~O(2^n)\nfunction subSets(elements) {\n  if (elements.length === 0) return [[]];\n  const ele = elements[0];\n  const remainingElements = elements.slice(1);\n  const subsetsWithoutEle = subSets(remainingElements);\n  const subsetsWithEle = subsetsWithoutEle.map((sub) => [ele, ...sub]);\n  return [...subsetsWithoutEle, ...subsetsWithEle];\n}"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": [["a", "b"]],
+                "test_expected": [[], ["b"], ["a"], ["a", "b"]],
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": [["a", "b", "c"]],
+                "test_expected": [
+                  [],
+                  ["c"],
+                  ["b"],
+                  ["b", "c"],
+                  ["a"],
+                  ["a", "c"],
+                  ["a", "b"],
+                  ["a", "b", "c"]
+                ],
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_3": {
+                "test_input": [["x"]],
+                "test_expected": [[], ["x"]],
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_4": {
+                "test_input": [[]],
+                "test_expected": [[]],
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_5": {
+                "test_input": [["q", "r", "s", "t"]],
+                "test_expected": [
+                  [],
+                  ["t"],
+                  ["s"],
+                  ["s", "t"],
+                  ["r"],
+                  ["r", "t"],
+                  ["r", "s"],
+                  ["r", "s", "t"],
+                  ["q"],
+                  ["q", "t"],
+                  ["q", "s"],
+                  ["q", "s", "t"],
+                  ["q", "r"],
+                  ["q", "r", "t"],
+                  ["q", "r", "s"],
+                  ["q", "r", "s", "t"]
+                ],
+                "code_output": null,
+                "passed_test": false
+              }
+            }
+    },
+    "permutations": {
+        "refName": "permutations",
+        "refNumber": 131,
+        "category": "Recursion",
+        "dificulty": "Easy",
+        "title": "Permutations",
+        "tags": ["Easy", "Recursion"],
+        "description": "<p>Write a function, permutations, that takes in an array an argument. The function should return a 2D array where each subarray represents one of the possible permutations of the array.</p><p>The subarrays may be returned in any order.</p><p>You may assume that the input array contains unique elements.</p>",
+        "examples": {
+            "example1": {
+                "input": "items = ['a', 'b', 'c']",
+                "output": "[   ['a', 'b', 'c'],   ['b', 'a', 'c'],   ['b', 'c', 'a'],   ['a', 'c', 'b'],   ['c', 'a', 'b'],   ['c', 'b', 'a'], ];"
+            },
+            "example2": {
+                "input": "items = ['red', 'blue']",
+                "output": "[   ['red', 'blue'],   ['blue', 'red'], ];"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function permutations(items) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// n = length of items array\n// Time: ~O(n!)\n// Space: ~O(n!)\nfunction permutations(items) {\n  if (items.length === 0) return [[]];\n  const first = items[0];\n  const perms = permutations(items.slice(1));\n  const fullPermutations = [];\n  for (let perm of perms) {\n    for (let i = 0; i <= perm.length; i += 1) {\n      fullPermutations.push([...perm.slice(0, i), first, ...perm.slice(i)]);\n    }\n  }\n  return fullPermutations;\n}"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": [["a", "b", "c"]],
+                "test_expected": [
+                  ["a", "b", "c"],
+                  ["b", "a", "c"],
+                  ["b", "c", "a"],
+                  ["a", "c", "b"],
+                  ["c", "a", "b"],
+                  ["c", "b", "a"]
+                ],
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": [["red", "blue"]],
+                "test_expected": [
+                  ["red", "blue"],
+                  ["blue", "red"]
+                ],
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_3": {
+                "test_input": [[8, 2, 1, 4]],
+                "test_expected": [
+                  [8, 2, 1, 4],
+                  [2, 8, 1, 4],
+                  [2, 1, 8, 4],
+                  [2, 1, 4, 8],
+                  [8, 1, 2, 4],
+                  [1, 8, 2, 4],
+                  [1, 2, 8, 4],
+                  [1, 2, 4, 8],
+                  [8, 1, 4, 2],
+                  [1, 8, 4, 2],
+                  [1, 4, 8, 2],
+                  [1, 4, 2, 8],
+                  [8, 2, 4, 1],
+                  [2, 8, 4, 1],
+                  [2, 4, 8, 1],
+                  [2, 4, 1, 8],
+                  [8, 4, 2, 1],
+                  [4, 8, 2, 1],
+                  [4, 2, 8, 1],
+                  [4, 2, 1, 8],
+                  [8, 4, 1, 2],
+                  [4, 8, 1, 2],
+                  [4, 1, 8, 2],
+                  [4, 1, 2, 8]
+                ],
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_4": {
+                "test_input": [[]],
+                "test_expected": [[]],
+                "code_output": null,
+                "passed_test": false
+              }
+            }
+    },
+    "createCombinations": {
+        "refName": "createCombinations",
+        "refNumber": 132,
+        "category": "Recursion",
+        "dificulty": "Easy",
+        "title": "Create Combinations",
+        "tags": ["Easy", "Recursion"],
+        "description": "<p>Write a function, createCombinations, that takes in an array and a length as arguments. The function should return a 2D array representing all of the combinations of the specifized length.</p><p>The items within the combinations and the combinations themselves may be returned in any order.</p><p>You may assume that the input array contains unique elements and 1 <= k <= items.length.</p>",
+        "examples": {
+            "example1": {
+                "input": "items = ['a', 'b', 'c']\nK = 2",
+                "output": "[   ['a', 'b'],   ['a', 'c'],   ['b', 'c'], ];"
+            },
+            "example2": {
+                "input": "items = ['q', 'r', 's', 't']\nK = 2",
+                "output": "[   ['q', 'r'],   ['q', 's'],   ['q', 't'],   ['r', 's'],   ['r', 't'],   ['s', 't'], ];"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function createCombinations(items, k) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// n = length of items\n// k = target length\n// Time: ~O(n choose k)\n// Space: ~O(n choose k)\n// Note: 'n Choose k' refers to the binomial coefficient.\nfunction createCombinations(items, k) {\n  if (items.length < k) return [];\n  if (k === 0) return [[]];\n  const first = items[0];\n  const combosWithFirst = [];\n  for (let combo of createCombinations(items.slice(1), k - 1)) {\n    combosWithFirst.push([first, ...combo]);\n  }\n  const combosWithoutFirst = createCombinations(items.slice(1), k);\n  return [...combosWithFirst, ...combosWithoutFirst];\n}"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": [["a", "b", "c"], 2],
+                "test_expected": [
+                  ["a", "b"],
+                  ["a", "c"],
+                  ["b", "c"]
+                ],
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": [["q", "r", "s", "t"], 2],
+                "test_expected": [
+                  ["q", "r"],
+                  ["q", "s"],
+                  ["q", "t"],
+                  ["r", "s"],
+                  ["r", "t"],
+                  ["s", "t"]
+                ],
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_3": {
+                "test_input": [["q", "r", "s", "t"], 3],
+                "test_expected": [
+                  ["q", "r", "s"],
+                  ["q", "r", "t"],
+                  ["q", "s", "t"],
+                  ["r", "s", "t"]
+                ],
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_4": {
+                "test_input": [[1, 28, 94], 3],
+                "test_expected": [[1, 28, 94]],
+                "code_output": null,
+                "passed_test": false
+              }
+            }
+    },
+    "parentheticalPossibilities": {
+        "refName": "parentheticalPossibilities",
+        "refNumber": 133,
+        "category": "Recursion",
+        "dificulty": "Easy",
+        "title": "Parenthetical Possibilities",
+        "tags": ["Easy", "Recursion"],
+        "description": "<p>Write a function, parentheticalPossibilities, that takes in a string as an argument. The function should return an array containing all of the strings that could be generated by expanding all parentheses of the string into its possibilities.</p><p>For example, the possibilities for 'x(mn)yz' are 'xmyz', 'xnyz'.</p>",
+        "examples": {
+            "example1": {
+                "input": "string = 'x(mn)yz'",
+                "output": "['xmyz', 'xnyz']"
+            },
+            "example2": {
+                "input": "string = '(qr)ab(stu)c'",
+                "output": "['qabsc', 'qabtc', 'qabuc', 'rabsc', 'rabtc', 'rabuc']"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function parentheticalPossibilities(s) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// n = length of the string, m = length of largest parenthetical group\n// Time: ~O(m^n)\n// Space: ~O(m^n)\nfunction parentheticalPossibilities(s) {\n  if (s === '') return [''];\n  const { remaining, chars } = getOptions(s);\n  const suffixes = parentheticalPossibilities(remaining);\n  const possibilities = [];\n  for (let char of chars) {\n    for (let suffix of suffixes) {\n      possibilities.push(char + suffix);\n    }\n  }\n  return possibilities;\n}\nconst getOptions = (s) => {\n  if (s[0] === '(') {\n    const endIdx = s.indexOf(')');\n    const remaining = s.slice(endIdx + 1);\n    const chars = s.slice(1, endIdx).split('');\n    return { remaining, chars };\n  } else {\n    const remaining = s.slice(1);\n    const chars = [s[0]];\n    return { remaining, chars };\n  }\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": ["x(mn)yz"],
+                "test_expected": ["xmyz", "xnyz"],
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": ["(qr)ab(stu)c"],
+                "test_expected": ["qabsc", "qabtc", "qabuc", "rabsc", "rabtc", "rabuc"],
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_3": {
+                "test_input": ["taco"],
+                "test_expected": ["taco"],
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_4": {
+                "test_input": [""],
+                "test_expected": [""],
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_5": {
+                "test_input": ["(etc)(blvd)(cat)"],
+                "test_expected": [
+                  "ebc",
+                  "eba",
+                  "ebt",
+                  "elc",
+                  "ela",
+                  "elt",
+                  "evc",
+                  "eva",
+                  "evt",
+                  "edc",
+                  "eda",
+                  "edt",
+                  "tbc",
+                  "tba",
+                  "tbt",
+                  "tlc",
+                  "tla",
+                  "tlt",
+                  "tvc",
+                  "tva",
+                  "tvt",
+                  "tdc",
+                  "tda",
+                  "tdt",
+                  "cbc",
+                  "cba",
+                  "cbt",
+                  "clc",
+                  "cla",
+                  "clt",
+                  "cvc",
+                  "cva",
+                  "cvt",
+                  "cdc",
+                  "cda",
+                  "cdt"
+                ],
+                "code_output": null,
+                "passed_test": false
+              }
+            }
+    },
+    "substituteSynonyms": {
+        "refName": "substituteSynonyms",
+        "refNumber": 134,
+        "category": "Recursion",
+        "dificulty": "Easy",
+        "title": "Substitute Synonyms",
+        "tags": ["Easy", "Recursion"],
+        "description": "<p>Write a function, substitutingSynonyms, that takes in a sentence and an object as arguments. The object contains words as keys whose values are arrays containing synonyms. The function should return an array containing all possible sentences that can be formed by substituting words of the sentence with their synonyms.</p><p>You may return the possible sentences in any order, as long as you return all of them.</p>",
+        "examples": {
+            "example1": {
+                "input": "const sentence = 'follow the yellow brick road'\nconst synonyms = {   follow: ['chase', 'pursue'],   yellow: ['gold', 'amber', 'lemon'], }",
+                "output": "[   'chase the gold brick road',   'chase the amber brick road',   'chase the lemon brick road',   'pursue the gold brick road',   'pursue the amber brick road',   'pursue the lemon brick road', ];"
+            },
+            "example2": {
+                "input": "const sentence = 'I think it's gonna be a long long time'; const synonyms = {   think: ['believe', 'reckon'],   long: ['lengthy', 'prolonged'], };",
+                "output": "[   'I believe it's gonna be a lengthy lengthy time',   'I believe it's gonna be a lengthy prolonged time',   'I believe it's gonna be a prolonged lengthy time',   'I believe it's gonna be a prolonged prolonged time',   'I reckon it's gonna be a lengthy lengthy time',   'I reckon it's gonna be a lengthy prolonged time',   'I reckon it's gonna be a prolonged lengthy time',   'I reckon it's gonna be a prolonged prolonged time', ];"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function substituteSynonyms(sentence, synonyms) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// n = number of words in sentence\n// m = max number of synonyms for a word\n// Time: ~O(m^n)\n// Space: ~O(m^n)\nfunction substituteSynonyms(sentence, synonyms) {\n  const words = sentence.split(' ');\n  const arrays = generate(words, synonyms);\n  return arrays.map((subarray) => subarray.join(' '));\n}\nconst generate = (words, synonyms) => {\n  if (words.length === 0) return [[]];\n  const firstWord = words[0];\n  const remainingWords = words.slice(1);\n  if (firstWord in synonyms) {\n    const result = [];\n    const subarrays = generate(remainingWords, synonyms);\n    for (let synonym of synonyms[firstWord]) {\n      result.push(...subarrays.map((subarray) => [synonym, ...subarray]));\n    }\n    return result;\n  } else {\n    const subarrays = generate(remainingWords, synonyms);\n    return subarrays.map((subarray) => [firstWord, ...subarray]);\n  }\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": [
+                  "follow the yellow brick road",
+                  {
+                    "follow": ["chase", "pursue"],
+                    "yellow": ["gold", "amber", "lemon"]
+                  }
+                ],
+                "test_expected": [
+                  "chase the gold brick road",
+                  "chase the amber brick road",
+                  "chase the lemon brick road",
+                  "pursue the gold brick road",
+                  "pursue the amber brick road",
+                  "pursue the lemon brick road"
+                ],
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_2": {
+                "test_input": [
+                  "I think it's gonna be a long long time",
+                  {
+                    "think": ["believe", "reckon"],
+                    "long": ["lengthy", "prolonged"]
+                  }
+                ],
+                "test_expected": [
+                  "I believe it's gonna be a lengthy lengthy time",
+                  "I believe it's gonna be a lengthy prolonged time",
+                  "I believe it's gonna be a prolonged lengthy time",
+                  "I believe it's gonna be a prolonged prolonged time",
+                  "I reckon it's gonna be a lengthy lengthy time",
+                  "I reckon it's gonna be a lengthy prolonged time",
+                  "I reckon it's gonna be a prolonged lengthy time",
+                  "I reckon it's gonna be a prolonged prolonged time"
+                ],
+                "code_output": null,
+                "passed_test": false
+              },
+              "Test_3": {
+                "test_input": [
+                  "palms sweaty knees weak arms heavy",
+                  {
+                    "palms": ["hands", "fists"],
+                    "heavy": ["weighty", "hefty", "burdensome"],
+                    "weak": ["fragile", "feeble", "frail", "sickly"]
+                  }
+                ],
+                "test_expected": [
+                  "hands sweaty knees fragile arms weighty",
+                  "hands sweaty knees fragile arms hefty",
+                  "hands sweaty knees fragile arms burdensome",
+                  "hands sweaty knees feeble arms weighty",
+                  "hands sweaty knees feeble arms hefty",
+                  "hands sweaty knees feeble arms burdensome",
+                  "hands sweaty knees frail arms weighty",
+                  "hands sweaty knees frail arms hefty",
+                  "hands sweaty knees frail arms burdensome",
+                  "hands sweaty knees sickly arms weighty",
+                  "hands sweaty knees sickly arms hefty",
+                  "hands sweaty knees sickly arms burdensome",
+                  "fists sweaty knees fragile arms weighty",
+                  "fists sweaty knees fragile arms hefty",
+                  "fists sweaty knees fragile arms burdensome",
+                  "fists sweaty knees feeble arms weighty",
+                  "fists sweaty knees feeble arms hefty",
+                  "fists sweaty knees feeble arms burdensome",
+                  "fists sweaty knees frail arms weighty",
+                  "fists sweaty knees frail arms hefty",
+                  "fists sweaty knees frail arms burdensome",
+                  "fists sweaty knees sickly arms weighty",
+                  "fists sweaty knees sickly arms hefty",
+                  "fists sweaty knees sickly arms burdensome"
+                ],
                 "code_output": null,
                 "passed_test": false
               }
