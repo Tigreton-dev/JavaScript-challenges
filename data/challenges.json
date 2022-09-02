@@ -10292,5 +10292,71 @@
                 "functionTest": true
               }
             }
+    },
+    "flipTree": {
+        "refName": "flipTree",
+        "refNumber": 136,
+        "category": "Binary Tree",
+        "dificulty": "Easy",
+        "title": "Flip Tree",
+        "tags": ["Easy", "Binary Tree"],
+        "description": "<p>Write a function, flipTree, that takes in the root of a binary tree. The function should flip the binary tree, turning left subtrees into right subtrees and vice-versa. This flipping should occur in-place by modifying the original tree. The function should return the root of the tree.</p>",
+        "examples": {
+            "example1": {
+                "input": "const a = new Node('a');\nconst b = new Node('b');\nconst c = new Node('c');\nconst d = new Node('d');\nconst e = new Node('e');\nconst f = new Node('f');\nconst g = new Node('g');\nconst h = new Node('h');\na.left = b;\na.right = c;\nb.left = d;\nb.right = e;\nc.right = f;\ne.left = g;\ne.right = h;\nflipTree(a); ",
+                "output": ""
+            },
+            "example2": {
+                "input": "",
+                "output": ""
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function flipTree(root) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// n = number of nodes\n// Time: O(n)\n// Space: O(n)\nfunction flipTree(root) {\n   if (root === null) return null;\n   const left = flipTree(root.left);\n   const right = flipTree(root.right);\n   root.right = left;\n   root.left = right;\n   return root;\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": "function test_input() {    function Node(val) {       this.val = val;       this.left = null;       this.right = null;    }    const a = new Node('a');    const b = new Node('b');    const c = new Node('c');    const d = new Node('d');    const e = new Node('e');    const f = new Node('f');    const g = new Node('g');    const h = new Node('h');    a.left = b;    a.right = c;    b.left = d;    b.right = e;    c.right = f;    e.left = g;    e.right = h;    return window.flipTree(a); }",
+                "test_expected": {"val":"a","left":{"val":"c","left":{"val":"f","left":null,"right":null},"right":null},"right":{"val":"b","left":{"val":"e","left":{"val":"h","left":null,"right":null},"right":{"val":"g","left":null,"right":null}},"right":{"val":"d","left":null,"right":null}}},
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              },
+              "Test_2": {
+                "test_input": "function test_input() {    function Node(val) {       this.val = val;       this.left = null;       this.right = null;    }    const u = new Node('u');    const t = new Node('t');    const s = new Node('s');    const r = new Node('r');    const q = new Node('q');    const p = new Node('p');    u.left = t;    u.right = s;    s.right = r;    r.left = q;    r.right = p;    return window.flipTree(u); }",
+                "test_expected": {"val":"u","left":{"val":"s","left":{"val":"r","left":{"val":"p","left":null,"right":null},"right":{"val":"q","left":null,"right":null}},"right":null},"right":{"val":"t","left":null,"right":null}},
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              },
+              "Test_3": {
+                "test_input": "function test_input() {    function Node(val) {       this.val = val;       this.left = null;       this.right = null;    }    const l = new Node('l');    const m = new Node('m');    const n = new Node('n');    const o = new Node('o');    const p = new Node('p');    const q = new Node('q');    const r = new Node('r');    const s = new Node('s');    const t = new Node('t');    l.left = m;    l.right = n;    n.left = o;    n.right = p;    o.left = q;    o.right = r;    p.left = s;    p.right = t;    return window.flipTree(l); }",
+                "test_expected": {"val":"l","left":{"val":"n","left":{"val":"p","left":{"val":"t","left":null,"right":null},"right":{"val":"s","left":null,"right":null}},"right":{"val":"o","left":{"val":"r","left":null,"right":null},"right":{"val":"q","left":null,"right":null}}},"right":{"val":"m","left":null,"right":null}},
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              },
+              "Test_4": {
+                "test_input": "function test_input() {    function Node(val) {       this.val = val;       this.left = null;       this.right = null;    }    const n = new Node('n');    const y = new Node('y');    const c = new Node('c');    n.left = y;    n.right = c;    return window.flipTree(n); }",
+                "test_expected": {"val":"n","left":{"val":"c","left":null,"right":null},"right":{"val":"y","left":null,"right":null}},
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              }
+            }
     }
 }
