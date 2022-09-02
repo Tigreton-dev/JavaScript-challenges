@@ -10191,5 +10191,106 @@
                 "passed_test": false
               }
             }
+    },
+    "lowestCommonAncestor": {
+        "refName": "lowestCommonAncestor",
+        "refNumber": 135,
+        "category": "Binary Tree",
+        "dificulty": "Easy",
+        "title": "lowest Common Ancestor",
+        "tags": ["Easy", "Binary Tree"],
+        "description": "<p>Write a function, lowestCommonAncestor, that takes in the root of a binary tree and two values. The function should return the value of the lowest common ancestor of the two values in the tree.</p><p>You may assume that the tree values are unique and the tree is non-empty.</p><p>Note that a node may be considered an ancestor of itself.</p>",
+        "examples": {
+            "example1": {
+                "input": "const a = new Node('a');\nconst b = new Node('b');\nconst c = new Node('c');\nconst d = new Node('d');\nconst e = new Node('e');\nconst f = new Node('f');\nconst g = new Node('g');\nconst h = new Node('h');\na.left = b;\na.right = c;\nb.left = d;\nb.right = e;\nc.right = f;\ne.left = g;\ne.right = h;\nlowestCommonAncestor(a, 'd', 'h'); ",
+                "output": "'b'"
+            },
+            "example2": {
+                "input": "lowestCommonAncestor(a, 'd', 'g')",
+                "output": "b"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function lowestCommonAncestor(root, val1, val2) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// n = number of nodes\n// Time: O(n)\n// Space: O(n)\nfunction lowestCommonAncestor(root, val1, val2) {\n   const path1 = findPath(root, val1);\n   const path2 = findPath(root, val2);\n   const set2 = new Set(path2);\n   for (let val of path1) {\n      if (set2.has(val)) return val;\n   }\n};\nfunction findPath(root, targetVal) {\n   if (root === null) return null;\n   if (root.val === targetVal) return [root.val];\n   const leftPath = findPath(root.left, targetVal);\n   if (leftPath !== null) {\n      leftPath.push(root.val);\n      return leftPath;\n   }\n   const rightPath = findPath(root.right, targetVal);\n   if (rightPath !== null) {\n      rightPath.push(root.val);\n      return rightPath;\n   }\n   return null;\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": "function test_input() {    function Node(val) {       this.val = val;       this.left = null;       this.right = null;    }    const a = new Node('a');    const b = new Node('b');    const c = new Node('c');    const d = new Node('d');    const e = new Node('e');    const f = new Node('f');    const g = new Node('g');    const h = new Node('h');    a.left = b;    a.right = c;    b.left = d;    b.right = e;    c.right = f;    e.left = g;    e.right = h;    return window.lowestCommonAncestor(a, 'd', 'h'); }",
+                "test_expected": "b",
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              },
+              "Test_2": {
+                "test_input": "function test_input() {    function Node(val) {       this.val = val;       this.left = null;       this.right = null;    }    const a = new Node('a');    const b = new Node('b');    const c = new Node('c');    const d = new Node('d');    const e = new Node('e');    const f = new Node('f');    const g = new Node('g');    const h = new Node('h');    a.left = b;    a.right = c;    b.left = d;    b.right = e;    c.right = f;    e.left = g;    e.right = h;    return window.lowestCommonAncestor(a, 'd', 'g'); }",
+                "test_expected": "b",
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              },
+              "Test_3": {
+                "test_input": "function test_input() {    function Node(val) {       this.val = val;       this.left = null;       this.right = null;    }    const a = new Node('a');    const b = new Node('b');    const c = new Node('c');    const d = new Node('d');    const e = new Node('e');    const f = new Node('f');    const g = new Node('g');    const h = new Node('h');    a.left = b;    a.right = c;    b.left = d;    b.right = e;    c.right = f;    e.left = g;    e.right = h;    return window.lowestCommonAncestor(a, 'g', 'c'); }",
+                "test_expected": "a",
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              },
+              "Test_4": {
+                "test_input": "function test_input() {    function Node(val) {       this.val = val;       this.left = null;       this.right = null;    }    const a = new Node('a');    const b = new Node('b');    const c = new Node('c');    const d = new Node('d');    const e = new Node('e');    const f = new Node('f');    const g = new Node('g');    const h = new Node('h');    a.left = b;    a.right = c;    b.left = d;    b.right = e;    c.right = f;    e.left = g;    e.right = h;    return window.lowestCommonAncestor(a, 'b', 'g'); }",
+                "test_expected": "b",
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              },
+              "Test_4": {
+                "test_input": "function test_input() {    function Node(val) {       this.val = val;       this.left = null;       this.right = null;    }    const a = new Node('a');    const b = new Node('b');    const c = new Node('c');    const d = new Node('d');    const e = new Node('e');    const f = new Node('f');    const g = new Node('g');    const h = new Node('h');    a.left = b;    a.right = c;    b.left = d;    b.right = e;    c.right = f;    e.left = g;    e.right = h;    return window.lowestCommonAncestor(a, 'f', 'c'); }",
+                "test_expected": "c",
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              },
+              "Test_5": {
+                "test_input": "function test_input() {    function Node(val) {       this.val = val;       this.left = null;       this.right = null;    }    const l = new Node('l');    const m = new Node('m');    const n = new Node('n');    const o = new Node('o');    const p = new Node('p');    const q = new Node('q');    const r = new Node('r');    const s = new Node('s');    const t = new Node('t');    l.left = m;    l.right = n;    n.left = o;    n.right = p;    o.left = q;    o.right = r;    p.left = s;    p.right = t;    return window.lowestCommonAncestor(l, 'r', 'p'); }",
+                "test_expected": "n",
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              },
+              "Test_6": {
+                "test_input": "function test_input() {    function Node(val) {       this.val = val;       this.left = null;       this.right = null;    }    const l = new Node('l');    const m = new Node('m');    const n = new Node('n');    const o = new Node('o');    const p = new Node('p');    const q = new Node('q');    const r = new Node('r');    const s = new Node('s');    const t = new Node('t');    l.left = m;    l.right = n;    n.left = o;    n.right = p;    o.left = q;    o.right = r;    p.left = s;    p.right = t;    return window.lowestCommonAncestor(l, 'm', 'o'); }",
+                "test_expected": "l",
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              },
+              "Test_7": {
+                "test_input": "function test_input() {    function Node(val) {       this.val = val;       this.left = null;       this.right = null;    }    const l = new Node('l');    const m = new Node('m');    const n = new Node('n');    const o = new Node('o');    const p = new Node('p');    const q = new Node('q');    const r = new Node('r');    const s = new Node('s');    const t = new Node('t');    l.left = m;    l.right = n;    n.left = o;    n.right = p;    o.left = q;    o.right = r;    p.left = s;    p.right = t;    return window.lowestCommonAncestor(l, 't', 'q'); }",
+                "test_expected": "n",
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              },
+              "Test_8": {
+                "test_input": "function test_input() {    function Node(val) {       this.val = val;       this.left = null;       this.right = null;    }    const l = new Node('l');    const m = new Node('m');    const n = new Node('n');    const o = new Node('o');    const p = new Node('p');    const q = new Node('q');    const r = new Node('r');    const s = new Node('s');    const t = new Node('t');    l.left = m;    l.right = n;    n.left = o;    n.right = p;    o.left = q;    o.right = r;    p.left = s;    p.right = t;    return window.lowestCommonAncestor(l, 's', 'p'); }",
+                "test_expected": "p",
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              }
+            }
     }
 }
