@@ -10358,5 +10358,85 @@
                 "functionTest": true
               }
             }
+    },
+    "leftyNodes": {
+        "refName": "leftyNodes",
+        "refNumber": 137,
+        "category": "Binary Tree",
+        "dificulty": "Easy",
+        "title": "Lefty Nodes",
+        "tags": ["Easy", "Binary Tree"],
+        "description": "<p>Write a function, leftyNodes, that takes in the root of a binary tree. The function should return an array containing the left-most value on every level of the tree. The array must be ordered in a top-down fashion where the root is the first element.</p><p>Note that the left-most node on a level may not necessarily be a left child.</p>",
+        "examples": {
+            "example1": {
+                "input": "const a = new Node('a');\nconst b = new Node('b');\nconst c = new Node('c');\nconst d = new Node('d');\nconst e = new Node('e');\nconst f = new Node('f');\nconst g = new Node('g');\nconst h = new Node('h');\na.left = b;\na.right = c;\nb.left = d;\nb.right = e;\nc.right = f;\ne.left = g;\ne.right = h;\nflipTree(a); ",
+                "output": ""
+            },
+            "example2": {
+                "input": "",
+                "output": ""
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function leftyNodes(root) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// n = number of nodes\n// Time: O(n)\n// Space: O(n)\nfunction leftyNodes(root) {\n   const values = [];\n   const traverse = (node, level) => {\n      if (node === null) return;\n      if (values[level] === undefined) values.push(node.val);\n      traverse(node.left, level + 1);\n      traverse(node.right, level + 1);\n   };\n   traverse(root, 0);\n   return values;\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": "function test_input() {\n   function Node(val) {\n      this.val = val;\n      this.left = null;\n      this.right = null;\n   }\n   const a = new Node('a');\n   const b = new Node('b');\n   const c = new Node('c');\n   const d = new Node('d');\n   const e = new Node('e');\n   const f = new Node('f');\n   const g = new Node('g');\n   const h = new Node('h');\n   a.left = b;\n   a.right = c;\n   b.left = d;\n   b.right = e;\n   c.right = f;\n   e.left = g;\n   e.right = h;\n   return window.leftyNodes(a);\n}",
+                "test_expected": [ "a", "b", "d", "g" ],
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              },
+              "Test_2": {
+                "test_input": "function test_input() {    function Node(val) {       this.val = val;       this.left = null;       this.right = null;    }    const u = new Node('u');    const t = new Node('t');    const s = new Node('s');    const r = new Node('r');    const q = new Node('q');    const p = new Node('p');    u.left = t;    u.right = s;    s.right = r;    r.left = q;    r.right = p;    return window.leftyNodes(u); }",
+                "test_expected": [ "u", "t", "r", "q" ],
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              },
+              "Test_3": {
+                "test_input": "function test_input() {    function Node(val) {       this.val = val;       this.left = null;       this.right = null;    }    const l = new Node('l');    const m = new Node('m');    const n = new Node('n');    const o = new Node('o');    const p = new Node('p');    const q = new Node('q');    const r = new Node('r');    const s = new Node('s');    const t = new Node('t');    l.left = m;    l.right = n;    n.left = o;    n.right = p;    o.left = q;    o.right = r;    p.left = s;    p.right = t;    return window.leftyNodes(l); }",
+                "test_expected": [ "l", "m", "o", "q" ],
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              },
+              "Test_4": {
+                "test_input": "function test_input() {    function Node(val) {       this.val = val;       this.left = null;       this.right = null;    }    const n = new Node('n');    const y = new Node('y');    const c = new Node('c');    n.left = y;    n.right = c;    return window.leftyNodes(n); }",
+                "test_expected": [ "n", "y" ],
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              },
+              "Test_5": {
+                "test_input": "function test_input() {    function Node(val) {       this.val = val;       this.left = null;       this.right = null;    }    const i = new Node('i');    const n = new Node('n');    const s = new Node('s');    const t = new Node('t');    i.right = n;    n.left = s;    n.right = t;    return window.leftyNodes(i); }",
+                "test_expected": [ "i", "n", "s" ],
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              },
+              "Test_6": {
+                "test_input": "function test_input() {    function Node(val) {       this.val = val;       this.left = null;       this.right = null;    }    return window.leftyNodes(null); }",
+                "test_expected": [],
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+              }
+            }
     }
 }
