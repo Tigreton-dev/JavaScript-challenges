@@ -11244,5 +11244,87 @@
                 "passed_test": false
             }
         }
+    },
+    "mergeSort": {
+        "refName": "mergeSort",
+        "refNumber": 144,
+        "category": "Array",
+        "dificulty": "Easy",
+        "title": "Merge Sorts",
+        "tags": ["Easy", "Array"],
+        "description": "<p>Write a function, mergeSort, that takes in an array of numbers as an argument. The function should return a new array containing elements of the original array sorted in ascending order. Your function must implement the merge sort algorithm.</p><img src='https://upload.wikimedia.org/wikipedia/commons/c/cc/Merge-sort-example-300px.gif' width='500' height='100%'>",
+        "examples": {
+            "example1": {
+                "input": "numbers = [10, 4, 42, 5, 8, 100, 5, 6, 12, 40]",
+                "output": "[ 4, 5, 5, 6, 8, 10, 12, 40, 42, 100 ] "
+            },
+            "example2": {
+                "input": "numbers = [7, -30, -4, -1, 12, 0, 20]",
+                "output": "[ -30, -4, -1, 0, 7, 12, 20 ]"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function mergeSort(nums) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// n = array size\n// Time: O(nlogn)\n// Space: O(n)\nfunction mergeSort(nums) {\n   if (nums.length <= 1) return nums;\n   const mid = Math.floor(nums.length / 2);\n   const left = nums.slice(0, mid);\n   const right = nums.slice(mid);\n   const sortedLeft = mergeSort(left);\n   const sortedRight = mergeSort(right);\n   return merge(sortedLeft, sortedRight);\n};\nfunction merge(array1, array2) {\n   array1.reverse();\n   array2.reverse();\n   const merged = [];\n   while (array1.length > 0 && array2.length > 0) {\n      if (array1[array1.length - 1] < array2[array2.length - 1]) {\n         merged.push(array1.pop());\n      } else {\n         merged.push(array2.pop());\n      }\n   }\n   merged.push(...array1.reverse());\n   merged.push(...array2.reverse());\n   return merged;\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": [[10, 4, 42, 5, 8, 100, 5, 6, 12, 40]],
+                "test_expected": [ 4, 5, 5, 6, 8, 10, 12, 40, 42, 100 ],
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_2": {
+                "test_input": [[7, -30, -4, -1, 12, 0, 20]],
+                "test_expected": [ -30, -4, -1, 0, 7, 12, 20 ] ,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_3": {
+                "test_input": [[8, 7, 6, 5, 4, 3, 2, 1, 0]],
+                "test_expected": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ] ,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_4": {
+                "test_input": [[ 
+                    72, 42, 16, 81, 84, 17,  2, 81, 22, 79, 86, 38, 
+                    77, 80, 81, 70, 81, 80, 35, 21, 89, 38, 57, 28, 
+                     4, 17, 50, 38, 68, 82, 22, 76, 45, 40, 67, 94, 
+                    37, 27, 81, 53, 36, 18, 28, 60, 45, 74, 40, 29, 
+                    18,  6, 28, 57, 42, 60, 64, 12, 78, 97, 96,  1, 
+                    20, 20, 61, 67, 82, 10, 63, 71, 39, 52, 37, 69, 
+                    37, 24, 66, 74, 15, 92, 49, 31, 56, 67, 50, 57, 
+                    79,  0, 21, 56, 82, 22,  4, 20, 91, 72, 58, 93, 
+                    99, 14, 42, 91 
+                  ]],
+                "test_expected": [ 
+                    0,  1,  2,  4,  4,  6, 10, 12, 14, 15, 16, 17, 
+                   17, 18, 18, 20, 20, 20, 21, 21, 22, 22, 22, 24, 
+                   27, 28, 28, 28, 29, 31, 35, 36, 37, 37, 37, 38, 
+                   38, 38, 39, 40, 40, 42, 42, 42, 45, 45, 49, 50, 
+                   50, 52, 53, 56, 56, 57, 57, 57, 58, 60, 60, 61, 
+                   63, 64, 66, 67, 67, 67, 68, 69, 70, 71, 72, 72, 
+                   74, 74, 76, 77, 78, 79, 79, 80, 80, 81, 81, 81, 
+                   81, 81, 82, 82, 82, 84, 86, 89, 91, 91, 92, 93, 
+                   94, 96, 97, 99 
+                 ],
+                "code_output": null,
+                "passed_test": false
+            }
+        }
     }
 }
