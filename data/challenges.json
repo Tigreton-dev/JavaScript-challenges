@@ -10816,5 +10816,108 @@
                 "passed_test": false
             }
         }
+    },
+    "rareRouting": {
+        "refName": "rareRouting",
+        "refNumber": 140,
+        "category": "Graphs",
+        "dificulty": "Easy",
+        "title": "Rare Routing",
+        "tags": ["Easy", "Graphs"],
+        "description": "<p>Write a function, rareRouting, that takes in a number of cities (n) and a two dimensional array where each subarray represents a direct road that connects a pair of cities. The function should return a boolean indicating whether or not there exists a unique route for every pair of cities. A route is a sequence of roads that does not visit a city more than once.</p><p>Cities will be numbered 0 to n - 1.</p><p>You can assume that all roads are two-way roads. This means if there is a road between A and B, then you can use that road to go from A to B or go from B to A.</p>",
+        "examples": {
+            "example1": {
+                "input": "For example, given these roads:\n0 --- 1\n| \\n|  \\n|   \\n2    3\nThere is a unique route for between every pair of cities.\nSo the answer is true.\nFor example, given these roads:\n0 --- 1\n| \\n|  \\n|   \\n2 -- 3\nThere are two routes that can be used to travel from city 1 to city 2:\n- first route:  1, 0, 2\n- second route: 1, 0, 3, 2 \nThe answer is false, because routes should be unique.",
+                "output": "true"
+            },
+            "example2": {
+                "input": "",
+                "output": ""
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function rareRouting(n, roads) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// n = number of nodes\n// Time: O(n^2)\n// Space: O(n)\nfunction rareRouting(n, roads) {\n  const graph = makeGraph(n, roads);\n  const visited = new Set();\n  const valid = validate(graph, '0', visited, null);\n  return valid && visited.size === n;\n};\nfunction validate(graph, node, visited, lastNode) {\n  if (visited.has(node)) return false;\n  \n  visited.add(node);\n  \n  for (let neighbor of graph[node]) {\n    if (neighbor !== lastNode) {\n      if (!validate(graph, neighbor, visited, node)) {\n        return false;\n      }\n    }\n  }\n  \n  return true;\n};\nfunction makeGraph(n, roads) {\n  const graph = {};\n  for (let city = 0; city < n; city += 1) {\n    graph[city] = [];\n  }\n  \n  for (let road of roads) {\n    const [a, b] = road;\n    graph[a].push(String(b));\n    graph[b].push(String(a));\n  }\n  \n  return graph;\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": [
+                    4, [
+                        [0, 1],
+                        [0, 2],
+                        [0, 3]
+                      ]
+                ],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_2": {
+                "test_input": [
+                    4, [
+                        [0, 1],
+                        [0, 2],
+                        [0, 3],
+                        [3, 2]
+                      ]
+                ],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_3": {
+                "test_input": [
+                    6, [
+                        [1, 2],
+                        [5, 4],
+                        [3, 0],
+                        [0, 1],
+                        [0, 4]
+                      ]
+                ],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_4": {
+                "test_input": [
+                    6, [
+                        [1, 2],
+                        [4, 1],
+                        [5, 4],
+                        [3, 0],
+                        [0, 1],
+                        [0, 4]
+                      ]
+                ],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_5": {
+                "test_input": [
+                    4, [
+                        [0, 1],
+                        [3, 2]
+                      ]
+                ],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+            }
+        }
     }
 }
