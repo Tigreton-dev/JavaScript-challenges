@@ -11326,5 +11326,115 @@
                 "passed_test": false
             }
         }
+    },
+    "combineIntervals": {
+        "refName": "combineIntervals",
+        "refNumber": 145,
+        "category": "Array",
+        "dificulty": "Easy",
+        "title": "Combine Intervals",
+        "tags": ["Easy", "Array"],
+        "description": "<p>Write a function, combineIntervals, that takes in an array of intervals as an argument. Each interval is an array containing a pair of numbers representing a start and end time. Your function should combine overlapping intervals and return an array containing the combined intervals.</p><p>You may return the combined intervals in any order.</p><p>You can assume that the input array contains at least one interval and all intervals are valid with start < end.</p>",
+        "examples": {
+            "example1": {
+                "input": "const intervals = [   [1, 4],   [12, 15],   [3, 7],   [8, 13], ];",
+                "output": "[ [1, 7], [8, 15] ]"
+            },
+            "example2": {
+                "input": "[   [6, 8],   [2, 9],   [10, 12],   [20, 24], ]",
+                "output": "[ [2, 9], [10, 12], [20, 24] ]"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function combineIntervals(intervals) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// n = number of intervals\n// Time: O(nlogn)\n// Space: O(n)\nfunction combineIntervals(intervals) {\n   const sortedIntervals = intervals.sort((intervalA, intervalB) => intervalA[0] - intervalB[0]);\n   const combined = [intervals[0]];\n   for (let currentInterval of sortedIntervals.slice(1)) {\n      const lastInterval = combined[combined.length - 1];\n      const [lastStart, lastEnd] = lastInterval;\n      const [currentStart, currentEnd] = currentInterval;\n      if (currentStart <= lastEnd) {\n         if (currentEnd > lastEnd) {\n            lastInterval[1] = currentEnd;\n         }\n      } else {\n         combined.push(currentInterval);\n      }\n   }\n   return combined;\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": [[
+                    [1, 4],
+                    [12, 15],
+                    [3, 7],
+                    [8, 13]
+                  ]],
+                "test_expected": [ [1, 7], [8, 15] ],
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_2": {
+                "test_input": [[
+                    [6, 8],
+                    [2, 9],
+                    [10, 12],
+                    [20, 24]
+                  ]],
+                "test_expected": [ [2, 9], [10, 12], [20, 24] ] ,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_3": {
+                "test_input": [[
+                    [3, 7],
+                    [5, 8],
+                    [1, 5]
+                  ]],
+                "test_expected": [ [1, 8] ] ,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_4": {
+                "test_input": [[
+                    [3, 7],
+                    [10, 13],
+                    [5, 8],
+                    [27, 31],
+                    [1, 5],
+                    [12, 16],
+                    [20, 22]
+                  ]],
+                "test_expected": [ [1, 8], [10, 16], [20, 22], [27, 31] ],
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_5": {
+                "test_input": [[
+                    [3, 7],
+                    [10, 13],
+                    [5, 8],
+                    [27, 31],
+                    [1, 5],
+                    [12, 16],
+                    [20, 32]
+                  ]],
+                "test_expected": [ [1, 8], [10, 16], [20, 32] ],
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_6": {
+                "test_input": [[
+                    [64, 70],
+                    [50, 55],
+                    [62, 65],
+                    [12, 50],
+                    [72, 300000]
+                  ]],
+                "test_expected": [ [12, 55], [62, 70], [72, 300000] ],
+                "code_output": null,
+                "passed_test": false
+            }
+        }
     }
 }
