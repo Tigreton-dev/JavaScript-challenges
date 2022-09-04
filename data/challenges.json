@@ -11156,5 +11156,93 @@
                 "passed_test": false
             }
         }
+    },
+    "breakingBoundaries": {
+        "refName": "breakingBoundaries",
+        "refNumber": 143,
+        "category": "Dynamic Programming",
+        "dificulty": "Easy",
+        "title": "Breaking Boundaries",
+        "tags": ["Easy", "Dynamic Programming"],
+        "description": "<p>Write a function, breakingBoundaries, that takes in 5 arguments: a number of rows (m), a number of columns (n), a number of moves (k), a starting row (r), and a starting column (c). Say you were situated in a grid with dimensions m * n. If you had to start at position (r,c), in how many different ways could you move out of bounds if you could take at most k moves. A single move is moving one space up, down, left, or right. During a path you may revisit a position.</p>",
+        "examples": {
+            "example1": {
+                "input": "Given m, n, k, r, c: -> 3, 4, 2, 0, 0\n'This input asks us to count the numbers of ways to move out of bounds in a 3 by 4 grid, starting at position (0, 0) if we could take at most 2 moves.'",
+                "output": "'The answer is 4 because of these 4 distinct ways:\n 1. left\n 2. up\n 3. right, up\n 4. down, left'"
+            },
+            "example2": {
+                "input": "breakingBoundaries(3, 4, 2, 0, 0)",
+                "output": "4"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function breakingBoundaries(m, n, k, r, c) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// m = # rows\n// n = # columns\n// k = # moves\n// Time: O(mnk)\n// Space: O(mnk)\nfunction breakingBoundaries(m, n, k, r, c, memo = {}) {\n   const key = `${k},${r},${c}`;\n   if (key in memo) return memo[key];\n   const rowInbounds = 0 <= r && r < m;\n   const colInbounds = 0 <= c && c < n;\n   if (!rowInbounds || !colInbounds) return 1;\n   if (k === 0) return 0;\n   let count = 0;\n   const deltas = [\n      [0, 1],\n      [0, -1],\n      [1, 0],\n      [-1, 0]\n   ];\n   for (let delta of deltas) {\n      const [dRow, dCol] = delta;\n      count += breakingBoundaries(m, n, k - 1, r + dRow, c + dCol, memo);\n   }\n   memo[key] = count;\n   return count;\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": [3, 4, 2, 0, 0],
+                "test_expected": 4,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_2": {
+                "test_input": [2, 2, 2, 1, 1],
+                "test_expected": 6,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_3": {
+                "test_input": [3, 4, 3, 0, 0],
+                "test_expected": 11,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_4": {
+                "test_input": [4, 4, 5, 2, 1],
+                "test_expected": 160,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_5": {
+                "test_input": [5, 6, 9, 2, 5
+                ],
+                "test_expected": 11635,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_6": {
+                "test_input": [6, 6, 12, 3, 4
+                ],
+                "test_expected": 871065,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_7": {
+                "test_input": [6, 6, 15, 3, 4],
+                "test_expected": 40787896,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_8": {
+                "test_input": [6, 8, 16, 2, 1],
+                "test_expected": 137495089,
+                "code_output": null,
+                "passed_test": false
+            }
+        }
     }
 }
