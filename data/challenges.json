@@ -10672,5 +10672,149 @@
                 "passed_test": false
             }
         }
+    },
+    "tolerantTeams": {
+        "refName": "tolerantTeams",
+        "refNumber": 139,
+        "category": "Graphs",
+        "dificulty": "Easy",
+        "title": "Tolerant Teams",
+        "tags": ["Easy", "Graphs"],
+        "description": "<p>Write a function, tolerantTeams, that takes in an array of rivalries as an argument. A rivalry is a pair of people who should not be placed on the same team. The function should return a boolean indicating whether or not it is possible to separate people into two teams, without rivals being on the same team. The two teams formed do not have to be the same size.</p>",
+        "examples": {
+            "example1": {
+                "input": "[ ['philip', 'seb'], ['raj', 'nader'] ]",
+                "output": "true"
+            },
+            "example2": {
+                "input": "[ ['philip', 'seb'], ['raj', 'nader'], ['raj', 'philip'], ['seb', 'raj'] ]",
+                "output": "false"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function tolerantTeams(graph) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// e = number of rivalries\n// n = number of people\n// Time: O(e)\n// Space: O(n)\nfunction tolerantTeams(rivalries) {\n  const graph = buildGraph(rivalries);\n  \n  const coloring = {};\n  for (let node in graph) {\n    if (!(node in coloring) && !isBipartite(graph, node, coloring, false)) {\n      return false;\n    }\n  }\n  \n  return true;\n};\nfunction isBipartite(graph, node, coloring, currentColor) {\n  if (node in coloring) return coloring[node] === currentColor;\n  \n  coloring[node] = currentColor;\n  \n  for (let neighbor of graph[node]) {\n    if (!isBipartite(graph, neighbor, coloring, !currentColor)) {\n      return false;\n    }\n  }\n  \n  return true;\n};\nfunction buildGraph(rivalries) {\n  const graph = {};\n  for (let pair of rivalries) {\n    const [a, b] = pair;\n    if (!(a in graph)) graph[a] = [];\n    if (!(b in graph)) graph[b] = [];\n    graph[a].push(b);\n    graph[b].push(a);\n  };\n  \n  return graph;\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": [
+                    [
+                        ["philip", "seb"],
+                        ["raj", "nader"]
+                      ]
+                ],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_2": {
+                "test_input": [
+                    [
+                        ["philip", "seb"],
+                        ["raj", "nader"],
+                        ["raj", "philip"],
+                        ["seb", "raj"]
+                      ]
+                ],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_3": {
+                "test_input": [
+                    [
+                        ["cindy", "anj"],
+                        ["alex", "matt"],
+                        ["alex", "cindy"],
+                        ["anj", "matt"],
+                        ["brando", "matt"]
+                      ]
+                ],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_4": {
+                "test_input": [
+                    [
+                        ["alex", "anj"],
+                        ["alex", "matt"],
+                        ["alex", "cindy"],
+                        ["anj", "matt"],
+                        ["brando", "matt"]
+                      ]
+                ],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_5": {
+                "test_input": [
+                    [
+                        ["alan", "jj"],
+                        ["betty", "richard"],
+                        ["jj", "simcha"],
+                        ["richard", "christine"]
+                      ]
+                ],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_6": {
+                "test_input": [
+                    [
+                        ["alan", "jj"],
+                        ["betty", "richard"],
+                        ["jj", "simcha"],
+                        ["richard", "christine"]
+                      ]
+                ],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_7": {
+                "test_input": [
+                    [
+                        ["alan", "jj"],
+                        ["jj", "richard"],
+                        ["betty", "richard"],
+                        ["jj", "simcha"],
+                        ["richard", "christine"]
+                      ]
+                ],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_8": {
+                "test_input": [
+                    [
+                        ["alan", "jj"],
+                        ["betty", "richard"],
+                        ["betty", "christine"],
+                        ["jj", "simcha"],
+                        ["richard", "christine"]
+                      ]
+                ],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+            }
+        }
     }
 }
