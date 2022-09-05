@@ -11436,5 +11436,175 @@
                 "passed_test": false
             }
         }
+    },
+    "deepEquals": {
+        "refName": "deepEquals",
+        "refNumber": 146,
+        "category": "Recursion",
+        "dificulty": "Easy",
+        "title": "deepEquals",
+        "tags": ["Easy", "Recursion"],
+        "description": "<p>Write a function, deepEqual, that takes two values and returns true only if they are the same value or are objects with the same properties whose values are also equal when compared with a recursive call to deepEqual.</p>",
+        "examples": {
+            "example1": {
+                "input": "val1 = 2\n val2 = 2",
+                "output": "true"
+            },
+            "example2": {
+                "input": "val1 = 'df'\n val2 = 2",
+                "output": "false"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function deepEquals(val1, val2) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "function deepEquals(valueOne, valueTwo) {\n   if (typeof valueOne !== 'object' && typeof valueTwo !== 'object') {\n      const isValueOneNaN = isNaN(valueOne) && typeof valueOne === 'number';\n      const isValueTwoNaN = isNaN(valueTwo) && typeof valueTwo === 'number';\n      if (isValueOneNaN && isValueTwoNaN) return true;\n      return valueOne === valueTwo;\n   }\n   if (typeof valueOne !== typeof valueTwo) return false;\n   if (valueOne === null && valueTwo === null) return true;\n   if (valueOne === null || valueTwo === null) return false;\n   if (valueOne === valueTwo) return true;\n   if (Array.isArray(valueOne) && Array.isArray(valueTwo)) {\n      if (valueOne.length !== valueTwo.length) return false;\n      for (let i = 0; i < valueOne.length; i++) {\n         if (!deepEquals(valueOne[i], valueTwo[i])) return false;\n      }\n      return true;\n   }\n   if (Array.isArray(valueOne) || Array.isArray(valueTwo)) return false;\n   const valueOneKeys = Object.keys(valueOne);\n   const valueTwoKeys = Object.keys(valueTwo);\n   if (valueOneKeys.length !== valueTwoKeys.length) return false;\n   for (let i = 0; i < valueOneKeys.length; i++) {\n      const key = valueOneKeys[i];\n      const valueOneValue = valueOne[key];\n      const valueTwoValue = valueTwo[key];\n      if (!deepEquals(valueOneValue, valueTwoValue)) return false;\n   }\n   return true;\n}"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": [1,1],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_2": {
+                "test_input": ["a", "a"],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_3": {
+                "test_input": ["NaN", "NaN"],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_4": {
+                "test_input": [[], []],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_5": {
+                "test_input": [[1], [1]],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_6": {
+                "test_input": [[[1,2], [3,4]], [[1,2], [3,4]]],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_7": {
+                "test_input": [{}, {}],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_8": {
+                "test_input": [{"a":1}, {"a":1}],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_9": {
+                "test_input": [{"a":1, "obj":{"b":2}}, {"a":1, "obj":{"b":2}}],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_10": {
+                "test_input": [null, null],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_11": {
+                "test_input": ["undefined", "undefined"],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_12": {
+                "test_input": [1, 0],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_13": {
+                "test_input": ["a", "b"],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_14": {
+                "test_input": ["NaN", 10],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_15": {
+                "test_input": ["str", "NaN"],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_16": {
+                "test_input": [[], [1]],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_17": {
+                "test_input": [[10], [1]],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_18": {
+                "test_input": [[[1,2,3], [4,5]], [[1,2,3], [6,7]]],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_19": {
+                "test_input": [{"a":1}, {}],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_20": {
+                "test_input": [{"a":1}, {"b":2}],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_21": {
+                "test_input": [{"a":1, "b": [1,2,3]}, {"a":1, "b": [1,2]}],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_21": {
+                "test_input": [{"a":"undefined", "b": 2}, {"b": 2, "c": 3}],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+            }
+        }
     }
 }
