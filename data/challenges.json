@@ -2788,6 +2788,42 @@
                 "test_expected": 2,
                 "code_output": null,
                 "passed_test": false
+            },
+            "Test_4": {
+                "test_input": [[0, 1, 2, 3, 4, 5, 6, 7, 8], 6],
+                "test_expected": 6,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_5": {
+                "test_input": [[0, 6, 8, 12, 16, 19, 20, 24, 28], 27],
+                "test_expected": -1,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_6": {
+                "test_input": [[0, 6, 8, 12, 16, 19, 20, 28], 8],
+                "test_expected": 2,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_7": {
+                "test_input": [[], 7],
+                "test_expected": -1,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_8": {
+                "test_input": [[7], 7],
+                "test_expected": 0,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_9": {
+                "test_input": [[7, 9], 12],
+                "test_expected": -1,
+                "code_output": null,
+                "passed_test": false
             }
         }
     },
@@ -11604,6 +11640,107 @@
                 "test_expected": false,
                 "code_output": null,
                 "passed_test": false
+            }
+        }
+    },
+    "binarySearchTreeIncludes": {
+        "refName": "binarySearchTreeIncludes",
+        "refNumber": 147,
+        "category": "Binary Tree",
+        "dificulty": "Easy",
+        "title": "Binary Search Tree Includes",
+        "tags": ["Easy", "Binary Tree"],
+        "description": "<p>Write a function, binarySearchTreeIncludes, that takes in the root of a binary search tree containing numbers and a target value. The function should return a boolean indicating whether or not the target is found within the tree.</p><p>A Binary Search Tree is a binary tree where all values within a node's left subtree are smaller than the node's value and all values in a node's right subtree are greater than or equal to the node's value.</p><p>Your solution should have a best case runtime of O(log(n)).</p>",
+        "examples": {
+            "example1": {
+                "input": "",
+                "output": ""
+            },
+            "example2": {
+                "input": "",
+                "output": ""
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function binarySearchTreeIncludes(root, target) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// n = number of nodes\n// Worst Case\n// Time: O(n)\n// Space: O(n)\n// Best Case (balanced-tree)\n// Time: O(log(n))\n// Space: O(log(n))\nfunction binarySearchTreeIncludes(root, target) {\n   if (root === null) return false;\n   if (root.val === target) return true;\n   if (target < root.val) {\n      return binarySearchTreeIncludes(root.left, target);\n   } else {\n      return binarySearchTreeIncludes(root.right, target);\n   }\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": "function test_input() {\n   function Node(val) {\n      this.val = val;\n      this.left = null;\n      this.right = null;\n   }\n   const a = new Node(12);\n   const b = new Node(5);\n   const c = new Node(18);\n   const d = new Node(3);\n   const e = new Node(9);\n   const f = new Node(19);\n   a.left = b;\n   a.right = c;\n   b.left = d;\n   b.right = e;\n   c.right = f;\n   return window.binarySearchTreeIncludes(a, 9);\n}",
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+            },
+            "Test_2": {
+                "test_input": "function test_input() {\n   function Node(val) {\n      this.val = val;\n      this.left = null;\n      this.right = null;\n   }\n   const a = new Node(12);\n   const b = new Node(5);\n   const c = new Node(18);\n   const d = new Node(3);\n   const e = new Node(9);\n   const f = new Node(19);\n   a.left = b;\n   a.right = c;\n   b.left = d;\n   b.right = e;\n   c.right = f;\n   return window.binarySearchTreeIncludes(a, 15);\n}",
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+            },
+            "Test_3": {
+                "test_input": "function test_input() {\n   function Node(val) {\n      this.val = val;\n      this.left = null;\n      this.right = null;\n   }\n   const a = new Node(12);\n   const b = new Node(5);\n   const c = new Node(18);\n   const d = new Node(3);\n   const e = new Node(9);\n   const f = new Node(19);\n   a.left = b;\n   a.right = c;\n   b.left = d;\n   b.right = e;\n   c.right = f;\n   return window.binarySearchTreeIncludes(a, 1);\n}",
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+            },
+            "Test_4": {
+                "test_input": "function test_input() {   function Node(val) {      this.val = val;      this.left = null;      this.right = null;   }   const a = new Node(12);   const b = new Node(5);   const c = new Node(18);   const d = new Node(3);   const e = new Node(9);   const f = new Node(19);   a.left = b;   a.right = c;   b.left = d;   b.right = e;   c.right = f;   return window.binarySearchTreeIncludes(a, 12);}",
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+            },
+            "Test_5": {
+                "test_input": "function test_input() {    function Node(val) {       this.val = val;       this.left = null;       this.right = null;    }    const q = new Node(54);    const r = new Node(42);    const s = new Node(70);    const t = new Node(31);    const u = new Node(50);    const v = new Node(72);    const w = new Node(47);    const x = new Node(90);    q.left = r;    q.right = s;    r.left = t;    r.right = u;    s.right = v;    u.left = w;    v.right = x;    return binarySearchTreeIncludes(q, 55); }",
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+            },
+            "Test_6": {
+                "test_input": "function test_input() {    function Node(val) {       this.val = val;       this.left = null;       this.right = null;    }    const q = new Node(54);    const r = new Node(42);    const s = new Node(70);    const t = new Node(31);    const u = new Node(50);    const v = new Node(72);    const w = new Node(47);    const x = new Node(90);    q.left = r;    q.right = s;    r.left = t;    r.right = u;    s.right = v;    u.left = w;    v.right = x;    return binarySearchTreeIncludes(q, 47); }",
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+            },
+            "Test_7": {
+                "test_input": "function test_input() {    function Node(val) {       this.val = val;       this.left = null;       this.right = null;    }    const q = new Node(54);    const r = new Node(42);    const s = new Node(70);    const t = new Node(31);    const u = new Node(50);    const v = new Node(72);    const w = new Node(47);    const x = new Node(90);    q.left = r;    q.right = s;    r.left = t;    r.right = u;    s.right = v;    u.left = w;    v.right = x;    return binarySearchTreeIncludes(q, 49); }",
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+            },
+            "Test_8": {
+                "test_input": "function test_input() {    function Node(val) {       this.val = val;       this.left = null;       this.right = null;    }    const q = new Node(54);    const r = new Node(42);    const s = new Node(70);    const t = new Node(31);    const u = new Node(50);    const v = new Node(72);    const w = new Node(47);    const x = new Node(90);    q.left = r;    q.right = s;    r.left = t;    r.right = u;    s.right = v;    u.left = w;    v.right = x;    return binarySearchTreeIncludes(q, 70); }",
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+            },
+            "Test_9": {
+                "test_input": "function test_input() {    function Node(val) {       this.val = val;       this.left = null;       this.right = null;    }    const q = new Node(54);    const r = new Node(42);    const s = new Node(70);    const t = new Node(31);    const u = new Node(50);    const v = new Node(72);    const w = new Node(47);    const x = new Node(90);    q.left = r;    q.right = s;    r.left = t;    r.right = u;    s.right = v;    u.left = w;    v.right = x;    return binarySearchTreeIncludes(q, 100); }",
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
             }
         }
     }
