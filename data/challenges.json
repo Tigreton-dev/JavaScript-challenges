@@ -11816,5 +11816,71 @@
                 "functionTest": true
             }
         }
+    },
+    "postOrder": {
+        "refName": "postOrder",
+        "refNumber": 149,
+        "category": "Binary Tree",
+        "dificulty": "Easy",
+        "title": "Post Order",
+        "tags": ["Easy", "Binary Tree"],
+        "description": "<p>Write a function, postOrder, that takes in the root of a binary tree. The function should return an array containing the post-ordered values of the tree.</p><p>Post-order traversal is when nodes are recursively visited in the order: left child, right child, self.</p>",
+        "examples": {
+            "example1": {
+                "input": "",
+                "output": ""
+            },
+            "example2": {
+                "input": "",
+                "output": ""
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function postOrder(root) {\n  // Write your solution...\n  return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// n = number of nodes \n// Time: O(n) \n// Space: O(n) \nfunction postOrder(root) {\n   const values = [];\n   postOrderTraversal(root, values);\n   return values;\n};\nfunction postOrderTraversal(root, values) {\n   if (root === null) return;\n   postOrderTraversal(root.left, values);\n   postOrderTraversal(root.right, values);\n   values.push(root.val);\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": "function test_input() {    function Node(val) {       this.val = val;       this.left = null;       this.right = null;    }    const x = new Node('x');    const y = new Node('y');    const z = new Node('z');    x.left = y;    x.right = z;    return window.postOrder(x); }",
+                "test_expected": ["y", "z", "x"],
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+            },
+            "Test_2": {
+                "test_input": "function test_input() {    function Node(val) {       this.val = val;       this.left = null;       this.right = null;    }    const a = new Node('a');    const b = new Node('b');    const c = new Node('c');    const d = new Node('d');    const e = new Node('e');    const f = new Node('f');    const g = new Node('g');    a.left = b;    a.right = c;    b.left = d;    b.right = e;    c.left = f;    c.right = g;    return window.postOrder(a); }",
+                "test_expected": [ "d", "e", "b", "f", "g", "c", "a" ] ,
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+            },
+            "Test_3": {
+                "test_input": "function test_input() {    function Node(val) {       this.val = val;       this.left = null;       this.right = null;    }    const a = new Node('a');    const b = new Node('b');    const c = new Node('c');    const d = new Node('d');    const e = new Node('e');    const f = new Node('f');    const g = new Node('g');    const h = new Node('h');    a.left = b;    a.right = c;    b.left = d;    b.right = e;    c.right = f;    e.left = g;    e.right = h;    return window.postOrder(a); }",
+                "test_expected": [ "d", "g", "h", "e", "b", "f", "c", "a" ] ,
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+            },
+            "Test_4": {
+                "test_input": "function test_input() {    function Node(val) {       this.val = val;       this.left = null;       this.right = null;    }    const l = new Node('l');    const m = new Node('m');    const n = new Node('n');    const o = new Node('o');    const p = new Node('p');    const q = new Node('q');    const r = new Node('r');    const s = new Node('s');    const t = new Node('t');    l.left = m;    l.right = n;    n.left = o;    n.right = p;    o.left = q;    o.right = r;    p.left = s;    p.right = t;    return window.postOrder(l); }",
+                "test_expected": [ "m", "q", "r", "o", "s", "t", "p", "n", "l" ],
+                "code_output": null,
+                "passed_test": false,
+                "functionTest": true
+            }
+        }
     }
 }
