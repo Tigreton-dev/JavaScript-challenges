@@ -11953,5 +11953,76 @@
                 "passed_test": false
             }
         }
+    },
+    "buildTreeInPre": {
+        "refName": "buildTreeInPre",
+        "refNumber": 151,
+        "category": "Binary Tree",
+        "dificulty": "Easy",
+        "title": "Build Tree In Pre",
+        "tags": ["Easy", "Binary Tree"],
+        "description": "<p>Write a function, buildTreeInPre, that takes in an array of in-ordered values and an array of pre-ordered values for a binary tree. The function should build a binary tree that has the given in-order and pre-order traversal structure. The function should return the root of this tree.</p><p>You can assume that the values of inorder and preorder are unique.</p>",
+        "examples": {
+            "example1": {
+                "input": "",
+                "output": ""
+            },
+            "example2": {
+                "input": "",
+                "output": ""
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "class Node {\n   constructor(val) {\n      this.val = val;\n      this.left = null;\n      this.right = null;\n   }\n}\nfunction buildTreeInPre(inOrder, preOrder) {\n   // Write your solution...\n   return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// n = length of array\n// Time: O(n^2)\n// Space: O(n^2)\n// recursive with array copies\nfunction buildTreeInPre(inOrder, preOrder) {\n   if (inOrder.length === 0) return null;\n   const value = preOrder[0];\n   const root = new Node(value);\n   const mid = inOrder.indexOf(value);\n   const leftInOrder = inOrder.slice(0, mid);\n   const rightInOrder = inOrder.slice(mid + 1);\n   const leftPreOrder = preOrder.slice(1, leftInOrder.length + 1);\n   const rightPreOrder = preOrder.slice(leftInOrder.length + 1);\n   root.left = buildTreeInPre(leftInOrder, leftPreOrder);\n   root.right = buildTreeInPre(rightInOrder, rightPreOrder);\n   return root;\n};\n// n = length of array\n// Time: O(n)\n// Space: O(n)\n// recursive in-place\nfunction buildTreeInPre (\n   inOrder,\n   preOrder,\n   inOrderStart = 0,\n   inOrderEnd = inOrder.length - 1,\n   preOrderStart = 0,\n   preOrderEnd = preOrder.length - 1) {\n   if (inOrderEnd < inOrderStart) return null;\n   const value = preOrder[preOrderStart];\n   const root = new Node(value);\n   const mid = inOrder.indexOf(value);\n   const leftSize = mid - inOrderStart;\n   root.left = buildTreeInPre(\n      inOrder,\n      preOrder,\n      inOrderStart,\n      mid - 1,\n      preOrderStart + 1,\n      preOrderStart + leftSize\n   );\n   root.right = buildTreeInPre(\n      inOrder,\n      preOrder,\n      mid + 1,\n      inOrderEnd,\n      preOrderStart + leftSize + 1,\n      preOrderEnd\n   );\n   return root;\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": [[ "z", "y", "x" ], [ "y", "z", "x" ] ],
+                "test_expected": {"val":"y","left":{"val":"z","left":null,"right":null},"right":{"val":"x","left":null,"right":null}},
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_2": {
+                "test_input": [[ "y", "z", "x" ], [ "y", "x", "z"] ],
+                "test_expected": {"val":"y","left":null,"right":{"val":"x","left":{"val":"z","left":null,"right":null},"right":null}},
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_3": {
+                "test_input": [[ "d", "b", "g", "e", "h", "a", "c", "f" ],
+                [ "a", "b", "d", "e", "g", "h", "c", "f" ] ],
+                "test_expected": {"val":"a","left":{"val":"b","left":{"val":"d","left":null,"right":null},"right":{"val":"e","left":{"val":"g","left":null,"right":null},"right":{"val":"h","left":null,"right":null}}},"right":{"val":"c","left":null,"right":{"val":"f","left":null,"right":null}}},
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_4": {
+                "test_input": [[ "t", "u", "s", "q", "r", "p" ],
+                [ "u", "t", "s", "r", "q", "p" ] ],
+                "test_expected": {"val":"u","left":{"val":"t","left":null,"right":null},"right":{"val":"s","left":null,"right":{"val":"r","left":{"val":"q","left":null,"right":null},"right":{"val":"p","left":null,"right":null}}}},
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_5": {
+                "test_input": [[ "m", "l", "q", "o", "r", "n", "s", "p", "t" ],
+                [ "l", "m", "n", "o", "q", "r", "p", "s", "t" ] ],
+                "test_expected": {"val":"l","left":{"val":"m","left":null,"right":null},"right":{"val":"n","left":{"val":"o","left":{"val":"q","left":null,"right":null},"right":{"val":"r","left":null,"right":null}},"right":{"val":"p","left":{"val":"s","left":null,"right":null},"right":{"val":"t","left":null,"right":null}}}},
+                "code_output": null,
+                "passed_test": false
+            }
+        }
     }
 }
