@@ -12024,5 +12024,91 @@
                 "passed_test": false
             }
         }
+    },
+    "lexicalOrder": {
+        "refName": "lexicalOrder",
+        "refNumber": 152,
+        "category": "String",
+        "dificulty": "Easy",
+        "title": "Lexical Order",
+        "tags": ["Easy", "String"],
+        "description": "<p>Write a function, lexicalOrder, that takes in 2 words and an alphabet string as an argument. The function should return true if the first word should appear before the second word if lexically-ordered according to the given alphabet order. If the second word should appear first, then return false.</p><p>Note that the alphabet string may be any arbitrary string.</p><p>Intuitively, Lexical Order is like 'dictionary' order:</p><p>You can assume that all characters are lowercase a-z.</p><p>You can assume that the alphabet contains all 26 letters.</p>",
+        "examples": {
+            "example1": {
+                "input": "alphabet = 'abcdefghijklmnopqrstuvwxyz'\nword1='apple'\nword2='dock'",
+                "output": "true"
+            },
+            "example2": {
+                "input": "alphabet = 'abcdefghijklmnopqrstuvwxyz'\nword1='apple'\nword2='ample'",
+                "output": "false"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function lexicalOrder(word1, word2, alphabet) {\n   // Write your solution...\n   return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// n = length of shorter string\n// Time: O(n)\n// Space: O(1)\nfunction lexicalOrder(word1, word2, alphabet) {\n   const length = Math.max(word1.length, word2.length);\n   for (let i = 0; i < length; i += 1) {\n      const char1 = word1[i];\n      const char2 = word2[i];\n      const value1 = alphabet.indexOf(char1);\n      const value2 = alphabet.indexOf(char2);\n      if (value1 < value2) {\n         return true;\n      } else if (value1 > value2) {\n         return false;\n      }\n   }\n   return true;\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": ["apple", "dock", "abcdefghijklmnopqrstuvwxyz"],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_2": {
+                "test_input": ["apple", "ample", "abcdefghijklmnopqrstuvwxyz"],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_3": {
+                "test_input": ["app", "application", "abcdefghijklmnopqrstuvwxyz"],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_4": {
+                "test_input": ["backs", "backdoor", "abcdefghijklmnopqrstuvwxyz"],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_5": {
+                "test_input": ["zoo", "dinner", "abcdefghijklmnopqrstuvwxyz"],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_6": {
+                "test_input": ["leaper", "leap", "abcdefghijklmnopqrstuvwxyz"],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_7": {
+                "test_input": ["backs", "backdoor", "abcdefghijklmnopqrstuvwxyz"],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_8": {
+                "test_input": ["semper", "semper", "abcdefghijklmnopqrstuvwxyz"],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+            }
+        }
     }
 }
