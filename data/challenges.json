@@ -12184,5 +12184,92 @@
                 "passed_test": false
             }
         }
+    },
+    "topologicalOrder": {
+        "refName": "topologicalOrder",
+        "refNumber": 154,
+        "category": "String",
+        "dificulty": "Easy",
+        "title": "Topological Order",
+        "tags": ["Easy", "String"],
+        "description": "<p>Write a function, topologicalOrder, that takes in an object representing the adjacency list for a directed-acyclic graph. The function should return an array containing the topological-order of the graph.</p><p>The topological ordering of a graph is a sequence where 'parent nodes' appear before their 'children' within the sequence.</p>",
+        "examples": {
+            "example1": {
+                "input": "{   a: ['f'],   b: ['d'],   c: ['a', 'f'],   d: ['e'],   e: [],   f: ['b', 'e'], }",
+                "output": "['c', 'a', 'f', 'b', 'd', 'e']"
+            },
+            "example2": {
+                "input": "{   h: ['l', 'm'],   i: ['k'],   j: ['k', 'i'],   k: ['h', 'm'],   l: ['m'],   m: [], }",
+                "output": "['j', 'i', 'k', 'h', 'l', 'm']"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function topologicalOrder(graph) {\n   // Write your solution...\n   return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// e = number of edges\n// n = number of nodes\n// Time: O(e + n)\n// Space: O(n)\nfunction topologicalOrder(graph) {\n   const numParents = {};\n   for (let node in graph) {\n      numParents[node] = 0;\n   }\n   for (let node in graph) {\n      for (let child of graph[node]) {\n         numParents[child] += 1;\n      }\n   }\n   const ready = [];\n   for (let node in numParents) {\n      if (numParents[node] === 0) {\n         ready.push(node);\n      }\n   }\n   const order = [];\n   while (ready.length > 0) {\n      const node = ready.pop();\n      order.push(node);\n      for (let child of graph[node]) {\n         numParents[child] -= 1;\n         if (numParents[child] === 0) {\n            ready.push(child);\n         }\n      }\n   }\n   return order;\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": [{
+                    "a": ["f"],
+                    "b": ["d"],
+                    "c": ["a", "f"],
+                    "d": ["e"],
+                    "e": [],
+                    "f": ["b", "e"]
+                  }],
+                "test_expected": ["c", "a", "f", "b", "d", "e"],
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_2": {
+                "test_input": [{
+                    "h": ["l", "m"],
+                    "i": ["k"],
+                    "j": ["k", "i"],
+                    "k": ["h", "m"],
+                    "l": ["m"],
+                    "m": []
+                  }],
+                "test_expected": ["j", "i", "k", "h", "l", "m"],
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_3": {
+                "test_input": [{
+                    "q": [],
+                    "r": ["q"],
+                    "s": ["r"],
+                    "t": ["s"]
+                  }],
+                "test_expected": ["t", "s", "r", "q"],
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_4": {
+                "test_input": [{
+                    "v": ["z", "w"],
+                    "w": [],
+                    "x": ["w", "v", "z"],
+                    "y": ["x"],
+                    "z": ["w"]
+                  }],
+                "test_expected": ["y", "x", "v", "z", "w"],
+                "code_output": null,
+                "passed_test": false
+            }
+        }
     }
 }
