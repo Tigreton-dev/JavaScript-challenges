@@ -12897,5 +12897,118 @@
                 "passed_test": false
             }
         }
+    },
+    "tokenReplace": {
+        "refName": "tokenReplace",
+        "refNumber": 157,
+        "category": "String",
+        "dificulty": "Easy",
+        "title": "Token Replace",
+        "tags": ["Easy", "String"],
+        "description": "<p>Write a function, tokenReplace, that takes in an object of tokens and a string. The function should return a new string where tokens are replaced.</p><p>Tokens are enclosed in a pair of '$'. You can assume that the input string is properly formatted. Tokens should be replaced from left to right in the string (see test_05).</p>",
+        "examples": {
+            "example1": {
+                "input": "s = 'Walk the $ANIMAL$ in the $LOCATION$!'\ntokens = {   '$LOCATION$': 'park',   '$ANIMAL$': 'dog', };",
+                "output": "'Walk the dog in the park!'"
+            },
+            "example2": {
+                "input": "s = 'the $ADJECTIVE$ fox $VERB$ $ADJECTIVE$ly $DIRECTION$ward'\ntokens = {   '$ADJECTIVE$': 'quick',   '$VERB$': 'hopped',   '$DIRECTION$': 'North' }",
+                "output": "'the quick fox hopped quickly Northward'"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function tokenReplace(s, tokens) {\n   // Write your solution...\n   return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// n = length of string\n// Time: O(n)\n// Space: O(n)\nfunction tokenReplace(s, tokens) {\n   let output = [];\n   let i = 0;\n   let j = 1;\n   while (i < s.length) {\n      if (s[i] !== '$') {\n         output.push(s[i]);\n         i += 1;\n         j = i + 1;\n      } else if (s[j] !== '$') {\n         j += 1;\n      } else {\n         const key = s.slice(i, j + 1);\n         output.push(tokens[key]);\n         i = j + 1;\n         j = i + 1;\n      }\n   }\n   return output.join('');\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": [
+                    "Walk the $ANIMAL$ in the $LOCATION$!",
+                    {
+                        "$LOCATION$": "park",
+                        "$ANIMAL$": "dog"
+                    }
+                ],
+                "test_expected": "Walk the dog in the park!",
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_2": {
+                "test_input": [
+                    "the $ADJECTIVE$ fox $VERB$ $ADJECTIVE$ly $DIRECTION$ward",
+                    {
+                        "$ADJECTIVE$": "quick",
+                        "$VERB$": "hopped",
+                        "$DIRECTION$": "North"
+                    }
+                ],
+                "test_expected": "the quick fox hopped quickly Northward",
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_3": {
+                "test_input": [
+                    "his greeting is always $greeting$.",
+                    {
+                        "$greeting$": "hey programmer"
+                    }
+                ],
+                "test_expected": "his greeting is always hey programmer.",
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_4": {
+                "test_input": [
+                    "$A$$B$$C$, oh my.",
+                    {
+                        "$A$": "lions",
+                        "$B$": "tigers",
+                        "$C$": "bears"
+                    }
+                ],
+                "test_expected": "lionstigersbears, oh my.",
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_5": {
+                "test_input": [
+                    "$B$",
+                    {
+                        "$A$": "lions",
+                        "$B$": "tigers",
+                        "$C$": "bears"
+                    }
+                ],
+                "test_expected": "tigers",
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_6": {
+                "test_input": [
+                    "$first$second$third$",
+                    {
+                        "$second$": "beta",
+                        "$first$": "alpha",
+                        "$third$": "gamma"
+                    }
+                ],
+                "test_expected": "alphasecondgamma",
+                "code_output": null,
+                "passed_test": false
+            }
+        }
     }
 }
