@@ -12188,10 +12188,10 @@
     "topologicalOrder": {
         "refName": "topologicalOrder",
         "refNumber": 154,
-        "category": "String",
+        "category": "Graphs",
         "dificulty": "Easy",
         "title": "Topological Order",
-        "tags": ["Easy", "String"],
+        "tags": ["Easy", "Graphs"],
         "description": "<p>Write a function, topologicalOrder, that takes in an object representing the adjacency list for a directed-acyclic graph. The function should return an array containing the topological-order of the graph.</p><p>The topological ordering of a graph is a sequence where 'parent nodes' appear before their 'children' within the sequence.</p>",
         "examples": {
             "example1": {
@@ -12267,6 +12267,107 @@
                     "z": ["w"]
                   }],
                 "test_expected": ["y", "x", "v", "z", "w"],
+                "code_output": null,
+                "passed_test": false
+            }
+        }
+    },
+    "safeCracking": {
+        "refName": "safeCracking",
+        "refNumber": 155,
+        "category": "Graphs",
+        "dificulty": "Easy",
+        "title": "Safe Cracking",
+        "tags": ["Easy", "Graphs"],
+        "description": "<p>Oh-no! You forgot the number combination that unlocks your safe. Luckily, you knew that you'd be forgetful so you previously wrote down a bunch of hints that can be used to determine the correct combination. Each hint is a pair of numbers 'x, y' that indicates you must enter digit 'x' before 'y' (but not necessarily immediately before y).</p><p>The keypad on the safe has digits 0-9. You can assume that the hints will generate exactly one working combination and that a digit can occur zero or one time in the answer.</p><p>Write a function, safeCracking, that takes in an array of hints as an argument and determines the combination that will unlock the safe. The function should return a string representing the combination.</p>",
+        "examples": {
+            "example1": {
+                "input": "hints = [[7, 1], [1, 8], [7, 8]]",
+                "output": "'718'"
+            },
+            "example2": {
+                "input": "hints = [   [3, 1],   [4, 7],   [5, 9],   [4, 3],   [7, 3],   [3, 5],   [9, 1], ]",
+                "output": "'473591'"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function safeCracking(hints) {\n   // Write your solution...\n   return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// e = number of hints\n// Time: O(e)\n// Space: O(e)\nfunction safeCracking(hints) {\n   const graph = buildGraph(hints);\n   return topologicalOrder(graph);\n};\nfunction buildGraph(edges) {\n   const graph = {};\n   for (let edge of edges) {\n      const [a, b] = edge;\n      if (!(a in graph)) graph[a] = [];\n      if (!(b in graph)) graph[b] = [];\n      graph[a].push(b);\n   }\n   return graph;\n};\nfunction topologicalOrder(graph) {\n   const numParents = {};\n   for (let node in graph) {\n      numParents[node] = 0;\n   }\n   for (let node in graph) {\n      for (let child of graph[node]) {\n         numParents[child] += 1;\n      }\n   }\n   const ready = [];\n   for (let node in numParents) {\n      if (numParents[node] === 0) ready.push(node);\n   }\n   let order = '';\n   while (ready.length > 0) {\n      const node = ready.pop();\n      order += node;\n      for (let child of graph[node]) {\n         numParents[child] -= 1;\n         if (numParents[child] === 0) ready.push(child)\n      }\n   }\n   return order;\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": [[
+                    [7, 1],
+                    [1, 8],
+                    [7, 8]
+                  ]],
+                "test_expected": "718",
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_2": {
+                "test_input": [[
+                    [3, 1],
+                    [4, 7],
+                    [5, 9],
+                    [4, 3],
+                    [7, 3],
+                    [3, 5],
+                    [9, 1]
+                  ]],
+                "test_expected": "473591",
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_3": {
+                "test_input": [[
+                    [2, 5],
+                    [8, 6],
+                    [0, 6],
+                    [6, 2],
+                    [0, 8],
+                    [2, 3],
+                    [3, 5],
+                    [6, 5]
+                  ]],
+                "test_expected": "086235",
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_4": {
+                "test_input": [[
+                    [0, 1],
+                    [6, 0],
+                    [1, 8]
+                  ]],
+                "test_expected": "6018",
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_5": {
+                "test_input": [[
+                    [8, 9],
+                    [4, 2],
+                    [8, 2],
+                    [3, 8],
+                    [2, 9],
+                    [4, 9],
+                    [8, 4]
+                  ]],
+                "test_expected": "38429",
                 "code_output": null,
                 "passed_test": false
             }
