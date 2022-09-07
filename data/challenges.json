@@ -13010,5 +13010,119 @@
                 "passed_test": false
             }
         }
+    },
+    "tokenTransform": {
+        "refName": "tokenTransform",
+        "refNumber": 158,
+        "category": "String",
+        "dificulty": "Easy",
+        "title": "Token Transform",
+        "tags": ["Easy", "String"],
+        "description": "<p>Write a function, tokenTransform, that takes in an object of tokens and a string. In the object, the replacement values for a token may reference other tokens. The function should return a new string where tokens are replaced with their fully evaluated string values.</p><p>Tokens are enclosed in a pair of '$'.</p><p>You may assume that their are no circular token dependencies.</p>",
+        "examples": {
+            "example1": {
+                "input": "s = 'Walk the $ANIMAL$ in the $LOCATION$!'\ntokens = {   '$LOCATION$': '$ANIMAL$ park',   '$ANIMAL$': 'dog', };",
+                "output": "'Walk the dog in the dog park!'"
+            },
+            "example2": {
+                "input": "s = 'the $ADJECTIVE_1$ fox $ADVERBS$ $VERB$ward'\ntokens = {   '$ADJECTIVE_1$': 'quick',   '$ADJECTIVE_2$': 'eager',   '$ADVERBS$': '$ADJECTIVE_1$ly and $ADJECTIVE_2$ly',   '$VERB$': 'hopped $DIRECTION$',   '$DIRECTION$': 'North', }",
+                "output": "'the quick fox quickly and eagerly hopped Northward'"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function tokenTransform(s, tokens) {\n   // Write your solution...\n   return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// n = length of longest string of value\n// m = # of unique tokens\n// Time: ~O(n^m)\n// Space: ~O(n^m)\nfunction tokenTransform (s, tokens) {\n   let output = [];\n   let i = 0;\n   let j = 1;\n   while (i < s.length) {\n      if (s[i] !== '$') {\n         output.push(s[i]);\n         i += 1;\n         j = i + 1;\n      } else if (s[j] !== '$') {\n         j += 1;\n      } else {\n         const key = s.slice(i, j + 1);\n         const value = tokens[key];\n         const evaluatedValue = tokenTransform(value, tokens);\n         tokens[key] = evaluatedValue;\n         output.push(evaluatedValue);\n         i = j + 1;\n         j = i + 1;\n      }\n   }\n   return output.join('');\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": [
+                    "Walk the $ANIMAL$ in the $LOCATION$!",
+                    {
+                        "$LOCATION$": "$ANIMAL$ park",
+                        "$ANIMAL$": "dog"
+                    }
+                ],
+                "test_expected": "Walk the dog in the dog park!",
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_2": {
+                "test_input": [
+                    "the $ADJECTIVE_1$ fox $ADVERBS$ $VERB$ward",
+                    {
+                        "$ADJECTIVE_1$": "quick",
+                        "$ADJECTIVE_2$": "eager",
+                        "$ADVERBS$": "$ADJECTIVE_1$ly and $ADJECTIVE_2$ly",
+                        "$VERB$": "hopped $DIRECTION$",
+                        "$DIRECTION$": "North"
+                    }
+                ],
+                "test_expected": "the quick fox quickly and eagerly hopped Northward",
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_3": {
+                "test_input": [
+                    "What a $A$ here!",
+                    {
+                        "$B$": "epicly $C$",
+                        "$A$": "pretty $B$ problem $D$",
+                        "$D$": "we have",
+                        "$C$": "clever"
+                    }
+                ],
+                "test_expected": "What a pretty epicly clever problem we have here!",
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_4": {
+                "test_input": [
+                    "$1$ $1$ $1$ $1$ $1$ $1$ $4$ $4$",
+                    {
+                        "$1$": "a$2$",
+                        "$2$": "b$3$",
+                        "$3$": "c$4$",
+                        "$4$": "d$5$",
+                        "$5$": "e$6$",
+                        "$6$": "f!"
+                    }
+                ],
+                "test_expected": "abcdef! abcdef! abcdef! abcdef! abcdef! abcdef! def! def!",
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_5": {
+                "test_input": [
+                    "z$0$z$0$z$0$z$0$z$0$z$0$z",
+                    {
+                        "$0$": "$1$$1$$1$$1$$1$$1$$1$$1$$1$$1$$1$$1$",
+                        "$1$": "$2$$2$$2$$2$$2$$2$$2$$2$$2$",
+                        "$2$": "$3$$3$$3$$3$$3$$3$$3$",
+                        "$3$": "$4$$4$$4$$4$$4$$4$",
+                        "$4$": "$5$$5$$5$$5$$5$",
+                        "$5$": "$6$$6$$6$$6$",
+                        "$6$": "$7$$7$$7$",
+                        "$7$": "$8$$8$",
+                        "$8$": ""
+                    }
+                ],
+                "test_expected": "zzzzzzz",
+                "code_output": null,
+                "passed_test": false
+            }
+        }
     }
 }
