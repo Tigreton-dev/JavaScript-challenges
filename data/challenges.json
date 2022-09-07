@@ -12110,5 +12110,79 @@
                 "passed_test": false
             }
         }
+    },
+    "detectDictionary": {
+        "refName": "detectDictionary",
+        "refNumber": 153,
+        "category": "String",
+        "dificulty": "Easy",
+        "title": "Detect Dictionary",
+        "tags": ["Easy", "String"],
+        "description": "<p>Write a function, detectDictionary, that takes in a dictionary of words and an alphabet string. The function should return a boolean indicating whether or not all words of the dictionary are lexically-ordered according to the alphabet.</p><p>You can assume that all characters are lowercase a-z.</p><p>You can assume that the alphabet contains all 26 letters.</p>",
+        "examples": {
+            "example1": {
+                "input": "dictionary = ['zoo', 'tick', 'tack', 'door']\nalphabet = 'ghzstijbacdopnfklmeqrxyuvw'",
+                "output": "true"
+            },
+            "example2": {
+                "input": "dictionary = ['zoo', 'tack', 'tick', 'door']\nalphabet = 'ghzstijbacdopnfklmeqrxyuvw'",
+                "output": "false"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function detectDictionary(dictionary, alphabet) {\n   // Write your solution...\n   return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// n = # of words in dictionary\n// k = # length of longest word\n// Time: O(nk)\n// Space: O(1)\nfunction detectDictionary(dictionary, alphabet) {\n   for (let i = 0; i < dictionary.length - 1; i += 1) {\n      const current = dictionary[i];\n      const next = dictionary[i + 1];\n      if (!lexicalOrder(current, next, alphabet)) return false;\n   }\n   return true;\n};\nfunction lexicalOrder(word1, word2, alphabet) {\n   const length = Math.max(word1.length, word2.length);\n   for (let i = 0; i < length; i += 1) {\n      const char1 = word1[i];\n      const char2 = word2[i];\n      const value1 = char1 === undefined ? -Infinity : alphabet.indexOf(char1);\n      const value2 = char2 === undefined ? -Infinity : alphabet.indexOf(char2);\n      if (value1 < value2) {\n         return true;\n      } else if (value1 > value2) {\n         return false;\n      }\n   }\n   return true;\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": [["zoo", "tick", "tack", "door"], "ghzstijbacdopnfklmeqrxyuvw"],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_2": {
+                "test_input": [["zoo", "tack", "tick", "door"], "ghzstijbacdopnfklmeqrxyuvw"],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_3": {
+                "test_input": [["zoos", "zoo", "tick", "tack", "door"], "ghzstijbacdopnfklmeqrxyuvw"],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_4": {
+                "test_input": [["miles", "milestone", "proper", "process", "goal"], "mnoijpqrshkltabcdefguvwzxy"],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_5": {
+                "test_input": [["miles", "milestone", "pint", "proper", "process", "goal"], "mnoijpqrshkltabcdefguvwzxy"],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_6": {
+                "test_input": [["miles", "milestone", "pint", "proper", "process", "goal", "apple"], "mnoijpqrshkltabcdefguvwzxy"],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+            }
+        }
     }
 }
