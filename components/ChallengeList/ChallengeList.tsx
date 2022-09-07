@@ -31,15 +31,6 @@ export default function ChallengeList() {
             >
                     Challenge List
             </Typography>
-
-            <Accordion 
-                defaultExpanded={true} 
-                style={{ color: "#6d6e6d", backgroundColor: "#ffff", borderRadius: "8px"}}
-            >
-                <AccordionSummary expandIcon={<ExpandMoreIcon sx={{ color: "#6d6e6d" }} />}>
-                    <Typography variant="h5">String</Typography>
-                </AccordionSummary>
-                <AccordionDetails >
                     {problemList.map((element: object, index: number) => {
                         return (
                             <ChallengeBox
@@ -48,11 +39,10 @@ export default function ChallengeList() {
                                 title={element.title}
                                 tags={element.tags}
                                 refName={element.refName}
+                                refNumber={element.refNumber}
                             />
                         )
                     })}
-                </AccordionDetails>
-            </Accordion>
         </Box>
     )
 }

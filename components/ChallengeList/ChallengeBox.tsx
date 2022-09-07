@@ -11,7 +11,7 @@ import { DataContext } from '../../context/dataContext';
 import { DataContextType } from '../../context/@types.data';
 
 export default function BoxSx(props) {
-    const { isChallengeSubmitted, title, tags, refName } = props;
+    const { isChallengeSubmitted, title, tags, refName, refNumber } = props;
     const { data } = React.useContext(DataContext) as DataContextType;
     const currentTheme = data.currentTheme;
     const icon = isChallengeSubmitted ?
@@ -51,7 +51,7 @@ export default function BoxSx(props) {
                 {icon}
                 <Typography variant="h1" component="h1" style={{ marginLeft: "10px", width: "250px", fontSize: "18px", fontWeight: "bold" }}>
                     <Link href={`/challenges/${refName}`}>
-                        <a style={{ textDecoration: "none", color: "#6d6e6d" }}>{title}</a>
+                        <a style={{ textDecoration: "none", color: "#6d6e6d" }}>{refNumber}. {title}</a>
                     </Link>
                 </Typography>
                 <Stack direction="row" spacing={1} style={{ position: "absolute", right: "0" }}>

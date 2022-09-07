@@ -76,6 +76,7 @@
         "dificulty": "Easy",
         "title": "String Rotation",
         "tags": ["Easy", "String"],
+        "isChallengeSubmitted": true,
         "description": "<p>There are three types of edits that can be performed on strings: Assume you have a method isSubstring which checks if one word is a substring of another.</p><p>Given two strings, sl and s2, write code to check if s2 is a rotation of sl using only one call to isSubstring.</p>",
         "examples": {
             "example1": {
@@ -102,7 +103,7 @@
             ]
         },
         "submittedCode": {
-            "javaScript": ""
+            "javaScript": "a"
         },
         "testCases": {
             "Test_1": {
