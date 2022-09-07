@@ -11094,47 +11094,55 @@
         },
         "testCases": {
             "Test_1": {
-                "test_input": [[
-                    [4, 3, 7],
-                    [6, 1, 9],
-                    [2, 5, 3]
-                  ]],
+                "test_input": [
+                    [
+                        [4, 3, 7],
+                        [6, 1, 9],
+                        [2, 5, 3]
+                    ]
+                ],
                 "test_expected": 7,
                 "code_output": null,
                 "passed_test": false
             },
             "Test_2": {
-                "test_input": [[
-                    [12, 14, 5],
-                    [6, 3, 2]
-                  ]],
+                "test_input": [
+                    [
+                        [12, 14, 5],
+                        [6, 3, 2]
+                    ]
+                ],
                 "test_expected": 8,
                 "code_output": null,
                 "passed_test": false
             },
             "Test_3": {
-                "test_input": [[
-                    [12, 14, 5],
-                    [6, 3, 2],
-                    [4, 2, 7],
-                    [4, 8, 4],
-                    [1, 13, 5],
-                    [8, 6, 7]
-                  ]],
+                "test_input": [
+                    [
+                        [12, 14, 5],
+                        [6, 3, 2],
+                        [4, 2, 7],
+                        [4, 8, 4],
+                        [1, 13, 5],
+                        [8, 6, 7]
+                    ]
+                ],
                 "test_expected": 23,
                 "code_output": null,
                 "passed_test": false
             },
             "Test_4": {
-                "test_input": [[
-                    [12, 14, 5, 13],
-                    [6, 3, 20, 3],
-                    [24, 12, 7, 2],
-                    [4, 80, 45, 3],
-                    [104, 13, 5, 14],
-                    [38, 19, 7, 6],
-                    [12, 2, 1, 2]
-                  ]],
+                "test_input": [
+                    [
+                        [12, 14, 5, 13],
+                        [6, 3, 20, 3],
+                        [24, 12, 7, 2],
+                        [4, 80, 45, 3],
+                        [104, 13, 5, 14],
+                        [38, 19, 7, 6],
+                        [12, 2, 1, 2]
+                    ]
+                ],
                 "test_expected": 26,
                 "code_output": null,
                 "passed_test": false
@@ -11158,7 +11166,7 @@
                         [12, 23, 12, 20],
                         [1, 3, 1, 1],
                         [1, 2, 12, 5]
-                      ]
+                    ]
                 ],
                 "test_expected": 74,
                 "code_output": null,
@@ -11185,7 +11193,7 @@
                         [1, 2, 12, 5, 36],
                         [6, 2, 3, 12, 20],
                         [4, 6, 4, 11, 15]
-                      ]
+                    ]
                 ],
                 "test_expected": 75,
                 "code_output": null,
@@ -11254,15 +11262,13 @@
                 "passed_test": false
             },
             "Test_5": {
-                "test_input": [5, 6, 9, 2, 5
-                ],
+                "test_input": [5, 6, 9, 2, 5],
                 "test_expected": 11635,
                 "code_output": null,
                 "passed_test": false
             },
             "Test_6": {
-                "test_input": [6, 6, 12, 3, 4
-                ],
+                "test_input": [6, 6, 12, 3, 4],
                 "test_expected": 871065,
                 "code_output": null,
                 "passed_test": false
@@ -11319,45 +11325,44 @@
         "testCases": {
             "Test_1": {
                 "test_input": [[10, 4, 42, 5, 8, 100, 5, 6, 12, 40]],
-                "test_expected": [ 4, 5, 5, 6, 8, 10, 12, 40, 42, 100 ],
+                "test_expected": [4, 5, 5, 6, 8, 10, 12, 40, 42, 100],
                 "code_output": null,
                 "passed_test": false
             },
             "Test_2": {
                 "test_input": [[7, -30, -4, -1, 12, 0, 20]],
-                "test_expected": [ -30, -4, -1, 0, 7, 12, 20 ] ,
+                "test_expected": [-30, -4, -1, 0, 7, 12, 20],
                 "code_output": null,
                 "passed_test": false
             },
             "Test_3": {
                 "test_input": [[8, 7, 6, 5, 4, 3, 2, 1, 0]],
-                "test_expected": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ] ,
+                "test_expected": [0, 1, 2, 3, 4, 5, 6, 7, 8],
                 "code_output": null,
                 "passed_test": false
             },
             "Test_4": {
-                "test_input": [[ 
-                    72, 42, 16, 81, 84, 17,  2, 81, 22, 79, 86, 38, 
-                    77, 80, 81, 70, 81, 80, 35, 21, 89, 38, 57, 28, 
-                     4, 17, 50, 38, 68, 82, 22, 76, 45, 40, 67, 94, 
-                    37, 27, 81, 53, 36, 18, 28, 60, 45, 74, 40, 29, 
-                    18,  6, 28, 57, 42, 60, 64, 12, 78, 97, 96,  1, 
-                    20, 20, 61, 67, 82, 10, 63, 71, 39, 52, 37, 69, 
-                    37, 24, 66, 74, 15, 92, 49, 31, 56, 67, 50, 57, 
-                    79,  0, 21, 56, 82, 22,  4, 20, 91, 72, 58, 93, 
-                    99, 14, 42, 91 
-                  ]],
-                "test_expected": [ 
-                    0,  1,  2,  4,  4,  6, 10, 12, 14, 15, 16, 17, 
-                   17, 18, 18, 20, 20, 20, 21, 21, 22, 22, 22, 24, 
-                   27, 28, 28, 28, 29, 31, 35, 36, 37, 37, 37, 38, 
-                   38, 38, 39, 40, 40, 42, 42, 42, 45, 45, 49, 50, 
-                   50, 52, 53, 56, 56, 57, 57, 57, 58, 60, 60, 61, 
-                   63, 64, 66, 67, 67, 67, 68, 69, 70, 71, 72, 72, 
-                   74, 74, 76, 77, 78, 79, 79, 80, 80, 81, 81, 81, 
-                   81, 81, 82, 82, 82, 84, 86, 89, 91, 91, 92, 93, 
-                   94, 96, 97, 99 
-                 ],
+                "test_input": [
+                    [
+                        72, 42, 16, 81, 84, 17, 2, 81, 22, 79, 86, 38, 77, 80,
+                        81, 70, 81, 80, 35, 21, 89, 38, 57, 28, 4, 17, 50, 38,
+                        68, 82, 22, 76, 45, 40, 67, 94, 37, 27, 81, 53, 36, 18,
+                        28, 60, 45, 74, 40, 29, 18, 6, 28, 57, 42, 60, 64, 12,
+                        78, 97, 96, 1, 20, 20, 61, 67, 82, 10, 63, 71, 39, 52,
+                        37, 69, 37, 24, 66, 74, 15, 92, 49, 31, 56, 67, 50, 57,
+                        79, 0, 21, 56, 82, 22, 4, 20, 91, 72, 58, 93, 99, 14,
+                        42, 91
+                    ]
+                ],
+                "test_expected": [
+                    0, 1, 2, 4, 4, 6, 10, 12, 14, 15, 16, 17, 17, 18, 18, 20,
+                    20, 20, 21, 21, 22, 22, 22, 24, 27, 28, 28, 28, 29, 31, 35,
+                    36, 37, 37, 37, 38, 38, 38, 39, 40, 40, 42, 42, 42, 45, 45,
+                    49, 50, 50, 52, 53, 56, 56, 57, 57, 57, 58, 60, 60, 61, 63,
+                    64, 66, 67, 67, 67, 68, 69, 70, 71, 72, 72, 74, 74, 76, 77,
+                    78, 79, 79, 80, 80, 81, 81, 81, 81, 81, 82, 82, 82, 84, 86,
+                    89, 91, 91, 92, 93, 94, 96, 97, 99
+                ],
                 "code_output": null,
                 "passed_test": false
             }
@@ -11400,74 +11405,106 @@
         },
         "testCases": {
             "Test_1": {
-                "test_input": [[
-                    [1, 4],
-                    [12, 15],
-                    [3, 7],
-                    [8, 13]
-                  ]],
-                "test_expected": [ [1, 7], [8, 15] ],
+                "test_input": [
+                    [
+                        [1, 4],
+                        [12, 15],
+                        [3, 7],
+                        [8, 13]
+                    ]
+                ],
+                "test_expected": [
+                    [1, 7],
+                    [8, 15]
+                ],
                 "code_output": null,
                 "passed_test": false
             },
             "Test_2": {
-                "test_input": [[
-                    [6, 8],
+                "test_input": [
+                    [
+                        [6, 8],
+                        [2, 9],
+                        [10, 12],
+                        [20, 24]
+                    ]
+                ],
+                "test_expected": [
                     [2, 9],
                     [10, 12],
                     [20, 24]
-                  ]],
-                "test_expected": [ [2, 9], [10, 12], [20, 24] ] ,
+                ],
                 "code_output": null,
                 "passed_test": false
             },
             "Test_3": {
-                "test_input": [[
-                    [3, 7],
-                    [5, 8],
-                    [1, 5]
-                  ]],
-                "test_expected": [ [1, 8] ] ,
+                "test_input": [
+                    [
+                        [3, 7],
+                        [5, 8],
+                        [1, 5]
+                    ]
+                ],
+                "test_expected": [[1, 8]],
                 "code_output": null,
                 "passed_test": false
             },
             "Test_4": {
-                "test_input": [[
-                    [3, 7],
-                    [10, 13],
-                    [5, 8],
-                    [27, 31],
-                    [1, 5],
-                    [12, 16],
-                    [20, 22]
-                  ]],
-                "test_expected": [ [1, 8], [10, 16], [20, 22], [27, 31] ],
+                "test_input": [
+                    [
+                        [3, 7],
+                        [10, 13],
+                        [5, 8],
+                        [27, 31],
+                        [1, 5],
+                        [12, 16],
+                        [20, 22]
+                    ]
+                ],
+                "test_expected": [
+                    [1, 8],
+                    [10, 16],
+                    [20, 22],
+                    [27, 31]
+                ],
                 "code_output": null,
                 "passed_test": false
             },
             "Test_5": {
-                "test_input": [[
-                    [3, 7],
-                    [10, 13],
-                    [5, 8],
-                    [27, 31],
-                    [1, 5],
-                    [12, 16],
+                "test_input": [
+                    [
+                        [3, 7],
+                        [10, 13],
+                        [5, 8],
+                        [27, 31],
+                        [1, 5],
+                        [12, 16],
+                        [20, 32]
+                    ]
+                ],
+                "test_expected": [
+                    [1, 8],
+                    [10, 16],
                     [20, 32]
-                  ]],
-                "test_expected": [ [1, 8], [10, 16], [20, 32] ],
+                ],
                 "code_output": null,
                 "passed_test": false
             },
             "Test_6": {
-                "test_input": [[
-                    [64, 70],
-                    [50, 55],
-                    [62, 65],
-                    [12, 50],
+                "test_input": [
+                    [
+                        [64, 70],
+                        [50, 55],
+                        [62, 65],
+                        [12, 50],
+                        [72, 300000]
+                    ]
+                ],
+                "test_expected": [
+                    [12, 55],
+                    [62, 70],
                     [72, 300000]
-                  ]],
-                "test_expected": [ [12, 55], [62, 70], [72, 300000] ],
+                ],
                 "code_output": null,
                 "passed_test": false
             }
@@ -11510,7 +11547,7 @@
         },
         "testCases": {
             "Test_1": {
-                "test_input": [1,1],
+                "test_input": [1, 1],
                 "test_expected": true,
                 "code_output": null,
                 "passed_test": false
@@ -11540,7 +11577,16 @@
                 "passed_test": false
             },
             "Test_6": {
-                "test_input": [[[1,2], [3,4]], [[1,2], [3,4]]],
+                "test_input": [
+                    [
+                        [1, 2],
+                        [3, 4]
+                    ],
+                    [
+                        [1, 2],
+                        [3, 4]
+                    ]
+                ],
                 "test_expected": true,
                 "code_output": null,
                 "passed_test": false
@@ -11552,13 +11598,16 @@
                 "passed_test": false
             },
             "Test_8": {
-                "test_input": [{"a":1}, {"a":1}],
+                "test_input": [{ "a": 1 }, { "a": 1 }],
                 "test_expected": true,
                 "code_output": null,
                 "passed_test": false
             },
             "Test_9": {
-                "test_input": [{"a":1, "obj":{"b":2}}, {"a":1, "obj":{"b":2}}],
+                "test_input": [
+                    { "a": 1, "obj": { "b": 2 } },
+                    { "a": 1, "obj": { "b": 2 } }
+                ],
                 "test_expected": true,
                 "code_output": null,
                 "passed_test": false
@@ -11612,31 +11661,46 @@
                 "passed_test": false
             },
             "Test_18": {
-                "test_input": [[[1,2,3], [4,5]], [[1,2,3], [6,7]]],
+                "test_input": [
+                    [
+                        [1, 2, 3],
+                        [4, 5]
+                    ],
+                    [
+                        [1, 2, 3],
+                        [6, 7]
+                    ]
+                ],
                 "test_expected": false,
                 "code_output": null,
                 "passed_test": false
             },
             "Test_19": {
-                "test_input": [{"a":1}, {}],
+                "test_input": [{ "a": 1 }, {}],
                 "test_expected": false,
                 "code_output": null,
                 "passed_test": false
             },
             "Test_20": {
-                "test_input": [{"a":1}, {"b":2}],
+                "test_input": [{ "a": 1 }, { "b": 2 }],
                 "test_expected": false,
                 "code_output": null,
                 "passed_test": false
             },
             "Test_21": {
-                "test_input": [{"a":1, "b": [1,2,3]}, {"a":1, "b": [1,2]}],
+                "test_input": [
+                    { "a": 1, "b": [1, 2, 3] },
+                    { "a": 1, "b": [1, 2] }
+                ],
                 "test_expected": false,
                 "code_output": null,
                 "passed_test": false
             },
             "Test_21": {
-                "test_input": [{"a":"undefined", "b": 2}, {"b": 2, "c": 3}],
+                "test_input": [
+                    { "a": "undefined", "b": 2 },
+                    { "b": 2, "c": 3 }
+                ],
                 "test_expected": false,
                 "code_output": null,
                 "passed_test": false
@@ -11862,21 +11926,21 @@
             },
             "Test_2": {
                 "test_input": "function test_input() {    function Node(val) {       this.val = val;       this.left = null;       this.right = null;    }    const a = new Node('a');    const b = new Node('b');    const c = new Node('c');    const d = new Node('d');    const e = new Node('e');    const f = new Node('f');    const g = new Node('g');    a.left = b;    a.right = c;    b.left = d;    b.right = e;    c.left = f;    c.right = g;    return window.postOrder(a); }",
-                "test_expected": [ "d", "e", "b", "f", "g", "c", "a" ] ,
+                "test_expected": ["d", "e", "b", "f", "g", "c", "a"],
                 "code_output": null,
                 "passed_test": false,
                 "functionTest": true
             },
             "Test_3": {
                 "test_input": "function test_input() {    function Node(val) {       this.val = val;       this.left = null;       this.right = null;    }    const a = new Node('a');    const b = new Node('b');    const c = new Node('c');    const d = new Node('d');    const e = new Node('e');    const f = new Node('f');    const g = new Node('g');    const h = new Node('h');    a.left = b;    a.right = c;    b.left = d;    b.right = e;    c.right = f;    e.left = g;    e.right = h;    return window.postOrder(a); }",
-                "test_expected": [ "d", "g", "h", "e", "b", "f", "c", "a" ] ,
+                "test_expected": ["d", "g", "h", "e", "b", "f", "c", "a"],
                 "code_output": null,
                 "passed_test": false,
                 "functionTest": true
             },
             "Test_4": {
                 "test_input": "function test_input() {    function Node(val) {       this.val = val;       this.left = null;       this.right = null;    }    const l = new Node('l');    const m = new Node('m');    const n = new Node('n');    const o = new Node('o');    const p = new Node('p');    const q = new Node('q');    const r = new Node('r');    const s = new Node('s');    const t = new Node('t');    l.left = m;    l.right = n;    n.left = o;    n.right = p;    o.left = q;    o.right = r;    p.left = s;    p.right = t;    return window.postOrder(l); }",
-                "test_expected": [ "m", "q", "r", "o", "s", "t", "p", "n", "l" ],
+                "test_expected": ["m", "q", "r", "o", "s", "t", "p", "n", "l"],
                 "code_output": null,
                 "passed_test": false,
                 "functionTest": true
@@ -11920,35 +11984,87 @@
         },
         "testCases": {
             "Test_1": {
-                "test_input": [[ "y", "x", "z" ], [ "y", "z", "x" ] ],
-                "test_expected": {"val":"x","left":{"val":"y","left":null,"right":null},"right":{"val":"z","left":null,"right":null}},
+                "test_input": [
+                    ["y", "x", "z"],
+                    ["y", "z", "x"]
+                ],
+                "test_expected": {
+                    "val": "x",
+                    "left": { "val": "y", "left": null, "right": null },
+                    "right": { "val": "z", "left": null, "right": null }
+                },
                 "code_output": null,
                 "passed_test": false
             },
             "Test_2": {
-                "test_input": [[ "d", "b", "e", "a", "f", "c", "g" ], [ "d", "e", "b", "f", "g", "c", "a" ] ],
-                "test_expected": {"val":"a","left":{"val":"b","left":{"val":"d","left":null,"right":null},"right":{"val":"e","left":null,"right":null}},"right":{"val":"c","left":{"val":"f","left":null,"right":null},"right":{"val":"g","left":null,"right":null}}},
+                "test_input": [
+                    ["d", "b", "e", "a", "f", "c", "g"],
+                    ["d", "e", "b", "f", "g", "c", "a"]
+                ],
+                "test_expected": {
+                    "val": "a",
+                    "left": {
+                        "val": "b",
+                        "left": { "val": "d", "left": null, "right": null },
+                        "right": { "val": "e", "left": null, "right": null }
+                    },
+                    "right": {
+                        "val": "c",
+                        "left": { "val": "f", "left": null, "right": null },
+                        "right": { "val": "g", "left": null, "right": null }
+                    }
+                },
                 "code_output": null,
                 "passed_test": false
             },
             "Test_3": {
-                "test_input": [[ "d", "b", "g", "e", "h", "a", "c", "f" ],
-                [ "d", "g", "h", "e", "b", "f", "c", "a" ] ],
-                "test_expected": {"val":"a","left":{"val":"b","left":{"val":"d","left":null,"right":null},"right":{"val":"e","left":{"val":"g","left":null,"right":null},"right":{"val":"h","left":null,"right":null}}},"right":{"val":"c","left":null,"right":{"val":"f","left":null,"right":null}}},
+                "test_input": [
+                    ["d", "b", "g", "e", "h", "a", "c", "f"],
+                    ["d", "g", "h", "e", "b", "f", "c", "a"]
+                ],
+                "test_expected": {
+                    "val": "a",
+                    "left": {
+                        "val": "b",
+                        "left": { "val": "d", "left": null, "right": null },
+                        "right": {
+                            "val": "e",
+                            "left": { "val": "g", "left": null, "right": null },
+                            "right": { "val": "h", "left": null, "right": null }
+                        }
+                    },
+                    "right": {
+                        "val": "c",
+                        "left": null,
+                        "right": { "val": "f", "left": null, "right": null }
+                    }
+                },
                 "code_output": null,
                 "passed_test": false
             },
             "Test_4": {
-                "test_input": [["m", "n"],
-                ["m", "n"] ],
-                "test_expected": {"val":"n","left":{"val":"m","left":null,"right":null},"right":null},
+                "test_input": [
+                    ["m", "n"],
+                    ["m", "n"]
+                ],
+                "test_expected": {
+                    "val": "n",
+                    "left": { "val": "m", "left": null, "right": null },
+                    "right": null
+                },
                 "code_output": null,
                 "passed_test": false
             },
             "Test_5": {
-                "test_input": [["n", "m"],
-                ["m", "n"] ],
-                "test_expected": {"val":"n","left":null,"right":{"val":"m","left":null,"right":null}},
+                "test_input": [
+                    ["n", "m"],
+                    ["m", "n"]
+                ],
+                "test_expected": {
+                    "val": "n",
+                    "left": null,
+                    "right": { "val": "m", "left": null, "right": null }
+                },
                 "code_output": null,
                 "passed_test": false
             }
@@ -11991,35 +12107,103 @@
         },
         "testCases": {
             "Test_1": {
-                "test_input": [[ "z", "y", "x" ], [ "y", "z", "x" ] ],
-                "test_expected": {"val":"y","left":{"val":"z","left":null,"right":null},"right":{"val":"x","left":null,"right":null}},
+                "test_input": [
+                    ["z", "y", "x"],
+                    ["y", "z", "x"]
+                ],
+                "test_expected": {
+                    "val": "y",
+                    "left": { "val": "z", "left": null, "right": null },
+                    "right": { "val": "x", "left": null, "right": null }
+                },
                 "code_output": null,
                 "passed_test": false
             },
             "Test_2": {
-                "test_input": [[ "y", "z", "x" ], [ "y", "x", "z"] ],
-                "test_expected": {"val":"y","left":null,"right":{"val":"x","left":{"val":"z","left":null,"right":null},"right":null}},
+                "test_input": [
+                    ["y", "z", "x"],
+                    ["y", "x", "z"]
+                ],
+                "test_expected": {
+                    "val": "y",
+                    "left": null,
+                    "right": {
+                        "val": "x",
+                        "left": { "val": "z", "left": null, "right": null },
+                        "right": null
+                    }
+                },
                 "code_output": null,
                 "passed_test": false
             },
             "Test_3": {
-                "test_input": [[ "d", "b", "g", "e", "h", "a", "c", "f" ],
-                [ "a", "b", "d", "e", "g", "h", "c", "f" ] ],
-                "test_expected": {"val":"a","left":{"val":"b","left":{"val":"d","left":null,"right":null},"right":{"val":"e","left":{"val":"g","left":null,"right":null},"right":{"val":"h","left":null,"right":null}}},"right":{"val":"c","left":null,"right":{"val":"f","left":null,"right":null}}},
+                "test_input": [
+                    ["d", "b", "g", "e", "h", "a", "c", "f"],
+                    ["a", "b", "d", "e", "g", "h", "c", "f"]
+                ],
+                "test_expected": {
+                    "val": "a",
+                    "left": {
+                        "val": "b",
+                        "left": { "val": "d", "left": null, "right": null },
+                        "right": {
+                            "val": "e",
+                            "left": { "val": "g", "left": null, "right": null },
+                            "right": { "val": "h", "left": null, "right": null }
+                        }
+                    },
+                    "right": {
+                        "val": "c",
+                        "left": null,
+                        "right": { "val": "f", "left": null, "right": null }
+                    }
+                },
                 "code_output": null,
                 "passed_test": false
             },
             "Test_4": {
-                "test_input": [[ "t", "u", "s", "q", "r", "p" ],
-                [ "u", "t", "s", "r", "q", "p" ] ],
-                "test_expected": {"val":"u","left":{"val":"t","left":null,"right":null},"right":{"val":"s","left":null,"right":{"val":"r","left":{"val":"q","left":null,"right":null},"right":{"val":"p","left":null,"right":null}}}},
+                "test_input": [
+                    ["t", "u", "s", "q", "r", "p"],
+                    ["u", "t", "s", "r", "q", "p"]
+                ],
+                "test_expected": {
+                    "val": "u",
+                    "left": { "val": "t", "left": null, "right": null },
+                    "right": {
+                        "val": "s",
+                        "left": null,
+                        "right": {
+                            "val": "r",
+                            "left": { "val": "q", "left": null, "right": null },
+                            "right": { "val": "p", "left": null, "right": null }
+                        }
+                    }
+                },
                 "code_output": null,
                 "passed_test": false
             },
             "Test_5": {
-                "test_input": [[ "m", "l", "q", "o", "r", "n", "s", "p", "t" ],
-                [ "l", "m", "n", "o", "q", "r", "p", "s", "t" ] ],
-                "test_expected": {"val":"l","left":{"val":"m","left":null,"right":null},"right":{"val":"n","left":{"val":"o","left":{"val":"q","left":null,"right":null},"right":{"val":"r","left":null,"right":null}},"right":{"val":"p","left":{"val":"s","left":null,"right":null},"right":{"val":"t","left":null,"right":null}}}},
+                "test_input": [
+                    ["m", "l", "q", "o", "r", "n", "s", "p", "t"],
+                    ["l", "m", "n", "o", "q", "r", "p", "s", "t"]
+                ],
+                "test_expected": {
+                    "val": "l",
+                    "left": { "val": "m", "left": null, "right": null },
+                    "right": {
+                        "val": "n",
+                        "left": {
+                            "val": "o",
+                            "left": { "val": "q", "left": null, "right": null },
+                            "right": { "val": "r", "left": null, "right": null }
+                        },
+                        "right": {
+                            "val": "p",
+                            "left": { "val": "s", "left": null, "right": null },
+                            "right": { "val": "t", "left": null, "right": null }
+                        }
+                    }
+                },
                 "code_output": null,
                 "passed_test": false
             }
@@ -12074,13 +12258,21 @@
                 "passed_test": false
             },
             "Test_3": {
-                "test_input": ["app", "application", "abcdefghijklmnopqrstuvwxyz"],
+                "test_input": [
+                    "app",
+                    "application",
+                    "abcdefghijklmnopqrstuvwxyz"
+                ],
                 "test_expected": true,
                 "code_output": null,
                 "passed_test": false
             },
             "Test_4": {
-                "test_input": ["backs", "backdoor", "abcdefghijklmnopqrstuvwxyz"],
+                "test_input": [
+                    "backs",
+                    "backdoor",
+                    "abcdefghijklmnopqrstuvwxyz"
+                ],
                 "test_expected": false,
                 "code_output": null,
                 "passed_test": false
@@ -12098,13 +12290,21 @@
                 "passed_test": false
             },
             "Test_7": {
-                "test_input": ["backs", "backdoor", "abcdefghijklmnopqrstuvwxyz"],
+                "test_input": [
+                    "backs",
+                    "backdoor",
+                    "abcdefghijklmnopqrstuvwxyz"
+                ],
                 "test_expected": false,
                 "code_output": null,
                 "passed_test": false
             },
             "Test_8": {
-                "test_input": ["semper", "semper", "abcdefghijklmnopqrstuvwxyz"],
+                "test_input": [
+                    "semper",
+                    "semper",
+                    "abcdefghijklmnopqrstuvwxyz"
+                ],
                 "test_expected": true,
                 "code_output": null,
                 "passed_test": false
@@ -12148,37 +12348,63 @@
         },
         "testCases": {
             "Test_1": {
-                "test_input": [["zoo", "tick", "tack", "door"], "ghzstijbacdopnfklmeqrxyuvw"],
+                "test_input": [
+                    ["zoo", "tick", "tack", "door"],
+                    "ghzstijbacdopnfklmeqrxyuvw"
+                ],
                 "test_expected": true,
                 "code_output": null,
                 "passed_test": false
             },
             "Test_2": {
-                "test_input": [["zoo", "tack", "tick", "door"], "ghzstijbacdopnfklmeqrxyuvw"],
+                "test_input": [
+                    ["zoo", "tack", "tick", "door"],
+                    "ghzstijbacdopnfklmeqrxyuvw"
+                ],
                 "test_expected": false,
                 "code_output": null,
                 "passed_test": false
             },
             "Test_3": {
-                "test_input": [["zoos", "zoo", "tick", "tack", "door"], "ghzstijbacdopnfklmeqrxyuvw"],
+                "test_input": [
+                    ["zoos", "zoo", "tick", "tack", "door"],
+                    "ghzstijbacdopnfklmeqrxyuvw"
+                ],
                 "test_expected": false,
                 "code_output": null,
                 "passed_test": false
             },
             "Test_4": {
-                "test_input": [["miles", "milestone", "proper", "process", "goal"], "mnoijpqrshkltabcdefguvwzxy"],
+                "test_input": [
+                    ["miles", "milestone", "proper", "process", "goal"],
+                    "mnoijpqrshkltabcdefguvwzxy"
+                ],
                 "test_expected": true,
                 "code_output": null,
                 "passed_test": false
             },
             "Test_5": {
-                "test_input": [["miles", "milestone", "pint", "proper", "process", "goal"], "mnoijpqrshkltabcdefguvwzxy"],
+                "test_input": [
+                    ["miles", "milestone", "pint", "proper", "process", "goal"],
+                    "mnoijpqrshkltabcdefguvwzxy"
+                ],
                 "test_expected": true,
                 "code_output": null,
                 "passed_test": false
             },
             "Test_6": {
-                "test_input": [["miles", "milestone", "pint", "proper", "process", "goal", "apple"], "mnoijpqrshkltabcdefguvwzxy"],
+                "test_input": [
+                    [
+                        "miles",
+                        "milestone",
+                        "pint",
+                        "proper",
+                        "process",
+                        "goal",
+                        "apple"
+                    ],
+                    "mnoijpqrshkltabcdefguvwzxy"
+                ],
                 "test_expected": false,
                 "code_output": null,
                 "passed_test": false
@@ -12222,50 +12448,58 @@
         },
         "testCases": {
             "Test_1": {
-                "test_input": [{
-                    "a": ["f"],
-                    "b": ["d"],
-                    "c": ["a", "f"],
-                    "d": ["e"],
-                    "e": [],
-                    "f": ["b", "e"]
-                  }],
+                "test_input": [
+                    {
+                        "a": ["f"],
+                        "b": ["d"],
+                        "c": ["a", "f"],
+                        "d": ["e"],
+                        "e": [],
+                        "f": ["b", "e"]
+                    }
+                ],
                 "test_expected": ["c", "a", "f", "b", "d", "e"],
                 "code_output": null,
                 "passed_test": false
             },
             "Test_2": {
-                "test_input": [{
-                    "h": ["l", "m"],
-                    "i": ["k"],
-                    "j": ["k", "i"],
-                    "k": ["h", "m"],
-                    "l": ["m"],
-                    "m": []
-                  }],
+                "test_input": [
+                    {
+                        "h": ["l", "m"],
+                        "i": ["k"],
+                        "j": ["k", "i"],
+                        "k": ["h", "m"],
+                        "l": ["m"],
+                        "m": []
+                    }
+                ],
                 "test_expected": ["j", "i", "k", "h", "l", "m"],
                 "code_output": null,
                 "passed_test": false
             },
             "Test_3": {
-                "test_input": [{
-                    "q": [],
-                    "r": ["q"],
-                    "s": ["r"],
-                    "t": ["s"]
-                  }],
+                "test_input": [
+                    {
+                        "q": [],
+                        "r": ["q"],
+                        "s": ["r"],
+                        "t": ["s"]
+                    }
+                ],
                 "test_expected": ["t", "s", "r", "q"],
                 "code_output": null,
                 "passed_test": false
             },
             "Test_4": {
-                "test_input": [{
-                    "v": ["z", "w"],
-                    "w": [],
-                    "x": ["w", "v", "z"],
-                    "y": ["x"],
-                    "z": ["w"]
-                  }],
+                "test_input": [
+                    {
+                        "v": ["z", "w"],
+                        "w": [],
+                        "x": ["w", "v", "z"],
+                        "y": ["x"],
+                        "z": ["w"]
+                    }
+                ],
                 "test_expected": ["y", "x", "v", "z", "w"],
                 "code_output": null,
                 "passed_test": false
@@ -12309,65 +12543,356 @@
         },
         "testCases": {
             "Test_1": {
-                "test_input": [[
-                    [7, 1],
-                    [1, 8],
-                    [7, 8]
-                  ]],
+                "test_input": [
+                    [
+                        [7, 1],
+                        [1, 8],
+                        [7, 8]
+                    ]
+                ],
                 "test_expected": "718",
                 "code_output": null,
                 "passed_test": false
             },
             "Test_2": {
-                "test_input": [[
-                    [3, 1],
-                    [4, 7],
-                    [5, 9],
-                    [4, 3],
-                    [7, 3],
-                    [3, 5],
-                    [9, 1]
-                  ]],
+                "test_input": [
+                    [
+                        [3, 1],
+                        [4, 7],
+                        [5, 9],
+                        [4, 3],
+                        [7, 3],
+                        [3, 5],
+                        [9, 1]
+                    ]
+                ],
                 "test_expected": "473591",
                 "code_output": null,
                 "passed_test": false
             },
             "Test_3": {
-                "test_input": [[
-                    [2, 5],
-                    [8, 6],
-                    [0, 6],
-                    [6, 2],
-                    [0, 8],
-                    [2, 3],
-                    [3, 5],
-                    [6, 5]
-                  ]],
+                "test_input": [
+                    [
+                        [2, 5],
+                        [8, 6],
+                        [0, 6],
+                        [6, 2],
+                        [0, 8],
+                        [2, 3],
+                        [3, 5],
+                        [6, 5]
+                    ]
+                ],
                 "test_expected": "086235",
                 "code_output": null,
                 "passed_test": false
             },
             "Test_4": {
-                "test_input": [[
-                    [0, 1],
-                    [6, 0],
-                    [1, 8]
-                  ]],
+                "test_input": [
+                    [
+                        [0, 1],
+                        [6, 0],
+                        [1, 8]
+                    ]
+                ],
                 "test_expected": "6018",
                 "code_output": null,
                 "passed_test": false
             },
             "Test_5": {
-                "test_input": [[
-                    [8, 9],
-                    [4, 2],
-                    [8, 2],
-                    [3, 8],
-                    [2, 9],
-                    [4, 9],
-                    [8, 4]
-                  ]],
+                "test_input": [
+                    [
+                        [8, 9],
+                        [4, 2],
+                        [8, 2],
+                        [3, 8],
+                        [2, 9],
+                        [4, 9],
+                        [8, 4]
+                    ]
+                ],
                 "test_expected": "38429",
+                "code_output": null,
+                "passed_test": false
+            }
+        }
+    },
+    "stringSearch": {
+        "refName": "stringSearch",
+        "refNumber": 156,
+        "category": "Graphs",
+        "dificulty": "Easy",
+        "title": "String Search",
+        "tags": ["Easy", "Graphs"],
+        "description": "<p>Write a function, stringSearch, that takes in a grid of letters and a string as arguments. The function should return a boolean indicating whether or not the string can be found in the grid as a path by connecting horizontal or vertical positions. The path can begin at any position, but you cannot reuse a position more than once in the path.</p><p>You can assume that all letters are lowercase and alphabetic.</p>",
+        "examples": {
+            "example1": {
+                "input": "grid = [   ['e', 'y', 'h', 'i', 'j'],   ['q', 'x', 'e', 'r', 'p'],   ['r', 'o', 'l', 'l', 'n'],   ['p', 'r', 'x', 'o', 'h'],   ['a', 'a', 'm', 'c', 'm'] ]\nstring1 = 'hello'",
+                "output": "true"
+            },
+            "example2": {
+                "input": "grid = [   [   ['e', 'y', 'h', 'i', 'j'],   ['q', 'x', 'e', 'r', 'p'],   ['r', 'o', 'l', 'l', 'n'],   ['p', 'r', 'x', 'o', 'h'],   ['a', 'a', 'm', 'c', 'm'] ]\nstring1 = 'proxy'",
+                "output": "true"
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function stringSearch(grid, s) {\n   // Write your solution...\n   return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// r = # grid rows\n// c = # grid columns\n// Time: O(3^(r*c))\n// Space: O(r*c)\nfunction stringSearch(grid, s) {\n   for (let r = 0; r < grid.length; r += 1) {\n      for (let c = 0; c < grid[0].length; c += 1) {\n         if (dfs(grid, s, r, c)) return true;\n      }\n   }\n   return false;\n};\nfunction dfs(grid, s, row, col) {\n   const rowInbounds = 0 <= row && row < grid.length;\n   const colInbounds = 0 <= col && col < grid[0].length;\n   if (s === '') return true;\n   if (!rowInbounds || !colInbounds) return false;\n   const char = grid[row][col];\n   if (char !== s[0]) return false;\n   const suffix = s.slice(1);\n   grid[row][col] = '*';\n   const result = dfs(grid, suffix, row + 1, col) ||\n      dfs(grid, suffix, row - 1, col) ||\n      dfs(grid, suffix, row, col + 1) ||\n      dfs(grid, suffix, row, col - 1);\n   grid[row][col] = char;\n   return result;\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": [
+                    [
+                        ["e", "y", "h", "i", "j"],
+                        ["q", "x", "e", "r", "p"],
+                        ["r", "o", "l", "l", "n"],
+                        ["p", "r", "x", "o", "h"],
+                        ["a", "a", "m", "c", "m"]
+                    ],
+                    "hello"
+                ],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_2": {
+                "test_input": [
+                    [
+                        ["e", "y", "h", "i", "j"],
+                        ["q", "x", "e", "r", "p"],
+                        ["r", "o", "l", "l", "n"],
+                        ["p", "r", "x", "o", "h"],
+                        ["a", "a", "m", "c", "m"]
+                    ],
+                    "proxy"
+                ],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_3": {
+                "test_input": [
+                    [
+                        ["e", "y", "h", "i", "j"],
+                        ["q", "x", "e", "r", "p"],
+                        ["r", "o", "l", "l", "n"],
+                        ["p", "r", "x", "o", "h"],
+                        ["a", "a", "m", "c", "m"]
+                    ],
+                    "rolling"
+                ],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_4": {
+                "test_input": [
+                    [
+                        ["e", "y", "h", "i", "j"],
+                        ["q", "x", "e", "r", "p"],
+                        ["r", "o", "l", "l", "n"],
+                        ["p", "r", "x", "o", "h"],
+                        ["a", "a", "m", "z", "m"]
+                    ],
+                    "zoo"
+                ],
+                "test_expected": false,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_5": {
+                "test_input": [
+                    [
+                        ["q", "w", "h", "i", "j"],
+                        ["q", "e", "r", "o", "p"],
+                        ["h", "y", "t", "x", "z"],
+                        ["k", "o", "m", "o", "p"]
+                    ],
+                    "qwerty"
+                ],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_6": {
+                "test_input": [
+                    [
+                        [
+                            "f",
+                            "d",
+                            "i",
+                            "e",
+                            "l",
+                            "u",
+                            "j",
+                            "t",
+                            "q",
+                            "v",
+                            "o",
+                            "p"
+                        ],
+                        [
+                            "o",
+                            "p",
+                            "b",
+                            "e",
+                            "m",
+                            "w",
+                            "m",
+                            "l",
+                            "h",
+                            "j",
+                            "s",
+                            "v"
+                        ],
+                        [
+                            "g",
+                            "b",
+                            "s",
+                            "m",
+                            "i",
+                            "w",
+                            "w",
+                            "h",
+                            "l",
+                            "m",
+                            "l",
+                            "n"
+                        ],
+                        [
+                            "a",
+                            "l",
+                            "s",
+                            "k",
+                            "p",
+                            "c",
+                            "t",
+                            "u",
+                            "v",
+                            "b",
+                            "c",
+                            "m"
+                        ],
+                        [
+                            "m",
+                            "t",
+                            "c",
+                            "k",
+                            "e",
+                            "n",
+                            "r",
+                            "b",
+                            "a",
+                            "z",
+                            "l",
+                            "c"
+                        ],
+                        [
+                            "q",
+                            "m",
+                            "a",
+                            "p",
+                            "a",
+                            "p",
+                            "i",
+                            "i",
+                            "u",
+                            "t",
+                            "z",
+                            "z"
+                        ],
+                        [
+                            "d",
+                            "u",
+                            "z",
+                            "o",
+                            "e",
+                            "r",
+                            "a",
+                            "t",
+                            "t",
+                            "c",
+                            "q",
+                            "k"
+                        ],
+                        [
+                            "f",
+                            "u",
+                            "z",
+                            "g",
+                            "c",
+                            "i",
+                            "k",
+                            "v",
+                            "o",
+                            "f",
+                            "s",
+                            "w"
+                        ],
+                        [
+                            "p",
+                            "h",
+                            "u",
+                            "i",
+                            "k",
+                            "c",
+                            "v",
+                            "v",
+                            "h",
+                            "q",
+                            "v",
+                            "i"
+                        ],
+                        [
+                            "l",
+                            "q",
+                            "w",
+                            "f",
+                            "y",
+                            "g",
+                            "w",
+                            "f",
+                            "a",
+                            "u",
+                            "x",
+                            "q"
+                        ]
+                    ],
+                    "paprika"
+                ],
+                "test_expected": true,
+                "code_output": null,
+                "passed_test": false
+            },
+            "Test_7": {
+                "test_input": [
+                    [
+                        ["s", "s", "s", "s", "s", "s", "s", "s", "s", "s", "s"],
+                        ["s", "s", "s", "s", "s", "s", "s", "s", "s", "s", "s"],
+                        ["s", "s", "s", "s", "s", "s", "s", "s", "s", "s", "s"],
+                        ["s", "s", "s", "s", "s", "s", "s", "s", "s", "s", "s"],
+                        ["s", "s", "s", "s", "s", "s", "s", "s", "s", "s", "s"],
+                        ["s", "s", "s", "s", "s", "s", "s", "s", "s", "s", "s"],
+                        ["s", "s", "s", "s", "s", "s", "s", "s", "s", "s", "s"],
+                        ["s", "s", "s", "s", "s", "s", "s", "s", "s", "x", "x"],
+                        ["s", "s", "s", "s", "s", "s", "s", "s", "s", "x", "h"]
+                    ],
+                    "sssssssh"
+                ],
+                "test_expected": false,
                 "code_output": null,
                 "passed_test": false
             }
