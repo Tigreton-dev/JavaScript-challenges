@@ -60,7 +60,6 @@ export default function BoxSx(props) {
                             key={tagName}
                             label={tagName}
                             variant="outlined"
-                            sx={{ ontWeight: "bold" }}
                             color={ChipColor(tagName)}
                         />
                     })}
