@@ -13125,5 +13125,49 @@
                 "passed_test": false
             }
         }
+    },
+    "deepCloneObject": {
+        "refName": "deepCloneObject",
+        "refNumber": 159,
+        "category": "Recursion",
+        "dificulty": "Easy",
+        "title": "Deep Clone Object",
+        "tags": ["Easy", "Recursion"],
+        "description": "<p>Creates a deep clone of an object. Clones primitives, arrays and objects, excluding class instances.</p><ul><li>Use recursion.</li><li>Check if the passed object is null and, if so, return null.</li><li>Use Object.assign() and an empty object ({}) to create a shallow clone of the original.</li><li>Use Object.keys() and Array.prototype.forEach() to determine which key-value pairs need to be deep cloned.</li><li>If the object is an Array, set the clone's length to that of the original and use Array.from() to create a clone.</li></ul>",
+        "examples": {
+            "example1": {
+                "input": "a = { foo: 'bar', obj: { a: 1, b: 2 } }",
+                "output": "{ foo: 'bar', obj: { a: 1, b: 2 } }"
+            },
+            "example2": {
+                "input": "",
+                "output": ""
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function deepCloneObject(obj) {\n   // Write your solution...\n   return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "function deepCloneObject(obj) {\n   if (obj === null) return null;\n   let clone = Object.assign({}, obj);\n   Object.keys(clone).forEach(\n      key =>\n      (clone[key] =\n         typeof obj[key] === 'object' ? deepCloneObject(obj[key]) : obj[key])\n   );\n   if (Array.isArray(obj)) {\n      clone.length = obj.length;\n      return Array.from(clone);\n   }\n   return clone;\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": [{ "foo": "bar", "obj": { "a": 1, "b": 2 } }],
+                "test_expected": { "foo": "bar", "obj": { "a": 1, "b": 2 } },
+                "code_output": null,
+                "passed_test": false
+            }
+        }
     }
 }
