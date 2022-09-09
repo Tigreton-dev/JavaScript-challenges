@@ -11,7 +11,7 @@ import { DataContext } from '../../context/dataContext';
 import { DataContextType } from '../../context/@types.data';
 
 export default function BoxSx(props) {
-    const { isChallengeSubmitted, title, tags, refName, refNumber } = props;
+    const { isChallengeSubmitted, title, tags, refName, refNumber, dificulty } = props;
     const { data } = React.useContext(DataContext) as DataContextType;
     const currentTheme = data.currentTheme;
     const icon = isChallengeSubmitted ?
@@ -27,6 +27,12 @@ export default function BoxSx(props) {
         return color;
     }
 
+    const boxColor = () => {
+        if (dificulty === "Easy") return "green"
+        if (dificulty === "Medium") return "orange"
+        if (dificulty === "Hard") return "red"
+    }
+
     return (
         <Box
             sx={{
@@ -39,7 +45,7 @@ export default function BoxSx(props) {
                 boxShadow: currentTheme.borderShadow,
                 marginBottom: "15px",
                 boxSizing: "border-box",
-                borderRight: "20px solid green",
+                borderRight: `20px solid ${boxColor()}`,
             }}
         >
             <Box style={{
