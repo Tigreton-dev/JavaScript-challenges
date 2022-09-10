@@ -3330,9 +3330,9 @@
         "refName": "productExceptSelf",
         "refNumber": 54,
         "category": "Array",
-        "dificulty": "Medium",
+        "dificulty": "Hard",
         "title": "Product Except Self",
-        "tags": ["Medium", "Array"],
+        "tags": ["Hard", "Array"],
         "description": "<p>Given an array nums of n integers where n > 1, return an array output such that output[i] is equal to the product of all the elements of nums except nums[i].</p>",
         "examples": {
             "example1": {
@@ -13165,6 +13165,50 @@
             "Test_1": {
                 "test_input": [{ "foo": "bar", "obj": { "a": 1, "b": 2 } }],
                 "test_expected": { "foo": "bar", "obj": { "a": 1, "b": 2 } },
+                "code_output": null,
+                "passed_test": false
+            }
+        }
+    },
+    "updateObject": {
+        "refName": "updateObject",
+        "refNumber": 159,
+        "category": "Stacks & Queues",
+        "dificulty": "Easy",
+        "title": "Update Object",
+        "tags": ["Easy", "Stacks & Queues"],
+        "description": "<p>Giving an object a value and a path, return the input object with the passed value at the passed path</p>",
+        "examples": {
+            "example1": {
+                "input": "obj = { foo: 'bar', obj: { a: 1, b: 2 } }\nnewVal = 25\npath = 'obj.b'",
+                "output": "{ foo: 'bar', obj: { a: 1, b: 25 } }"
+            },
+            "example2": {
+                "input": "",
+                "output": ""
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function updateObject(obj, newValue, path) {\n   // Write your solution...\n   return true;\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "function updateObject(object, newValue, path) {\n   const stack = path.split('.')\n   while (stack.length > 1) {\n      object = object[stack.shift()]\n   }\n   object[stack.shift()] = newValue\n}"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": [{ "foo": "bar", "obj": { "a": 1, "b": 2 } }, 25, "obj.b"],
+                "test_expected": { "foo": "bar", "obj": { "a": 1, "b": 25 } },
                 "code_output": null,
                 "passed_test": false
             }

@@ -16,7 +16,7 @@ export default function ChallengeList() {
     const problemList = data.problemsList;
     const [category, setCategory] = React.useState("String")
     const categoryBoxref = React.useRef(null)
-    const list = ["String", "Array", "Linked List", "Stack & Queue", "Graphs", "Binary Tree", "Dynamic Programming", "Recursion"]
+    const list = ["String", "Array", "Linked List", "Stacks & Queues", "Graphs", "Binary Tree", "Dynamic Programming", "Recursion"]
 
     React.useEffect(() => {
         const problemList = Object.keys(myData).map((key) => myData[key]);
@@ -27,16 +27,18 @@ export default function ChallengeList() {
 
     const clickHandler = (e) => {
         const buttons = Array.from(categoryBoxref.current.getElementsByTagName("button"));
-        console.log("AAA", buttons)
-        buttons.map(element => element.style.background = "none")
+        buttons.map(element => {
+            element.style.background = "none"
+            element.style.color = "#1976d2"
+        })
         setCategory(e.target.textContent)
-        e.target.style.background = "red"
-        console.log(e.target)
+        e.target.style.background = "#1976d2"
+        e.target.style.color = "white"
     }
 
     return (
         <Box sx={{ width: "95%", maxWidth: "800px", margin: "auto", marginTop: "40px" }}>
-            <Typography variant="h3" sx={{margin:"150px 0 20px 0"}}><FormatListNumberedIcon sx={{ fontSize: 40 }} />Challenge List</Typography>
+            <Typography variant="h3" sx={{margin:"150px 0 20px 0"}}>Challenge List</Typography>
             <Box ref={categoryBoxref}>
             {list.map(element => 
                 <Button 
@@ -48,18 +50,29 @@ export default function ChallengeList() {
             }
             </Box>
 
-            {problemList.filter(e => e.category === category).map((element: object, index: number) => {
-                return (
-                    <ChallengeBox
-                        key={index}
-                        isChallengeSubmitted={element.isChallengeSubmitted}
-                        title={element.title}
-                        tags={element.tags}
-                        refName={element.refName}
-                        refNumber={element.refNumber}
-                        dificulty={element.dificulty}
-                    />
-                )
+            {problemList
+                .filter(e => e.category === category)
+                .sort((a,b) => {
+                    if (a.dificulty === "Easy") a.difNum = 0;
+                    if (a.dificulty === "Medium") a.difNum = 1;
+                    if (a.dificulty === "Hard") a.difNum = 2;
+                    if (b.dificulty === "Easy") b.difNum = 0;
+                    if (b.dificulty === "Medium") b.difNum = 1;
+                    if (b.dificulty === "Hard") b.difNum = 2;
+                    return a.difNum - b.difNum
+                })
+                .map((element: object, index: number) => {
+                    return (
+                        <ChallengeBox
+                            key={index}
+                            isChallengeSubmitted={element.isChallengeSubmitted}
+                            title={element.title}
+                            tags={element.tags}
+                            refName={element.refName}
+                            refNumber={element.refNumber}
+                            dificulty={element.dificulty}
+                        />
+                    )
             })}
         </Box>
     )
