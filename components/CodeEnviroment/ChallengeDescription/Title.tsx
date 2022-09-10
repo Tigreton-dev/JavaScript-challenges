@@ -8,7 +8,8 @@ interface TitleProps {
 }
 
 const Title = (props: TitleProps) => {
-    const { title, isProblemSubmitted } = props;
+    const { title, refName } = props;
+    const isProblemSubmitted = localStorage.getItem(refName);
 
     const titleBox = {
         display: "flex",

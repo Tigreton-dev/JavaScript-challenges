@@ -26,6 +26,7 @@ const CodeMirrorEditor = (props: propsInterface) => {
 	const [code, setCode] = React.useState("");
 	const resetCode = data.resetCode;
 	const editorTheme = currentTheme.isDarkTheme ? darkTheme(currentTheme.secondary) : lightTheme(currentTheme.secondary);
+	const codeSolutionOnStorage = localStorage.getItem(currentProblem.refName);
 
 	React.useEffect(() => {
 		if (data.beautifyCode) {
@@ -99,7 +100,7 @@ const CodeMirrorEditor = (props: propsInterface) => {
 			) : (
 				<CodeMirror
 					theme={editorTheme}
-					value={code}
+					value={codeSolutionOnStorage !== null ? codeSolutionOnStorage : code}
 					className="codeMirror_editor"
 					height="calc(100vh - 155px)"
 					autoFocus={false}

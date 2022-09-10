@@ -14,7 +14,8 @@ export default function BoxSx(props) {
     const { isChallengeSubmitted, title, tags, refName, refNumber, dificulty } = props;
     const { data } = React.useContext(DataContext) as DataContextType;
     const currentTheme = data.currentTheme;
-    const icon = isChallengeSubmitted ?
+    const isProblemSubmitted = localStorage.getItem(refName);
+    const icon = isProblemSubmitted ?
         <CheckCircleIcon fontSize="large" color="success" />
         :
         <CancelIcon fontSize="large" color="error" />

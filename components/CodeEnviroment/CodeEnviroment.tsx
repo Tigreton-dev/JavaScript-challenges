@@ -92,6 +92,8 @@ export default function App() {
 			if (!updateCurrentProblem.testCases[testCase].passed_test)
 				solutionCorrect = false
 		}
+
+		if (solutionCorrect) localStorage.setItem(updateCurrentProblem.refName, codeValue);
 		updateData({
 			runCode: false,
 			displayCodeResultModal: true,
