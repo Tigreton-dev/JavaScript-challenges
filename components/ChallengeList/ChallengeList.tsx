@@ -23,7 +23,7 @@ export default function ChallengeList() {
     }, [])
 
     React.useEffect(() => {
-        const buttons = Array.from(categoryBoxRef.current.getElementsByTagName("button"));
+        const buttons:Array<any> = Array.from(categoryBoxRef.current.getElementsByTagName("button"));
         buttons[0].style.background = "#1976d2"
         buttons[0].style.color = "white"
     }, [])
