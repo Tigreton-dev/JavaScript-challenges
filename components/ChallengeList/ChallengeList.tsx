@@ -24,7 +24,6 @@ export default function ChallengeList() {
 
     React.useEffect(() => {
         const buttons = Array.from(categoryBoxRef.current.getElementsByTagName("button"));
-        console.log("AAA", buttons[0])
         buttons[0].style.background = "#1976d2"
         buttons[0].style.color = "white"
     }, [])
