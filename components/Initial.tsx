@@ -1,6 +1,5 @@
 import React from 'react'
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button'
 
 export default function Initial() {
 
@@ -8,30 +7,28 @@ export default function Initial() {
         <div style={{ width: "100vw", height: "500px", position: "relative", background: "#001E26" }}>
             <div style={{
                 width: "100%",
-                maxWidth: "1200px",
-                height: "300px",
+                maxWidth:"1300px",
+                height: "350px",
                 boxSizing: "border-box",
                 position: "absolute",
                 display: "flex",
                 top: "50%",
                 left: "50%",
                 transform: "translate(-50%, -50%)",
-                textAlign:"center"
+                textAlign:"left"
             }}>
-                <div style={{ width: "100%", height: "300px", zIndex: "1", marginTop: "40px", backdropFilter: "blur(5px)" }}>
+                <div style={{ width: "600px", height: "300px", zIndex: "1", marginTop: "40px" }}>
                     <Typography variant="h4" component="h3" sx={{ color: "white", fontSize:"50px", marginBottom:"20px" }}>JavaScript Challenges</Typography>
-                    <Typography variant="body1" component="p" sx={{ color: "white", margin: "auto", width:"60%", fontSize:"20px", marginBottom:"20px" }}>Build durable and robust knowledge of data structures & algorithms with Structy. Build durable and robust knowledge of data structures & algorithms with Structy.</Typography>
-                    <Button size="large" variant="contained" sx={{ marginTop: "10px" }}>Challenges</Button>
+                    <Typography variant="body1" component="p" sx={{ color: "white", fontSize:"20px", marginBottom:"20px" }}>List of data structures & algorithms challenges that I have resolved with an online coding platform to practice those challenges.</Typography>
                 </div>
                 <img
                     style={{
                         position: "absolute",
-                        top: "-50px",
-                        left: "450px",
-                        width: "800px",
-                        height: "500px",
+                        top: "0px",
+                        right: "5vw",
+                        width: "600px",
+                        height: "350px",
                         opacity:"1",
-                        transform: "perspective(1000px) rotateY(340deg)",
                     }}
                     src="/images/editorDark.png"
                     alt="bride and groom smooching"
