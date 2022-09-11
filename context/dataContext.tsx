@@ -55,14 +55,19 @@ const defaultState: IData = {
         button_color: "#255461",
         invertLogo: 0,
         isDarkTheme: false,
-        borderShadow:"0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12)",
+        borderShadow: "0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12)",
     }
 }
 
-const DataProvider2: React.FC<React.ReactNode> = ({ children }) => {
+interface Props {
+    children: React.ReactNode;
+}
+
+
+const DataProvider2: React.FC<Props> = ({ children }) => {
     const [data, setData] = React.useState<IData>(defaultState);
 
-    function updateData(payload:object) {
+    function updateData(payload: object) {
         setData(data => {
             return {
                 ...data,

@@ -1,7 +1,7 @@
-interface IcurrentProblem {
+export interface IcurrentProblem {
     refNumber: number,
     refName: string;
-    category: Array;
+    category: Array<String>;
     dificulty: string;
     title: string;
     tags: ["Easy", "Array"],
@@ -42,7 +42,7 @@ export interface IData {
     deleteLogs: boolean,
     isSolutionCorrect: boolean;
     currentProblem: IcurrentProblem;
-    problemsList: Array;
+    problemsList: Array<String>;
     currentLanguage: string;
     displayBadge: boolean;
     runCode: boolean;

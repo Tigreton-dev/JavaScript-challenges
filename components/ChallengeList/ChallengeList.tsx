@@ -1,32 +1,31 @@
 import * as React from 'react'
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import Chip from '@mui/material/Chip';
 import Button from '@mui/material/Button';
-import FormatListNumberedIcon from '@mui/icons-material/FormatListNumbered';
 
 import ChallengeBox from "../../components/ChallengeList/ChallengeBox"
 import { DataContext } from '../../context/dataContext';
 import { DataContextType } from '../../context/@types.data';
-import myData from '../../data/challenges.json';
+import Challenges from '../../data/challenges.json';
+import { IcurrentProblem } from '../../context/@types.data'
+
 
 export default function ChallengeList() {
     const { data, updateData } = React.useContext(DataContext) as DataContextType;
-    const currentTheme = data.currentTheme;
     const problemList = data.problemsList;
     const [category, setCategory] = React.useState("String")
-    const categoryBoxref = React.useRef(null)
+    const categoryBoxRef = React.useRef(null)
     const list = ["String", "Array", "Linked List", "Stacks & Queues", "Graphs", "Binary Tree", "Dynamic Programming", "Recursion"]
 
     React.useEffect(() => {
-        const problemList = Object.keys(myData).map((key) => myData[key]);
+        const problemList:Array<IcurrentProblem> = Object.keys(Challenges).map((key) => Challenges[key]);
         updateData({ problemsList: problemList });
     }, [])
 
-    if (!problemList) return "Loading...";
+    if (!problemList) return <h1>"Loading..."</h1>;
 
     const clickHandler = (e) => {
-        const buttons = Array.from(categoryBoxref.current.getElementsByTagName("button"));
+        const buttons = Array.from(categoryBoxRef.current.getElementsByTagName("button"));
         buttons.map(element => {
             element.style.background = "none"
             element.style.color = "#1976d2"
@@ -39,7 +38,7 @@ export default function ChallengeList() {
     return (
         <Box sx={{ width: "95%", maxWidth: "800px", margin: "auto", marginTop: "40px" }}>
             <Typography variant="h3" sx={{margin:"150px 0 20px 0"}}>Challenge List</Typography>
-            <Box ref={categoryBoxref}>
+            <Box ref={categoryBoxRef}>
             {list.map(element => 
                 <Button 
                 key={element}
@@ -52,7 +51,7 @@ export default function ChallengeList() {
 
             {problemList
                 .filter(e => e.category === category)
-                .sort((a,b) => {
+                .sort((a:Object,b:Object) => {
                     if (a.dificulty === "Easy") a.difNum = 0;
                     if (a.dificulty === "Medium") a.difNum = 1;
                     if (a.dificulty === "Hard") a.difNum = 2;
@@ -61,11 +60,10 @@ export default function ChallengeList() {
                     if (b.dificulty === "Hard") b.difNum = 2;
                     return a.difNum - b.difNum
                 })
-                .map((element: object, index: number) => {
+                .map((element: IcurrentProblem, index: number) => {
                     return (
                         <ChallengeBox
                             key={index}
-                            isChallengeSubmitted={element.isChallengeSubmitted}
                             title={element.title}
                             tags={element.tags}
                             refName={element.refName}

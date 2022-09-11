@@ -10,8 +10,16 @@ import Stack from '@mui/material/Stack';
 import { DataContext } from '../../context/dataContext';
 import { DataContextType } from '../../context/@types.data';
 
-export default function BoxSx(props) {
-    const { isChallengeSubmitted, title, tags, refName, refNumber, dificulty } = props;
+interface Iprops {
+    title: string;
+    tags: Array<string>;
+    refName: string;
+    refNumber: Number;
+    dificulty: string
+}
+
+export default function BoxSx(props:Iprops) {
+    const { title, tags, refName, refNumber, dificulty } = props;
     const { data } = React.useContext(DataContext) as DataContextType;
     const currentTheme = data.currentTheme;
     const isProblemSubmitted = localStorage.getItem(refName);

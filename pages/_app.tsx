@@ -9,7 +9,7 @@ import '../styles/globals.css';
 
 const clientSideEmotionCache = createEmotionCache();
 
-const MyApp = (props) => {
+const MyApp = (props: any) => {
 	const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
 
 	return (

@@ -19,21 +19,8 @@ const TestCases = () => {
 	const { data } = React.useContext(DataContext) as DataContextType;
 	const currentProblem = data.currentProblem;
 	const currentTheme = data.currentTheme;
-	const editorTheme = currentTheme.isDarkTheme ? 
+	const editorTheme = currentTheme.isDarkTheme ?
 		darkTheme(currentTheme.secondary) : lightTheme(currentTheme.secondary);
-
-	React.useEffect(() => {
-        const codemirrorClass = Array.from(document.getElementsByClassName("codeMirror_testCases"));
-        codemirrorClass.forEach(mirror => {
-            mirror.style.borderRadius= "5px";
-            mirror.style.marginBottom= "15px";
-            mirror.style.padding= "10px";
-            mirror.style.boxShadow= "0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12)";
-            mirror.style.overflow= "scroll";
-            mirror.style.backgroundColor = currentTheme.secondary;
-        })
-
-    }, [currentTheme]);
 
 	return (
 		<div
@@ -58,7 +45,7 @@ const TestCases = () => {
 				return (
 					<Accordion style={{ boxShadow: boxShadow, backgroundColor: currentTheme.primary }} key={key}>
 						<AccordionSummary expandIcon={<ExpandMoreIcon sx={{ color: currentTheme.color }} />}>
-							<Button size="large" startIcon={icon} sx={{boxShadow: "none"}}>
+							<Button size="large" startIcon={icon} sx={{ boxShadow: "none" }}>
 								{`Test ${i} ${msg}`}
 							</Button>
 						</AccordionSummary>
@@ -70,6 +57,14 @@ const TestCases = () => {
 								height={'100%'}
 								editable={false}
 								theme={editorTheme}
+								style={{
+									borderRadius: "5px",
+									marginBottom: "15px",
+									padding: "10px",
+									boxShadow: "0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12)",
+									overflow: "scroll",
+									backgroundColor: currentTheme.secondary,
+								}}
 								extensions={[javascript({ jsx: true })]}
 								basicSetup={{
 									lineNumbers: false,
@@ -85,6 +80,14 @@ const TestCases = () => {
 								height={'100%'}
 								editable={false}
 								theme={editorTheme}
+								style={{
+									borderRadius: "5px",
+									marginBottom: "15px",
+									padding: "10px",
+									boxShadow: "0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12)",
+									overflow: "scroll",
+									backgroundColor: currentTheme.secondary,
+								}}
 								extensions={[javascript({ jsx: true })]}
 								basicSetup={{
 									lineNumbers: false,
@@ -100,6 +103,14 @@ const TestCases = () => {
 								height={'100%'}
 								editable={false}
 								theme={editorTheme}
+								style={{
+									borderRadius: "5px",
+									marginBottom: "15px",
+									padding: "10px",
+									boxShadow: "0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12)",
+									overflow: "scroll",
+									backgroundColor: currentTheme.secondary,
+								}}
 								extensions={[javascript({ jsx: true })]}
 								basicSetup={{
 									lineNumbers: false,
