@@ -15,11 +15,11 @@ interface Iprops {
     tags: Array<string>;
     refName: string;
     refNumber: Number;
-    dificulty: string
+    difficulty: string
 }
 
 export default function BoxSx(props:Iprops) {
-    const { title, tags, refName, refNumber, dificulty } = props;
+    const { title, tags, refName, refNumber, difficulty } = props;
     const { data } = React.useContext(DataContext) as DataContextType;
     const currentTheme = data.currentTheme;
     const isProblemSubmitted = localStorage.getItem(refName);
@@ -37,9 +37,9 @@ export default function BoxSx(props:Iprops) {
     }
 
     const boxColor = () => {
-        if (dificulty === "Easy") return "green"
-        if (dificulty === "Medium") return "orange"
-        if (dificulty === "Hard") return "red"
+        if (difficulty === "Easy") return "green"
+        if (difficulty === "Medium") return "orange"
+        if (difficulty === "Hard") return "red"
     }
 
     return (

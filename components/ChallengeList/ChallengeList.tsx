@@ -51,12 +51,12 @@ export default function ChallengeList() {
             {problemList
                 .filter((e: any) => e.category === category)
                 .sort((a:any,b:any) => {
-                    if (a.dificulty === "Easy") a.difNum = 0;
-                    if (a.dificulty === "Medium") a.difNum = 1;
-                    if (a.dificulty === "Hard") a.difNum = 2;
-                    if (b.dificulty === "Easy") b.difNum = 0;
-                    if (b.dificulty === "Medium") b.difNum = 1;
-                    if (b.dificulty === "Hard") b.difNum = 2;
+                    if (a.difficulty === "Easy") a.difNum = 0;
+                    if (a.difficulty === "Medium") a.difNum = 1;
+                    if (a.difficulty === "Hard") a.difNum = 2;
+                    if (b.difficulty === "Easy") b.difNum = 0;
+                    if (b.difficulty === "Medium") b.difNum = 1;
+                    if (b.difficulty === "Hard") b.difNum = 2;
                     return a.difNum - b.difNum
                 })
                 .map((element: any, index: number) => {
@@ -67,7 +67,7 @@ export default function ChallengeList() {
                             tags={element.tags}
                             refName={element.refName}
                             refNumber={element.refNumber}
-                            dificulty={element.dificulty}
+                            difficulty={element.difficulty}
                         />
                     )
             })}

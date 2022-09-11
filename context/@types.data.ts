@@ -2,7 +2,7 @@ export interface IcurrentProblem {
     refNumber: number,
     refName: string;
     category: Array<String>;
-    dificulty: string;
+    difficulty: string;
     title: string;
     tags: ["Easy", "Array"],
     description: string;
