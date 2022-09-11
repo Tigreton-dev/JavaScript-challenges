@@ -9,11 +9,11 @@ import CodeMirror from '@uiw/react-codemirror'
 import { javascript } from '@codemirror/lang-javascript'
 import CancelIcon from '@mui/icons-material/Cancel'
 import Button from '@mui/material/Button'
+import beautify from 'js-beautify';
 
 import { lightTheme, darkTheme } from "../../helpers/CodeEditorTheme";
 import { DataContext } from '../../context/dataContext';
 import { DataContextType } from '../../context/@types.data';
-import beautify from 'js-beautify';
 
 const TestCases = () => {
 	const { data } = React.useContext(DataContext) as DataContextType;
@@ -32,7 +32,7 @@ const TestCases = () => {
 		>
 			{Object.entries(currentProblem.testCases).map(([key, value], i) => {
 				const { test_input, test_expected, code_output, passed_test } = value;
-				const data4 = beautify(JSON.stringify(test_input), { indent_size: 2, space_in_empty_paren: true })
+				const inputData = beautify(JSON.stringify(test_input), { indent_size: 2, space_in_empty_paren: true })
 				const boxShadow = passed_test
 					? '0px 0px 10px -1px green'
 					: '0px 0px 10px -1px rgb(223, 3, 3)'
@@ -52,7 +52,7 @@ const TestCases = () => {
 						<AccordionDetails>
 							<Typography variant="h6">Input data:</Typography>
 							<CodeMirror
-								value={data4}
+								value={beautify(inputData, { indent_size: 2, space_in_empty_paren: true })}
 								className="codeMirror_testCases"
 								height={'100%'}
 								editable={false}
@@ -75,7 +75,7 @@ const TestCases = () => {
 							/>
 							<Typography variant="h6">Expected Output:</Typography>
 							<CodeMirror
-								value={JSON.stringify(test_expected)}
+								value={beautify(JSON.stringify(test_expected), { indent_size: 2, space_in_empty_paren: true })}
 								className="codeMirror_testCases"
 								height={'100%'}
 								editable={false}
@@ -98,7 +98,7 @@ const TestCases = () => {
 							/>
 							<Typography variant="h6">Code Output:</Typography>
 							<CodeMirror
-								value={JSON.stringify(code_output)}
+								value={beautify(JSON.stringify(code_output), { indent_size: 2, space_in_empty_paren: true })}
 								className="codeMirror_testCases"
 								height={'100%'}
 								editable={false}
