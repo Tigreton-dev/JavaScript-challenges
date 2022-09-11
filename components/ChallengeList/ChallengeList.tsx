@@ -9,7 +9,6 @@ import { DataContextType } from '../../context/@types.data';
 import Challenges from '../../data/challenges.json';
 import { IcurrentProblem } from '../../context/@types.data'
 
-
 export default function ChallengeList() {
     const { data, updateData } = React.useContext(DataContext) as DataContextType;
     const problemList = data.problemsList;

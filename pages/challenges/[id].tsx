@@ -2,7 +2,7 @@ import * as React from 'react'
 import { useRouter } from "next/router";
 import dynamic from 'next/dynamic'
 
-import myData from '../../data/challenges.json';
+import challenges from '../../data/challenges.json';
 import { DataContext } from '../../context/dataContext';
 import { DataContextType } from '../../context/@types.data';
 
@@ -17,8 +17,9 @@ export default function PostPage() {
     const lightTheme = data.lightTheme;
     const darkTheme = data.darkTheme;
     const router = useRouter();
-    const pathID = router.query.id;
+    const challengeRefName = router.query.id;
 
+    // Setting global theme
     React.useEffect(() => {
         const theme = localStorage.getItem('theme');
         if (theme === null) {
@@ -31,17 +32,20 @@ export default function PostPage() {
 
     }, []);
 
+    // Store currentProblem to context
     React.useEffect(() => {
-        const updateCurrentProblem = myData[pathID];
+        type ObjectKey = keyof typeof challenges;
+        const myVar = challengeRefName as ObjectKey;
+        const updateCurrentProblem = challenges[myVar];
         if (updateCurrentProblem !== undefined)
-            updateData({ currentProblem: myData[pathID] });
-    }, [pathID]);
+            updateData({ currentProblem: updateCurrentProblem });
+    }, [challengeRefName]);
 
     if (Object.keys(currentProblem).length === 0) return <h1>Problem Not Found</h1>
 
     return (
         <>
-            <DynamicComponentWithNoSSR pathID={pathID} />
+            <DynamicComponentWithNoSSR />
         </>
     )
 }
