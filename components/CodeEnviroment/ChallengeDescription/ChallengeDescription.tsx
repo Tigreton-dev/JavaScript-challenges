@@ -14,7 +14,6 @@ const ChallengeDescription = () => {
     const { data } = React.useContext(DataContext) as DataContextType;
 
     const currentProblem = data.currentProblem;
-    const currentLanguage = data.currentLanguage;
 
     const containerStyle = {
         padding: "20px",

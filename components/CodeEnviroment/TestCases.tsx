@@ -22,6 +22,7 @@ const TestCases = () => {
 	const editorTheme = currentTheme.isDarkTheme ?
 		darkTheme(currentTheme.secondary) : lightTheme(currentTheme.secondary);
 
+
 	return (
 		<div
 			style={{
@@ -37,6 +38,20 @@ const TestCases = () => {
 					? '0px 0px 10px -1px green'
 					: '0px 0px 10px -1px rgb(223, 3, 3)'
 				const msg = passed_test ? 'Passed Correctly' : 'Fail'
+				const codemirrors = [
+					{
+						data: inputData,
+						title: 'Input data:'
+					},
+					{
+						data: test_expected,
+						title: 'Expected Output:'
+					},
+					{
+						data: code_output,
+						title: 'Code Output:'
+					}
+				]
 				const icon = passed_test ? (
 					<CheckCircleIcon fontSize="large" color="success" />
 				) : (
@@ -50,75 +65,33 @@ const TestCases = () => {
 							</Button>
 						</AccordionSummary>
 						<AccordionDetails>
-							<Typography variant="h6">Input data:</Typography>
-							<CodeMirror
-								value={beautify(inputData, { indent_size: 2, space_in_empty_paren: true })}
-								className="codeMirror_testCases"
-								height={'100%'}
-								editable={false}
-								theme={editorTheme}
-								style={{
-									borderRadius: "5px",
-									marginBottom: "15px",
-									padding: "10px",
-									boxShadow: "0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12)",
-									overflow: "scroll",
-									backgroundColor: currentTheme.secondary,
-								}}
-								extensions={[javascript({ jsx: true })]}
-								basicSetup={{
-									lineNumbers: false,
-									highlightActiveLineGutter: false,
-									highlightSpecialChars: false,
-									highlightActiveLine: false,
-								}}
-							/>
-							<Typography variant="h6">Expected Output:</Typography>
-							<CodeMirror
-								value={beautify(JSON.stringify(test_expected), { indent_size: 2, space_in_empty_paren: true })}
-								className="codeMirror_testCases"
-								height={'100%'}
-								editable={false}
-								theme={editorTheme}
-								style={{
-									borderRadius: "5px",
-									marginBottom: "15px",
-									padding: "10px",
-									boxShadow: "0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12)",
-									overflow: "scroll",
-									backgroundColor: currentTheme.secondary,
-								}}
-								extensions={[javascript({ jsx: true })]}
-								basicSetup={{
-									lineNumbers: false,
-									highlightActiveLineGutter: false,
-									highlightSpecialChars: false,
-									highlightActiveLine: false,
-								}}
-							/>
-							<Typography variant="h6">Code Output:</Typography>
-							<CodeMirror
-								value={beautify(JSON.stringify(code_output), { indent_size: 2, space_in_empty_paren: true })}
-								className="codeMirror_testCases"
-								height={'100%'}
-								editable={false}
-								theme={editorTheme}
-								style={{
-									borderRadius: "5px",
-									marginBottom: "15px",
-									padding: "10px",
-									boxShadow: "0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12)",
-									overflow: "scroll",
-									backgroundColor: currentTheme.secondary,
-								}}
-								extensions={[javascript({ jsx: true })]}
-								basicSetup={{
-									lineNumbers: false,
-									highlightActiveLineGutter: false,
-									highlightSpecialChars: false,
-									highlightActiveLine: false,
-								}}
-							/>
+							{codemirrors.map(element => (
+								<>
+									<Typography variant="h6">{element.title}</Typography>
+									<CodeMirror
+										value={beautify(JSON.stringify(element.data), { indent_size: 2, space_in_empty_paren: true })}
+										className="codeMirror_testCases"
+										height={'100%'}
+										editable={false}
+										theme={editorTheme}
+										style={{
+											borderRadius: "5px",
+											marginBottom: "15px",
+											padding: "10px",
+											boxShadow: "0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12)",
+											overflow: "scroll",
+											backgroundColor: currentTheme.secondary,
+										}}
+										extensions={[javascript({ jsx: true })]}
+										basicSetup={{
+											lineNumbers: false,
+											highlightActiveLineGutter: false,
+											highlightSpecialChars: false,
+											highlightActiveLine: false,
+										}}
+									/>
+								</>
+							))}
 						</AccordionDetails>
 					</Accordion>
 				)

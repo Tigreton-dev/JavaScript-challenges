@@ -44,7 +44,7 @@ const MenuBar = () => {
 							size="large"
 							startIcon={<FormatListBulletedIcon />}
 						>
-							<Link href="/challenges">
+							<Link href="/">
 								<a style={{ color: currentTheme.color, textDecoration: "none" }}>Challenge List</a>
 							</Link>
 
