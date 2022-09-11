@@ -36,7 +36,7 @@ const TestCases = () => {
 				const boxShadow = passed_test
 					? '0px 0px 10px -1px green'
 					: '0px 0px 10px -1px rgb(223, 3, 3)'
-				const msg = passed_test ? 'Passed Correcly' : 'Fail'
+				const msg = passed_test ? 'Passed Correctly' : 'Fail'
 				const icon = passed_test ? (
 					<CheckCircleIcon fontSize="large" color="success" />
 				) : (

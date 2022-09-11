@@ -3,20 +3,21 @@ import beautify from 'js-beautify';
 import CodeMirror from '@uiw/react-codemirror';
 import { javascript } from '@codemirror/lang-javascript';
 
-
 import { lightTheme, darkTheme } from "../../helpers/CodeEditorTheme";
 import { DataContext } from '../../context/dataContext';
 import { DataContextType } from '../../context/@types.data';
 
+interface Iconsole {
+    type:string;
+    datetime:string;
+    value:Array<any>;
+}
+
 const Terminal = () => {
     const { data, updateData } = React.useContext(DataContext) as DataContextType;
-    const examples = data.currentProblem.examples;
     const currentTheme = data.currentTheme;
     const [values, setValues] = React.useState([])
-    let placeholder = [1, 2, 3]
     const editorTheme = currentTheme.isDarkTheme ? darkTheme(currentTheme.secondary) : lightTheme(currentTheme.secondary);
-
-
 
     if (console.everything === undefined) {
         console.everything = [];
@@ -47,21 +48,13 @@ const Terminal = () => {
         setValues(console.everything)
     }, [console.everything])
 
-    const a = {
-        a: "sdsd",
-        b: 23,
-        c: [1, 2, 3]
-    }
-
     React.useEffect(() => {
         if (data.deleteLogs) {
             console.everything = [];
             setValues([])
             updateData({ deleteLogs: false })
         }
-
     }, [data.deleteLogs]);
-
 
     return (
         <div id="tree" style={{
@@ -71,7 +64,7 @@ const Terminal = () => {
             fontWeight: "500",
             position: "relative"
         }}>
-            {values.map((val) => {
+            {values.map((val: Iconsole) => {
                 let color = currentTheme.color;
                 if (val.type === "error") color = "#f54545";
                 if (val.type === "warn") color = "orange";

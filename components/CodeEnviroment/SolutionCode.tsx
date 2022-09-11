@@ -9,7 +9,7 @@ import { DataContextType } from '../../context/@types.data';
 
 const SolutionCode = () => {
 	const { data } = React.useContext(DataContext) as DataContextType;
-	const currentProblem = data.currentProblem
+	const currentProblem:any = data.currentProblem
 	const fontSize = data.fontSize;
 	const [codeValue, setCodeValue] = React.useState('')
 	const currentLanguage = data.currentLanguage

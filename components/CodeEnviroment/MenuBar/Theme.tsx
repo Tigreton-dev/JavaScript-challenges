@@ -12,7 +12,7 @@ export default function Theme() {
 	const currentTheme = data.currentTheme;
 	const lightTheme = data.lightTheme;
 	const darkTheme = data.darkTheme;
-	const boxRef = React.useRef(null);
+	const boxRef = React.useRef<any>(null);
 
 	React.useEffect(() => {
 		if (currentTheme.isDarkTheme) boxRef.current.style.transform = "translateX(47px)";

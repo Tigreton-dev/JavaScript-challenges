@@ -8,6 +8,10 @@ import { muiTheme } from "../../helpers/MuiTheme";
 import { DataContext } from '../../context/dataContext';
 import { DataContextType } from '../../context/@types.data';
 
+interface ItestCases {
+	[key: string]: any;
+}
+
 export default function App() {
 	const { data, updateData } = React.useContext(DataContext) as DataContextType;
 	const currentProblem = data.currentProblem
@@ -59,13 +63,14 @@ export default function App() {
 
 	const run_tests = () => {
 		createScript()
-		const testCases = currentProblem.testCases
+		const testCases:ItestCases = currentProblem.testCases
 		const functionName = currentProblem.refName
 		const updateCurrentProblem = JSON.parse(JSON.stringify(currentProblem))
 		for (let testCase in testCases) {
 			console.log("---------- Test Case " + testCase + " ----------")
 			if (updateCurrentProblem.testCases[testCase].functionTest) {
 				createTestScript(updateCurrentProblem.testCases[testCase].test_input)
+				// @ts-ignore
 				updateCurrentProblem.testCases[testCase].code_output = window.test_input()
 			} else {
 				const parameters = JSON.parse(JSON.stringify(testCases[testCase].test_input))

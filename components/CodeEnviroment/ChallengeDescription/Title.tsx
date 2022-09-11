@@ -4,7 +4,7 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 interface TitleProps {
     title: string;
-    isProblemSubmitted: boolean;
+    refName: string;
 }
 
 const Title = (props: TitleProps) => {

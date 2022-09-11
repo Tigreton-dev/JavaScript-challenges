@@ -6,11 +6,14 @@ import AlertTitle from '@mui/material/AlertTitle'
 import IconButton from '@mui/material/IconButton'
 import CloseIcon from '@mui/icons-material/Close'
 
-import { DataContext } from '../../context/dataContext';
-import { DataContextType } from '../../context/@types.data';
-
 export interface State extends SnackbarOrigin {
 	open: boolean
+}
+
+interface Props {
+	open: boolean;
+	setClose: ()=> any;
+	isSolutionCorrect: boolean;
 }
 
 type TransitionProps = Omit<SlideProps, 'direction'>
@@ -19,11 +22,8 @@ function TransitionLeft(props: TransitionProps) {
 	return <Slide {...props} direction="left" />
 }
 
-const SolutionCodeModal = (props) => {
+const SolutionCodeModal = (props:Props) => {
 	const { open, setClose, isSolutionCorrect } = props
-	const { data, updateData } = React.useContext(DataContext) as DataContextType;
-
-	const currentTheme = data.currentTheme;
 
 	const [transition, setTransition] = React.useState<
 		React.ComponentType<TransitionProps> | undefined

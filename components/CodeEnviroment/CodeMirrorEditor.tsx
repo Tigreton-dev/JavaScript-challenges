@@ -17,7 +17,7 @@ interface propsInterface {
 const CodeMirrorEditor = (props: propsInterface) => {
 	const { isSubmittedCodeEditor } = props
 	const { data, updateData } = React.useContext(DataContext) as DataContextType;
-	const currentProblem = data.currentProblem
+	const currentProblem:any = data.currentProblem
 	const currentLanguage = data.currentLanguage
 	const fontSize = data.fontSize;
 	const [submittedCode, setSubmittedCode] = React.useState('')
@@ -50,7 +50,7 @@ const CodeMirrorEditor = (props: propsInterface) => {
 		updateData({ resetCode: false });
 	}, [resetCode])
 
-	const onChange = React.useCallback((value, viewUpdate) => {
+	const onChange = React.useCallback((value:string) => {
 		setCode(value);
 		setSubmittedCode(currentProblem.submittedCode[currentLanguage])
 	}, []);
@@ -131,7 +131,7 @@ const CodeMirrorEditor = (props: propsInterface) => {
 						lintKeymap: false,
 					}}
 					extensions={[javascript({ jsx: true })]}
-					onChange={(value, viewUpdate) => onChange(value, viewUpdate)}
+					onChange={(value, viewUpdate) => onChange(value)}
 				/>
 			)}
 			{!isSubmittedCodeEditor &&

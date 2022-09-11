@@ -15,8 +15,6 @@ const ChallengeDescription = () => {
 
     const currentProblem = data.currentProblem;
     const currentLanguage = data.currentLanguage;
-    const isProblemSubmitted = currentProblem?.submittedCode &&
-        currentProblem.submittedCode[currentLanguage] ? true : false;
 
     const containerStyle = {
         padding: "20px",

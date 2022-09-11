@@ -28,7 +28,7 @@ const ExampleCode = () => {
     }
 
     React.useEffect(() => {
-        const codemirrorClass = Array.from(document.getElementsByClassName("codeMirror_examples"));
+        const codemirrorClass:Array<any> = Array.from(document.getElementsByClassName("codeMirror_examples"));
         codemirrorClass.forEach(mirror => {
             mirror.style.borderRadius = "5px";
             mirror.style.marginBottom = "15px";

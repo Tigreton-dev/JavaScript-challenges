@@ -14,7 +14,7 @@ export default function ChallengeList() {
     const { data, updateData } = React.useContext(DataContext) as DataContextType;
     const problemList = data.problemsList;
     const [category, setCategory] = React.useState("String")
-    const categoryBoxRef = React.useRef(null)
+    const categoryBoxRef = React.useRef<any>(null)
     const list = ["String", "Array", "Linked List", "Stacks & Queues", "Graphs", "Binary Tree", "Dynamic Programming", "Recursion"]
 
     React.useEffect(() => {
@@ -24,9 +24,9 @@ export default function ChallengeList() {
 
     if (!problemList) return <h1>"Loading..."</h1>;
 
-    const clickHandler = (e) => {
+    const clickHandler = (e:any) => {
         const buttons = Array.from(categoryBoxRef.current.getElementsByTagName("button"));
-        buttons.map(element => {
+        buttons.map((element:any) => {
             element.style.background = "none"
             element.style.color = "#1976d2"
         })
@@ -50,8 +50,8 @@ export default function ChallengeList() {
             </Box>
 
             {problemList
-                .filter(e => e.category === category)
-                .sort((a:Object,b:Object) => {
+                .filter((e: any) => e.category === category)
+                .sort((a:any,b:any) => {
                     if (a.dificulty === "Easy") a.difNum = 0;
                     if (a.dificulty === "Medium") a.difNum = 1;
                     if (a.dificulty === "Hard") a.difNum = 2;
@@ -60,7 +60,7 @@ export default function ChallengeList() {
                     if (b.dificulty === "Hard") b.difNum = 2;
                     return a.difNum - b.difNum
                 })
-                .map((element: IcurrentProblem, index: number) => {
+                .map((element: any, index: number) => {
                     return (
                         <ChallengeBox
                             key={index}
