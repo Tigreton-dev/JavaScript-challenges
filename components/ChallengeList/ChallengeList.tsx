@@ -22,6 +22,13 @@ export default function ChallengeList() {
         updateData({ problemsList: problemList });
     }, [])
 
+    React.useEffect(() => {
+        const buttons = Array.from(categoryBoxRef.current.getElementsByTagName("button"));
+        console.log("AAA", buttons[0])
+        buttons[0].style.background = "#1976d2"
+        buttons[0].style.color = "white"
+    }, [])
+
     if (!problemList) return <h1>"Loading..."</h1>;
 
     const clickHandler = (e:any) => {
@@ -41,11 +48,12 @@ export default function ChallengeList() {
             <Box ref={categoryBoxRef}>
             {list.map(element => 
                 <Button 
-                key={element}
-                sx={{margin:"5px 5px 20px 0", cursor:"pointer", fontSize:"12px", borderRadius:"20px", textTransform: "capitalize"}}
-                    variant="outlined"
-                    onClick={e => clickHandler(e)} 
-                >{element}</Button>)
+                    key={element}
+                    sx={{margin:"5px 5px 20px 0", cursor:"pointer", fontSize:"12px", borderRadius:"20px", textTransform: "capitalize"}}
+                        variant="outlined"
+                        onClick={e => clickHandler(e)} 
+                    >{element}
+                </Button>)
             }
             </Box>
 
