@@ -1,4 +1,5 @@
 import * as React from 'react'
+// @ts-ignore
 import beautify from 'js-beautify';
 import CodeMirror from '@uiw/react-codemirror';
 import { javascript } from '@codemirror/lang-javascript';
@@ -13,31 +14,50 @@ interface Iconsole {
     value:Array<any>;
 }
 
+declare global {
+    interface console { everything: any; }
+}
+
+window.console = window.console || {};
+declare global {
+interface Console {
+    everything: any;
+    type: string;
+    datetime: string;
+    value: any[];
+    defaultLog: any;
+    defaultError:any;
+    defaultWarn:any;
+    defaultDebug:any;
+}
+}
+
 const Terminal = () => {
     const { data, updateData } = React.useContext(DataContext) as DataContextType;
     const currentTheme = data.currentTheme;
     const [values, setValues] = React.useState([])
     const editorTheme = currentTheme.isDarkTheme ? darkTheme(currentTheme.secondary) : lightTheme(currentTheme.secondary);
+    const console2:Console = window.console;
 
-    if (console.everything === undefined) {
-        console.everything = [];
+    if (console2.everything === undefined) {
+        console2.everything = [];
 
-        console.defaultLog = console.log.bind(console);
+        console2.defaultLog = console.log.bind(console);
         console.log = function () {
             console.everything.push({ "type": "log", "datetime": Date().toLocaleString(), "value": Array.from(arguments) });
             console.defaultLog.apply(console, arguments);
         }
-        console.defaultError = console.error.bind(console);
+        console2.defaultError = console.error.bind(console);
         console.error = function () {
             console.everything.push({ "type": "error", "datetime": Date().toLocaleString(), "value": Array.from(arguments) });
             console.defaultError.apply(console, arguments);
         }
-        console.defaultWarn = console.warn.bind(console);
+        console2.defaultWarn = console.warn.bind(console);
         console.warn = function () {
             console.everything.push({ "type": "warn", "datetime": Date().toLocaleString(), "value": Array.from(arguments) });
             console.defaultWarn.apply(console, arguments);
         }
-        console.defaultDebug = console.debug.bind(console);
+        console2.defaultDebug = console.debug.bind(console);
         console.debug = function () {
             console.everything.push({ "type": "debug", "datetime": Date().toLocaleString(), "value": Array.from(arguments) });
             console.defaultDebug.apply(console, arguments);

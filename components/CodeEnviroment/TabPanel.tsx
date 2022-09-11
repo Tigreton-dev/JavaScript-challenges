@@ -1,4 +1,5 @@
 import * as React from 'react'
+// @ts-ignore
 import SwipeableViews from 'react-swipeable-views'
 import Box from '@mui/material/Box'
 

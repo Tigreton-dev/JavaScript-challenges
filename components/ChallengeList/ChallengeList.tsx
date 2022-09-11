@@ -17,7 +17,8 @@ export default function ChallengeList() {
     const list = ["String", "Array", "Linked List", "Stacks & Queues", "Graphs", "Binary Tree", "Dynamic Programming", "Recursion"]
 
     React.useEffect(() => {
-        const problemList:Array<IcurrentProblem> = Object.keys(Challenges).map((key) => Challenges[key]);
+        // @ts-ignore
+        const problemList:Array<IcurrentProblem> = Object.keys(Challenges).map((key:string) => Challenges[key]);
         updateData({ problemsList: problemList });
     }, [])
 

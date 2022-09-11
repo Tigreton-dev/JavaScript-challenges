@@ -9,6 +9,7 @@ import CodeMirror from '@uiw/react-codemirror'
 import { javascript } from '@codemirror/lang-javascript'
 import CancelIcon from '@mui/icons-material/Cancel'
 import Button from '@mui/material/Button'
+// @ts-ignore
 import beautify from 'js-beautify';
 
 import { lightTheme, darkTheme } from "../../helpers/CodeEditorTheme";
@@ -21,7 +22,6 @@ const TestCases = () => {
 	const currentTheme = data.currentTheme;
 	const editorTheme = currentTheme.isDarkTheme ?
 		darkTheme(currentTheme.secondary) : lightTheme(currentTheme.secondary);
-
 
 	return (
 		<div

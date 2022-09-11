@@ -42,7 +42,6 @@ const SolutionCodeModal = (props:Props) => {
 		subTitle: isSolutionCorrect
 			? `Your result passed all tests! — `
 			: `Your result did not pass all tests! — `,
-		severity: isSolutionCorrect ? 'success' : 'error',
 	}
 
 	return (
@@ -56,7 +55,7 @@ const SolutionCodeModal = (props:Props) => {
 				children={
 					<Alert
 						variant="filled"
-						severity={text.severity}
+						severity={isSolutionCorrect ? 'success' : 'error'}
 						style={{ fontSize: '16px', textAlign:"left" }}
 						action={
 							<IconButton

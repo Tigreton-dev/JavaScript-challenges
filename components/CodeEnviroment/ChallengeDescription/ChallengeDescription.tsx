@@ -24,10 +24,10 @@ const ChallengeDescription = () => {
     }
 
     const ChipColor = (tagName: string) => {
-        let color = "primary";
-        if (tagName === "Easy") color = "success";
-        if (tagName === "Medium") color = "warning";
-        if (tagName === "Hard") color = "error";
+        let color = "#1976d2";
+        if (tagName === "Easy") color = "green";
+        if (tagName === "Medium") color = "orange";
+        if (tagName === "Hard") color = "red";
         return color;
     }
 
@@ -40,8 +40,7 @@ const ChallengeDescription = () => {
                         key={tagName}
                         label={tagName}
                         variant="outlined"
-                        sx={{ fontWeight: "bold" }}
-                        color={ChipColor(tagName)}
+                        sx={{fontWeight: "bold", color:ChipColor(tagName), border:`1px solid ${ChipColor(tagName)}`}}
                     />
                 })}
             </Stack>

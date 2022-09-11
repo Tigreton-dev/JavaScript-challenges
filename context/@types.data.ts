@@ -1,10 +1,10 @@
 export interface IcurrentProblem {
     refNumber: number,
     refName: string;
-    category: Array<String>;
+    category: string;
     difficulty: string;
     title: string;
-    tags: ["Easy", "Array"],
+    tags: [string, string],
     description: string;
     examples: {
         example1: {
@@ -26,10 +26,7 @@ export interface IcurrentProblem {
         javaScript: string;
     };
     solutionCode: {
-        javaScript: [
-            string,
-            string
-        ]
+        javaScript: [string]
     };
     submittedCode: {
         javaScript: string;

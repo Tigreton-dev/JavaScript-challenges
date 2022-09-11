@@ -29,10 +29,10 @@ export default function BoxSx(props:Iprops) {
         <CancelIcon fontSize="large" color="error" />
 
     const ChipColor = (tagName: string) => {
-        let color = "primary";
-        if (tagName === "Easy") color = "success";
-        if (tagName === "Medium") color = "warning";
-        if (tagName === "Hard") color = "error";
+        let color = "#1976d2";
+        if (tagName === "Easy") color = "green";
+        if (tagName === "Medium") color = "orange";
+        if (tagName === "Hard") color = "red";
         return color;
     }
 
@@ -75,7 +75,7 @@ export default function BoxSx(props:Iprops) {
                             key={tagName}
                             label={tagName}
                             variant="outlined"
-                            color={ChipColor(tagName)}
+                            sx={{color:ChipColor(tagName), border:`1px solid ${ChipColor(tagName)}`}}
                         />
                     })}
                 </Stack>

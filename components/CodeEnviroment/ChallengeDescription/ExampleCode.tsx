@@ -4,6 +4,7 @@ import { javascript } from '@codemirror/lang-javascript';
 import Chip from '@mui/material/Chip';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+// @ts-ignore
 import beautify from 'js-beautify';
 
 import { lightTheme, darkTheme } from "../../../helpers/CodeEditorTheme";

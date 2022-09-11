@@ -3,6 +3,7 @@ import CodeMirror from '@uiw/react-codemirror'
 import { javascript } from '@codemirror/lang-javascript'
 import Button from '@mui/material/Button'
 import SendIcon from '@mui/icons-material/Send'
+// @ts-ignore
 import beautify from 'js-beautify';
 
 import { lightTheme, darkTheme } from "../../helpers/CodeEditorTheme";

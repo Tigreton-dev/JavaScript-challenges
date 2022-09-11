@@ -1,13 +1,103 @@
 import * as React from 'react';
 import { DataContextType, IData } from './@types.data';
+import { IcurrentProblem } from './@types.data'
 
 export const DataContext = React.createContext<DataContextType | null>(null);
+const defaultProblem:IcurrentProblem = {
+    refName: "uniqueChar",
+    refNumber: 3,
+    category: "String",
+    difficulty: "Easy",
+    title: "Unique Char",
+    tags: [
+      "Easy",
+      "String"
+    ],
+    description: "<p>Given a string, determine if the string has all unique characters.</p><p>What if you cannot use additional data structures?</p>",
+    examples: {
+      example1: {
+        input: "'abcd'",
+        output: "true"
+      },
+      example2: {
+        input: "'aabcd'",
+        output: "false"
+      }
+    },
+    hints: {
+      hint_1: "...",
+      hint_2: "...",
+      hint_3: "...",
+      Optimal_Space__Time_Complexity: "..."
+    },
+    startedCode: {
+      javaScript: "function uniqueChar(str) {\n    // Write your solution...\n    return true;\n"
+    },
+    solutionCode: {
+      javaScript: [
+        "// Solution 1\nfunction uniqueChar(str) {\n    const list = new Set();\n    for (const letter of str) {\n        if (!list.has(letter)) {\n            list.add(letter);\n        } else {\n            return false\n        }\n    }\n    return true;\n}\n/*\n * IMPORTANT: you cannot use additional data structures!\n * \n * SOLUTION: Compare every character of the string to every other character of \n * the string. This will take 0( n^2) time and 0(1) space.\n */\n/*\n * If we are allowed to modify the input string, we could sort the string in \n * O(n log(n)) time and then linearly check the string for neighboring characters \n * that are identical. Careful, though: many sorting algorithms take up extra space.\n */\nfunction uniqueChar(str) {\n    for (const letter of str) {\n        if (str.indexOf(letter) !== str.lastIndexOf(letter)) {\n            return false;\n        }\n    }\n    return true;\n"
+      ]
+    },
+    submittedCode: {
+      javaScript: ""
+    },
+    testCases: {
+      Test_1: {
+        test_input: [
+          "abcd"
+        ],
+        test_expected: true,
+        code_output: null,
+        passed_test: false
+      },
+      Test_2: {
+        test_input: [
+          "table"
+        ],
+        test_expected: true,
+        code_output: null,
+        passed_test: false
+      },
+      Test_3: {
+        test_input: [
+          "superman"
+        ],
+        test_expected: true,
+        code_output: null,
+        passed_test: false
+      },
+      Test_4: {
+        test_input: [
+          "aaaa"
+        ],
+        test_expected: false,
+        code_output: null,
+        passed_test: false
+      },
+      Test_5: {
+        test_input: [
+          "supermarket"
+        ],
+        test_expected: false,
+        code_output: null,
+        passed_test: false
+      },
+      Test_6: {
+        test_input: [
+          "fgjeW_fug"
+        ],
+        test_expected: false,
+        code_output: null,
+        passed_test: false
+      }
+    }
+  }
 
 const defaultState: IData = {
     beautifyCode: false,
     deleteLogs: false,
     isSolutionCorrect: false,
-    currentProblem: {},
+    currentProblem: defaultProblem,
     problemsList: [],
     currentLanguage: "javaScript",
     displayBadge: false,

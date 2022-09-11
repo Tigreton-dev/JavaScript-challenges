@@ -12,7 +12,7 @@ interface ItestCases {
 	[key: string]: any;
 }
 
-export default function App() {
+export default function CodeEnviroment() {
 	const { data, updateData } = React.useContext(DataContext) as DataContextType;
 	const currentProblem = data.currentProblem
 	const displayCodeResultModal = data.displayCodeResultModal
@@ -75,7 +75,9 @@ export default function App() {
 			} else {
 				const parameters = JSON.parse(JSON.stringify(testCases[testCase].test_input))
 				try {
+					// @ts-ignore
 					if (window[functionName] !== undefined) {
+						// @ts-ignore
 						updateCurrentProblem.testCases[testCase].code_output = window[functionName](...parameters)
 					} else {
 						console.error(`TypeError: window.${functionName} is undefined`)

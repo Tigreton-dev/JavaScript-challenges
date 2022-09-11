@@ -1,6 +1,7 @@
 import * as React from 'react'
 import CodeMirror from '@uiw/react-codemirror'
 import { javascript } from '@codemirror/lang-javascript'
+// @ts-ignore
 import beautify from 'js-beautify';
 
 import { lightTheme, darkTheme } from "../../helpers/CodeEditorTheme";
