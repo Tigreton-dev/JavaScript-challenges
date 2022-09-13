@@ -1,6 +1,6 @@
-import * as React from 'react'
-import { useRouter } from "next/router";
-import dynamic from 'next/dynamic'
+import * as React from 'react';
+import { useRouter } from 'next/router';
+import dynamic from 'next/dynamic';
 
 import challenges from '../../data/challenges.json';
 import { DataContext } from '../../context/dataContext';
@@ -12,7 +12,9 @@ const DynamicComponentWithNoSSR = dynamic(
 );
 
 export default function PostPage() {
-    const { data, updateData } = React.useContext(DataContext) as DataContextType;
+    const { data, updateData } = React.useContext(
+        DataContext
+    ) as DataContextType;
     const currentProblem = data.currentProblem;
     const lightTheme = data.lightTheme;
     const darkTheme = data.darkTheme;
@@ -24,12 +26,13 @@ export default function PostPage() {
         const theme = localStorage.getItem('theme');
         if (theme === null) {
             localStorage.setItem('theme', JSON.stringify(lightTheme));
-            updateData({ currentTheme: lightTheme })
+            updateData({ currentTheme: lightTheme });
         } else {
-            if (JSON.parse(theme).isDarkTheme) updateData({ currentTheme: darkTheme })
-            if (!JSON.parse(theme).isDarkTheme) updateData({ currentTheme: lightTheme })
+            if (JSON.parse(theme).isDarkTheme)
+                updateData({ currentTheme: darkTheme });
+            if (!JSON.parse(theme).isDarkTheme)
+                updateData({ currentTheme: lightTheme });
         }
-
     }, []);
 
     // Store currentProblem to context
@@ -41,11 +44,12 @@ export default function PostPage() {
             updateData({ currentProblem: updateCurrentProblem });
     }, [challengeRefName]);
 
-    if (Object.keys(currentProblem).length === 0) return <h1>Problem Not Found</h1>
+    if (Object.keys(currentProblem).length === 0)
+        return <h1>Problem Not Found</h1>;
 
     return (
         <>
             <DynamicComponentWithNoSSR />
         </>
-    )
+    );
 }

@@ -1,14 +1,14 @@
-import * as React from 'react'
+import * as React from 'react';
 // @ts-ignore
-import SwipeableViews from 'react-swipeable-views'
-import Box from '@mui/material/Box'
+import SwipeableViews from 'react-swipeable-views';
+import Box from '@mui/material/Box';
 
-import SolutionCode from './SolutionCode'
-import CodeMirrorEditor from './CodeMirrorEditor'
-import ChallengeDescription from './ChallengeDescription/ChallengeDescription'
-import TestCases from './TestCases'
-import TabPanelBar from "./TabPanelBar"
-import Terminal from "./Terminal";
+import SolutionCode from './SolutionCode';
+import CodeMirrorEditor from './CodeMirrorEditor';
+import ChallengeDescription from './ChallengeDescription/ChallengeDescription';
+import TestCases from './TestCases';
+import TabPanelBar from './TabPanelBar';
+import Terminal from './Terminal';
 import { DataContext } from '../../context/dataContext';
 import { DataContextType } from '../../context/@types.data';
 
@@ -21,7 +21,8 @@ interface propsInterface {
 }
 
 const TabPanel = (props: propsInterface) => {
-    const { isCodeEditor, firstTitle, secondTitle, thirdTitle, fourthTitle } = props
+    const { isCodeEditor, firstTitle, secondTitle, thirdTitle, fourthTitle } =
+        props;
     const { data } = React.useContext(DataContext) as DataContextType;
     const currentTheme = data.currentTheme;
 
@@ -34,17 +35,20 @@ const TabPanel = (props: propsInterface) => {
         thirdTitle,
         fourthTitle,
         value
-    }
+    };
 
     return (
         <Box
             sx={{
                 position: 'relative',
                 minHeight: '100%',
-                backgroundColor: currentTheme.secondary,
+                backgroundColor: currentTheme.secondary
             }}
         >
-            <TabPanelBar values={menuBarProps} setValue={(newValue: number) => setValue(newValue)} />
+            <TabPanelBar
+                values={menuBarProps}
+                setValue={(newValue: number) => setValue(newValue)}
+            />
             {isCodeEditor ? (
                 <SwipeableViews
                     key="1"
@@ -66,7 +70,7 @@ const TabPanel = (props: propsInterface) => {
                 </SwipeableViews>
             )}
         </Box>
-    )
-}
+    );
+};
 
 export default TabPanel;

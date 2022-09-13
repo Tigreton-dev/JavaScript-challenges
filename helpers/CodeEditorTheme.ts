@@ -12,7 +12,7 @@ export function lightTheme(themeColor: string) {
             selectionMatch: '#d7d4f0',
             gutterBackground: '#f7f7f7',
             gutterForeground: '#999',
-            lineHighlight: '#e8f2ff',
+            lineHighlight: '#e8f2ff'
         },
         styles: [
             { tag: [t.comment], color: '#3F7F5F' },
@@ -21,16 +21,19 @@ export function lightTheme(themeColor: string) {
             { tag: t.atom, color: '#00f' },
             { tag: t.number, color: '#164' },
             { tag: t.propertyName, color: '#164' },
-            { tag: [t.variableName, t.definition(t.variableName)], color: '#0000C0' },
+            {
+                tag: [t.variableName, t.definition(t.variableName)],
+                color: '#0000C0'
+            },
             { tag: t.function(t.variableName), color: '#0000C0' },
             { tag: t.string, color: '#2A00FF' },
             { tag: t.operator, color: '#b36b00' },
             { tag: t.tagName, color: '#170' },
             { tag: t.attributeName, color: '#00c' },
-            { tag: t.link, color: '#219' },
-        ],
-    })
-};
+            { tag: t.link, color: '#219' }
+        ]
+    });
+}
 
 export function darkTheme(themeColor: string) {
     return createTheme({
@@ -43,7 +46,7 @@ export function darkTheme(themeColor: string) {
             selectionMatch: 'rgba(255, 255, 255, 0.2)',
             gutterBackground: '#282a36',
             gutterForeground: '#6D8A88',
-            lineHighlight: 'rgba(255, 255, 255, 0.1)',
+            lineHighlight: 'rgba(255, 255, 255, 0.1)'
         },
         styles: [
             { tag: t.comment, color: '#6272a4' },
@@ -53,9 +56,20 @@ export function darkTheme(themeColor: string) {
             { tag: t.number, color: '#944dff' },
             { tag: [t.keyword, t.tagName], color: '#ff79c6' },
             { tag: t.operator, color: '#ff9900' },
-            { tag: [t.function(t.propertyName), t.propertyName], color: '#66d9ef' },
-            { tag: [t.definition(t.variableName), t.function(t.variableName), t.className, t.attributeName], color: '#50fa7b' },
-            { tag: t.atom, color: '#bd93f9' },
-        ],
-    })
+            {
+                tag: [t.function(t.propertyName), t.propertyName],
+                color: '#66d9ef'
+            },
+            {
+                tag: [
+                    t.definition(t.variableName),
+                    t.function(t.variableName),
+                    t.className,
+                    t.attributeName
+                ],
+                color: '#50fa7b'
+            },
+            { tag: t.atom, color: '#bd93f9' }
+        ]
+    });
 }

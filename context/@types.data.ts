@@ -1,20 +1,20 @@
 export interface IcurrentProblem {
-    refNumber: number,
+    refNumber: number;
     refName: string;
     category: string;
     difficulty: string;
     title: string;
-    tags: [string, string],
+    tags: [string, string];
     description: string;
     examples: {
         example1: {
             input: string;
             output: string;
-        },
+        };
         example2: {
             input: string;
             output: string;
-        }
+        };
     };
     hints: {
         hint_1: string;
@@ -26,7 +26,7 @@ export interface IcurrentProblem {
         javaScript: string;
     };
     solutionCode: {
-        javaScript: [string]
+        javaScript: [string];
     };
     submittedCode: {
         javaScript: string;
@@ -35,15 +35,15 @@ export interface IcurrentProblem {
 }
 
 export interface IData {
-    beautifyCode: boolean,
-    deleteLogs: boolean,
+    beautifyCode: boolean;
+    deleteLogs: boolean;
     isSolutionCorrect: boolean;
     currentProblem: IcurrentProblem;
     problemsList: Array<String>;
     currentLanguage: string;
     displayBadge: boolean;
     runCode: boolean;
-    codeValue:string;
+    codeValue: string;
     resultCode: string;
     isFullScreen: boolean;
     isFullEditor: boolean;
@@ -57,7 +57,7 @@ export interface IData {
     fontSize: string;
     currentTheme: {
         primary: string;
-        secondary:string;
+        secondary: string;
         tertiary: string;
         color: string;
         button_color: string;
@@ -65,18 +65,18 @@ export interface IData {
         invertLogo: number;
         isDarkTheme: boolean;
         borderShadow: string;
-    },
+    };
     darkTheme: {
         tertiary: string;
         secondary: string;
         primary: string;
         button_color: string;
-        color:string;
+        color: string;
         secondary_color: string;
         invertLogo: number;
         isDarkTheme: boolean;
         borderShadow: string;
-    },
+    };
     lightTheme: {
         primary: string;
         secondary: string;
@@ -87,7 +87,7 @@ export interface IData {
         invertLogo: number;
         isDarkTheme: boolean;
         borderShadow: string;
-    }
+    };
 }
 
 export type DataContextType = {
