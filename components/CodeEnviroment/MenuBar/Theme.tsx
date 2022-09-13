@@ -8,29 +8,29 @@ import { DataContext } from '../../../context/dataContext';
 import { DataContextType } from '../../../context/@types.data';
 
 export default function Theme() {
-    const { data, updateData } = React.useContext(
-        DataContext
-    ) as DataContextType;
+    const { data, updateData } = React.useContext(DataContext) as DataContextType;
     const currentTheme = data.currentTheme;
     const lightTheme = data.lightTheme;
     const darkTheme = data.darkTheme;
     const boxRef = React.useRef<any>(null);
 
     React.useEffect(() => {
-        if (currentTheme.isDarkTheme)
-            boxRef.current.style.transform = 'translateX(47px)';
-        if (!currentTheme.isDarkTheme)
-            boxRef.current.style.transform = 'translateX(0px)';
+        if (currentTheme.isDarkTheme) boxRef.current.style.transform = 'translateX(47px)';
+        if (!currentTheme.isDarkTheme) boxRef.current.style.transform = 'translateX(0px)';
     }, []);
 
     const clickHandler = () => {
         const position = boxRef.current.style.transform;
         if (position === 'translateX(47px)') {
-            updateData({ currentTheme: lightTheme });
+            updateData({
+                currentTheme: lightTheme
+            });
             localStorage.setItem('theme', JSON.stringify(lightTheme));
             boxRef.current.style.transform = 'translateX(0px)';
         } else {
-            updateData({ currentTheme: darkTheme });
+            updateData({
+                currentTheme: darkTheme
+            });
             localStorage.setItem('theme', JSON.stringify(darkTheme));
             boxRef.current.style.transform = 'translateX(47px)';
         }
@@ -75,10 +75,16 @@ export default function Theme() {
                         }}
                     >
                         <LightModeIcon
-                            style={{ width: '47px', color: currentTheme.color }}
+                            style={{
+                                width: '47px',
+                                color: currentTheme.color
+                            }}
                         />
                         <DarkModeIcon
-                            style={{ width: '47px', color: currentTheme.color }}
+                            style={{
+                                width: '47px',
+                                color: currentTheme.color
+                            }}
                         />
                     </div>
                 </div>

@@ -29,8 +29,7 @@ const defaultProblem: IcurrentProblem = {
         Optimal_Space__Time_Complexity: '...'
     },
     startedCode: {
-        javaScript:
-            'function uniqueChar(str) {\n    // Write your solution...\n    return true;\n'
+        javaScript: 'function uniqueChar(str) {\n    // Write your solution...\n    return true;\n'
     },
     solutionCode: {
         javaScript: [
@@ -155,11 +154,7 @@ const DataProvider2: React.FC<Props> = ({ children }) => {
         });
     }
 
-    return (
-        <DataContext.Provider value={{ data, updateData }}>
-            {children}
-        </DataContext.Provider>
-    );
+    return <DataContext.Provider value={{ data, updateData }}>{children}</DataContext.Provider>;
 };
 
 export default DataProvider2;

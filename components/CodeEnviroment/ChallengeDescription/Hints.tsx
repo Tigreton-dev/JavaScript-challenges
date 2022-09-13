@@ -36,15 +36,15 @@ const Hints = () => {
                         <AccordionSummary
                             expandIcon={
                                 <ExpandMoreIcon
-                                    sx={{ color: currentTheme.color }}
+                                    sx={{
+                                        color: currentTheme.color
+                                    }}
                                 />
                             }
                             aria-controls="panel1a-content"
                             id="panel1a-header"
                         >
-                            <Typography variant="h6">
-                                {key.replaceAll('_', ' ')}
-                            </Typography>
+                            <Typography variant="h6">{key.replaceAll('_', ' ')}</Typography>
                         </AccordionSummary>
                         <AccordionDetails>
                             <Typography>{value}</Typography>

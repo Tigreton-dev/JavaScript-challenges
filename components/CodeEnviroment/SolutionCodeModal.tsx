@@ -25,9 +25,7 @@ function TransitionLeft(props: TransitionProps) {
 const SolutionCodeModal = (props: Props) => {
     const { open, setClose, isSolutionCorrect } = props;
 
-    const [transition, setTransition] = React.useState<
-        React.ComponentType<TransitionProps> | undefined
-    >(undefined);
+    const [transition, setTransition] = React.useState<React.ComponentType<TransitionProps> | undefined>(undefined);
 
     React.useEffect(() => {
         if (open) setTransition(() => TransitionLeft);
@@ -39,9 +37,7 @@ const SolutionCodeModal = (props: Props) => {
 
     const text = {
         title: isSolutionCorrect ? 'Well Done!' : 'Ops!',
-        subTitle: isSolutionCorrect
-            ? `Your result passed all tests! — `
-            : `Your result did not pass all tests! — `
+        subTitle: isSolutionCorrect ? `Your result passed all tests! — ` : `Your result did not pass all tests! — `
     };
 
     return (
@@ -50,26 +46,31 @@ const SolutionCodeModal = (props: Props) => {
                 open={open}
                 onClose={handleClose}
                 TransitionComponent={transition}
-                anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+                anchorOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right'
+                }}
                 key={'1'}
                 children={
                     <Alert
                         variant="filled"
                         severity={isSolutionCorrect ? 'success' : 'error'}
-                        style={{ fontSize: '16px', textAlign: 'left' }}
+                        style={{
+                            fontSize: '16px',
+                            textAlign: 'left'
+                        }}
                         action={
-                            <IconButton
-                                aria-label="close"
-                                color="inherit"
-                                size="small"
-                                onClick={handleClose}
-                            >
+                            <IconButton aria-label="close" color="inherit" size="small" onClick={handleClose}>
                                 <CloseIcon fontSize="inherit" />
                             </IconButton>
                         }
                         sx={{ mb: 2 }}
                     >
-                        <AlertTitle style={{ fontSize: '17px' }}>
+                        <AlertTitle
+                            style={{
+                                fontSize: '17px'
+                            }}
+                        >
                             {text.title}
                         </AlertTitle>
                         {text.subTitle} <strong>check it out!</strong>

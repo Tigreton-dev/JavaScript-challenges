@@ -21,8 +21,7 @@ interface propsInterface {
 }
 
 const TabPanel = (props: propsInterface) => {
-    const { isCodeEditor, firstTitle, secondTitle, thirdTitle, fourthTitle } =
-        props;
+    const { isCodeEditor, firstTitle, secondTitle, thirdTitle, fourthTitle } = props;
     const { data } = React.useContext(DataContext) as DataContextType;
     const currentTheme = data.currentTheme;
 
@@ -45,24 +44,13 @@ const TabPanel = (props: propsInterface) => {
                 backgroundColor: currentTheme.secondary
             }}
         >
-            <TabPanelBar
-                values={menuBarProps}
-                setValue={(newValue: number) => setValue(newValue)}
-            />
+            <TabPanelBar values={menuBarProps} setValue={(newValue: number) => setValue(newValue)} />
             {isCodeEditor ? (
-                <SwipeableViews
-                    key="1"
-                    index={value}
-                    onChangeIndex={(index: number) => setValue(index)}
-                >
+                <SwipeableViews key="1" index={value} onChangeIndex={(index: number) => setValue(index)}>
                     <CodeMirrorEditor isSubmittedCodeEditor={false} />
                 </SwipeableViews>
             ) : (
-                <SwipeableViews
-                    key="1"
-                    index={value}
-                    onChangeIndex={(index: number) => setValue(index)}
-                >
+                <SwipeableViews key="1" index={value} onChangeIndex={(index: number) => setValue(index)}>
                     <ChallengeDescription />
                     <SolutionCode />
                     <TestCases />

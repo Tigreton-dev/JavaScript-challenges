@@ -13,17 +13,13 @@ interface ItestCases {
 }
 
 export default function CodeEnviroment() {
-    const { data, updateData } = React.useContext(
-        DataContext
-    ) as DataContextType;
+    const { data, updateData } = React.useContext(DataContext) as DataContextType;
     const currentProblem = data.currentProblem;
     const displayCodeResultModal = data.displayCodeResultModal;
     const isSolutionCorrect = data.isSolutionCorrect;
     const currentTheme = data.currentTheme;
     const codeValue = data.codeValue;
-    const [windowDimensions, setWindowDimensions] = React.useState(
-        window.innerWidth
-    );
+    const [windowDimensions, setWindowDimensions] = React.useState(window.innerWidth);
     const muiThemeProps = {
         color: currentTheme.color,
         primary: currentTheme.primary,
@@ -73,26 +69,18 @@ export default function CodeEnviroment() {
         for (let testCase in testCases) {
             console.log('---------- Test Case ' + testCase + ' ----------');
             if (updateCurrentProblem.testCases[testCase].functionTest) {
-                createTestScript(
-                    updateCurrentProblem.testCases[testCase].test_input
-                );
+                createTestScript(updateCurrentProblem.testCases[testCase].test_input);
                 // @ts-ignore
-                updateCurrentProblem.testCases[testCase].code_output =
-                    window.test_input();
+                updateCurrentProblem.testCases[testCase].code_output = window.test_input();
             } else {
-                const parameters = JSON.parse(
-                    JSON.stringify(testCases[testCase].test_input)
-                );
+                const parameters = JSON.parse(JSON.stringify(testCases[testCase].test_input));
                 try {
                     // @ts-ignore
                     if (window[functionName] !== undefined) {
                         // @ts-ignore
-                        updateCurrentProblem.testCases[testCase].code_output =
-                            window[functionName](...parameters);
+                        updateCurrentProblem.testCases[testCase].code_output = window[functionName](...parameters);
                     } else {
-                        console.error(
-                            `TypeError: window.${functionName} is undefined`
-                        );
+                        console.error(`TypeError: window.${functionName} is undefined`);
                     }
                 } catch (err) {
                     console.error(err);
@@ -102,17 +90,14 @@ export default function CodeEnviroment() {
             JSON.stringify(testCases[testCase].test_expected) ===
             JSON.stringify(updateCurrentProblem.testCases[testCase].code_output)
                 ? (updateCurrentProblem.testCases[testCase].passed_test = true)
-                : (updateCurrentProblem.testCases[testCase].passed_test =
-                      false);
+                : (updateCurrentProblem.testCases[testCase].passed_test = false);
         }
         let solutionCorrect = true;
         for (let testCase in updateCurrentProblem.testCases) {
-            if (!updateCurrentProblem.testCases[testCase].passed_test)
-                solutionCorrect = false;
+            if (!updateCurrentProblem.testCases[testCase].passed_test) solutionCorrect = false;
         }
 
-        if (solutionCorrect)
-            localStorage.setItem(updateCurrentProblem.refName, codeValue);
+        if (solutionCorrect) localStorage.setItem(updateCurrentProblem.refName, codeValue);
         updateData({
             runCode: false,
             displayCodeResultModal: true,
@@ -123,7 +108,9 @@ export default function CodeEnviroment() {
     };
 
     const closeModal = () => {
-        updateData({ displayCodeResultModal: false });
+        updateData({
+            displayCodeResultModal: false
+        });
     };
 
     return (

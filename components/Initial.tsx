@@ -53,9 +53,8 @@ export default function Initial() {
                             marginBottom: '20px'
                         }}
                     >
-                        List of data structures & algorithms challenges that I
-                        have resolved with an online coding platform to practice
-                        those challenges.
+                        List of data structures & algorithms challenges that I have resolved with an online coding
+                        platform to practice those challenges.
                     </Typography>
                 </div>
                 <img

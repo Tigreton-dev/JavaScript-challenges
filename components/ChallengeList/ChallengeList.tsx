@@ -10,9 +10,7 @@ import Challenges from '../../data/challenges.json';
 import { IcurrentProblem } from '../../context/@types.data';
 
 export default function ChallengeList() {
-    const { data, updateData } = React.useContext(
-        DataContext
-    ) as DataContextType;
+    const { data, updateData } = React.useContext(DataContext) as DataContextType;
     const problemList = data.problemsList;
     const [category, setCategory] = React.useState('String');
     const categoryBoxRef = React.useRef<any>(null);
@@ -29,26 +27,20 @@ export default function ChallengeList() {
 
     React.useEffect(() => {
         // @ts-ignore
-        const problemList: Array<IcurrentProblem> = Object.keys(Challenges).map(
-            (key: string) => Challenges[key]
-        );
+        const problemList: Array<IcurrentProblem> = Object.keys(Challenges).map((key: string) => Challenges[key]);
         updateData({ problemsList: problemList });
     }, []);
 
     React.useEffect(() => {
-        const buttons: Array<any> = Array.from(
-            categoryBoxRef.current.getElementsByTagName('button')
-        );
+        const buttons: Array<any> = Array.from(categoryBoxRef.current.getElementsByTagName('button'));
         buttons[0].style.background = '#1976d2';
         buttons[0].style.color = 'white';
     }, []);
 
-    if (!problemList) return <h1>"Loading..."</h1>;
+    if (!problemList) return <h1>'Loading...'</h1>;
 
     const clickHandler = (e: any) => {
-        const buttons = Array.from(
-            categoryBoxRef.current.getElementsByTagName('button')
-        );
+        const buttons = Array.from(categoryBoxRef.current.getElementsByTagName('button'));
         buttons.map((element: any) => {
             element.style.background = 'none';
             element.style.color = '#1976d2';
@@ -59,15 +51,13 @@ export default function ChallengeList() {
     };
 
     return (
-        <Box
-            sx={{
-                width: '95%',
-                maxWidth: '800px',
-                margin: 'auto',
-                marginTop: '40px'
-            }}
-        >
-            <Typography variant="h3" sx={{ margin: '150px 0 20px 0' }}>
+        <Box sx={{ width: '95%', maxWidth: '800px', margin: 'auto', marginTop: '40px' }}>
+            <Typography
+                variant="h3"
+                sx={{
+                    margin: '150px 0 20px 0'
+                }}
+            >
                 Challenge List
             </Typography>
             <Box ref={categoryBoxRef}>

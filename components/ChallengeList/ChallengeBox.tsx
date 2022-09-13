@@ -79,14 +79,20 @@ export default function BoxSx(props: Iprops) {
                 >
                     <Link href={`/challenges/${refName}`}>
                         <a
-                            style={{ textDecoration: 'none', color: '#6d6e6d' }}
+                            style={{
+                                textDecoration: 'none',
+                                color: '#6d6e6d'
+                            }}
                         >{`${refNumber}. ${title}`}</a>
                     </Link>
                 </Typography>
                 <Stack
                     direction="row"
                     spacing={1}
-                    style={{ position: 'absolute', right: '0' }}
+                    style={{
+                        position: 'absolute',
+                        right: '0'
+                    }}
                 >
                     {tags.map((tagName: string) => {
                         return (

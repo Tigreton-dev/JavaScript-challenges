@@ -15,9 +15,7 @@ const ExampleCode = () => {
     const { data } = React.useContext(DataContext) as DataContextType;
     const examples = data.currentProblem.examples;
     const currentTheme = data.currentTheme;
-    const editorTheme = currentTheme.isDarkTheme
-        ? darkTheme(currentTheme.primary)
-        : lightTheme(currentTheme.primary);
+    const editorTheme = currentTheme.isDarkTheme ? darkTheme(currentTheme.primary) : lightTheme(currentTheme.primary);
 
     const spanStyles = {
         borderRadius: '5px',
@@ -30,9 +28,7 @@ const ExampleCode = () => {
     };
 
     React.useEffect(() => {
-        const codemirrorClass: Array<any> = Array.from(
-            document.getElementsByClassName('codeMirror_examples')
-        );
+        const codemirrorClass: Array<any> = Array.from(document.getElementsByClassName('codeMirror_examples'));
         codemirrorClass.forEach(mirror => {
             mirror.style.borderRadius = '5px';
             mirror.style.marginBottom = '15px';
@@ -49,7 +45,12 @@ const ExampleCode = () => {
         <div>
             {Object.entries(examples).map(([key, value], i) => {
                 return (
-                    <Box key={key} style={{ fontSize: '16px' }}>
+                    <Box
+                        key={key}
+                        style={{
+                            fontSize: '16px'
+                        }}
+                    >
                         <Typography variant="h6">Example {i + 1}</Typography>
                         <Chip label="Input" sx={spanStyles} />
                         <CodeMirror
@@ -61,7 +62,11 @@ const ExampleCode = () => {
                             editable={false}
                             height={'100%'}
                             theme={editorTheme}
-                            extensions={[javascript({ jsx: true })]}
+                            extensions={[
+                                javascript({
+                                    jsx: true
+                                })
+                            ]}
                             basicSetup={{
                                 lineNumbers: false,
                                 highlightActiveLineGutter: false,
@@ -79,7 +84,11 @@ const ExampleCode = () => {
                             editable={false}
                             height={'100%'}
                             theme={editorTheme}
-                            extensions={[javascript({ jsx: true })]}
+                            extensions={[
+                                javascript({
+                                    jsx: true
+                                })
+                            ]}
                             basicSetup={{
                                 lineNumbers: false,
                                 highlightActiveLineGutter: false,

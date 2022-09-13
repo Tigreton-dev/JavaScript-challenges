@@ -31,7 +31,9 @@ const FontSize = () => {
                 onClick={handleClick}
                 size="large"
                 endIcon={<ArrowDropDownIcon />}
-                style={{ boxShadow: data.currentTheme.borderShadow }}
+                style={{
+                    boxShadow: data.currentTheme.borderShadow
+                }}
             >
                 Font Size
             </Button>
@@ -45,10 +47,7 @@ const FontSize = () => {
                     'aria-labelledby': 'basic-button'
                 }}
             >
-                <MenuItem
-                    onClick={() => handleClose(12)}
-                    style={{ minWidth: '130px' }}
-                >
+                <MenuItem onClick={() => handleClose(12)} style={{ minWidth: '130px' }}>
                     12px
                 </MenuItem>
                 <MenuItem onClick={() => handleClose(14)}>14px</MenuItem>

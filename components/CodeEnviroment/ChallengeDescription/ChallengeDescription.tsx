@@ -33,10 +33,7 @@ const ChallengeDescription = () => {
 
     return (
         <Box sx={containerStyle}>
-            <Title
-                title={currentProblem.title}
-                refName={currentProblem.refName}
-            />
+            <Title title={currentProblem.title} refName={currentProblem.refName} />
             <Stack direction="row" spacing={1}>
                 {currentProblem.tags.map((tagName: string) => {
                     return (

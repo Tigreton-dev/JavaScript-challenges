@@ -28,7 +28,10 @@ const Title = (props: TitleProps) => {
             <Typography
                 variant="h4"
                 component="h4"
-                style={{ minWidth: 'max-content', marginLeft: '10px' }}
+                style={{
+                    minWidth: 'max-content',
+                    marginLeft: '10px'
+                }}
             >
                 {title}
             </Typography>

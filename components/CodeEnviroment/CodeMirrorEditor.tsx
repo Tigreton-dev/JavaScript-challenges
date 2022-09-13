@@ -16,9 +16,7 @@ interface propsInterface {
 
 const CodeMirrorEditor = (props: propsInterface) => {
     const { isSubmittedCodeEditor } = props;
-    const { data, updateData } = React.useContext(
-        DataContext
-    ) as DataContextType;
+    const { data, updateData } = React.useContext(DataContext) as DataContextType;
     const currentProblem: any = data.currentProblem;
     const currentLanguage = data.currentLanguage;
     const fontSize = data.fontSize;
@@ -39,16 +37,15 @@ const CodeMirrorEditor = (props: propsInterface) => {
                 space_in_empty_paren: true
             });
             setCode(val);
-            updateData({ beautifyCode: false });
+            updateData({
+                beautifyCode: false
+            });
         }
     }, [data.beautifyCode]);
 
     React.useEffect(() => {
         setCode(currentProblem.startedCode[currentLanguage]);
-        if (
-            currentProblem.submittedCode &&
-            currentProblem.submittedCode[currentLanguage]
-        )
+        if (currentProblem.submittedCode && currentProblem.submittedCode[currentLanguage])
             setSubmittedCode(currentProblem.submittedCode[currentLanguage]);
     }, [startedCode, resetCode, currentProblem.submittedCode]);
 
@@ -68,7 +65,11 @@ const CodeMirrorEditor = (props: propsInterface) => {
 
     return (
         <div
-            style={{ margin: '10px', textAlign: 'initial', fontSize: fontSize }}
+            style={{
+                margin: '10px',
+                textAlign: 'initial',
+                fontSize: fontSize
+            }}
         >
             {isSubmittedCodeEditor ? (
                 <CodeMirror
@@ -109,11 +110,7 @@ const CodeMirrorEditor = (props: propsInterface) => {
             ) : (
                 <CodeMirror
                     theme={editorTheme}
-                    value={
-                        codeSolutionOnStorage !== null
-                            ? codeSolutionOnStorage
-                            : code
-                    }
+                    value={codeSolutionOnStorage !== null ? codeSolutionOnStorage : code}
                     className="codeMirror_editor"
                     height="calc(100vh - 155px)"
                     autoFocus={false}

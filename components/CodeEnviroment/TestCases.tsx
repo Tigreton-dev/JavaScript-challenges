@@ -33,15 +33,12 @@ const TestCases = () => {
             }}
         >
             {Object.entries(currentProblem.testCases).map(([key, value], i) => {
-                const { test_input, test_expected, code_output, passed_test } =
-                    value;
+                const { test_input, test_expected, code_output, passed_test } = value;
                 const inputData = beautify(JSON.stringify(test_input), {
                     indent_size: 2,
                     space_in_empty_paren: true
                 });
-                const boxShadow = passed_test
-                    ? '0px 0px 10px -1px green'
-                    : '0px 0px 10px -1px rgb(223, 3, 3)';
+                const boxShadow = passed_test ? '0px 0px 10px -1px green' : '0px 0px 10px -1px rgb(223, 3, 3)';
                 const msg = passed_test ? 'Passed Correctly' : 'Fail';
                 const codemirrors = [
                     {
@@ -73,14 +70,18 @@ const TestCases = () => {
                         <AccordionSummary
                             expandIcon={
                                 <ExpandMoreIcon
-                                    sx={{ color: currentTheme.color }}
+                                    sx={{
+                                        color: currentTheme.color
+                                    }}
                                 />
                             }
                         >
                             <Button
                                 size="large"
                                 startIcon={icon}
-                                sx={{ boxShadow: 'none' }}
+                                sx={{
+                                    boxShadow: 'none'
+                                }}
                             >
                                 {`Test ${i} ${msg}`}
                             </Button>
@@ -88,17 +89,12 @@ const TestCases = () => {
                         <AccordionDetails>
                             {codemirrors.map(element => (
                                 <>
-                                    <Typography variant="h6">
-                                        {element.title}
-                                    </Typography>
+                                    <Typography variant="h6">{element.title}</Typography>
                                     <CodeMirror
-                                        value={beautify(
-                                            JSON.stringify(element.data),
-                                            {
-                                                indent_size: 2,
-                                                space_in_empty_paren: true
-                                            }
-                                        )}
+                                        value={beautify(JSON.stringify(element.data), {
+                                            indent_size: 2,
+                                            space_in_empty_paren: true
+                                        })}
                                         className="codeMirror_testCases"
                                         height={'100%'}
                                         editable={false}
@@ -110,10 +106,13 @@ const TestCases = () => {
                                             boxShadow:
                                                 '0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12)',
                                             overflow: 'scroll',
-                                            backgroundColor:
-                                                currentTheme.secondary
+                                            backgroundColor: currentTheme.secondary
                                         }}
-                                        extensions={[javascript({ jsx: true })]}
+                                        extensions={[
+                                            javascript({
+                                                jsx: true
+                                            })
+                                        ]}
                                         basicSetup={{
                                             lineNumbers: false,
                                             highlightActiveLineGutter: false,

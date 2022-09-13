@@ -35,9 +35,7 @@ declare global {
 }
 
 const Terminal = () => {
-    const { data, updateData } = React.useContext(
-        DataContext
-    ) as DataContextType;
+    const { data, updateData } = React.useContext(DataContext) as DataContextType;
     const currentTheme = data.currentTheme;
     const [values, setValues] = React.useState([]);
     const editorTheme = currentTheme.isDarkTheme
@@ -143,7 +141,11 @@ const Terminal = () => {
                                 editable={false}
                                 height={'auto'}
                                 theme={editorTheme}
-                                extensions={[javascript({ jsx: true })]}
+                                extensions={[
+                                    javascript({
+                                        jsx: true
+                                    })
+                                ]}
                                 basicSetup={{
                                     lineNumbers: false,
                                     highlightActiveLineGutter: false,

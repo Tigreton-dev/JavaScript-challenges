@@ -19,9 +19,7 @@ import { DataContext } from '../../../context/dataContext';
 import { DataContextType } from '../../../context/@types.data';
 
 const MenuBar = () => {
-    const { data, updateData } = React.useContext(
-        DataContext
-    ) as DataContextType;
+    const { data, updateData } = React.useContext(DataContext) as DataContextType;
     const router = useRouter();
     const currentTheme = data.currentTheme;
     const currentProblem = data.currentProblem;
@@ -29,8 +27,7 @@ const MenuBar = () => {
     const prevChallenge = async () => {
         let currentProblemNumber = currentProblem.refNumber - 1;
         if (currentProblemNumber === 1) currentProblemNumber = 2;
-        const newProblemName =
-            Object.values(Challenges)[currentProblemNumber].refName;
+        const newProblemName = Object.values(Challenges)[currentProblemNumber].refName;
         router.push(`./${newProblemName}`);
         console.log('prevChallenge');
     };
@@ -38,8 +35,7 @@ const MenuBar = () => {
     const nextChallenge = async () => {
         const currentProblemNumber = currentProblem.refNumber + 1;
         console.log(currentProblemNumber);
-        const newProblemName =
-            Object.values(Challenges)[currentProblemNumber].refName;
+        const newProblemName = Object.values(Challenges)[currentProblemNumber].refName;
         router.push(`./${newProblemName}`);
         console.log('nextChallenge');
     };
@@ -62,15 +58,8 @@ const MenuBar = () => {
                             </Link>
                         </Button>
                     </Tooltip>
-                    <Tooltip
-                        TransitionComponent={Zoom}
-                        title="Select Challenge"
-                        arrow
-                    >
-                        <Button
-                            size="large"
-                            startIcon={<FormatListBulletedIcon />}
-                        >
+                    <Tooltip TransitionComponent={Zoom} title="Select Challenge" arrow>
+                        <Button size="large" startIcon={<FormatListBulletedIcon />}>
                             <Link href="/">
                                 <a
                                     style={{
@@ -84,11 +73,7 @@ const MenuBar = () => {
                         </Button>
                     </Tooltip>
 
-                    <Tooltip
-                        TransitionComponent={Zoom}
-                        title="Previous Challenge"
-                        arrow
-                    >
+                    <Tooltip TransitionComponent={Zoom} title="Previous Challenge" arrow>
                         <Button size="small" onClick={prevChallenge}>
                             <ArrowBackIcon />
                         </Button>
@@ -98,13 +83,12 @@ const MenuBar = () => {
                 <Stack
                     spacing={2}
                     direction="row"
-                    sx={{ position: 'absolute', right: '20px' }}
+                    sx={{
+                        position: 'absolute',
+                        right: '20px'
+                    }}
                 >
-                    <Tooltip
-                        TransitionComponent={Zoom}
-                        title="Next Challenge"
-                        arrow
-                    >
+                    <Tooltip TransitionComponent={Zoom} title="Next Challenge" arrow>
                         <Button size="small" onClick={nextChallenge}>
                             <ArrowForwardIcon />
                         </Button>

@@ -25,7 +25,11 @@ const SolutionCode = () => {
 
     return (
         <div
-            style={{ margin: '10px', textAlign: 'initial', fontSize: fontSize }}
+            style={{
+                margin: '10px',
+                textAlign: 'initial',
+                fontSize: fontSize
+            }}
         >
             <CodeMirror
                 theme={editorTheme}
