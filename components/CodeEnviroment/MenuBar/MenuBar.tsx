@@ -29,15 +29,12 @@ const MenuBar = () => {
         if (currentProblemNumber === 1) currentProblemNumber = 2;
         const newProblemName = Object.values(Challenges)[currentProblemNumber].refName;
         router.push(`./${newProblemName}`);
-        console.log('prevChallenge');
     };
 
     const nextChallenge = async () => {
         const currentProblemNumber = currentProblem.refNumber + 1;
-        console.log(currentProblemNumber);
         const newProblemName = Object.values(Challenges)[currentProblemNumber].refName;
         router.push(`./${newProblemName}`);
-        console.log('nextChallenge');
     };
 
     return (

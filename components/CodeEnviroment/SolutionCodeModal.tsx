@@ -51,32 +51,31 @@ const SolutionCodeModal = (props: Props) => {
                     horizontal: 'right'
                 }}
                 key={'1'}
-                children={
-                    <Alert
-                        variant="filled"
-                        severity={isSolutionCorrect ? 'success' : 'error'}
+            >
+                <Alert
+                    variant="filled"
+                    severity={isSolutionCorrect ? 'success' : 'error'}
+                    style={{
+                        fontSize: '16px',
+                        textAlign: 'left'
+                    }}
+                    action={
+                        <IconButton aria-label="close" color="inherit" size="small" onClick={handleClose}>
+                            <CloseIcon fontSize="inherit" />
+                        </IconButton>
+                    }
+                    sx={{ mb: 2 }}
+                >
+                    <AlertTitle
                         style={{
-                            fontSize: '16px',
-                            textAlign: 'left'
+                            fontSize: '17px'
                         }}
-                        action={
-                            <IconButton aria-label="close" color="inherit" size="small" onClick={handleClose}>
-                                <CloseIcon fontSize="inherit" />
-                            </IconButton>
-                        }
-                        sx={{ mb: 2 }}
                     >
-                        <AlertTitle
-                            style={{
-                                fontSize: '17px'
-                            }}
-                        >
-                            {text.title}
-                        </AlertTitle>
-                        {text.subTitle} <strong>check it out!</strong>
-                    </Alert>
-                }
-            />
+                        {text.title}
+                    </AlertTitle>
+                    {text.subTitle} <strong>check it out!</strong>
+                </Alert>
+            </Snackbar>
         </div>
     );
 };

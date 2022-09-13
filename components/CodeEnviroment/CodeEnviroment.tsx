@@ -67,6 +67,7 @@ export default function CodeEnviroment() {
         const functionName = currentProblem.refName;
         const updateCurrentProblem = JSON.parse(JSON.stringify(currentProblem));
         for (let testCase in testCases) {
+            // eslint-disable-next-line no-console
             console.log('---------- Test Case ' + testCase + ' ----------');
             if (updateCurrentProblem.testCases[testCase].functionTest) {
                 createTestScript(updateCurrentProblem.testCases[testCase].test_input);
@@ -80,9 +81,11 @@ export default function CodeEnviroment() {
                         // @ts-ignore
                         updateCurrentProblem.testCases[testCase].code_output = window[functionName](...parameters);
                     } else {
+                        // eslint-disable-next-line no-console
                         console.error(`TypeError: window.${functionName} is undefined`);
                     }
                 } catch (err) {
+                    // eslint-disable-next-line no-console
                     console.error(err);
                 }
             }

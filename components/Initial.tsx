@@ -1,5 +1,6 @@
 import React from 'react';
 import Typography from '@mui/material/Typography';
+import Image from 'next/image';
 
 export default function Initial() {
     return (
@@ -57,7 +58,7 @@ export default function Initial() {
                         platform to practice those challenges.
                     </Typography>
                 </div>
-                <img
+                <Image
                     style={{
                         position: 'absolute',
                         top: '0px',
@@ -67,7 +68,7 @@ export default function Initial() {
                         opacity: '1'
                     }}
                     src="/images/editorDark.png"
-                    alt="bride and groom smooching"
+                    alt="Picture of the author"
                 />
             </div>
         </div>

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import * as React from 'react';
 // @ts-ignore
 import beautify from 'js-beautify';

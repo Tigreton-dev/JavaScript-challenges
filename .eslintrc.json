@@ -5,7 +5,6 @@
         "prettier/prettier": "warn",
         "no-console": "warn",
         "react-hooks/exhaustive-deps": "off",
-        "max-line-length": [true, { "limit": 120 }],
         "react/no-unescaped-entities": "off"
     }
 }
