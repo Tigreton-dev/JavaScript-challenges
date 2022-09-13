@@ -1,5 +1,6 @@
 import * as React from 'react'
 import AppBar from '@mui/material/AppBar'
+import { useRouter } from 'next/router'
 import Toolbar from '@mui/material/Toolbar'
 import Button from '@mui/material/Button'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
@@ -10,6 +11,7 @@ import Zoom from '@mui/material/Zoom';
 import Tooltip from '@mui/material/Tooltip';
 import Link from "next/link"
 
+import Challenges from '../../../data/challenges.json'
 import LanguageMenu from './LanguageMenu'
 import FontSize from './FontSize'
 import Theme from './Theme'
@@ -17,14 +19,24 @@ import { DataContext } from '../../../context/dataContext';
 import { DataContextType } from '../../../context/@types.data';
 
 const MenuBar = () => {
-	const { data } = React.useContext(DataContext) as DataContextType;
+	const { data, updateData } = React.useContext(DataContext) as DataContextType;
+	const router = useRouter()
 	const currentTheme = data.currentTheme;
+	const currentProblem = data.currentProblem
 
 	const prevChallenge = async () => {
+		let currentProblemNumber = currentProblem.refNumber - 1
+		if (currentProblemNumber === 1) currentProblemNumber = 2
+		const newProblemName = Object.values(Challenges)[currentProblemNumber].refName;
+		router.push(`./${newProblemName}`)
 		console.log("prevChallenge")
 	}
 
 	const nextChallenge = async () => {
+		const currentProblemNumber = currentProblem.refNumber + 1
+		console.log(currentProblemNumber)
+		const newProblemName = Object.values(Challenges)[currentProblemNumber].refName;
+		router.push(`./${newProblemName}`)
 		console.log("nextChallenge")
 	}
 
