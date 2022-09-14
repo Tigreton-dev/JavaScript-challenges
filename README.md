@@ -27,7 +27,7 @@ The workspace lets you type out your answers and run them against a test suite, 
 -   💙 [Typescript](https://www.typescriptlang.org/) - A superset of JavaScript.
 -   💖 [MUI](https://mui.com/) - suite of UI tools.
 -   🌐 [Vercel](https://vercel.com/) - a cloud platform to host deploy and scale automatically.
--   ⬛ [React-codemirror](https://sandpack.codesandbox.io/) - CodeMirror component for React.
+-   ⬛ [React-codemirror](https://codemirror.net/) - CodeMirror component for React.
 
 ## 🚀 Getting Started:
 
