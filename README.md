@@ -14,7 +14,7 @@
 
 ## 💖 Description:
 
-> ### Coding out solutions to algorithm problems is the best way to increase your algorithms skills!!!
+> ### Coding out algorithm problems is the best way to increase your algorithms skills!!!
 
 This Online Code platform provide over 160 coding questions classified in 8 Categories and 3 difficulty levels to maximize the understanding of algorithms and data structures.
 

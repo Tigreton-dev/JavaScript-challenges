@@ -27,20 +27,18 @@ export default function Initial() {
                         marginTop: '40px'
                     }}
                 >
-                    <Typography
-                        variant="h4"
-                        component="h3"
-                        sx={{ color: 'white', fontSize: '50px', marginBottom: '20px' }}
-                    >
+                    <Typography component="h3" sx={{ color: 'white', fontSize: '50px', marginBottom: '20px' }}>
                         JavaScript Challenges
                     </Typography>
                     <Typography
-                        variant="body1"
                         component="p"
-                        sx={{ color: 'white', fontSize: '20px', marginBottom: '20px' }}
+                        sx={{ fontWeight: 'bold', color: 'white', fontSize: '20px', marginBottom: '20px' }}
                     >
-                        List of data structures & algorithms challenges that I have resolved with an online coding
-                        platform to practice those challenges.
+                        Coding out algorithm problems is the best way to increase your algorithms skills!!!
+                    </Typography>
+                    <Typography component="p" sx={{ color: 'white', fontSize: '20px', marginBottom: '20px' }}>
+                        This Online Code platform provide over 160 coding questions classified in 8 Categories and 3
+                        difficulty levels to maximize the understanding of algorithms and data structures.
                     </Typography>
                 </div>
                 <Image
