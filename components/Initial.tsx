@@ -45,9 +45,9 @@ export default function Initial() {
                 </div>
                 <Image
                     style={{ position: 'absolute', top: '0px', right: '5vw', opacity: '1' }}
-                    width="600px"
-                    height="350px"
-                    src="/images/editorDark.png"
+                    width="650px"
+                    height="400px"
+                    src="/images/editor.png"
                     alt="Picture of the author"
                 />
             </div>
