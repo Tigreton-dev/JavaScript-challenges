@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 export default function Initial() {
     return (
-        <div style={{ width: '100vw', height: '500px', position: 'relative', background: '#001E26' }}>
+        <div style={{ width: '100vw', height: '550px', position: 'relative', background: '#001E26' }}>
             <div
                 style={{
                     width: '100%',
