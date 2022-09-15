@@ -41,20 +41,6 @@ const MenuBar = () => {
         <AppBar position="static">
             <Toolbar style={{ minHeight: '55px' }}>
                 <Stack spacing={2} direction="row">
-                    <Tooltip TransitionComponent={Zoom} title="Home" arrow>
-                        <Button size="large">
-                            <Link href="/">
-                                <a
-                                    style={{
-                                        color: currentTheme.color,
-                                        textDecoration: 'none'
-                                    }}
-                                >
-                                    Challenges
-                                </a>
-                            </Link>
-                        </Button>
-                    </Tooltip>
                     <Tooltip TransitionComponent={Zoom} title="Select Challenge" arrow>
                         <Button size="large" startIcon={<FormatListBulletedIcon />}>
                             <Link href="/">
