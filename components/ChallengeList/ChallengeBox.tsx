@@ -49,13 +49,13 @@ export default function BoxSx(props: Iprops) {
                 position: 'relative',
                 width: '100%',
                 height: 'auto',
-                padding: '15px',
+                padding: '1rem',
                 borderRadius: '5px',
                 backgroundColor: '#f8fcff',
                 boxShadow: currentTheme.borderShadow,
-                marginBottom: '15px',
+                marginBottom: '1rem',
                 boxSizing: 'border-box',
-                borderRight: `20px solid ${boxColor()}`
+                borderRight: `1.25rem solid ${boxColor()}`
             }}
         >
             <Box
@@ -71,7 +71,7 @@ export default function BoxSx(props: Iprops) {
                     variant="h1"
                     component="h1"
                     style={{
-                        marginLeft: '10px',
+                        marginLeft: '0.625rem',
                         width: '250px',
                         fontSize: '18px',
                         fontWeight: 'bold'

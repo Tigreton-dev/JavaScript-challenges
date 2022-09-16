@@ -16,7 +16,7 @@ const ChallengeDescription = () => {
     const currentProblem = data.currentProblem;
 
     const containerStyle = {
-        padding: '20px',
+        padding: '1.25rem',
         paddingTop: '0',
         height: 'calc(100vh - 140px)',
         overflow: 'scroll',

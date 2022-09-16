@@ -32,8 +32,8 @@ const ExampleCode = () => {
         codemirrorClass.forEach(mirror => {
             mirror.style.borderRadius = '5px';
             mirror.style.marginBottom = '15px';
-            mirror.style.padding = '10px';
-            mirror.style.paddingTop = '20px';
+            mirror.style.padding = '0.625rem';
+            mirror.style.paddingTop = '1.25rem';
             mirror.style.boxShadow =
                 '0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12)';
             mirror.style.overflow = 'scroll';

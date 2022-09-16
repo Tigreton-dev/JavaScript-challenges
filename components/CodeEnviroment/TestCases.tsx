@@ -27,7 +27,7 @@ const TestCases = () => {
     return (
         <div
             style={{
-                padding: '20px',
+                padding: '1.25rem',
                 height: 'calc(100vh - 140px)',
                 overflow: 'scroll'
             }}
@@ -102,7 +102,7 @@ const TestCases = () => {
                                         style={{
                                             borderRadius: '5px',
                                             marginBottom: '15px',
-                                            padding: '10px',
+                                            padding: '0.625rem',
                                             boxShadow:
                                                 '0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12)',
                                             overflow: 'scroll',
