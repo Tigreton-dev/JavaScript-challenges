@@ -39,7 +39,7 @@ const MenuBar = () => {
 
     return (
         <AppBar position="static">
-            <Toolbar style={{ minHeight: '55px' }}>
+            <Toolbar style={{ flexBasis: '55px', minHeight: '55px' }}>
                 <Stack spacing={2} direction="row">
                     <Tooltip TransitionComponent={Zoom} title="Select Challenge" arrow>
                         <Button size="large" startIcon={<FormatListBulletedIcon />}>

@@ -18,9 +18,9 @@ const Container = () => {
     };
 
     const styles = {
-        margin: '20px',
-        marginTop: '0',
+        margin: '0px 25px',
         height: 'calc(100% - 25px)',
+        boxSizing: 'border-box',
         overflow: 'hidden',
         padding: 0,
         position: 'relative',
@@ -31,7 +31,9 @@ const Container = () => {
         <div
             style={{
                 width: '100%',
-                height: 'calc(100vh - 55px)',
+                boxSizing: 'border-box',
+                flexBasis: '100%',
+                overflow: 'hidden',
                 backgroundColor: currentTheme.tertiary
             }}
         >
