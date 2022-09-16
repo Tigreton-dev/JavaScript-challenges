@@ -119,7 +119,7 @@ const Terminal = () => {
                                 key={index}
                                 style={{
                                     margin: '0px',
-                                    padding: '5px 20px',
+                                    padding: '0.313rem 1.25rem',
                                     color: color,
                                     borderBottom: `1px solid ${currentTheme.color}15`
                                 }}

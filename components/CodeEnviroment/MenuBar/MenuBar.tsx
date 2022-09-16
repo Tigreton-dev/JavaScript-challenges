@@ -9,6 +9,8 @@ import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
 import Stack from '@mui/material/Stack';
 import Zoom from '@mui/material/Zoom';
 import Tooltip from '@mui/material/Tooltip';
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
 import Link from 'next/link';
 
 import Challenges from '../../../data/challenges.json';
@@ -20,6 +22,7 @@ import { DataContextType } from '../../../context/@types.data';
 
 const MenuBar = () => {
     const { data, updateData } = React.useContext(DataContext) as DataContextType;
+    const [fontSize, setFontSize] = React.useState(100);
     const router = useRouter();
     const currentTheme = data.currentTheme;
     const currentProblem = data.currentProblem;
@@ -37,9 +40,21 @@ const MenuBar = () => {
         router.push(`./${newProblemName}`);
     };
 
+    const zoomOut = () => {
+        const size = fontSize - 10;
+        document.documentElement.style.setProperty('--main-fontSize', size + '%');
+        setFontSize(fontSize => fontSize - 10);
+    };
+
+    const zoomIn = () => {
+        const size = fontSize + 10;
+        document.documentElement.style.setProperty('--main-fontSize', size + '%');
+        setFontSize(fontSize => fontSize + 10);
+    };
+
     return (
-        <AppBar position="static">
-            <Toolbar style={{ minHeight: '55px' }}>
+        <AppBar position="static" style={{ flexBasis: '3.5rem', minHeight: '3.5rem' }}>
+            <Toolbar style={{ flexBasis: '3.5rem', minHeight: '3.5rem' }}>
                 <Stack spacing={2} direction="row">
                     <Tooltip TransitionComponent={Zoom} title="Select Challenge" arrow>
                         <Button size="large" startIcon={<FormatListBulletedIcon />}>
@@ -55,12 +70,6 @@ const MenuBar = () => {
                             </Link>
                         </Button>
                     </Tooltip>
-
-                    <Tooltip TransitionComponent={Zoom} title="Previous Challenge" arrow>
-                        <Button size="small" onClick={prevChallenge}>
-                            <ArrowBackIcon />
-                        </Button>
-                    </Tooltip>
                 </Stack>
 
                 <Stack
@@ -71,11 +80,28 @@ const MenuBar = () => {
                         right: '20px'
                     }}
                 >
+                    <Tooltip TransitionComponent={Zoom} title="Previous Challenge" arrow>
+                        <Button size="small" onClick={prevChallenge}>
+                            <ArrowBackIcon />
+                        </Button>
+                    </Tooltip>
                     <Tooltip TransitionComponent={Zoom} title="Next Challenge" arrow>
                         <Button size="small" onClick={nextChallenge}>
                             <ArrowForwardIcon />
                         </Button>
                     </Tooltip>
+
+                    <Tooltip TransitionComponent={Zoom} title="Zoom Out" arrow>
+                        <Button size="small" onClick={zoomOut}>
+                            <RemoveIcon />
+                        </Button>
+                    </Tooltip>
+                    <Tooltip TransitionComponent={Zoom} title="Zoom In" arrow>
+                        <Button size="small" onClick={zoomIn}>
+                            <AddIcon />
+                        </Button>
+                    </Tooltip>
+
                     <Theme />
                     <LanguageMenu />
                     <FontSize />

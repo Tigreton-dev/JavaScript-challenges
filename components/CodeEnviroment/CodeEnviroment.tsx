@@ -122,13 +122,15 @@ export default function CodeEnviroment() {
                 <p>Not supported</p>
             ) : (
                 <ThemeProvider theme={muiTheme(muiThemeProps)}>
-                    <MenuBar />
-                    <Container />
-                    <SolutionCodeModal
-                        open={displayCodeResultModal}
-                        setClose={() => closeModal()}
-                        isSolutionCorrect={isSolutionCorrect}
-                    />
+                    <div style={{ display: 'flex', flexDirection: 'column', width: '100vw', height: '100vh' }}>
+                        <MenuBar />
+                        <Container />
+                        <SolutionCodeModal
+                            open={displayCodeResultModal}
+                            setClose={() => closeModal()}
+                            isSolutionCorrect={isSolutionCorrect}
+                        />
+                    </div>
                 </ThemeProvider>
             )}
         </>

@@ -30,10 +30,11 @@ export function muiTheme(props: Props) {
             MuiButton: {
                 styleOverrides: {
                     root: {
-                        fontSize: '14px',
+                        fontSize: '0.9rem',
                         borderRadius: '5px',
                         background: primary,
                         color: color,
+                        height: '2.5rem',
                         boxShadow:
                             '0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12)'
                     }
@@ -49,6 +50,14 @@ export function muiTheme(props: Props) {
                     }
                 }
             },
+            MuiIconButton: {
+                styleOverrides: {
+                    root: {
+                        width: '3rem',
+                        minWidth: '3rem'
+                    }
+                }
+            },
             MuiPaper: {
                 styleOverrides: {
                     root: {
@@ -58,7 +67,7 @@ export function muiTheme(props: Props) {
                         fontSize: '0.875rem',
                         lineHeight: 1.43,
                         letterSpacing: '0.01071em',
-                        padding: '5px',
+                        padding: '0.313rem',
                         textAlign: 'center',
                         color: color,
                         borderRadius: '8px'

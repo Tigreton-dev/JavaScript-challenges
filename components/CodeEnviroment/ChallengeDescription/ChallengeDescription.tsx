@@ -16,9 +16,9 @@ const ChallengeDescription = () => {
     const currentProblem = data.currentProblem;
 
     const containerStyle = {
-        padding: '20px',
+        padding: '1.25rem',
         paddingTop: '0',
-        height: 'calc(100vh - 160px)',
+        height: 'calc(100vh - 140px)',
         overflow: 'scroll',
         textAlign: 'left'
     };
@@ -52,7 +52,7 @@ const ChallengeDescription = () => {
             </Stack>
             <Box
                 style={{
-                    fontSize: '18.5px',
+                    fontSize: '1.15rem',
                     fontFamily: 'Roboto',
                     fontWeight: '400'
                 }}
