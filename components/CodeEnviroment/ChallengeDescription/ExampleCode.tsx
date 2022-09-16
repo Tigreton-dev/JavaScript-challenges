@@ -22,7 +22,7 @@ const ExampleCode = () => {
         color: currentTheme.color,
         position: 'relative',
         top: '10px',
-        fontSize: '18px',
+        fontSize: '1.1rem',
         background: currentTheme.primary,
         boxShadow: currentTheme.borderShadow
     };
@@ -48,7 +48,7 @@ const ExampleCode = () => {
                     <Box
                         key={key}
                         style={{
-                            fontSize: '16px'
+                            fontSize: '1rem'
                         }}
                     >
                         <Typography variant="h6">Example {i + 1}</Typography>

@@ -56,7 +56,7 @@ const SolutionCodeModal = (props: Props) => {
                     variant="filled"
                     severity={isSolutionCorrect ? 'success' : 'error'}
                     style={{
-                        fontSize: '16px',
+                        fontSize: '1rem',
                         textAlign: 'left'
                     }}
                     action={
@@ -68,7 +68,7 @@ const SolutionCodeModal = (props: Props) => {
                 >
                     <AlertTitle
                         style={{
-                            fontSize: '17px'
+                            fontSize: '1.2rem'
                         }}
                     >
                         {text.title}

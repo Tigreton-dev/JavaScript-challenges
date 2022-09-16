@@ -30,7 +30,7 @@ export function muiTheme(props: Props) {
             MuiButton: {
                 styleOverrides: {
                     root: {
-                        fontSize: '14px',
+                        fontSize: '0.9rem',
                         borderRadius: '5px',
                         background: primary,
                         color: color,
