@@ -46,19 +46,13 @@ const SolutionCodeModal = (props: Props) => {
                 open={open}
                 onClose={handleClose}
                 TransitionComponent={transition}
-                anchorOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right'
-                }}
+                anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
                 key={'1'}
             >
                 <Alert
                     variant="filled"
                     severity={isSolutionCorrect ? 'success' : 'error'}
-                    style={{
-                        fontSize: '1rem',
-                        textAlign: 'left'
-                    }}
+                    style={{ fontSize: '1rem', textAlign: 'left' }}
                     action={
                         <IconButton aria-label="close" color="inherit" size="small" onClick={handleClose}>
                             <CloseIcon fontSize="inherit" />
@@ -66,13 +60,7 @@ const SolutionCodeModal = (props: Props) => {
                     }
                     sx={{ mb: 2 }}
                 >
-                    <AlertTitle
-                        style={{
-                            fontSize: '1.2rem'
-                        }}
-                    >
-                        {text.title}
-                    </AlertTitle>
+                    <AlertTitle style={{ fontSize: '1.2rem' }}>{text.title}</AlertTitle>
                     {text.subTitle} <strong>check it out!</strong>
                 </Alert>
             </Snackbar>

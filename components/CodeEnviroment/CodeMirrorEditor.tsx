@@ -93,14 +93,14 @@ const CodeMirrorEditor = () => {
                 endIcon={<SendIcon />}
                 style={{
                     boxShadow: currentTheme.borderShadow,
-                    bottom: 40,
-                    left: 'calc(100% - 80px)',
-                    position: 'relative',
+                    bottom: '25px',
+                    right: '25px',
+                    position: 'fixed',
                     color: 'white',
                     backgroundColor: currentTheme.secondary_color
                 }}
             >
-                Run
+                Run Code
             </Button>
         </div>
     );

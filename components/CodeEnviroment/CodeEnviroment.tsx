@@ -33,6 +33,7 @@ export default function CodeEnviroment() {
         return () => window.removeEventListener('resize', setWidth);
     }, []);
 
+    // Run Code
     React.useEffect(() => {
         if (codeValue.length > 0) {
             const result = run_tests(currentProblem, codeValue);
@@ -50,7 +51,7 @@ export default function CodeEnviroment() {
         updateData({ displayCodeResultModal: false });
     };
 
-    if (windowDimensions < 1080) return <p>Not Supported</p>;
+    if (windowDimensions < 900) return <p>Not Supported</p>;
 
     return (
         <ThemeProvider theme={muiTheme(muiThemeProps)}>
