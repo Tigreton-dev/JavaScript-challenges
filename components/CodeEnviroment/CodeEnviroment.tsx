@@ -52,23 +52,19 @@ export default function CodeEnviroment() {
         });
     };
 
+    if (windowDimensions < 1080) return <p>Not Supported</p>;
+
     return (
-        <>
-            {windowDimensions < 1080 ? (
-                <p>Not supported</p>
-            ) : (
-                <ThemeProvider theme={muiTheme(muiThemeProps)}>
-                    <div style={{ display: 'flex', flexDirection: 'column', width: '100vw', height: '100vh' }}>
-                        <MenuBar />
-                        <Container />
-                        <SolutionCodeModal
-                            open={displayCodeResultModal}
-                            setClose={() => closeModal()}
-                            isSolutionCorrect={isSolutionCorrect}
-                        />
-                    </div>
-                </ThemeProvider>
-            )}
-        </>
+        <ThemeProvider theme={muiTheme(muiThemeProps)}>
+            <div style={{ display: 'flex', flexDirection: 'column', width: '100vw', height: '100vh' }}>
+                <MenuBar />
+                <Container />
+                <SolutionCodeModal
+                    open={displayCodeResultModal}
+                    setClose={() => closeModal()}
+                    isSolutionCorrect={isSolutionCorrect}
+                />
+            </div>
+        </ThemeProvider>
     );
 }
