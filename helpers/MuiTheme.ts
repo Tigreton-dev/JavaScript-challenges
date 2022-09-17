@@ -35,6 +35,7 @@ export function muiTheme(props: Props) {
                         background: primary,
                         color: color,
                         height: '2.5rem',
+                        minWidth: '4rem',
                         boxShadow:
                             '0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12)'
                     }
