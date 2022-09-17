@@ -7,10 +7,7 @@ import SolutionCodeModal from './SolutionCodeModal';
 import { muiTheme } from '../../helpers/MuiTheme';
 import { DataContext } from '../../context/dataContext';
 import { DataContextType } from '../../context/@types.data';
-
-interface ItestCases {
-    [key: string]: any;
-}
+import { run_tests } from '../../helpers/testScript';
 
 export default function CodeEnviroment() {
     const { data, updateData } = React.useContext(DataContext) as DataContextType;
@@ -37,78 +34,17 @@ export default function CodeEnviroment() {
     }, []);
 
     React.useEffect(() => {
-        if (codeValue.length > 0) run_tests();
+        if (codeValue.length > 0) {
+            const result = run_tests(currentProblem, codeValue);
+            updateData({
+                runCode: false,
+                displayCodeResultModal: true,
+                isSolutionCorrect: result.solutionCorrect,
+                currentProblem: result.problem,
+                displayBadge: true
+            });
+        }
     }, [codeValue]);
-
-    const createScript = () => {
-        const scriptElement = document.getElementById('debugScript');
-        if (scriptElement !== null) document.body.removeChild(scriptElement);
-        const js = codeValue;
-        const oScript = document.createElement('script');
-        const oScriptText = document.createTextNode(js);
-        oScript.id = 'debugScript';
-        oScript.appendChild(oScriptText);
-        document.body.appendChild(oScript);
-    };
-
-    const createTestScript = (value: string) => {
-        const scriptElement = document.getElementById('testScript');
-        if (scriptElement !== null) document.body.removeChild(scriptElement);
-        const oScript = document.createElement('script');
-        const oScriptText = document.createTextNode(value);
-        oScript.id = 'testScript';
-        oScript.appendChild(oScriptText);
-        document.body.appendChild(oScript);
-    };
-
-    const run_tests = () => {
-        createScript();
-        const testCases: ItestCases = currentProblem.testCases;
-        const functionName = currentProblem.refName;
-        const updateCurrentProblem = JSON.parse(JSON.stringify(currentProblem));
-        for (let testCase in testCases) {
-            // eslint-disable-next-line no-console
-            console.log('---------- Test Case ' + testCase + ' ----------');
-            if (updateCurrentProblem.testCases[testCase].functionTest) {
-                createTestScript(updateCurrentProblem.testCases[testCase].test_input);
-                // @ts-ignore
-                updateCurrentProblem.testCases[testCase].code_output = window.test_input();
-            } else {
-                const parameters = JSON.parse(JSON.stringify(testCases[testCase].test_input));
-                try {
-                    // @ts-ignore
-                    if (window[functionName] !== undefined) {
-                        // @ts-ignore
-                        updateCurrentProblem.testCases[testCase].code_output = window[functionName](...parameters);
-                    } else {
-                        // eslint-disable-next-line no-console
-                        console.error(`TypeError: window.${functionName} is undefined`);
-                    }
-                } catch (err) {
-                    // eslint-disable-next-line no-console
-                    console.error(err);
-                }
-            }
-
-            JSON.stringify(testCases[testCase].test_expected) ===
-            JSON.stringify(updateCurrentProblem.testCases[testCase].code_output)
-                ? (updateCurrentProblem.testCases[testCase].passed_test = true)
-                : (updateCurrentProblem.testCases[testCase].passed_test = false);
-        }
-        let solutionCorrect = true;
-        for (let testCase in updateCurrentProblem.testCases) {
-            if (!updateCurrentProblem.testCases[testCase].passed_test) solutionCorrect = false;
-        }
-
-        if (solutionCorrect) localStorage.setItem(updateCurrentProblem.refName, codeValue);
-        updateData({
-            runCode: false,
-            displayCodeResultModal: true,
-            isSolutionCorrect: solutionCorrect,
-            currentProblem: updateCurrentProblem,
-            displayBadge: true
-        });
-    };
 
     const closeModal = () => {
         updateData({
