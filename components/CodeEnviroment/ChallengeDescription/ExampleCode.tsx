@@ -45,28 +45,16 @@ const ExampleCode = () => {
         <div>
             {Object.entries(examples).map(([key, value], i) => {
                 return (
-                    <Box
-                        key={key}
-                        style={{
-                            fontSize: '1rem'
-                        }}
-                    >
+                    <Box key={key} style={{ fontSize: '1rem' }}>
                         <Typography variant="h6">Example {i + 1}</Typography>
                         <Chip label="Input" sx={spanStyles} />
                         <CodeMirror
-                            value={beautify(value.input, {
-                                indent_size: 2,
-                                space_in_empty_paren: true
-                            })}
+                            value={beautify(value.input, { indent_size: 2, space_in_empty_paren: true })}
                             className="codeMirror_examples"
                             editable={false}
                             height={'100%'}
                             theme={editorTheme}
-                            extensions={[
-                                javascript({
-                                    jsx: true
-                                })
-                            ]}
+                            extensions={[javascript({ jsx: true })]}
                             basicSetup={{
                                 lineNumbers: false,
                                 highlightActiveLineGutter: false,
@@ -76,19 +64,12 @@ const ExampleCode = () => {
                         />
                         <Chip label="Output" sx={spanStyles} />
                         <CodeMirror
-                            value={beautify(value.output, {
-                                indent_size: 2,
-                                space_in_empty_paren: true
-                            })}
+                            value={beautify(value.output, { indent_size: 2, space_in_empty_paren: true })}
                             className="codeMirror_examples"
                             editable={false}
                             height={'100%'}
                             theme={editorTheme}
-                            extensions={[
-                                javascript({
-                                    jsx: true
-                                })
-                            ]}
+                            extensions={[javascript({ jsx: true })]}
                             basicSetup={{
                                 lineNumbers: false,
                                 highlightActiveLineGutter: false,

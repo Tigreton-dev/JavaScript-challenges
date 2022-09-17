@@ -38,14 +38,7 @@ const Container = () => {
             }}
         >
             <Split splitterSize="10px" defaultSplitterColors={colors} initialPrimarySize={isFullScreen ? '0%' : '50%'}>
-                <Paper
-                    sx={{
-                        ...styles,
-                        top: '5px',
-                        left: '-5px',
-                        marginRight: '0'
-                    }}
-                >
+                <Paper sx={{ ...styles, top: '5px', left: '-5px', marginRight: '0' }}>
                     <TabPanel
                         isCodeEditor={false}
                         firstTitle="Description"
@@ -55,21 +48,8 @@ const Container = () => {
                     />
                 </Paper>
 
-                <Paper
-                    sx={{
-                        ...styles,
-                        top: '5px',
-                        left: '5px',
-                        marginLeft: '0'
-                    }}
-                >
-                    <TabPanel
-                        isCodeEditor={true}
-                        firstTitle="Your Solution"
-                        secondTitle="Submitted Solution"
-                        thirdTitle="New"
-                        fourthTitle="Terminal"
-                    />
+                <Paper sx={{ ...styles, top: '5px', left: '5px', marginLeft: '0' }}>
+                    <TabPanel isCodeEditor={true} firstTitle="Your Solution" />
                 </Paper>
             </Split>
         </div>

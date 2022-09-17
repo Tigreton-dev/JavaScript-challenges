@@ -15,22 +15,19 @@ export default function Theme() {
     const boxRef = React.useRef<any>(null);
 
     React.useEffect(() => {
-        if (currentTheme.isDarkTheme) boxRef.current.style.transform = 'translateX(2.5rem)';
-        if (!currentTheme.isDarkTheme) boxRef.current.style.transform = 'translateX(0.1rem)';
+        currentTheme.isDarkTheme
+            ? (boxRef.current.style.transform = 'translateX(2.5rem)')
+            : (boxRef.current.style.transform = 'translateX(0.1rem)');
     }, []);
 
     const clickHandler = () => {
         const position = boxRef.current.style.transform;
         if (position === 'translateX(2.5rem)') {
-            updateData({
-                currentTheme: lightTheme
-            });
+            updateData({ currentTheme: lightTheme });
             localStorage.setItem('theme', JSON.stringify(lightTheme));
             boxRef.current.style.transform = 'translateX(0.1rem)';
         } else {
-            updateData({
-                currentTheme: darkTheme
-            });
+            updateData({ currentTheme: darkTheme });
             localStorage.setItem('theme', JSON.stringify(darkTheme));
             boxRef.current.style.transform = 'translateX(2.5rem)';
         }
@@ -74,18 +71,8 @@ export default function Theme() {
                             flexWrap: 'wrap'
                         }}
                     >
-                        <LightModeIcon
-                            style={{
-                                width: '2.5rem',
-                                color: currentTheme.color
-                            }}
-                        />
-                        <DarkModeIcon
-                            style={{
-                                width: '2.5rem',
-                                color: currentTheme.color
-                            }}
-                        />
+                        <LightModeIcon style={{ width: '2.5rem', color: currentTheme.color }} />
+                        <DarkModeIcon style={{ width: '2.5rem', color: currentTheme.color }} />
                     </div>
                 </div>
             </Tooltip>

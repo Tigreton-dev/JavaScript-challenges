@@ -58,52 +58,25 @@ export default function BoxSx(props: Iprops) {
                 borderRight: `1.25rem solid ${boxColor()}`
             }}
         >
-            <Box
-                style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    flexWrap: 'wrap',
-                    position: 'relative'
-                }}
-            >
+            <Box style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', position: 'relative' }}>
                 {icon}
                 <Typography
                     variant="h1"
                     component="h1"
-                    style={{
-                        marginLeft: '0.625rem',
-                        width: '250px',
-                        fontSize: '18px',
-                        fontWeight: 'bold'
-                    }}
+                    style={{ marginLeft: '0.625rem', width: '250px', fontSize: '18px', fontWeight: 'bold' }}
                 >
                     <Link href={`/challenges/${refName}`}>
-                        <a
-                            style={{
-                                textDecoration: 'none',
-                                color: '#6d6e6d'
-                            }}
-                        >{`${refNumber}. ${title}`}</a>
+                        <a style={{ textDecoration: 'none', color: '#6d6e6d' }}>{`${refNumber}. ${title}`}</a>
                     </Link>
                 </Typography>
-                <Stack
-                    direction="row"
-                    spacing={1}
-                    style={{
-                        position: 'absolute',
-                        right: '0'
-                    }}
-                >
+                <Stack direction="row" spacing={1} style={{ position: 'absolute', right: '0' }}>
                     {tags.map((tagName: string) => {
                         return (
                             <Chip
                                 key={tagName}
                                 label={tagName}
                                 variant="outlined"
-                                sx={{
-                                    color: ChipColor(tagName),
-                                    border: `1px solid ${ChipColor(tagName)}`
-                                }}
+                                sx={{ color: ChipColor(tagName), border: `1px solid ${ChipColor(tagName)}` }}
                             />
                         );
                     })}

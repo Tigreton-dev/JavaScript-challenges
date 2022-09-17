@@ -31,9 +31,7 @@ const FontSize = () => {
                 onClick={handleClick}
                 size="large"
                 endIcon={<ArrowDropDownIcon />}
-                style={{
-                    boxShadow: data.currentTheme.borderShadow
-                }}
+                style={{ boxShadow: data.currentTheme.borderShadow }}
             >
                 Font Size
             </Button>
@@ -43,9 +41,7 @@ const FontSize = () => {
                 anchorEl={anchorEl}
                 open={open}
                 onClose={() => handleClose(0)}
-                MenuListProps={{
-                    'aria-labelledby': 'basic-button'
-                }}
+                MenuListProps={{ 'aria-labelledby': 'basic-button' }}
             >
                 <MenuItem onClick={() => handleClose(12)} style={{ minWidth: '130px' }}>
                     12px

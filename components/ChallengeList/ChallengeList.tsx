@@ -52,12 +52,7 @@ export default function ChallengeList() {
 
     return (
         <Box sx={{ width: '95%', maxWidth: '800px', margin: 'auto', marginTop: '40px' }}>
-            <Typography
-                variant="h3"
-                sx={{
-                    margin: '150px 0 20px 0'
-                }}
-            >
+            <Typography variant="h3" sx={{ margin: '150px 0 20px 0' }}>
                 Challenge List
             </Typography>
             <Box ref={categoryBoxRef}>

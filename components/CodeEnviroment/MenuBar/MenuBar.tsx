@@ -21,7 +21,7 @@ import { DataContext } from '../../../context/dataContext';
 import { DataContextType } from '../../../context/@types.data';
 
 const MenuBar = () => {
-    const { data, updateData } = React.useContext(DataContext) as DataContextType;
+    const { data } = React.useContext(DataContext) as DataContextType;
     const [fontSize, setFontSize] = React.useState(100);
     const router = useRouter();
     const currentTheme = data.currentTheme;
@@ -55,31 +55,13 @@ const MenuBar = () => {
     return (
         <AppBar position="static" style={{ flexBasis: '3.5rem', minHeight: '3.5rem' }}>
             <Toolbar style={{ flexBasis: '3.5rem', minHeight: '3.5rem' }}>
-                <Stack spacing={2} direction="row">
-                    <Tooltip TransitionComponent={Zoom} title="Select Challenge" arrow>
-                        <Button size="large" startIcon={<FormatListBulletedIcon />}>
-                            <Link href="/">
-                                <a
-                                    style={{
-                                        color: currentTheme.color,
-                                        textDecoration: 'none'
-                                    }}
-                                >
-                                    Challenge List
-                                </a>
-                            </Link>
-                        </Button>
-                    </Tooltip>
-                </Stack>
+                <Button size="large" startIcon={<FormatListBulletedIcon />}>
+                    <Link href="/">
+                        <a style={{ color: currentTheme.color, textDecoration: 'none' }}>Challenge List</a>
+                    </Link>
+                </Button>
 
-                <Stack
-                    spacing={2}
-                    direction="row"
-                    sx={{
-                        position: 'absolute',
-                        right: '20px'
-                    }}
-                >
+                <Stack spacing={2} direction="row" sx={{ position: 'absolute', right: '20px' }}>
                     <Tooltip TransitionComponent={Zoom} title="Previous Challenge" arrow>
                         <Button size="small" onClick={prevChallenge}>
                             <ArrowBackIcon />

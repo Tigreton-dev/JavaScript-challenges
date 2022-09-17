@@ -13,34 +13,19 @@ const Hints = () => {
     const currentProblem = data.currentProblem;
     const currentTheme = data.currentTheme;
 
-    const fontStyles = {
-        borderBottom: `1px solid ${currentTheme.color}`,
-        marginTop: '40px',
-        marginBottom: '20px'
-    };
-
     return (
         <div>
-            <Typography variant="h5" style={fontStyles}>
+            <Typography
+                variant="h5"
+                style={{ borderBottom: `1px solid ${currentTheme.color}`, marginTop: '40px', marginBottom: '20px' }}
+            >
                 Hints
             </Typography>
             {Object.entries(currentProblem.hints).map(([key, value]) => {
                 return (
-                    <Accordion
-                        key={key}
-                        style={{
-                            backgroundColor: currentTheme.primary,
-                            borderRadius: '8px'
-                        }}
-                    >
+                    <Accordion key={key} style={{ backgroundColor: currentTheme.primary, borderRadius: '8px' }}>
                         <AccordionSummary
-                            expandIcon={
-                                <ExpandMoreIcon
-                                    sx={{
-                                        color: currentTheme.color
-                                    }}
-                                />
-                            }
+                            expandIcon={<ExpandMoreIcon sx={{ color: currentTheme.color }} />}
                             aria-controls="panel1a-content"
                             id="panel1a-header"
                         >

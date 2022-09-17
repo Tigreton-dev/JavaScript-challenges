@@ -16,9 +16,9 @@ import { DataContextType } from '../../context/@types.data';
 interface valuesInterface {
     isCodeEditor: boolean;
     firstTitle: string;
-    secondTitle: string;
-    thirdTitle: string;
-    fourthTitle: string;
+    secondTitle?: string;
+    thirdTitle?: string;
+    fourthTitle?: string;
     value: number;
 }
 
@@ -40,22 +40,12 @@ const TabPanelBar = (props: propsInterface) => {
     const numOfTests = Object.keys(currentProblem.testCases).length;
 
     return (
-        <AppBar
-            position="static"
-            color="default"
-            style={{
-                backgroundColor: currentTheme.secondary
-            }}
-        >
+        <AppBar position="static" color="default" style={{ backgroundColor: currentTheme.secondary }}>
             {!isCodeEditor && displayBadge && (
                 <Badge
                     badgeContent={numOfTests}
                     color="primary"
-                    style={{
-                        position: 'absolute',
-                        top: '15px',
-                        left: '365px'
-                    }}
+                    style={{ position: 'absolute', top: '15px', left: '365px' }}
                 />
             )}
             <Tabs
@@ -71,88 +61,29 @@ const TabPanelBar = (props: propsInterface) => {
                         label={thirdTitle}
                         id="tab-2"
                         sx={{ fontSize: '1rem' }}
-                        onClick={() =>
-                            updateData({
-                                displayBadge: false
-                            })
-                        }
+                        onClick={() => updateData({ displayBadge: false })}
                     />
                 )}
                 {!isCodeEditor && <Tab label={fourthTitle} id="tab-3" sx={{ fontSize: '1rem' }} />}
                 {!isCodeEditor && value === 3 && (
-                    <Box
-                        sx={{ flexGrow: 1 }}
-                        style={{
-                            textAlign: 'right'
-                        }}
-                    >
-                        <IconButton
-                            size="large"
-                            onClick={() =>
-                                updateData({
-                                    resetCode: true,
-                                    deleteLogs: true
-                                })
-                            }
-                        >
-                            <DeleteIcon
-                                style={{
-                                    color: currentTheme.color
-                                }}
-                            />
+                    <Box sx={{ flexGrow: 1 }} style={{ textAlign: 'right' }}>
+                        <IconButton size="large" onClick={() => updateData({ resetCode: true, deleteLogs: true })}>
+                            <DeleteIcon style={{ color: currentTheme.color }} />
                         </IconButton>
                     </Box>
                 )}
 
                 {isCodeEditor && (
-                    <Box
-                        sx={{ flexGrow: 1 }}
-                        style={{
-                            textAlign: 'right'
-                        }}
-                    >
-                        <IconButton
-                            size="large"
-                            onClick={() =>
-                                updateData({
-                                    beautifyCode: true
-                                })
-                            }
-                        >
-                            <DataObjectIcon
-                                style={{
-                                    color: currentTheme.color
-                                }}
-                            />
+                    <Box sx={{ flexGrow: 1 }} style={{ textAlign: 'right' }}>
+                        <IconButton size="large" onClick={() => updateData({ beautifyCode: true })}>
+                            <DataObjectIcon style={{ color: currentTheme.color }} />
                         </IconButton>
                         <>
-                            <IconButton
-                                size="large"
-                                onClick={() =>
-                                    updateData({
-                                        resetCode: true
-                                    })
-                                }
-                            >
-                                <RefreshIcon
-                                    style={{
-                                        color: currentTheme.color
-                                    }}
-                                />
+                            <IconButton size="large" onClick={() => updateData({ resetCode: true })}>
+                                <RefreshIcon style={{ color: currentTheme.color }} />
                             </IconButton>
-                            <IconButton
-                                size="large"
-                                onClick={() =>
-                                    updateData({
-                                        isFullScreen: !isFullScreen
-                                    })
-                                }
-                            >
-                                <FullscreenIcon
-                                    style={{
-                                        color: currentTheme.color
-                                    }}
-                                />
+                            <IconButton size="large" onClick={() => updateData({ isFullScreen: !isFullScreen })}>
+                                <FullscreenIcon style={{ color: currentTheme.color }} />
                             </IconButton>
                         </>
                     </Box>

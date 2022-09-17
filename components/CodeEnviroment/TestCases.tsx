@@ -25,13 +25,7 @@ const TestCases = () => {
         : lightTheme(currentTheme.secondary);
 
     return (
-        <div
-            style={{
-                padding: '1.25rem',
-                height: 'calc(100vh - 140px)',
-                overflow: 'scroll'
-            }}
-        >
+        <div style={{ padding: '1.25rem', height: 'calc(100vh - 140px)', overflow: 'scroll' }}>
             {Object.entries(currentProblem.testCases).map(([key, value], i) => {
                 const { test_input, test_expected, code_output, passed_test } = value;
                 const inputData = beautify(JSON.stringify(test_input), {
@@ -60,29 +54,9 @@ const TestCases = () => {
                     <CancelIcon fontSize="large" color="error" />
                 );
                 return (
-                    <Accordion
-                        style={{
-                            boxShadow: boxShadow,
-                            backgroundColor: currentTheme.primary
-                        }}
-                        key={key}
-                    >
-                        <AccordionSummary
-                            expandIcon={
-                                <ExpandMoreIcon
-                                    sx={{
-                                        color: currentTheme.color
-                                    }}
-                                />
-                            }
-                        >
-                            <Button
-                                size="large"
-                                startIcon={icon}
-                                sx={{
-                                    boxShadow: 'none'
-                                }}
-                            >
+                    <Accordion style={{ boxShadow: boxShadow, backgroundColor: currentTheme.primary }} key={key}>
+                        <AccordionSummary expandIcon={<ExpandMoreIcon sx={{ color: currentTheme.color }} />}>
+                            <Button size="large" startIcon={icon} sx={{ boxShadow: 'none' }}>
                                 {`Test ${i} ${msg}`}
                             </Button>
                         </AccordionSummary>

@@ -15,9 +15,9 @@ import { DataContextType } from '../../context/@types.data';
 interface propsInterface {
     isCodeEditor: boolean;
     firstTitle: string;
-    secondTitle: string;
-    thirdTitle: string;
-    fourthTitle: string;
+    secondTitle?: string;
+    thirdTitle?: string;
+    fourthTitle?: string;
 }
 
 const TabPanel = (props: propsInterface) => {

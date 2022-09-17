@@ -12,16 +12,7 @@ import { DataContextType } from '../../../context/@types.data';
 
 const ChallengeDescription = () => {
     const { data } = React.useContext(DataContext) as DataContextType;
-
     const currentProblem = data.currentProblem;
-
-    const containerStyle = {
-        padding: '1.25rem',
-        paddingTop: '0',
-        height: 'calc(100vh - 140px)',
-        overflow: 'scroll',
-        textAlign: 'left'
-    };
 
     const ChipColor = (tagName: string) => {
         let color = '#1976d2';
@@ -32,7 +23,15 @@ const ChallengeDescription = () => {
     };
 
     return (
-        <Box sx={containerStyle}>
+        <Box
+            sx={{
+                padding: '1.25rem',
+                paddingTop: '0',
+                height: 'calc(100vh - 140px)',
+                overflow: 'scroll',
+                textAlign: 'left'
+            }}
+        >
             <Title title={currentProblem.title} refName={currentProblem.refName} />
             <Stack direction="row" spacing={1}>
                 {currentProblem.tags.map((tagName: string) => {
@@ -50,13 +49,7 @@ const ChallengeDescription = () => {
                     );
                 })}
             </Stack>
-            <Box
-                style={{
-                    fontSize: '1.15rem',
-                    fontFamily: 'Roboto',
-                    fontWeight: '400'
-                }}
-            >
+            <Box style={{ fontSize: '1.15rem', fontFamily: 'Roboto', fontWeight: '400' }}>
                 {parse(currentProblem.description)}
             </Box>
             <ExampleCode />
