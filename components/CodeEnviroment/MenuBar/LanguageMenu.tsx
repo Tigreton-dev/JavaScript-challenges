@@ -19,7 +19,6 @@ const LanguageMenu = () => {
     return (
         <div>
             <Button
-                id="basic-button"
                 aria-controls={open ? 'basic-menu' : undefined}
                 aria-haspopup="true"
                 aria-expanded={open ? 'true' : undefined}
@@ -29,14 +28,7 @@ const LanguageMenu = () => {
             >
                 Language
             </Button>
-            <Menu
-                id="basic-menu"
-                sx={{ mt: '5px' }}
-                anchorEl={anchorEl}
-                open={open}
-                onClose={handleClose}
-                MenuListProps={{ 'aria-labelledby': 'basic-button' }}
-            >
+            <Menu sx={{ mt: '5px' }} anchorEl={anchorEl} open={open} onClose={handleClose}>
                 <MenuItem onClick={handleClose} style={{ minWidth: '135px' }}>
                     JavaScript
                 </MenuItem>

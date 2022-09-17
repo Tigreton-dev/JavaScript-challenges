@@ -25,8 +25,6 @@ const FontSize = () => {
     return (
         <div>
             <Button
-                id="basic-button"
-                aria-haspopup="true"
                 aria-expanded={open ? 'true' : undefined}
                 onClick={handleClick}
                 size="large"
@@ -35,17 +33,8 @@ const FontSize = () => {
             >
                 Font Size
             </Button>
-            <Menu
-                id="basic-menu"
-                sx={{ mt: '5px' }}
-                anchorEl={anchorEl}
-                open={open}
-                onClose={() => handleClose(0)}
-                MenuListProps={{ 'aria-labelledby': 'basic-button' }}
-            >
-                <MenuItem onClick={() => handleClose(12)} style={{ minWidth: '130px' }}>
-                    12px
-                </MenuItem>
+            <Menu sx={{ mt: '5px' }} anchorEl={anchorEl} open={open} onClose={() => handleClose(0)}>
+                <MenuItem onClick={() => handleClose(12)}>12px</MenuItem>
                 <MenuItem onClick={() => handleClose(14)}>14px</MenuItem>
                 <MenuItem onClick={() => handleClose(16)}>16px</MenuItem>
                 <MenuItem onClick={() => handleClose(18)}>18px</MenuItem>
