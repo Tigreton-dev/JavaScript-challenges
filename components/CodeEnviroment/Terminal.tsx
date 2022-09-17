@@ -131,22 +131,13 @@ const Terminal = () => {
                         return (
                             <CodeMirror
                                 key={index}
-                                style={{
-                                    borderBottom: `1px solid ${currentTheme.color}15`
-                                }}
-                                value={beautify(JSON.stringify(e), {
-                                    indent_size: 2,
-                                    space_in_empty_paren: true
-                                })}
+                                style={{ borderBottom: `1px solid ${currentTheme.color}15` }}
+                                value={beautify(JSON.stringify(e), { indent_size: 2, space_in_empty_paren: true })}
                                 className="codeMirror_editor"
                                 editable={false}
                                 height={'auto'}
                                 theme={editorTheme}
-                                extensions={[
-                                    javascript({
-                                        jsx: true
-                                    })
-                                ]}
+                                extensions={[javascript({ jsx: true })]}
                                 basicSetup={{
                                     lineNumbers: false,
                                     highlightActiveLineGutter: false,

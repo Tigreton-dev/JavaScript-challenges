@@ -47,9 +47,7 @@ export default function CodeEnviroment() {
     }, [codeValue]);
 
     const closeModal = () => {
-        updateData({
-            displayCodeResultModal: false
-        });
+        updateData({ displayCodeResultModal: false });
     };
 
     if (windowDimensions < 1080) return <p>Not Supported</p>;

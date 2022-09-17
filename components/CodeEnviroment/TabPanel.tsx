@@ -37,13 +37,7 @@ const TabPanel = (props: propsInterface) => {
     };
 
     return (
-        <Box
-            sx={{
-                position: 'relative',
-                minHeight: '100%',
-                backgroundColor: currentTheme.secondary
-            }}
-        >
+        <Box sx={{ position: 'relative', minHeight: '100%', backgroundColor: currentTheme.secondary }}>
             <TabPanelBar values={menuBarProps} setValue={(newValue: number) => setValue(newValue)} />
             {isCodeEditor ? (
                 <SwipeableViews key="1" index={value} onChangeIndex={(index: number) => setValue(index)}>

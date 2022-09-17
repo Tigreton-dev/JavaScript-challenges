@@ -19,14 +19,7 @@ export default function Initial() {
                     textAlign: 'left'
                 }}
             >
-                <div
-                    style={{
-                        width: '600px',
-                        height: '300px',
-                        zIndex: '1',
-                        marginTop: '40px'
-                    }}
-                >
+                <div style={{ width: '600px', height: '300px', zIndex: '1', marginTop: '40px' }}>
                     <Typography component="h3" sx={{ color: 'white', fontSize: '50px', marginBottom: '20px' }}>
                         JavaScript Challenges
                     </Typography>

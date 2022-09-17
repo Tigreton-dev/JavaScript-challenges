@@ -26,14 +26,9 @@ const CodeMirrorEditor = () => {
 
     React.useEffect(() => {
         if (data.beautifyCode) {
-            const val = beautify(code, {
-                indent_size: 3,
-                space_in_empty_paren: true
-            });
+            const val = beautify(code, { indent_size: 3, space_in_empty_paren: true });
             setCode(val);
-            updateData({
-                beautifyCode: false
-            });
+            updateData({ beautifyCode: false });
         }
     }, [data.beautifyCode]);
 
@@ -55,13 +50,7 @@ const CodeMirrorEditor = () => {
     };
 
     return (
-        <div
-            style={{
-                margin: '10px',
-                textAlign: 'initial',
-                fontSize: fontSize
-            }}
-        >
+        <div style={{ margin: '10px', textAlign: 'initial', fontSize: fontSize }}>
             <CodeMirror
                 theme={editorTheme}
                 value={codeSolutionOnStorage !== null ? codeSolutionOnStorage : code}

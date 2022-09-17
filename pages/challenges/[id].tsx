@@ -23,18 +23,10 @@ export default function PostPage() {
         const theme = localStorage.getItem('theme');
         if (theme === null) {
             localStorage.setItem('theme', JSON.stringify(lightTheme));
-            updateData({
-                currentTheme: lightTheme
-            });
+            updateData({ currentTheme: lightTheme });
         } else {
-            if (JSON.parse(theme).isDarkTheme)
-                updateData({
-                    currentTheme: darkTheme
-                });
-            if (!JSON.parse(theme).isDarkTheme)
-                updateData({
-                    currentTheme: lightTheme
-                });
+            if (JSON.parse(theme).isDarkTheme) updateData({ currentTheme: darkTheme });
+            if (!JSON.parse(theme).isDarkTheme) updateData({ currentTheme: lightTheme });
         }
     }, []);
 
@@ -43,10 +35,7 @@ export default function PostPage() {
         type ObjectKey = keyof typeof challenges;
         const myVar = challengeRefName as ObjectKey;
         const updateCurrentProblem = challenges[myVar];
-        if (updateCurrentProblem !== undefined)
-            updateData({
-                currentProblem: updateCurrentProblem
-            });
+        if (updateCurrentProblem !== undefined) updateData({ currentProblem: updateCurrentProblem });
     }, [challengeRefName]);
 
     if (Object.keys(currentProblem).length === 0) return <h1>Problem Not Found</h1>;

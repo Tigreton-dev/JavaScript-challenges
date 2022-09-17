@@ -28,15 +28,16 @@ const TestCases = () => {
         <div style={{ padding: '1.25rem', height: 'calc(100vh - 140px)', overflow: 'scroll' }}>
             {Object.entries(currentProblem.testCases).map(([key, value], i) => {
                 const { test_input, test_expected, code_output, passed_test } = value;
-                const inputData = beautify(JSON.stringify(test_input), {
-                    indent_size: 2,
-                    space_in_empty_paren: true
-                });
                 const boxShadow = passed_test ? '0px 0px 10px -1px green' : '0px 0px 10px -1px rgb(223, 3, 3)';
                 const msg = passed_test ? 'Passed Correctly' : 'Fail';
+                const icon = passed_test ? (
+                    <CheckCircleIcon fontSize="large" color="success" />
+                ) : (
+                    <CancelIcon fontSize="large" color="error" />
+                );
                 const codemirrors = [
                     {
-                        data: inputData,
+                        data: test_input,
                         title: 'Input data:'
                     },
                     {
@@ -48,56 +49,17 @@ const TestCases = () => {
                         title: 'Code Output:'
                     }
                 ];
-                const icon = passed_test ? (
-                    <CheckCircleIcon fontSize="large" color="success" />
-                ) : (
-                    <CancelIcon fontSize="large" color="error" />
-                );
                 return (
-                    <Accordion style={{ boxShadow: boxShadow, backgroundColor: currentTheme.primary }} key={key}>
-                        <AccordionSummary expandIcon={<ExpandMoreIcon sx={{ color: currentTheme.color }} />}>
-                            <Button size="large" startIcon={icon} sx={{ boxShadow: 'none' }}>
-                                {`Test ${i} ${msg}`}
-                            </Button>
-                        </AccordionSummary>
-                        <AccordionDetails>
-                            {codemirrors.map(element => (
-                                <>
-                                    <Typography variant="h6">{element.title}</Typography>
-                                    <CodeMirror
-                                        value={beautify(JSON.stringify(element.data), {
-                                            indent_size: 2,
-                                            space_in_empty_paren: true
-                                        })}
-                                        className="codeMirror_testCases"
-                                        height={'100%'}
-                                        editable={false}
-                                        theme={editorTheme}
-                                        style={{
-                                            borderRadius: '5px',
-                                            marginBottom: '15px',
-                                            padding: '0.625rem',
-                                            boxShadow:
-                                                '0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12)',
-                                            overflow: 'scroll',
-                                            backgroundColor: currentTheme.secondary
-                                        }}
-                                        extensions={[
-                                            javascript({
-                                                jsx: true
-                                            })
-                                        ]}
-                                        basicSetup={{
-                                            lineNumbers: false,
-                                            highlightActiveLineGutter: false,
-                                            highlightSpecialChars: false,
-                                            highlightActiveLine: false
-                                        }}
-                                    />
-                                </>
-                            ))}
-                        </AccordionDetails>
-                    </Accordion>
+                    <CodeEditor
+                        boxShadow={boxShadow}
+                        currentTheme={currentTheme}
+                        key={key}
+                        icon={icon}
+                        i={i}
+                        msg={msg}
+                        codemirrors={codemirrors}
+                        editorTheme={editorTheme}
+                    />
                 );
             })}
         </div>
@@ -105,3 +67,60 @@ const TestCases = () => {
 };
 
 export default TestCases;
+
+interface Iprops {
+    boxShadow: string;
+    currentTheme: any;
+    key: string;
+    icon: JSX.Element;
+    i: number;
+    msg: string;
+    codemirrors: Array<object>;
+    editorTheme: any;
+}
+
+const CodeEditor = (props: Iprops) => {
+    const { boxShadow, currentTheme, key, icon, i, msg, codemirrors, editorTheme } = props;
+    return (
+        <Accordion style={{ boxShadow: boxShadow, backgroundColor: currentTheme.primary }} key={key}>
+            <AccordionSummary expandIcon={<ExpandMoreIcon sx={{ color: currentTheme.color }} />}>
+                <Button size="large" startIcon={icon} sx={{ boxShadow: 'none' }}>
+                    {`Test ${i} ${msg}`}
+                </Button>
+            </AccordionSummary>
+            <AccordionDetails>
+                {codemirrors.map((element: any) => (
+                    <>
+                        <Typography variant="h6">{element.title}</Typography>
+                        <CodeMirror
+                            value={beautify(JSON.stringify(element.data), {
+                                indent_size: 2,
+                                space_in_empty_paren: true
+                            })}
+                            className="codeMirror_testCases"
+                            height={'100%'}
+                            editable={false}
+                            theme={editorTheme}
+                            style={{
+                                borderRadius: '5px',
+                                marginBottom: '15px',
+                                padding: '0.625rem',
+                                boxShadow:
+                                    '0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12)',
+                                overflow: 'scroll',
+                                backgroundColor: currentTheme.secondary
+                            }}
+                            extensions={[javascript({ jsx: true })]}
+                            basicSetup={{
+                                lineNumbers: false,
+                                highlightActiveLineGutter: false,
+                                highlightSpecialChars: false,
+                                highlightActiveLine: false
+                            }}
+                        />
+                    </>
+                ))}
+            </AccordionDetails>
+        </Accordion>
+    );
+};
