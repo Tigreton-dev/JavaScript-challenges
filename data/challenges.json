@@ -169,7 +169,7 @@
         },
         "solutionCode": {
             "javaScript": [
-                "/// Solution 1\nfunction stringRotation(s1, s2) {\n   if (s1.length !== s2.length) return false;\n   const s1s1 = s1 + s1;\n   return s1s1.includes(s2);\n}\n// Solution 2\n// n = length of string 1\n// m = length of string 2\n// Time: O(n + m)\n// Space: O(n)\nfunction stringRotation(s1, s2) {\n   const count = {};\n   for (let char of s1) {\n      if (!(char in count)) {\n         count[char] = 0;\n      }\n      count[char] += 1;\n   }\n   for (let char of s2) {\n      if (count[char] === undefined) {\n         return false;\n      } else {\n         count[char] -= 1;\n      }\n   }\n   for (let char in count) {\n      if (count[char] !== 0) {\n         return false;\n      }\n   }\n   return true;\n}"
+                "\n// Solution 1\n// n = length of string 1\n// m = length of string 2\n// Time: O(n + m)\n// Space: O(n)\nfunction stringRotation(s1, s2) {\n   const counter = {};\n   for (let char of s1) {\n      if (!(char in counter)) counter[char] = 0;\n      counter[char] += 1;\n   }\n   for (let char of s2) {\n      if (counter[char] === undefined) return false;\n      counter[char] -= 1;\n   }\n   for (let char in counter) {\n      if (counter[char] !== 0) return false;\n   }\n   return true;\n}\n\n// Solution 2\nfunction stringRotation(s1, s2) {\n   if (s1.length !== s2.length) return false;\n   const s1s1 = s1 + s1;\n   return s1s1.includes(s2);\n}"
             ]
         },
         "submittedCode": {
