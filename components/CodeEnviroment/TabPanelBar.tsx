@@ -67,7 +67,7 @@ const TabPanelBar = (props: propsInterface) => {
                 {!isCodeEditor && <Tab label={fourthTitle} id="tab-3" sx={{ fontSize: '1rem' }} />}
                 {!isCodeEditor && value === 3 && (
                     <Box sx={{ flexGrow: 1 }} style={{ textAlign: 'right' }}>
-                        <IconButton size="large" onClick={() => updateData({ resetCode: true, deleteLogs: true })}>
+                        <IconButton size="large" onClick={() => updateData({ deleteLogs: true })}>
                             <DeleteIcon style={{ color: currentTheme.color }} />
                         </IconButton>
                     </Box>
