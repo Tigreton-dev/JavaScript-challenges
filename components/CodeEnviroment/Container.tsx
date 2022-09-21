@@ -49,7 +49,7 @@ const Container = () => {
                 </Paper>
 
                 <Paper sx={{ ...styles, top: '5px', left: '5px', marginLeft: '0' }}>
-                    <TabPanel isCodeEditor={true} firstTitle="Your Solution" />
+                    <TabPanel isCodeEditor={true} firstTitle="Your Solution" secondTitle="Submitted Solution" />
                 </Paper>
             </Split>
         </div>

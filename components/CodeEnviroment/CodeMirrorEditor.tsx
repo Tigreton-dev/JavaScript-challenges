@@ -10,7 +10,12 @@ import { lightTheme, darkTheme } from '../../helpers/CodeEditorTheme';
 import { DataContext } from '../../context/dataContext';
 import { DataContextType } from '../../context/@types.data';
 
-const CodeMirrorEditor = () => {
+interface Iprops {
+    isSumittedPage: boolean;
+}
+
+const CodeMirrorEditor = (props: Iprops) => {
+    const { isSumittedPage } = props;
     const { data, updateData } = React.useContext(DataContext) as DataContextType;
     const currentProblem: any = data.currentProblem;
     const currentLanguage = data.currentLanguage;
@@ -46,6 +51,7 @@ const CodeMirrorEditor = () => {
     }, []);
 
     const sendCodeHandler = () => {
+        console.log(code);
         updateData({ codeValue: code });
     };
 
@@ -53,7 +59,7 @@ const CodeMirrorEditor = () => {
         <div style={{ margin: '10px', textAlign: 'initial', fontSize: fontSize }}>
             <CodeMirror
                 theme={editorTheme}
-                value={codeSolutionOnStorage !== null ? codeSolutionOnStorage : code}
+                value={codeSolutionOnStorage !== null && isSumittedPage ? codeSolutionOnStorage : code}
                 className="codeMirror_editor"
                 height="calc(100vh - 155px)"
                 autoFocus={false}
@@ -86,22 +92,24 @@ const CodeMirrorEditor = () => {
                 extensions={[javascript({ jsx: true })]}
                 onChange={(value, viewUpdate) => onChange(value)}
             />
-            <Button
-                onClick={sendCodeHandler}
-                variant="contained"
-                size="small"
-                endIcon={<SendIcon />}
-                style={{
-                    boxShadow: currentTheme.borderShadow,
-                    bottom: '25px',
-                    right: '25px',
-                    position: 'fixed',
-                    color: 'white',
-                    backgroundColor: currentTheme.secondary_color
-                }}
-            >
-                Run Code
-            </Button>
+            {!isSumittedPage && (
+                <Button
+                    onClick={sendCodeHandler}
+                    variant="contained"
+                    size="small"
+                    endIcon={<SendIcon />}
+                    style={{
+                        boxShadow: currentTheme.borderShadow,
+                        bottom: '25px',
+                        right: '25px',
+                        position: 'fixed',
+                        color: 'white',
+                        backgroundColor: currentTheme.secondary_color
+                    }}
+                >
+                    Run Code
+                </Button>
+            )}
         </div>
     );
 };

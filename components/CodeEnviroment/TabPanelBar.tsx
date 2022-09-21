@@ -55,7 +55,7 @@ const TabPanelBar = (props: propsInterface) => {
                 style={{ boxShadow: 'none' }}
             >
                 <Tab label={firstTitle} id="tab-0" sx={{ fontSize: '1rem' }} />
-                {!isCodeEditor && <Tab label={secondTitle} id="tab-1" sx={{ fontSize: '1rem' }} />}
+                <Tab label={secondTitle} id="tab-1" sx={{ fontSize: '1rem' }} />
                 {!isCodeEditor && (
                     <Tab
                         label={thirdTitle}
