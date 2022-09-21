@@ -36,12 +36,19 @@ const createTestScript = (value: string) => {
  * @returns
  */
 export function run_tests(currentProblem: object, codeValue: string) {
+    let isError = false;
+    window.onerror = e => {
+        console.error(e);
+        isError = true;
+    };
     createScript(codeValue);
     const problem = JSON.parse(JSON.stringify(currentProblem));
     const testCases = problem.testCases;
     const functionName = problem.refName;
     let solutionCorrect = true;
+
     for (let testCase in testCases) {
+        if (isError) return { problem, solutionCorrect: false };
         console.log('---------- Test Case ' + testCase + ' ----------');
         const istestAFunction = testCases[testCase].functionTest;
         if (istestAFunction) {
@@ -55,11 +62,12 @@ export function run_tests(currentProblem: object, codeValue: string) {
                 if (window[functionName] !== undefined) {
                     // @ts-ignore
                     testCases[testCase].code_output = window[functionName](...parameters);
+                    console.log(JSON.stringify(testCases[testCase].code_output));
                 } else {
                     console.error(`TypeError: window.${functionName} is undefined`);
                 }
-            } catch (err) {
-                console.error(err);
+            } catch (err: any) {
+                console.error(`${err.name}: ${err.message}`);
             }
         }
 
