@@ -51,7 +51,6 @@ const CodeMirrorEditor = (props: Iprops) => {
     }, []);
 
     const sendCodeHandler = () => {
-        console.log(code);
         updateData({ codeValue: code });
     };
 
