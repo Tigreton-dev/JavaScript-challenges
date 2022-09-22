@@ -243,7 +243,7 @@
         },
         "solutionCode": {
             "javaScript": [
-                "// Solution 1\nfunction uniqueChar(str) {\n    const list = new Set();\n    for (const letter of str) {\n        if (!list.has(letter)) {\n            list.add(letter);\n        } else {\n            return false\n        }\n    }\n    return true;\n}\n/*\n * IMPORTANT: you cannot use additional data structures!\n * \n * SOLUTION: Compare every character of the string to every other character of \n * the string. This will take 0( n^2) time and 0(1) space.\n */\n/*\n * If we are allowed to modify the input string, we could sort the string in \n * O(n log(n)) time and then linearly check the string for neighboring characters \n * that are identical. Careful, though: many sorting algorithms take up extra space.\n */\nfunction uniqueChar(str) {\n    for (const letter of str) {\n        if (str.indexOf(letter) !== str.lastIndexOf(letter)) {\n            return false;\n        }\n    }\n    return true;\n}"
+                "//SOLUTION 1 useing additional data structures\nfunction uniqueChar(str) {\n   const uniques = new Set();\n   for (const char of str) {\n      if (uniques.has(char)) return false;\n      uniques.add(char);\n   }\n   return true;\n}\n/*\n * IMPORTANT: you cannot use additional data structures!\n*/\n \n// SOLUTION 1: \n// Compare every character of the string to every other character \n// of the string. This will take 0( n^2) time and 0(1) space.\nfunction uniqueChar(str) {\n   for (const letter of str) {\n      if (str.indexOf(letter) !== str.lastIndexOf(letter)) {\n         return false;\n      }\n   }\n   return true;\n}"
             ]
         },
         "submittedCode": {
