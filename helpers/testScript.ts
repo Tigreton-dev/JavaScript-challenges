@@ -42,7 +42,7 @@ export function run_tests(currentProblem: object, codeValue: string) {
         isError = true;
     };
     createScript(codeValue);
-    const problem = JSON.parse(JSON.stringify(currentProblem));
+    const problem: any = structuredClone(currentProblem);
     const testCases = problem.testCases;
     const functionName = problem.refName;
     let solutionCorrect = true;
@@ -56,7 +56,7 @@ export function run_tests(currentProblem: object, codeValue: string) {
             // @ts-ignore
             testCases[testCase].code_output = window.test_input();
         } else {
-            const parameters = JSON.parse(JSON.stringify(testCases[testCase].test_input));
+            const parameters = structuredClone(testCases[testCase].test_input);
             try {
                 // @ts-ignore
                 if (window[functionName] !== undefined) {
