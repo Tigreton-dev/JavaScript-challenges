@@ -12494,9 +12494,9 @@
         "refName": "tokenTransform",
         "refNumber": 161,
         "category": "String",
-        "difficulty": "Easy",
+        "difficulty": "Medium",
         "title": "Token Transform",
-        "tags": ["Easy", "String"],
+        "tags": ["Medium", "String"],
         "description": "<p>Write a function, tokenTransform, that takes in an object of tokens and a string. In the object, the replacement values for a token may reference other tokens. The function should return a new string where tokens are replaced with their fully evaluated string values.</p><p>Tokens are enclosed in a pair of '$'.</p><p>You may assume that their are no circular token dependencies.</p>",
         "examples": {
             "example1": {
