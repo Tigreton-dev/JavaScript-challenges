@@ -1315,7 +1315,7 @@
         },
         "solutionCode": {
             "javaScript": [
-                "// EXAMPLE 1 BAD\nfunction longestWord(str) {\n  return str.split(' ').reduce((c, v) => (c.length > v.length ? c : v)).length;\n}\n// EXAMPLE 2 BAD\nfunction longestWord(str) {\n  return str.split(' ').sort((a, b) => b.length - a.length)[0].length;\n}\n// EXAMPLE 3\nfunction longestWord(str) {\n    let counter = 0;\n    let maxLength = 0;\n    let currentword = '';\n    let longestWord = '';\n    for (const char of str) {\n        if (char !== ' ') {\n            counter++;\n            currentword += char;\n            longestWord = counter > maxLength ? currentword : longestWord;\n            maxLength = Math.max(maxLength, counter);\n        } else {\n            currentword = '';\n            counter = 0;\n        }\n    }\n    return longestWord;\n}"
+                "// EXAMPLE 1 BAD\nfunction longestWord(str) {\n  return str.split(' ').reduce((c, v) => (c.length > v.length ? c : v)).length;\n}\n// EXAMPLE 2 BAD\nfunction longestWord(str) {\n  return str.split(' ').sort((a, b) => b.length - a.length)[0].length;\n}\n// EXAMPLE 3\nfunction longestWord(str) {\n   let result = '';\n   let currWord = '';\n   for (const char of str) {\n      if (char === ' ') {\n         currWord = '';\n      } else {\n         currWord += char;\n         result = result.length > currWord.length ? result : currWord;\n      }\n   }\n   return result;\n}"
             ]
         },
         "submittedCode": {
