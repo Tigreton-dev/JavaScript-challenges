@@ -2166,7 +2166,7 @@
         },
         "solutionCode": {
             "javaScript": [
-                "// Solution 1\n// Time: O(n^2)\nfunction removeDuplicates(nums) {\n   return nums.filter((item, pos, self) => {\n        return self.indexOf(item) == pos;\n    }).length\n};\n// Solution 2\nfunction removeDuplicates(nums) {\n   return [...new Set(nums)].length\n}"
+                "// Solution 1\n// Time: O(n^2)\nfunction removeDuplicates(nums) {\n   return nums.filter((item, pos, self) => {\n      return self.indexOf(item) == pos;\n   }).length\n};\n// Solution 2\nfunction removeDuplicates(nums) {\n   return [...new Set(nums)].length\n}\n// Solution 3\nfunction removeDuplicates(arr) {\n   if (nums.length == 0) return 0;\n   let p1 = 0;\n   let p2 = 1;\n   while (p2 < nums.length) {\n      if (nums[p2] !== nums[p1]) {\n         p1++;\n         nums[p1] = nums[p2];\n      }\n      p2++;\n   }\n   return i + 1\n}"
             ]
         },
         "submittedCode": {
