@@ -8,6 +8,7 @@ import { DataContext } from '../../context/dataContext';
 import { DataContextType } from '../../context/@types.data';
 import Challenges from '../../data/challenges.json';
 import { IcurrentProblem } from '../../context/@types.data';
+import DescriptionDialog from './DescriptionDialog';
 
 export default function ChallengeList() {
     const { data, updateData } = React.useContext(DataContext) as DataContextType;
@@ -52,6 +53,7 @@ export default function ChallengeList() {
 
     return (
         <Box sx={{ width: '95%', maxWidth: '830px', margin: 'auto', marginTop: '40px' }}>
+            <DescriptionDialog />
             <Typography variant="h3" sx={{ margin: '150px 0 20px 0' }}>
                 Challenge List
             </Typography>
@@ -100,3 +102,5 @@ export default function ChallengeList() {
         </Box>
     );
 }
+
+

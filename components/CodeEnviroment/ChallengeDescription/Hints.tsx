@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Typography from '@mui/material/Typography';
 import Accordion from '@mui/material/Accordion';
+import Button from '@mui/material/Button';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -37,6 +38,25 @@ const Hints = () => {
                     </Accordion>
                 );
             })}
+            <Accordion style={{ backgroundColor: currentTheme.primary, borderRadius: '8px' }}>
+                <AccordionSummary
+                    expandIcon={<ExpandMoreIcon sx={{ color: currentTheme.color }} />}
+                    aria-controls="panel1a-content"
+                    id="panel1a-header"
+                >
+                    <Typography variant="h6">Data Structure Information</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                    <Button variant="outlined">Array</Button>
+                    <Button variant="outlined">LinkedList</Button>
+                    <Button variant="outlined">Queue</Button>
+                    <Button variant="outlined">Stack</Button>
+                    <Button variant="outlined">HashTable</Button>
+                    <Button variant="outlined">Graphs</Button>
+                    <Button variant="outlined">Tree</Button>
+                    <Button variant="outlined">BinarySearch</Button>
+                </AccordionDetails>
+            </Accordion>
         </div>
     );
 };
