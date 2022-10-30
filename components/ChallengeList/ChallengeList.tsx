@@ -8,7 +8,7 @@ import { DataContext } from '../../context/dataContext';
 import { DataContextType } from '../../context/@types.data';
 import Challenges from '../../data/challenges.json';
 import { IcurrentProblem } from '../../context/@types.data';
-import DescriptionDialog from './DescriptionDialog';
+import DescriptionDialog from '../CodeEnviroment/DescriptionDialog';
 
 export default function ChallengeList() {
     const { data, updateData } = React.useContext(DataContext) as DataContextType;
@@ -102,5 +102,3 @@ export default function ChallengeList() {
         </Box>
     );
 }
-
-

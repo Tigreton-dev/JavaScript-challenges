@@ -55,6 +55,7 @@ export interface IData {
     resetCode: boolean;
     isDarkTheme: boolean;
     fontSize: string;
+    displayDataStructureInfo: boolean;
     currentTheme: {
         primary: string;
         secondary: string;

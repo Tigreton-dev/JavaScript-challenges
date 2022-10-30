@@ -8,6 +8,7 @@ import { muiTheme } from '../../helpers/MuiTheme';
 import { DataContext } from '../../context/dataContext';
 import { DataContextType } from '../../context/@types.data';
 import { run_tests } from '../../helpers/testScript';
+import DescriptionDialog from './DescriptionDialog';
 
 export default function CodeEnviroment() {
     const { data, updateData } = React.useContext(DataContext) as DataContextType;
@@ -63,6 +64,7 @@ export default function CodeEnviroment() {
                     setClose={() => closeModal()}
                     isSolutionCorrect={isSolutionCorrect}
                 />
+                <DescriptionDialog />
             </div>
         </ThemeProvider>
     );

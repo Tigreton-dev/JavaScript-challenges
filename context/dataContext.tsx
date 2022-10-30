@@ -100,6 +100,7 @@ const defaultState: IData = {
     resetCode: false,
     isDarkTheme: true,
     fontSize: '1.15rem',
+    displayDataStructureInfo: false,
     currentTheme: {
         primary: '#ffff',
         secondary: '#f8fcff',

@@ -10,9 +10,13 @@ import { DataContext } from '../../../context/dataContext';
 import { DataContextType } from '../../../context/@types.data';
 
 const Hints = () => {
-    const { data } = React.useContext(DataContext) as DataContextType;
+    const { data, updateData } = React.useContext(DataContext) as DataContextType;
     const currentProblem = data.currentProblem;
     const currentTheme = data.currentTheme;
+
+    const clickHandler = () => {
+        updateData({ displayDataStructureInfo: true });
+    };
 
     return (
         <div>
@@ -47,14 +51,30 @@ const Hints = () => {
                     <Typography variant="h6">Data Structure Information</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                    <Button variant="outlined">Array</Button>
-                    <Button variant="outlined">LinkedList</Button>
-                    <Button variant="outlined">Queue</Button>
-                    <Button variant="outlined">Stack</Button>
-                    <Button variant="outlined">HashTable</Button>
-                    <Button variant="outlined">Graphs</Button>
-                    <Button variant="outlined">Tree</Button>
-                    <Button variant="outlined">BinarySearch</Button>
+                    <Button variant="outlined" onClick={clickHandler}>
+                        Array
+                    </Button>
+                    <Button variant="outlined" onClick={clickHandler}>
+                        LinkedList
+                    </Button>
+                    <Button variant="outlined" onClick={clickHandler}>
+                        Queue
+                    </Button>
+                    <Button variant="outlined" onClick={clickHandler}>
+                        Stack
+                    </Button>
+                    <Button variant="outlined" onClick={clickHandler}>
+                        HashTable
+                    </Button>
+                    <Button variant="outlined" onClick={clickHandler}>
+                        Graphs
+                    </Button>
+                    <Button variant="outlined" onClick={clickHandler}>
+                        Tree
+                    </Button>
+                    <Button variant="outlined" onClick={clickHandler}>
+                        BinarySearch
+                    </Button>
                 </AccordionDetails>
             </Accordion>
         </div>

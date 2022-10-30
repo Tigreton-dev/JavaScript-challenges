@@ -5,26 +5,23 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
+import { DataContext } from '../../context/dataContext';
+import { DataContextType } from '../../context/@types.data';
+
 import { Array, LinkedList, Queue, Stack, HashTable, Graphs, Tree, BinarySearch } from '../../data/DataStructureInfo';
 
 export default function AlertDialog() {
-    const [open, setOpen] = React.useState(false);
+    const { data, updateData } = React.useContext(DataContext) as DataContextType;
 
-    const handleClickOpen = () => {
-        setOpen(true);
-    };
 
     const handleClose = () => {
-        setOpen(false);
+        updateData({ displayDataStructureInfo: false });
     };
 
     return (
         <div>
-            <Button variant="outlined" onClick={handleClickOpen}>
-                AAA
-            </Button>
             <Dialog
-                open={open}
+                open={data.displayDataStructureInfo}
                 onClose={handleClose}
                 aria-labelledby="alert-dialog-title"
                 aria-describedby="alert-dialog-description"

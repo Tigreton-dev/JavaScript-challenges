@@ -212,7 +212,7 @@ export function Queue() {
 
 export function Stack() {
     return (
-        <div>
+        <div style={{textAlign:"left", color: "white"}}>
             <strong>Quick summary</strong>:
             <ul>
                 <li>a sequential collection where elements are added to and removed from the same end.</li>
