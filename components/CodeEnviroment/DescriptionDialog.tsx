@@ -11,6 +11,7 @@ import { DataContext } from '../../context/dataContext';
 import { DataContextType } from '../../context/@types.data';
 
 import { Array, LinkedList, Queue, Stack, HashTable, Graphs, Tree, BinarySearch } from '../../data/DataStructureInfo';
+import { SlidingWindow } from '../../data/AlgorithmsPatters';
 
 export default function AlertDialog() {
     const { data, updateData } = React.useContext(DataContext) as DataContextType;
@@ -41,6 +42,9 @@ export default function AlertDialog() {
                 break;
             case 'BinarySearch':
                 setDataStructureType(<BinarySearch />);
+                break;
+            case 'SlidingWindow':
+                setDataStructureType(<SlidingWindow />);
                 break;
             default:
                 setDataStructureType(<Array />);

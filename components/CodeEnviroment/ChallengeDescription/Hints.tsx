@@ -77,6 +77,59 @@ const Hints = () => {
                     </Button>
                 </AccordionDetails>
             </Accordion>
+            <Accordion style={{ backgroundColor: currentTheme.primary, borderRadius: '8px' }}>
+                <AccordionSummary
+                    expandIcon={<ExpandMoreIcon sx={{ color: currentTheme.color }} />}
+                    aria-controls="panel1a-content"
+                    id="panel1a-header"
+                >
+                    <Typography variant="h6">Algorithm Patterns</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                    <Button variant="outlined" onClick={() => clickHandler('SlidingWindow')}>
+                        Sliding Window
+                    </Button>
+                    <Button variant="outlined" onClick={() => clickHandler('Two Pointers or Iterators')}>
+                        Two Pointers or Iterators
+                    </Button>
+                    <Button variant="outlined" onClick={() => clickHandler('Fast and Slow pointers')}>
+                        Fast and Slow pointers
+                    </Button>
+                    <Button variant="outlined" onClick={() => clickHandler('Merge Intervals')}>
+                        Merge Intervals
+                    </Button>
+                    <Button variant="outlined" onClick={() => clickHandler('Cyclic sort')}>
+                        Cyclic sort
+                    </Button>
+                    <Button variant="outlined" onClick={() => clickHandler('In-place reversal of linked list')}>
+                        In-place reversal of linked list
+                    </Button>
+                    <Button variant="outlined" onClick={() => clickHandler('Tree BFS')}>
+                        Tree BFS
+                    </Button>
+                    <Button variant="outlined" onClick={() => clickHandler('Tree BFS')}>
+                        Tree DFS
+                    </Button>
+                    <Button variant="outlined" onClick={() => clickHandler('Two heaps')}>
+                        Two heaps
+                    </Button>
+                    <Button variant="outlined" onClick={() => clickHandler('Subsets')}>
+                        Subsets
+                    </Button>
+                    <Button variant="outlined" onClick={() => clickHandler('Modified binary search')}>
+                        Modified binary search
+                    </Button>
+                    <Button variant="outlined" onClick={() => clickHandler('Top K elements')}>
+                        Top K elements
+                    </Button>
+                    <Button variant="outlined" onClick={() => clickHandler('K-way Merge')}>
+                        K-way Merge
+                    </Button>
+                    <Button variant="outlined" onClick={() => clickHandler('Topological sort')}>
+                        Topological sort
+                    </Button>
+                </AccordionDetails>
+            </Accordion>
         </div>
     );
 };
