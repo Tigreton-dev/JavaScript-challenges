@@ -14,8 +14,8 @@ const Hints = () => {
     const currentProblem = data.currentProblem;
     const currentTheme = data.currentTheme;
 
-    const clickHandler = () => {
-        updateData({ displayDataStructureInfo: true });
+    const clickHandler = (name: string) => {
+        updateData({ displayDataStructureInfo: true, dataStructureInfoSelected: name });
     };
 
     return (
@@ -51,28 +51,28 @@ const Hints = () => {
                     <Typography variant="h6">Data Structure Information</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                    <Button variant="outlined" onClick={clickHandler}>
+                    <Button variant="outlined" onClick={() => clickHandler('Array')}>
                         Array
                     </Button>
-                    <Button variant="outlined" onClick={clickHandler}>
+                    <Button variant="outlined" onClick={() => clickHandler('LinkedList')}>
                         LinkedList
                     </Button>
-                    <Button variant="outlined" onClick={clickHandler}>
+                    <Button variant="outlined" onClick={() => clickHandler('Queue')}>
                         Queue
                     </Button>
-                    <Button variant="outlined" onClick={clickHandler}>
+                    <Button variant="outlined" onClick={() => clickHandler('Stack')}>
                         Stack
                     </Button>
-                    <Button variant="outlined" onClick={clickHandler}>
+                    <Button variant="outlined" onClick={() => clickHandler('HashTable')}>
                         HashTable
                     </Button>
-                    <Button variant="outlined" onClick={clickHandler}>
+                    <Button variant="outlined" onClick={() => clickHandler('Graphs')}>
                         Graphs
                     </Button>
-                    <Button variant="outlined" onClick={clickHandler}>
+                    <Button variant="outlined" onClick={() => clickHandler('Tree')}>
                         Tree
                     </Button>
-                    <Button variant="outlined" onClick={clickHandler}>
+                    <Button variant="outlined" onClick={() => clickHandler('BinarySearch')}>
                         BinarySearch
                     </Button>
                 </AccordionDetails>

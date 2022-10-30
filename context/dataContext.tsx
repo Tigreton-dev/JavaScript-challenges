@@ -101,6 +101,7 @@ const defaultState: IData = {
     isDarkTheme: true,
     fontSize: '1.15rem',
     displayDataStructureInfo: false,
+    dataStructureInfoSelected: 'Array',
     currentTheme: {
         primary: '#ffff',
         secondary: '#f8fcff',
