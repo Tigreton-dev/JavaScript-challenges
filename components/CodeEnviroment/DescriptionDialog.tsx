@@ -11,7 +11,7 @@ import { DataContext } from '../../context/dataContext';
 import { DataContextType } from '../../context/@types.data';
 
 import { Array, LinkedList, Queue, Stack, HashTable, Graphs, Tree, BinarySearch } from '../../data/DataStructureInfo';
-import { SlidingWindow } from '../../data/AlgorithmsPatters';
+import { SlidingWindow, TwoPointers } from '../../data/AlgorithmsPatters';
 
 export default function AlertDialog() {
     const { data, updateData } = React.useContext(DataContext) as DataContextType;
@@ -45,6 +45,9 @@ export default function AlertDialog() {
                 break;
             case 'SlidingWindow':
                 setDataStructureType(<SlidingWindow />);
+                break;
+            case 'TwoPointers':
+                setDataStructureType(<TwoPointers />);
                 break;
             default:
                 setDataStructureType(<Array />);

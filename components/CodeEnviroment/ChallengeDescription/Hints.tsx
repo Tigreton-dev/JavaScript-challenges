@@ -89,8 +89,8 @@ const Hints = () => {
                     <Button variant="outlined" onClick={() => clickHandler('SlidingWindow')}>
                         Sliding Window
                     </Button>
-                    <Button variant="outlined" onClick={() => clickHandler('Two Pointers or Iterators')}>
-                        Two Pointers or Iterators
+                    <Button variant="outlined" onClick={() => clickHandler('TwoPointers')}>
+                        Two Pointers
                     </Button>
                     <Button variant="outlined" onClick={() => clickHandler('Fast and Slow pointers')}>
                         Fast and Slow pointers
