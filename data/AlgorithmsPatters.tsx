@@ -108,7 +108,21 @@ export function MergeIntervals() {
 export function CyclicSort() {
     return (
         <div>
-            <p></p>
+            <p>
+                This pattern describes an interesting approach to deal with problems involving arrays containing numbers
+                in a given range. The Cyclic Sort pattern iterates over the array one number at a time, and if the
+                current number you are iterating is not at the correct index, you swap it with the number at its correct
+                index. You could try placing the number in its correct index, but this will produce a complexity of
+                O(n^2) which is not optimal, hence the Cyclic Sort pattern.
+            </p>
+            <Image src="/images/CyclicSort.png" alt="Picture of the author" width={200} height={600} />
+            <p>How do I identify this pattern?</p>
+            <ul>
+                <li>They will be problems involving a sorted array with numbers in a given range</li>
+                <li>
+                    If the problem asks you to find the missing/duplicate/smallest number in an sorted/rotated array
+                </li>
+            </ul>
         </div>
     );
 }

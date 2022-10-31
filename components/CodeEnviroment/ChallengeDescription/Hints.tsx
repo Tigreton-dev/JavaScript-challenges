@@ -98,7 +98,7 @@ const Hints = () => {
                     <Button variant="outlined" onClick={() => clickHandler('MergeIntervals')}>
                         Merge Intervals
                     </Button>
-                    <Button variant="outlined" onClick={() => clickHandler('Cyclic sort')}>
+                    <Button variant="outlined" onClick={() => clickHandler('CyclicSort')}>
                         Cyclic sort
                     </Button>
                     <Button variant="outlined" onClick={() => clickHandler('In-place reversal of linked list')}>
