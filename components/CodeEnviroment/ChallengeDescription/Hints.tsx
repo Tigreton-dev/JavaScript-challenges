@@ -119,7 +119,7 @@ const Hints = () => {
                     <Button variant="outlined" onClick={() => clickHandler('ModifiedBinarySearch')}>
                         Modified binary search
                     </Button>
-                    <Button variant="outlined" onClick={() => clickHandler('Top K elements')}>
+                    <Button variant="outlined" onClick={() => clickHandler('TopKElements')}>
                         Top K elements
                     </Button>
                     <Button variant="outlined" onClick={() => clickHandler('K-way Merge')}>

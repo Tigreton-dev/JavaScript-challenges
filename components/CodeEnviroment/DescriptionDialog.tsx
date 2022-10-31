@@ -22,7 +22,8 @@ import {
     DFS,
     TwoHeaps,
     Subsets,
-    ModifiedBinarySearch
+    ModifiedBinarySearch,
+    TopKElements
 } from '../../data/AlgorithmsPatters';
 
 export default function AlertDialog() {
@@ -87,6 +88,9 @@ export default function AlertDialog() {
                 break;
             case 'ModifiedBinarySearch':
                 setDataStructureType(<ModifiedBinarySearch />);
+                break;
+            case 'TopKElements':
+                setDataStructureType(<TopKElements />);
                 break;
             default:
                 setDataStructureType(<Array />);
