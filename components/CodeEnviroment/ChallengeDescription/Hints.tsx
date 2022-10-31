@@ -107,7 +107,7 @@ const Hints = () => {
                     <Button variant="outlined" onClick={() => clickHandler('BFS')}>
                         Tree BFS
                     </Button>
-                    <Button variant="outlined" onClick={() => clickHandler('Tree BFS')}>
+                    <Button variant="outlined" onClick={() => clickHandler('DFS')}>
                         Tree DFS
                     </Button>
                     <Button variant="outlined" onClick={() => clickHandler('Two heaps')}>

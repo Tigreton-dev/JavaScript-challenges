@@ -18,7 +18,8 @@ import {
     MergeIntervals,
     CyclicSort,
     InPlaceReversalOfLinkedList,
-    BFS
+    BFS,
+    DFS
 } from '../../data/AlgorithmsPatters';
 
 export default function AlertDialog() {
@@ -71,6 +72,9 @@ export default function AlertDialog() {
                 break;
             case 'BFS':
                 setDataStructureType(<BFS />);
+                break;
+            case 'DFS':
+                setDataStructureType(<DFS />);
                 break;
             default:
                 setDataStructureType(<Array />);

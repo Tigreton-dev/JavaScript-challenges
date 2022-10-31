@@ -174,7 +174,27 @@ export function BFS() {
 export function DFS() {
     return (
         <div>
-            <p></p>
+            <p>Tree DFS is based on the Depth First Search (DFS) technique to traverse a tree.</p>
+            <p>
+                You can use recursion (or a stack for the iterative approach) to keep track of all the previous (parent)
+                nodes while traversing.
+            </p>
+            <p>
+                The Tree DFS pattern works by starting at the root of the tree, if the node is not a leaf you need to do
+                three things:
+            </p>
+            <ul>
+                <li>
+                    Decide whether to process the current node now (pre-order), or between processing two children
+                    (in-order) or after processing both children (post-order).
+                </li>
+                <li>Make two recursive calls for both the children of the current node to process them.</li>
+            </ul>
+            <p>How to identify the Tree DFS pattern:</p>
+            <ul>
+                <li>If you’re asked to traverse a tree with in-order, preorder, or postorder DFS</li>
+                <li>If the problem requires searching for something where the node is closer to a leaf</li>
+            </ul>
         </div>
     );
 }
