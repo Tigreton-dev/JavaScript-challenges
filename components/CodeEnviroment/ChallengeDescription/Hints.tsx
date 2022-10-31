@@ -51,28 +51,28 @@ const Hints = () => {
                     <Typography variant="h6">Data Structure Information</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                    <Button variant="outlined" onClick={() => clickHandler('Array')}>
+                    <Button variant="outlined" onClick={() => clickHandler('Array')} style={{ margin: '3px' }}>
                         Array
                     </Button>
-                    <Button variant="outlined" onClick={() => clickHandler('LinkedList')}>
+                    <Button variant="outlined" onClick={() => clickHandler('LinkedList')} style={{ margin: '3px' }}>
                         LinkedList
                     </Button>
-                    <Button variant="outlined" onClick={() => clickHandler('Queue')}>
+                    <Button variant="outlined" onClick={() => clickHandler('Queue')} style={{ margin: '3px' }}>
                         Queue
                     </Button>
-                    <Button variant="outlined" onClick={() => clickHandler('Stack')}>
+                    <Button variant="outlined" onClick={() => clickHandler('Stack')} style={{ margin: '3px' }}>
                         Stack
                     </Button>
-                    <Button variant="outlined" onClick={() => clickHandler('HashTable')}>
+                    <Button variant="outlined" onClick={() => clickHandler('HashTable')} style={{ margin: '3px' }}>
                         HashTable
                     </Button>
-                    <Button variant="outlined" onClick={() => clickHandler('Graphs')}>
+                    <Button variant="outlined" onClick={() => clickHandler('Graphs')} style={{ margin: '3px' }}>
                         Graphs
                     </Button>
-                    <Button variant="outlined" onClick={() => clickHandler('Tree')}>
+                    <Button variant="outlined" onClick={() => clickHandler('Tree')} style={{ margin: '3px' }}>
                         Tree
                     </Button>
-                    <Button variant="outlined" onClick={() => clickHandler('BinarySearch')}>
+                    <Button variant="outlined" onClick={() => clickHandler('BinarySearch')} style={{ margin: '3px' }}>
                         BinarySearch
                     </Button>
                 </AccordionDetails>
@@ -86,46 +86,62 @@ const Hints = () => {
                     <Typography variant="h6">Algorithm Patterns</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                    <Button variant="outlined" onClick={() => clickHandler('SlidingWindow')}>
+                    <Button variant="outlined" onClick={() => clickHandler('SlidingWindow')} style={{ margin: '3px' }}>
                         Sliding Window
                     </Button>
-                    <Button variant="outlined" onClick={() => clickHandler('TwoPointers')}>
+                    <Button variant="outlined" onClick={() => clickHandler('TwoPointers')} style={{ margin: '3px' }}>
                         Two Pointers
                     </Button>
-                    <Button variant="outlined" onClick={() => clickHandler('FastSlowPointers')}>
+                    <Button
+                        variant="outlined"
+                        onClick={() => clickHandler('FastSlowPointers')}
+                        style={{ margin: '3px' }}
+                    >
                         Fast and Slow pointers
                     </Button>
-                    <Button variant="outlined" onClick={() => clickHandler('MergeIntervals')}>
+                    <Button variant="outlined" onClick={() => clickHandler('MergeIntervals')} style={{ margin: '3px' }}>
                         Merge Intervals
                     </Button>
-                    <Button variant="outlined" onClick={() => clickHandler('CyclicSort')}>
+                    <Button variant="outlined" onClick={() => clickHandler('CyclicSort')} style={{ margin: '3px' }}>
                         Cyclic sort
                     </Button>
-                    <Button variant="outlined" onClick={() => clickHandler('InPlaceReversalOfLinkedList')}>
+                    <Button
+                        variant="outlined"
+                        onClick={() => clickHandler('InPlaceReversalOfLinkedList')}
+                        style={{ margin: '3px' }}
+                    >
                         In-place reversal of linked list
                     </Button>
-                    <Button variant="outlined" onClick={() => clickHandler('BFS')}>
+                    <Button variant="outlined" onClick={() => clickHandler('BFS')} style={{ margin: '3px' }}>
                         Tree BFS
                     </Button>
-                    <Button variant="outlined" onClick={() => clickHandler('DFS')}>
+                    <Button variant="outlined" onClick={() => clickHandler('DFS')} style={{ margin: '3px' }}>
                         Tree DFS
                     </Button>
-                    <Button variant="outlined" onClick={() => clickHandler('TwoHeaps')}>
+                    <Button variant="outlined" onClick={() => clickHandler('TwoHeaps')} style={{ margin: '3px' }}>
                         Two heaps
                     </Button>
-                    <Button variant="outlined" onClick={() => clickHandler('Subsets')}>
+                    <Button variant="outlined" onClick={() => clickHandler('Subsets')} style={{ margin: '3px' }}>
                         Subsets
                     </Button>
-                    <Button variant="outlined" onClick={() => clickHandler('ModifiedBinarySearch')}>
+                    <Button
+                        variant="outlined"
+                        onClick={() => clickHandler('ModifiedBinarySearch')}
+                        style={{ margin: '3px' }}
+                    >
                         Modified binary search
                     </Button>
-                    <Button variant="outlined" onClick={() => clickHandler('TopKElements')}>
+                    <Button variant="outlined" onClick={() => clickHandler('TopKElements')} style={{ margin: '3px' }}>
                         Top K elements
                     </Button>
-                    <Button variant="outlined" onClick={() => clickHandler('K-way Merge')}>
+                    <Button variant="outlined" onClick={() => clickHandler('K-way Merge')} style={{ margin: '3px' }}>
                         K-way Merge
                     </Button>
-                    <Button variant="outlined" onClick={() => clickHandler('Topological sort')}>
+                    <Button
+                        variant="outlined"
+                        onClick={() => clickHandler('Topological sort')}
+                        style={{ margin: '3px' }}
+                    >
                         Topological sort
                     </Button>
                 </AccordionDetails>
