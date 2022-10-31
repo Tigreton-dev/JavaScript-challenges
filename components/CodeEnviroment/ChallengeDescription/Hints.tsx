@@ -116,7 +116,7 @@ const Hints = () => {
                     <Button variant="outlined" onClick={() => clickHandler('Subsets')}>
                         Subsets
                     </Button>
-                    <Button variant="outlined" onClick={() => clickHandler('Modified binary search')}>
+                    <Button variant="outlined" onClick={() => clickHandler('ModifiedBinarySearch')}>
                         Modified binary search
                     </Button>
                     <Button variant="outlined" onClick={() => clickHandler('Top K elements')}>

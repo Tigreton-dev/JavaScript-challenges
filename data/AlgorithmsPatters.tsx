@@ -255,7 +255,27 @@ export function Subsets() {
 export function ModifiedBinarySearch() {
     return (
         <div>
-            <p></p>
+            <p>
+                Whenever you are given a sorted array, linked list, or matrix, and are asked to find a certain element,
+                the best algorithm you can use is the Binary Search. This pattern describes an efficient way to handle
+                all problems involving Binary Search.
+            </p>
+            <p>The patterns looks like this for an ascending order set:</p>
+            <ul>
+                <li>
+                    First, find the middle of start and end. An easy way to find the middle would be: middle = (start +
+                    end) / 2. But this has a good chance of producing an integer overflow so it’s recommended that you
+                    represent the middle as: middle = start + (end — start) / 2
+                </li>
+                <li>If the key is equal to the number at index middle then return middle</li>
+                <li>If ‘key’ isn’t equal to the index middle:</li>
+                <ul>
+                    <li>Check if key {'<'} arr[middle]. If it is reduce your search to end = middle — 1</li>
+                    <li>Check if key {'>'} arr[middle]. If it is reduce your search to end = middle + 1</li>
+                </ul>
+            </ul>
+            <p>Here is a visual representation of the Modified Binary Search pattern:</p>
+            <Image src="/images/binarySearch.png" alt="Picture of the author" width={600} height={300} />
         </div>
     );
 }

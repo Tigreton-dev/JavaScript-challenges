@@ -21,7 +21,8 @@ import {
     BFS,
     DFS,
     TwoHeaps,
-    Subsets
+    Subsets,
+    ModifiedBinarySearch
 } from '../../data/AlgorithmsPatters';
 
 export default function AlertDialog() {
@@ -83,6 +84,9 @@ export default function AlertDialog() {
                 break;
             case 'Subsets':
                 setDataStructureType(<Subsets />);
+                break;
+            case 'ModifiedBinarySearch':
+                setDataStructureType(<ModifiedBinarySearch />);
                 break;
             default:
                 setDataStructureType(<Array />);
