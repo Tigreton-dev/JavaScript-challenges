@@ -17,7 +17,8 @@ import {
     FastSlowPointers,
     MergeIntervals,
     CyclicSort,
-    InPlaceReversalOfLinkedList
+    InPlaceReversalOfLinkedList,
+    BFS
 } from '../../data/AlgorithmsPatters';
 
 export default function AlertDialog() {
@@ -67,6 +68,9 @@ export default function AlertDialog() {
                 break;
             case 'InPlaceReversalOfLinkedList':
                 setDataStructureType(<InPlaceReversalOfLinkedList />);
+                break;
+            case 'BFS':
+                setDataStructureType(<BFS />);
                 break;
             default:
                 setDataStructureType(<Array />);
