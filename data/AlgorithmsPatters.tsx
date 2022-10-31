@@ -51,7 +51,28 @@ export function TwoPointers() {
 export function FastSlowPointers() {
     return (
         <div>
-            <p></p>
+            <p>
+                The Fast and Slow pointer approach, also known as the Hare & Tortoise algorithm, is a pointer algorithm
+                that uses two pointers which move through the array (or sequence/linked list) at different speeds. This
+                approach is quite useful when dealing with cyclic linked lists or arrays.
+            </p>
+            <p>
+                By moving at different speeds (say, in a cyclic linked list), the algorithm proves that the two pointers
+                are bound to meet. The fast pointer should catch the slow pointer once both the pointers are in a cyclic
+                loop.
+            </p>
+            <p>How do you identify when to use the Fast and Slow pattern?</p>
+            <ul>
+                <li>The problem will deal with a loop in a linked list or array</li>
+                <li>
+                    When you need to know the position of a certain element or the overall length of the linked list.
+                </li>
+            </ul>
+            <p>
+                There are some cases where you shouldn’t use the Two Pointer approach such as in a singly linked list
+                where you can’t move in a backwards direction. An example of when to use the Fast and Slow pattern is
+                when you’re trying to determine if a linked list is a palindrome.
+            </p>
         </div>
     );
 }
