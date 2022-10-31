@@ -11,7 +11,7 @@ import { DataContext } from '../../context/dataContext';
 import { DataContextType } from '../../context/@types.data';
 
 import { Array, LinkedList, Queue, Stack, HashTable, Graphs, Tree, BinarySearch } from '../../data/DataStructureInfo';
-import { SlidingWindow, TwoPointers, FastSlowPointers } from '../../data/AlgorithmsPatters';
+import { SlidingWindow, TwoPointers, FastSlowPointers, MergeIntervals } from '../../data/AlgorithmsPatters';
 
 export default function AlertDialog() {
     const { data, updateData } = React.useContext(DataContext) as DataContextType;
@@ -51,6 +51,9 @@ export default function AlertDialog() {
                 break;
             case 'FastSlowPointers':
                 setDataStructureType(<FastSlowPointers />);
+                break;
+            case 'MergeIntervals':
+                setDataStructureType(<MergeIntervals />);
                 break;
             default:
                 setDataStructureType(<Array />);

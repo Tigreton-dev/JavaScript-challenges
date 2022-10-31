@@ -95,7 +95,7 @@ const Hints = () => {
                     <Button variant="outlined" onClick={() => clickHandler('FastSlowPointers')}>
                         Fast and Slow pointers
                     </Button>
-                    <Button variant="outlined" onClick={() => clickHandler('Merge Intervals')}>
+                    <Button variant="outlined" onClick={() => clickHandler('MergeIntervals')}>
                         Merge Intervals
                     </Button>
                     <Button variant="outlined" onClick={() => clickHandler('Cyclic sort')}>

@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export function SlidingWindow() {
     return (
         <div>
@@ -80,7 +82,25 @@ export function FastSlowPointers() {
 export function MergeIntervals() {
     return (
         <div>
-            <p></p>
+            <p>
+                The Merge Intervals pattern is an efficient technique to deal with overlapping intervals. In a lot of
+                problems involving intervals, you either need to find overlapping intervals or merge intervals if they
+                overlap. The pattern works like this:
+            </p>
+            <p>
+                Given two intervals (‘a’ and ‘b’), there will be six different ways the two intervals can relate to each
+                other:
+            </p>
+            <Image src="/images/mergeIntervals.png" alt="Picture of the author" width={500} height={500} />
+            <p>
+                Understanding and recognizing these six cases will help you help you solve a wide range of problems from
+                inserting intervals to optimizing interval merges.
+            </p>
+            <p>How do you identify when to use the Merge Intervals pattern?</p>
+            <ul>
+                <li>f you’re asked to produce a list with only mutually exclusive intervals</li>
+                <li>f you hear the term “overlapping intervals”. Merge interval problem patterns:</li>
+            </ul>
         </div>
     );
 }
