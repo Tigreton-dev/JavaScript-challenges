@@ -20,7 +20,8 @@ import {
     InPlaceReversalOfLinkedList,
     BFS,
     DFS,
-    TwoHeaps
+    TwoHeaps,
+    Subsets
 } from '../../data/AlgorithmsPatters';
 
 export default function AlertDialog() {
@@ -79,6 +80,9 @@ export default function AlertDialog() {
                 break;
             case 'TwoHeaps':
                 setDataStructureType(<TwoHeaps />);
+                break;
+            case 'Subsets':
+                setDataStructureType(<Subsets />);
                 break;
             default:
                 setDataStructureType(<Array />);

@@ -227,7 +227,27 @@ export function TwoHeaps() {
 export function Subsets() {
     return (
         <div>
-            <p></p>
+            <p>
+                A huge number of coding interview problems involve dealing with Permutations and Combinations of a given
+                set of elements. The pattern Subsets describes an efficient Breadth First Search (BFS) approach to
+                handle all these problems.
+            </p>
+            <p>Given a set of [1, 5, 3]</p>
+            <ul>
+                <li>Start with an empty set: [[]]</li>
+                <li>Add the first number (1) to all the existing subsets to create new subsets: [[], [1]];</li>
+                <li>Add the second number (5) to all the existing subsets: [[], [1], [5], [1,5]];</li>
+                <li>
+                    dd the third number (3) to all the existing subsets: [[], [1], [5], [1,5], [3], [1,3], [5,3],
+                    [1,5,3]].
+                </li>
+            </ul>
+            <p>Here is a visual representation of the Subsets pattern:</p>
+            <Image src="/images/subset.png" alt="Picture of the author" width={600} height={300} />
+            <p>How to identify the Subsets pattern:</p>
+            <ul>
+                <li>Problems where you need to find the combinations or permutations of a given set</li>
+            </ul>
         </div>
     );
 }
