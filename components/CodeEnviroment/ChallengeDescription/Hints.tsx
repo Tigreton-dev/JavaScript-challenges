@@ -134,7 +134,7 @@ const Hints = () => {
                     <Button variant="outlined" onClick={() => clickHandler('TopKElements')} style={{ margin: '3px' }}>
                         Top K elements
                     </Button>
-                    <Button variant="outlined" onClick={() => clickHandler('K-way Merge')} style={{ margin: '3px' }}>
+                    <Button variant="outlined" onClick={() => clickHandler('KwayMerge')} style={{ margin: '3px' }}>
                         K-way Merge
                     </Button>
                     <Button

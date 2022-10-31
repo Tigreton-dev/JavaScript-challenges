@@ -23,7 +23,8 @@ import {
     TwoHeaps,
     Subsets,
     ModifiedBinarySearch,
-    TopKElements
+    TopKElements,
+    KwayMerge
 } from '../../data/AlgorithmsPatters';
 
 export default function AlertDialog() {
@@ -91,6 +92,9 @@ export default function AlertDialog() {
                 break;
             case 'TopKElements':
                 setDataStructureType(<TopKElements />);
+                break;
+            case 'KwayMerge':
+                setDataStructureType(<KwayMerge />);
                 break;
             default:
                 setDataStructureType(<Array />);
