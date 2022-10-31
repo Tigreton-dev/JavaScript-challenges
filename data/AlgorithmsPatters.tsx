@@ -342,7 +342,41 @@ export function KwayMerge() {
 export function TopologicalSort() {
     return (
         <div>
-            <p></p>
+            <p>
+                Topological Sort is used to find a linear ordering of elements that have dependencies on each other. For
+                example, if event ‘B’ is dependent on event ‘A’, ‘A’ comes before ‘B’ in topological ordering.
+            </p>
+            <p>
+                This pattern defines an easy way to understand the technique for performing topological sorting of a set
+                of elements.
+            </p>
+            <p>The pattern works like this:</p>
+            <ul>
+                <li>Initialization</li>
+                <ul>
+                    <li>Store the graph in adjacency lists by using a HashMap</li>
+                    <li>
+                        To find all sources, use a HashMap to keep the count of in-degreesBuild the graph and find
+                        in-degrees of all vertices
+                    </li>
+                </ul>
+                <li>Build the graph from the input and populate the in-degrees HashMap.</li>
+                <li>Find all sources: All vertices with ‘0’ in-degrees will be sources and are stored in a Queue.</li>
+                <li>Sort, For each source, do the following things:</li>
+                <ul>
+                    <li>Add it to the sorted list.</li>
+                    <li>Get all of its children from the graph.</li>
+                    <li>Decrement the in-degree of each child by 1.</li>
+                    <li>If a child’s in-degree becomes ‘0’, add it to the sources Queue.</li>
+                    <li>Repeat the process, until the source Queue is empty.</li>
+                </ul>
+            </ul>
+            <p>How to identify the Topological Sort pattern:</p>
+            <ul>
+                <li>The problem will deal with graphs that have no directed cycles</li>
+                <li>If you’re asked to update all objects in a sorted order</li>
+                <li>If you have a class of objects that follow a particular order</li>
+            </ul>
         </div>
     );
 }

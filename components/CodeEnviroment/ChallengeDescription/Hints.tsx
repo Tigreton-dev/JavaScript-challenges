@@ -139,7 +139,7 @@ const Hints = () => {
                     </Button>
                     <Button
                         variant="outlined"
-                        onClick={() => clickHandler('Topological sort')}
+                        onClick={() => clickHandler('TopologicalSort')}
                         style={{ margin: '3px' }}
                     >
                         Topological sort

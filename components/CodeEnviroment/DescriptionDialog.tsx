@@ -24,7 +24,8 @@ import {
     Subsets,
     ModifiedBinarySearch,
     TopKElements,
-    KwayMerge
+    KwayMerge,
+    TopologicalSort
 } from '../../data/AlgorithmsPatters';
 
 export default function AlertDialog() {
@@ -95,6 +96,9 @@ export default function AlertDialog() {
                 break;
             case 'KwayMerge':
                 setDataStructureType(<KwayMerge />);
+                break;
+            case 'TopologicalSort':
+                setDataStructureType(<TopologicalSort />);
                 break;
             default:
                 setDataStructureType(<Array />);
