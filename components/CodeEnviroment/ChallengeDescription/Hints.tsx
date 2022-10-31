@@ -101,7 +101,7 @@ const Hints = () => {
                     <Button variant="outlined" onClick={() => clickHandler('CyclicSort')}>
                         Cyclic sort
                     </Button>
-                    <Button variant="outlined" onClick={() => clickHandler('In-place reversal of linked list')}>
+                    <Button variant="outlined" onClick={() => clickHandler('InPlaceReversalOfLinkedList')}>
                         In-place reversal of linked list
                     </Button>
                     <Button variant="outlined" onClick={() => clickHandler('Tree BFS')}>
