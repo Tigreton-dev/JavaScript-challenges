@@ -19,7 +19,8 @@ import {
     CyclicSort,
     InPlaceReversalOfLinkedList,
     BFS,
-    DFS
+    DFS,
+    TwoHeaps
 } from '../../data/AlgorithmsPatters';
 
 export default function AlertDialog() {
@@ -75,6 +76,9 @@ export default function AlertDialog() {
                 break;
             case 'DFS':
                 setDataStructureType(<DFS />);
+                break;
+            case 'TwoHeaps':
+                setDataStructureType(<TwoHeaps />);
                 break;
             default:
                 setDataStructureType(<Array />);
