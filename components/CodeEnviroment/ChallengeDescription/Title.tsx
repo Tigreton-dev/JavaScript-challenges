@@ -12,7 +12,7 @@ const Title = (props: TitleProps) => {
     const isProblemSubmitted = localStorage.getItem(refName);
 
     return (
-        <div style={{ display: 'flex', height: '45px', marginTop: '15px', marginBottom: '10px' }}>
+        <div style={{ display: 'flex', height: '45px', marginTop: '15px', marginBottom: '10px', alignItems: 'center' }}>
             {isProblemSubmitted ? (
                 <CheckCircleIcon fontSize="large" color="success" />
             ) : (

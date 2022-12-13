@@ -65,8 +65,8 @@ export default function BoxSx(props: Iprops) {
                     component="h1"
                     style={{ marginLeft: '0.625rem', width: '250px', fontSize: '18px', fontWeight: 'bold' }}
                 >
-                    <Link href={`/challenges/${refName}`}>
-                        <a style={{ textDecoration: 'none', color: '#6d6e6d' }}>{`${refNumber}. ${title}`}</a>
+                    <Link href={`/challenges/${refName}`} style={{ textDecoration: 'none', color: '#6d6e6d' }}>
+                        {`${refNumber}. ${title}`}
                     </Link>
                 </Typography>
                 <Stack direction="row" spacing={1} style={{ position: 'absolute', right: '0' }}>

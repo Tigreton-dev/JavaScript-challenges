@@ -56,8 +56,8 @@ const MenuBar = () => {
         <AppBar position="static" style={{ flexBasis: '3.5rem', minHeight: '3.5rem' }}>
             <Toolbar style={{ flexBasis: '3.5rem', minHeight: '3.5rem' }}>
                 <Button size="large" startIcon={<FormatListBulletedIcon />}>
-                    <Link href="/">
-                        <a style={{ color: currentTheme.color, textDecoration: 'none' }}>Challenge List</a>
+                    <Link href="/" style={{ color: currentTheme.color, textDecoration: 'none' }}>
+                        Challenge List
                     </Link>
                 </Button>
 
