@@ -1,6 +1,7 @@
 html {
     font-size: var(--main-fontSize);
 }
+
 body {
     font-family: 'Ubuntu', sans-serif;
     font-weight: 400;
@@ -9,7 +10,9 @@ body {
     margin: 0;
     font-size: 90%;
 }
-
+p {
+    font-family: 'Open Sans'
+}
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }

@@ -21,6 +21,9 @@ export function muiTheme(props: Props) {
                 default: '#aa4848'
             }
         },
+        typography: {
+            fontFamily: ['Ubuntu'].join(',')
+        },
         components: {
             MuiButtonBase: {
                 defaultProps: {
@@ -63,7 +66,7 @@ export function muiTheme(props: Props) {
                 styleOverrides: {
                     root: {
                         backgroundColor: primary,
-                        fontFamily: '',
+                        fontFamily: 'Ubuntu',
                         fontWeight: 400,
                         fontSize: '0.875rem',
                         lineHeight: 1.43,

@@ -49,7 +49,7 @@ const ChallengeDescription = () => {
                     );
                 })}
             </Stack>
-            <Box style={{ fontSize: '1.15rem', fontFamily: 'Roboto', fontWeight: '400' }}>
+            <Box style={{ fontSize: '1.15rem', fontWeight: '400' }}>
                 {parse(currentProblem.description)}
             </Box>
             <ExampleCode />
