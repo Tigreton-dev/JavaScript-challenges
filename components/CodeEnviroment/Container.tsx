@@ -37,7 +37,7 @@ const Container = () => {
                 backgroundColor: currentTheme.tertiary
             }}
         >
-            <Split splitterSize="10px" defaultSplitterColors={colors} initialPrimarySize={isFullScreen ? '0%' : '50%'}>
+            <Split splitterSize="10px" defaultSplitterColors={colors} initialPrimarySize={isFullScreen ? '0%' : '40%'}>
                 <Paper sx={{ ...styles, top: '5px', left: '-5px', marginRight: '0' }}>
                     <TabPanel
                         isCodeEditor={false}
