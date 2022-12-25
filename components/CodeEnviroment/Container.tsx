@@ -1,7 +1,8 @@
 import * as React from 'react';
-import { Split } from '@geoffcox/react-splitter';
+import Split from 'react-split';
 import Paper from '@mui/material/Paper';
 
+import TabPanel2 from './TabPanel2';
 import TabPanel from './TabPanel';
 import { DataContext } from '../../context/dataContext';
 import { DataContextType } from '../../context/@types.data';
@@ -19,7 +20,7 @@ const Container = () => {
 
     const styles = {
         margin: '0px 25px',
-        height: 'calc(100% - 25px)',
+        height: '100%',
         boxSizing: 'border-box',
         overflow: 'hidden',
         padding: 0,
@@ -37,19 +38,24 @@ const Container = () => {
                 backgroundColor: currentTheme.tertiary
             }}
         >
-            <Split splitterSize="10px" defaultSplitterColors={colors} initialPrimarySize={isFullScreen ? '0%' : '40%'}>
+            <Split
+                className="split"
+                sizes={[40, 60]}
+                minSize={0}
+                expandToMin={false}
+                gutterSize={10}
+                gutterAlign="center"
+                snapOffset={30}
+                dragInterval={1}
+                direction="horizontal"
+                cursor="col-resize"
+            >
                 <Paper sx={{ ...styles, top: '5px', left: '-5px', marginRight: '0' }}>
-                    <TabPanel
-                        isCodeEditor={false}
-                        firstTitle="Description"
-                        secondTitle="Solution"
-                        thirdTitle="Test Cases"
-                        fourthTitle="Terminal"
-                    />
+                    <TabPanel2 />
                 </Paper>
 
                 <Paper sx={{ ...styles, top: '5px', left: '5px', marginLeft: '0' }}>
-                    <TabPanel isCodeEditor={true} firstTitle="Your Solution" secondTitle="Submitted Solution" />
+                    <TabPanel />
                 </Paper>
             </Split>
         </div>

@@ -5,10 +5,12 @@ import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import IconButton from '@mui/material/IconButton';
-import FullscreenIcon from '@mui/icons-material/Fullscreen';
-import DataObjectIcon from '@mui/icons-material/DataObject';
-import RefreshIcon from '@mui/icons-material/Refresh';
-import CodeMirrorEditor from './CodeMirrorEditor';
+import DeleteIcon from '@mui/icons-material/Delete';
+import Badge from '@mui/material/Badge';
+import ChallengeDescription from './ChallengeDescription/ChallengeDescription';
+import TestCases from './TestCases';
+import SolutionCode from './SolutionCode';
+import Terminal from './Terminal';
 import { DataContext } from '../../context/dataContext';
 import { DataContextType } from '../../context/@types.data';
 
@@ -41,27 +43,26 @@ const TabHeader = (props: propsInterface) => {
     const { handleChange } = props;
     const { data, updateData } = React.useContext(DataContext) as DataContextType;
     const currentTheme = data.currentTheme;
-    const isFullScreen = data.isFullScreen;
+    const currentProblem = data.currentProblem;
+    const numOfTests = Object.keys(currentProblem.testCases).length;
 
     return (
         <Box sx={{ borderColor: 'divider' }}>
             <TabList onChange={(e, val) => handleChange(e, val)} aria-label="lab API tabs example">
-                <Tab label="Your Solution" sx={{ fontSize: '1rem' }} value="1" />
-                <Tab label="Submitted Solution" sx={{ fontSize: '1rem' }} value="2" />
+                <Tab label="Description" sx={{ fontSize: '1rem' }} value="1" />
+                <Tab label="Solution" sx={{ fontSize: '1rem' }} value="2" />
+                <Tab label="Test Cases" sx={{ fontSize: '1rem' }} value="3" />
+                <Tab label="Terminal" sx={{ fontSize: '1rem' }} value="4" />
             </TabList>
-
+            <Badge
+                badgeContent={numOfTests}
+                color="primary"
+                style={{ position: 'absolute', top: '15px', left: '350px' }}
+            />
             <Box sx={{ flexGrow: 1 }} style={{ position: 'absolute', top: '0px', right: '5px' }}>
-                <IconButton size="large" onClick={() => updateData({ beautifyCode: true })}>
-                    <DataObjectIcon style={{ color: currentTheme.color }} />
+                <IconButton size="large" onClick={() => updateData({ deleteLogs: true })}>
+                    <DeleteIcon style={{ color: currentTheme.color }} />
                 </IconButton>
-                <>
-                    <IconButton size="large" onClick={() => updateData({ resetCode: true })}>
-                        <RefreshIcon style={{ color: currentTheme.color }} />
-                    </IconButton>
-                    <IconButton size="large" onClick={() => updateData({ isFullScreen: !isFullScreen })}>
-                        <FullscreenIcon style={{ color: currentTheme.color }} />
-                    </IconButton>
-                </>
             </Box>
         </Box>
     );
@@ -71,10 +72,16 @@ const TabPanels = () => {
     return (
         <>
             <TabPanel value="1" sx={{ padding: 0 }}>
-                <CodeMirrorEditor isSumittedPage={false} />
+                <ChallengeDescription />
             </TabPanel>
             <TabPanel value="2" sx={{ padding: 0 }}>
-                <CodeMirrorEditor isSumittedPage={true} />
+                <SolutionCode />
+            </TabPanel>
+            <TabPanel value="3" sx={{ padding: 0 }}>
+                <TestCases />
+            </TabPanel>
+            <TabPanel value="4" sx={{ padding: 0 }}>
+                <Terminal />
             </TabPanel>
         </>
     );
