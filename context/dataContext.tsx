@@ -99,7 +99,7 @@ const defaultState: IData = {
     testData: {},
     resetCode: false,
     isDarkTheme: true,
-    fontSize: '1.15rem',
+    fontSize: 18,
     displayDataStructureInfo: false,
     dataStructureInfoSelected: 'Array',
     currentTheme: {

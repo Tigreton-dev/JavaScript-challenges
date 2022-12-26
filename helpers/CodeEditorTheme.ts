@@ -108,3 +108,27 @@ export function darkTheme(themeColor: string) {
         ]
     });
 }
+
+export function monacoDarkTheme(color: string) {
+    return {
+        base: 'vs-dark',
+        inherit: false,
+        rules: [
+            { token: '', foreground: 'D4D4D4' },
+            { token: 'comment.js', foreground: '6272a4' },
+            { token: 'identifier', foreground: 'FFFFFF' },
+            { token: 'keyword', foreground: 'ff79c6' },
+            { token: 'delimiter', foreground: 'ff9900' },
+            { token: 'number', foreground: '944dff' },
+            { token: 'string', foreground: 'f1fa8c' }
+        ],
+        colors: {
+            'editor.background': color,
+            'editor.foreground': '#D4D4D4',
+            'editor.inactiveSelection': '#3A3D41',
+            'editor.indentGuides': '#404040',
+            'editor.activeIndentGuides': '#707070',
+            'editor.selectionHighlight': '#ADD6FF26'
+        }
+    };
+}

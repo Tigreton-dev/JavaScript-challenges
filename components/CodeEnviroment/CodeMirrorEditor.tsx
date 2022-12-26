@@ -1,12 +1,9 @@
 import * as React from 'react';
-import CodeMirror from '@uiw/react-codemirror';
-import { javascript } from '@codemirror/lang-javascript';
+import Editor, { useMonaco } from '@monaco-editor/react';
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
-// @ts-ignore
-import beautify from 'js-beautify';
 
-import { lightTheme, darkTheme } from '../../helpers/CodeEditorTheme';
+import { lightTheme, darkTheme, monacoDarkTheme } from '../../helpers/CodeEditorTheme';
 import { DataContext } from '../../context/dataContext';
 import { DataContextType } from '../../context/@types.data';
 
@@ -22,74 +19,70 @@ const CodeMirrorEditor = (props: Iprops) => {
     const fontSize = data.fontSize;
     const startedCode = currentProblem.startedCode[currentLanguage];
     const currentTheme = data.currentTheme;
-    const [code, setCode] = React.useState('');
+    const code = React.useRef('');
     const resetCode = data.resetCode;
     const editorTheme = currentTheme.isDarkTheme
         ? darkTheme(currentTheme.secondary)
         : lightTheme(currentTheme.secondary);
     const codeSolutionOnStorage = localStorage.getItem(currentProblem.refName);
 
+    const monaco = useMonaco();
+    const editorRef = React.useRef<any>(null);
+
+    function handleEditorDidMount(editor: any, monaco: any) {
+        editorRef.current = editor;
+        setTimeout(function () {
+            editor.getAction('editor.action.formatDocument').run();
+        }, 300);
+    }
+
+    function handleEditorWillMount(monaco: any) {
+        // here is the monaco instance
+        // do something before editor is mounted
+        monaco.editor.defineTheme('my-theme', monacoDarkTheme(currentTheme.secondary));
+        monaco.languages.typescript.javascriptDefaults.setEagerModelSync(true);
+    }
+
+    React.useEffect(() => {
+        code.current = currentProblem.startedCode[currentLanguage];
+    }, [startedCode, resetCode]);
+
+    React.useEffect(() => {
+        if (resetCode) code.current = currentProblem.startedCode[currentLanguage];
+        updateData({ resetCode: false });
+    }, [resetCode]);
+
     React.useEffect(() => {
         if (data.beautifyCode) {
-            const val = beautify(code, { indent_size: 3, space_in_empty_paren: true });
-            setCode(val);
+            editorRef?.current?.getAction('editor.action.formatDocument').run();
             updateData({ beautifyCode: false });
         }
     }, [data.beautifyCode]);
 
-    React.useEffect(() => {
-        setCode(currentProblem.startedCode[currentLanguage]);
-    }, [startedCode, resetCode]);
-
-    React.useEffect(() => {
-        if (resetCode) setCode(currentProblem.startedCode[currentLanguage]);
-        updateData({ resetCode: false });
-    }, [resetCode]);
-
-    const onChange = React.useCallback((value: string) => {
-        setCode(value);
+    const onChange = React.useCallback((value: string | undefined) => {
+        if (value !== undefined) code.current = value;
     }, []);
 
     const sendCodeHandler = () => {
-        updateData({ codeValue: code });
+        updateData({ codeValue: code.current });
     };
 
     return (
         <div style={{ margin: '10px', textAlign: 'initial', fontSize: fontSize }}>
-            <CodeMirror
-                theme={editorTheme}
-                value={codeSolutionOnStorage !== null && isSumittedPage ? codeSolutionOnStorage : code}
-                className="codeMirror_editor"
+            <Editor
                 height="calc(100vh - 150px)"
-                autoFocus={false}
-                basicSetup={{
-                    lineNumbers: true,
-                    highlightActiveLineGutter: false,
-                    highlightSpecialChars: false,
-                    history: false,
-                    foldGutter: false,
-                    drawSelection: false,
-                    dropCursor: false,
-                    allowMultipleSelections: false,
-                    indentOnInput: false,
-                    syntaxHighlighting: true,
-                    bracketMatching: false,
-                    closeBrackets: false,
-                    autocompletion: false,
-                    rectangularSelection: false,
-                    crosshairCursor: false,
-                    highlightActiveLine: false,
-                    highlightSelectionMatches: false,
-                    closeBracketsKeymap: false,
-                    defaultKeymap: false,
-                    searchKeymap: false,
-                    historyKeymap: false,
-                    foldKeymap: false,
-                    completionKeymap: false,
-                    lintKeymap: false
+                defaultLanguage="javascript"
+                value={codeSolutionOnStorage !== null && isSumittedPage ? codeSolutionOnStorage : code.current}
+                beforeMount={handleEditorWillMount}
+                onMount={handleEditorDidMount}
+                theme="my-theme"
+                onChange={(value: string | undefined) => onChange(value)}
+                options={{
+                    minimap: { enabled: false },
+                    scrollbar: { vertical: 'hidden' },
+                    fontSize: fontSize,
+                    readOnly: isSumittedPage ? true : false
                 }}
-                extensions={[javascript({ jsx: true })]}
-                onChange={(value, viewUpdate) => onChange(value)}
             />
             {!isSumittedPage && (
                 <Button
