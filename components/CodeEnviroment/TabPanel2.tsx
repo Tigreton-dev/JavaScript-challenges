@@ -45,20 +45,28 @@ const TabHeader = (props: propsInterface) => {
     const currentTheme = data.currentTheme;
     const currentProblem = data.currentProblem;
     const numOfTests = Object.keys(currentProblem.testCases).length;
+    const displayBadge = data.displayBadge;
 
     return (
         <Box sx={{ borderColor: 'divider' }}>
             <TabList onChange={(e, val) => handleChange(e, val)} aria-label="lab API tabs example">
                 <Tab label="Description" sx={{ fontSize: '1rem' }} value="1" />
                 <Tab label="Solution" sx={{ fontSize: '1rem' }} value="2" />
-                <Tab label="Test Cases" sx={{ fontSize: '1rem' }} value="3" />
+                <Tab
+                    label="Test Cases"
+                    sx={{ fontSize: '1rem' }}
+                    onClick={() => updateData({ displayBadge: false })}
+                    value="3"
+                />
                 <Tab label="Terminal" sx={{ fontSize: '1rem' }} value="4" />
             </TabList>
-            <Badge
-                badgeContent={numOfTests}
-                color="primary"
-                style={{ position: 'absolute', top: '15px', left: '350px' }}
-            />
+            {displayBadge && (
+                <Badge
+                    badgeContent={numOfTests}
+                    color="primary"
+                    style={{ position: 'absolute', top: '15px', left: '350px' }}
+                />
+            )}
             <Box sx={{ flexGrow: 1 }} style={{ position: 'absolute', top: '0px', right: '5px' }}>
                 <IconButton size="large" onClick={() => updateData({ deleteLogs: true })}>
                     <DeleteIcon style={{ color: currentTheme.color }} />

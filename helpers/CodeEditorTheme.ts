@@ -138,7 +138,14 @@ export function monacoLightTheme(color: string) {
     return {
         base: 'vs',
         inherit: true,
-        rules: [{ token: 'comment.js', foreground: '008800' }],
+        rules: [
+            { token: 'comment', foreground: '008800' },
+            { token: '', foreground: '000000' },
+            { token: 'identifier', foreground: '000000' },
+            { token: 'delimiter', foreground: '7d2500' },
+            { token: 'number', foreground: '944dff' },
+            { token: 'string', foreground: '20b502' }
+        ],
         colors: {
             'editor.background': color,
             'editor.foreground': '#D4D4D4',
