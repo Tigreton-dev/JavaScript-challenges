@@ -3,7 +3,7 @@ import Editor, { useMonaco } from '@monaco-editor/react';
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
 
-import { lightTheme, darkTheme, monacoDarkTheme } from '../../helpers/CodeEditorTheme';
+import { lightTheme, darkTheme, monacoDarkTheme, monacoLightTheme } from '../../helpers/CodeEditorTheme';
 import { DataContext } from '../../context/dataContext';
 import { DataContextType } from '../../context/@types.data';
 
@@ -22,8 +22,8 @@ const CodeMirrorEditor = (props: Iprops) => {
     const code = React.useRef('');
     const resetCode = data.resetCode;
     const editorTheme = currentTheme.isDarkTheme
-        ? darkTheme(currentTheme.secondary)
-        : lightTheme(currentTheme.secondary);
+        ? monacoDarkTheme(currentTheme.secondary)
+        : monacoLightTheme(currentTheme.secondary);
     const codeSolutionOnStorage = localStorage.getItem(currentProblem.refName);
 
     const monaco = useMonaco();
@@ -39,7 +39,7 @@ const CodeMirrorEditor = (props: Iprops) => {
     function handleEditorWillMount(monaco: any) {
         // here is the monaco instance
         // do something before editor is mounted
-        monaco.editor.defineTheme('my-theme', monacoDarkTheme(currentTheme.secondary));
+        monaco.editor.defineTheme('my-theme', editorTheme);
         monaco.languages.typescript.javascriptDefaults.setEagerModelSync(true);
     }
 
@@ -58,6 +58,11 @@ const CodeMirrorEditor = (props: Iprops) => {
             updateData({ beautifyCode: false });
         }
     }, [data.beautifyCode]);
+
+    React.useEffect(() => {
+        // @ts-ignore
+        if (monaco) monaco.editor.defineTheme('my-theme', editorTheme);
+    }, [currentTheme.isDarkTheme]);
 
     const onChange = React.useCallback((value: string | undefined) => {
         if (value !== undefined) code.current = value;

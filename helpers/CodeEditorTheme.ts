@@ -128,7 +128,25 @@ export function monacoDarkTheme(color: string) {
             'editor.inactiveSelection': '#3A3D41',
             'editor.indentGuides': '#404040',
             'editor.activeIndentGuides': '#707070',
-            'editor.selectionHighlight': '#ADD6FF26'
+            'editor.selectionHighlight': '#ADD6FF26',
+            'editor.lineHighlightBorder': '#003c4d'
+        }
+    };
+}
+
+export function monacoLightTheme(color: string) {
+    return {
+        base: 'vs',
+        inherit: true,
+        rules: [{ token: 'comment.js', foreground: '008800' }],
+        colors: {
+            'editor.background': color,
+            'editor.foreground': '#D4D4D4',
+            'editor.inactiveSelection': '#3A3D41',
+            'editor.indentGuides': '#404040',
+            'editor.activeIndentGuides': '#707070',
+            'editor.selectionHighlight': '#ADD6FF26',
+            'editor.lineHighlightBorder': '#e8e8e8'
         }
     };
 }
