@@ -41,7 +41,7 @@ const Container = () => {
         >
             <Split
                 className="split"
-                sizes={[40, 60]}
+                sizes={isFullScreen ? [0, 100] : [40, 60]}
                 minSize={0}
                 expandToMin={false}
                 gutterSize={10}
