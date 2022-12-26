@@ -25,7 +25,7 @@ const TestCases = () => {
         : lightTheme(currentTheme.secondary);
 
     return (
-        <div style={{ padding: '1.25rem', height: 'calc(100vh - 140px)', overflow: 'scroll' }}>
+        <div style={{ padding: '1.25rem', height: 'calc(100vh - 130px)', overflow: 'scroll' }}>
             {Object.entries(currentProblem.testCases).map(([key, value], i) => {
                 const { test_input, test_expected, code_output, passed_test } = value;
                 const boxShadow = passed_test ? '0px 0px 10px -1px green' : '0px 0px 10px -1px rgb(223, 3, 3)';

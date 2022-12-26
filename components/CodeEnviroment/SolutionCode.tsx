@@ -29,7 +29,7 @@ const SolutionCode = () => {
                 theme={editorTheme}
                 value={beautify(codeValue, { indent_size: 3, space_in_empty_paren: true })}
                 className="codeMirror_editor"
-                height="calc(100vh - 155px)"
+                height="calc(100vh - 150px)"
                 editable={false}
                 basicSetup={{
                     highlightActiveLineGutter: false,

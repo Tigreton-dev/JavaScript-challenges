@@ -60,7 +60,7 @@ const CodeMirrorEditor = (props: Iprops) => {
                 theme={editorTheme}
                 value={codeSolutionOnStorage !== null && isSumittedPage ? codeSolutionOnStorage : code}
                 className="codeMirror_editor"
-                height="calc(100vh - 155px)"
+                height="calc(100vh - 150px)"
                 autoFocus={false}
                 basicSetup={{
                     lineNumbers: true,
@@ -99,8 +99,8 @@ const CodeMirrorEditor = (props: Iprops) => {
                     endIcon={<SendIcon />}
                     style={{
                         boxShadow: currentTheme.borderShadow,
-                        bottom: '25px',
-                        right: '25px',
+                        bottom: '40px',
+                        right: '40px',
                         position: 'fixed',
                         color: 'white',
                         backgroundColor: currentTheme.secondary_color

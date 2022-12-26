@@ -25,7 +25,8 @@ const Container = () => {
         overflow: 'hidden',
         padding: 0,
         position: 'relative',
-        boxShadow: currentTheme.borderShadow
+        boxShadow: currentTheme.borderShadow,
+        background: currentTheme.secondary
     };
 
     return (
