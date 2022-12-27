@@ -75,7 +75,7 @@ const CodeMirrorEditor = (props: Iprops) => {
     return (
         <div style={{ margin: '10px', textAlign: 'initial', fontSize: fontSize }}>
             <Editor
-                height="calc(100vh - 150px)"
+                height="calc(100vh - 6.5rem - 45px)"
                 defaultLanguage="javascript"
                 value={codeSolutionOnStorage !== null && isSumittedPage ? codeSolutionOnStorage : code.current}
                 beforeMount={handleEditorWillMount}

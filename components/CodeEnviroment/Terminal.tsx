@@ -101,7 +101,7 @@ const Terminal = () => {
         <div
             id="tree"
             style={{
-                height: 'calc(100vh - 130px)',
+                height: 'calc(100vh - 6.5rem - 25px)',
                 overflow: 'scroll',
                 textAlign: 'initial',
                 fontWeight: '500',

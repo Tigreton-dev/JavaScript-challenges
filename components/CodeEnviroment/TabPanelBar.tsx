@@ -54,13 +54,13 @@ const TabPanelBar = (props: propsInterface) => {
                 aria-label="action tabs example"
                 style={{ boxShadow: 'none' }}
             >
-                <Tab label={firstTitle} id="tab-0" sx={{ fontSize: '1rem' }} />
-                <Tab label={secondTitle} id="tab-1" sx={{ fontSize: '1rem' }} />
+                <Tab label={firstTitle} id="tab-0" sx={{ fontSize: '1rem', padding: '0.8rem' }} />
+                <Tab label={secondTitle} id="tab-1" sx={{ fontSize: '1rem', padding: '0.8rem' }} />
                 {!isCodeEditor && (
                     <Tab
                         label={thirdTitle}
                         id="tab-2"
-                        sx={{ fontSize: '1rem' }}
+                        sx={{ fontSize: '1rem', padding: '0.8rem' }}
                         onClick={() => updateData({ displayBadge: false })}
                     />
                 )}

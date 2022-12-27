@@ -44,10 +44,14 @@ const TabHeader = (props: propsInterface) => {
     const isFullScreen = data.isFullScreen;
 
     return (
-        <Box sx={{ borderColor: 'divider' }}>
-            <TabList onChange={(e, val) => handleChange(e, val)} aria-label="lab API tabs example">
-                <Tab label="Your Solution" sx={{ fontSize: '1rem' }} value="1" />
-                <Tab label="Submitted Solution" sx={{ fontSize: '1rem' }} value="2" />
+        <Box sx={{ borderColor: 'divider', height: '3rem' }}>
+            <TabList
+                sx={{ borderColor: 'divider', height: '3rem' }}
+                onChange={(e, val) => handleChange(e, val)}
+                aria-label="lab API tabs example"
+            >
+                <Tab label="Your Solution" sx={{ fontSize: '1rem', padding: '0.8rem' }} value="1" />
+                <Tab label="Submitted Solution" sx={{ fontSize: '1rem', padding: '0.8rem' }} value="2" />
             </TabList>
 
             <Box sx={{ flexGrow: 1 }} style={{ position: 'absolute', top: '0px', right: '5px' }}>

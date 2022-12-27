@@ -27,7 +27,7 @@ const ChallengeDescription = () => {
             sx={{
                 padding: '1.25rem',
                 paddingTop: '0',
-                height: 'calc(100vh - 130px)',
+                height: 'calc(100vh - 6.5rem - 25px)',
                 overflow: 'scroll',
                 textAlign: 'left'
             }}

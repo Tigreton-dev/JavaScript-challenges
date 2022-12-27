@@ -48,17 +48,21 @@ const TabHeader = (props: propsInterface) => {
     const displayBadge = data.displayBadge;
 
     return (
-        <Box sx={{ borderColor: 'divider' }}>
-            <TabList onChange={(e, val) => handleChange(e, val)} aria-label="lab API tabs example">
-                <Tab label="Description" sx={{ fontSize: '1rem' }} value="1" />
-                <Tab label="Solution" sx={{ fontSize: '1rem' }} value="2" />
+        <Box sx={{ borderColor: 'divider', height: '3rem' }}>
+            <TabList
+                sx={{ borderColor: 'divider', height: '3rem' }}
+                onChange={(e, val) => handleChange(e, val)}
+                aria-label="lab API tabs example"
+            >
+                <Tab label="Description" sx={{ fontSize: '1rem', padding: '0.8rem' }} value="1" />
+                <Tab label="Solution" sx={{ fontSize: '1rem', padding: '0.8rem' }} value="2" />
                 <Tab
                     label="Test Cases"
-                    sx={{ fontSize: '1rem' }}
+                    sx={{ fontSize: '1rem', padding: '0.8rem' }}
                     onClick={() => updateData({ displayBadge: false })}
                     value="3"
                 />
-                <Tab label="Terminal" sx={{ fontSize: '1rem' }} value="4" />
+                <Tab label="Terminal" sx={{ fontSize: '1rem', padding: '0.8rem' }} value="4" />
             </TabList>
             {displayBadge && (
                 <Badge
