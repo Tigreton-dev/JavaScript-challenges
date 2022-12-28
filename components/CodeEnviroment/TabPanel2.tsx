@@ -16,6 +16,7 @@ import { DataContextType } from '../../context/@types.data';
 
 interface propsInterface {
     handleChange: Function;
+    value: string;
 }
 
 export default function TabPanel2() {
@@ -31,6 +32,7 @@ export default function TabPanel2() {
         <Box sx={{ position: 'relative', minHeight: '100%', backgroundColor: currentTheme.secondary }}>
             <TabContext value={value}>
                 <TabHeader
+                    value={value}
                     handleChange={(event: React.SyntheticEvent, newValue: string) => handleChange(event, newValue)}
                 />
                 <TabPanels />
@@ -40,7 +42,7 @@ export default function TabPanel2() {
 }
 
 const TabHeader = (props: propsInterface) => {
-    const { handleChange } = props;
+    const { value, handleChange } = props;
     const { data, updateData } = React.useContext(DataContext) as DataContextType;
     const currentTheme = data.currentTheme;
     const currentProblem = data.currentProblem;
@@ -71,11 +73,14 @@ const TabHeader = (props: propsInterface) => {
                     style={{ position: 'absolute', top: '15px', left: '350px' }}
                 />
             )}
-            <Box sx={{ flexGrow: 1 }} style={{ position: 'absolute', top: '0px', right: '5px' }}>
-                <IconButton size="large" onClick={() => updateData({ deleteLogs: true })}>
-                    <DeleteIcon style={{ color: currentTheme.color }} />
-                </IconButton>
-            </Box>
+            {value === '4' && (
+                <Box sx={{ flexGrow: 1 }} style={{ position: 'absolute', top: '0px', right: '5px' }}>
+                    <IconButton size="large" onClick={() => updateData({ deleteLogs: true })}>
+                        <DeleteIcon style={{ color: currentTheme.color }} />
+                    </IconButton>
+                </Box>
+            )}
+
         </Box>
     );
 };
