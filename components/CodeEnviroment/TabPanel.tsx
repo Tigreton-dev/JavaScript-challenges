@@ -54,18 +54,19 @@ const TabHeader = (props: propsInterface) => {
                 <Tab label="Submitted Solution" sx={{ fontSize: '1rem', padding: '0.8rem' }} value="2" />
             </TabList>
 
-            <Box sx={{ flexGrow: 1 }} style={{ position: 'absolute', top: '0px', right: '5px' }}>
+            <Box
+                sx={{ flexGrow: 1, background: currentTheme.secondary }}
+                style={{ position: 'absolute', top: '0px', right: '5px' }}
+            >
                 <IconButton size="large" onClick={() => updateData({ beautifyCode: true })}>
                     <DataObjectIcon style={{ color: currentTheme.color }} />
                 </IconButton>
-                <>
-                    <IconButton size="large" onClick={() => updateData({ resetCode: true })}>
-                        <RefreshIcon style={{ color: currentTheme.color }} />
-                    </IconButton>
-                    <IconButton size="large" onClick={() => updateData({ isFullScreen: !isFullScreen })}>
-                        <FullscreenIcon style={{ color: currentTheme.color }} />
-                    </IconButton>
-                </>
+                <IconButton size="large" onClick={() => updateData({ resetCode: true })}>
+                    <RefreshIcon style={{ color: currentTheme.color }} />
+                </IconButton>
+                <IconButton size="large" onClick={() => updateData({ isFullScreen: !isFullScreen })}>
+                    <FullscreenIcon style={{ color: currentTheme.color }} />
+                </IconButton>
             </Box>
         </Box>
     );

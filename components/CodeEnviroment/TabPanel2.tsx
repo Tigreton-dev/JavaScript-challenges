@@ -80,7 +80,6 @@ const TabHeader = (props: propsInterface) => {
                     </IconButton>
                 </Box>
             )}
-
         </Box>
     );
 };
