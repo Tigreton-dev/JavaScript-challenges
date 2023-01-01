@@ -13,6 +13,7 @@ import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import Link from 'next/link';
 import ChallengeSelector from './ChallengeSelector';
+import CompressSettings from './compressSettings';
 
 import Challenges from '../../../data/challenges.json';
 import LanguageMenu from './LanguageMenu';
@@ -27,6 +28,31 @@ const MenuBar = () => {
     const router = useRouter();
     const currentTheme = data.currentTheme;
     const currentProblem = data.currentProblem;
+    const widthRef = React.useRef(1270);
+    const [displayCompressSettings, setDisplayCompressSettings] = React.useState(false);
+
+    React.useEffect(() => {
+        const resizeHandler = () => {
+            const windowWidth = window.innerWidth;
+            windowWidth < widthRef.current ? setDisplayCompressSettings(true) : setDisplayCompressSettings(false);
+        };
+        window.addEventListener('resize', resizeHandler);
+
+        return () => window.removeEventListener('resize', resizeHandler);
+    }, []);
+
+    const calculateWidth = (isZoomIn: boolean) => {
+        const windowWidth = window.innerWidth;
+        if (isZoomIn) {
+            const newVal = widthRef.current * 0.06 + widthRef.current;
+            widthRef.current = newVal;
+            windowWidth < newVal ? setDisplayCompressSettings(true) : setDisplayCompressSettings(false);
+        } else {
+            const newVal = widthRef.current - widthRef.current * 0.06;
+            widthRef.current = newVal;
+            windowWidth < newVal ? setDisplayCompressSettings(true) : setDisplayCompressSettings(false);
+        }
+    };
 
     const prevChallenge = async () => {
         let currentProblemNumber = currentProblem.refNumber - 1;
@@ -45,12 +71,14 @@ const MenuBar = () => {
         const size = fontSize - 10;
         document.documentElement.style.setProperty('--main-fontSize', size + '%');
         setFontSize(fontSize => fontSize - 10);
+        calculateWidth(false);
     };
 
     const zoomIn = () => {
         const size = fontSize + 10;
         document.documentElement.style.setProperty('--main-fontSize', size + '%');
         setFontSize(fontSize => fontSize + 10);
+        calculateWidth(true);
     };
 
     return (
@@ -61,35 +89,41 @@ const MenuBar = () => {
                         Challenge List
                     </Link>
                 </Button>
+                {displayCompressSettings ? (
+                    <Stack spacing={2} direction="row" sx={{ position: 'absolute', right: '20px' }}>
+                        <ChallengeSelector />
+                        <CompressSettings zoomIn={zoomIn} zoomOut={zoomOut} />
+                    </Stack>
+                ) : (
+                    <Stack spacing={2} direction="row" sx={{ position: 'absolute', right: '20px' }}>
+                        <ChallengeSelector />
+                        <Tooltip TransitionComponent={Zoom} title="Previous Challenge" arrow>
+                            <Button size="small" onClick={prevChallenge}>
+                                <ArrowBackIcon />
+                            </Button>
+                        </Tooltip>
+                        <Tooltip TransitionComponent={Zoom} title="Next Challenge" arrow>
+                            <Button size="small" onClick={nextChallenge}>
+                                <ArrowForwardIcon />
+                            </Button>
+                        </Tooltip>
 
-                <Stack spacing={2} direction="row" sx={{ position: 'absolute', right: '20px' }}>
-                    <ChallengeSelector />
-                    <Tooltip TransitionComponent={Zoom} title="Previous Challenge" arrow>
-                        <Button size="small" onClick={prevChallenge}>
-                            <ArrowBackIcon />
-                        </Button>
-                    </Tooltip>
-                    <Tooltip TransitionComponent={Zoom} title="Next Challenge" arrow>
-                        <Button size="small" onClick={nextChallenge}>
-                            <ArrowForwardIcon />
-                        </Button>
-                    </Tooltip>
+                        <Tooltip TransitionComponent={Zoom} title="Zoom Out" arrow>
+                            <Button size="small" onClick={zoomOut}>
+                                <RemoveIcon />
+                            </Button>
+                        </Tooltip>
+                        <Tooltip TransitionComponent={Zoom} title="Zoom In" arrow>
+                            <Button size="small" onClick={zoomIn}>
+                                <AddIcon />
+                            </Button>
+                        </Tooltip>
 
-                    <Tooltip TransitionComponent={Zoom} title="Zoom Out" arrow>
-                        <Button size="small" onClick={zoomOut}>
-                            <RemoveIcon />
-                        </Button>
-                    </Tooltip>
-                    <Tooltip TransitionComponent={Zoom} title="Zoom In" arrow>
-                        <Button size="small" onClick={zoomIn}>
-                            <AddIcon />
-                        </Button>
-                    </Tooltip>
-
-                    <Theme />
-                    <LanguageMenu />
-                    <FontSize />
-                </Stack>
+                        <Theme />
+                        <LanguageMenu />
+                        <FontSize />
+                    </Stack>
+                )}
             </Toolbar>
         </AppBar>
     );

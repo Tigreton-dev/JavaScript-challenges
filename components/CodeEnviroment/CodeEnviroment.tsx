@@ -17,22 +17,12 @@ export default function CodeEnviroment() {
     const isSolutionCorrect = data.isSolutionCorrect;
     const currentTheme = data.currentTheme;
     const codeValue = data.codeValue;
-    const [windowDimensions, setWindowDimensions] = React.useState(window.innerWidth);
     const muiThemeProps = {
         color: currentTheme.color,
         primary: currentTheme.primary,
         secondary_color: currentTheme.secondary_color,
         tertiary: currentTheme.tertiary
     };
-
-    React.useEffect(() => {
-        const setWidth = () => {
-            setWindowDimensions(window.innerWidth);
-        };
-        window.addEventListener('resize', setWidth);
-
-        return () => window.removeEventListener('resize', setWidth);
-    }, []);
 
     // Run Code
     React.useEffect(() => {
@@ -51,8 +41,6 @@ export default function CodeEnviroment() {
     const closeModal = () => {
         updateData({ displayCodeResultModal: false });
     };
-
-    if (windowDimensions < 900) return <p>Not Supported</p>;
 
     return (
         <ThemeProvider theme={muiTheme(muiThemeProps)}>

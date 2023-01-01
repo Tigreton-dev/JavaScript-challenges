@@ -76,8 +76,20 @@ const ChallengeSelector = () => {
                     fontWeight: '500'
                 }}
             >
-                <FormatListBulletedIcon /> &nbsp; <b>Challenge {data.currentProblem.refNumber}:</b> &nbsp;
-                {data.currentProblem.title}
+                <FormatListBulletedIcon /> &nbsp;
+                <b>Challenge {data.currentProblem.refNumber}:</b> &nbsp;
+                <span
+                    style={{
+                        display: 'block',
+                        maxWidth: '180px',
+                        overflow: 'hidden',
+                        whiteSpace: 'nowrap',
+                        textOverflow: 'ellipsis',
+                        textAlign: 'left'
+                    }}
+                >
+                    {data.currentProblem.title}
+                </span>
             </Button>
             <Menu
                 sx={{ mt: '5px', height: '400px', minWidth: '900px' }}
