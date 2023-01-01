@@ -6,7 +6,6 @@ import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
-import Badge from '@mui/material/Badge';
 import ChallengeDescription from './ChallengeDescription/ChallengeDescription';
 import TestCases from './TestCases';
 import SolutionCode from './SolutionCode';
@@ -23,6 +22,11 @@ export default function TabPanel2() {
     const [value, setValue] = React.useState('1');
     const { data } = React.useContext(DataContext) as DataContextType;
     const currentTheme = data.currentTheme;
+    const displayCodeResultModal = data.displayCodeResultModal;
+
+    React.useEffect(() => {
+        if (displayCodeResultModal) setValue('3');
+    }, [displayCodeResultModal]);
 
     const handleChange = (event: React.SyntheticEvent, newValue: string) => {
         setValue(newValue);
@@ -66,13 +70,7 @@ const TabHeader = (props: propsInterface) => {
                 />
                 <Tab label="Terminal" sx={{ fontSize: '1rem', padding: '0.8rem' }} value="4" />
             </TabList>
-            {displayBadge && (
-                <Badge
-                    badgeContent={numOfTests}
-                    color="primary"
-                    style={{ position: 'absolute', top: '15px', left: '350px' }}
-                />
-            )}
+
             {value === '4' && (
                 <Box sx={{ flexGrow: 1 }} style={{ position: 'absolute', top: '0px', right: '5px' }}>
                     <IconButton size="large" onClick={() => updateData({ deleteLogs: true })}>
