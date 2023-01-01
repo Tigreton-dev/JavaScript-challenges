@@ -27,6 +27,21 @@ export default function ChallengeList() {
     ];
 
     React.useEffect(() => {
+        const challenges = problemList
+            .filter((e: any) => e.category === category)
+            .sort((a: any, b: any) => {
+                if (a.difficulty === 'Easy') a.difNum = 0;
+                if (a.difficulty === 'Medium') a.difNum = 1;
+                if (a.difficulty === 'Hard') a.difNum = 2;
+                if (b.difficulty === 'Easy') b.difNum = 0;
+                if (b.difficulty === 'Medium') b.difNum = 1;
+                if (b.difficulty === 'Hard') b.difNum = 2;
+                return a.difNum - b.difNum;
+            });
+        updateData({ currentChallengeList: challenges });
+    }, [category]);
+
+    React.useEffect(() => {
         // @ts-ignore
         const problemList: Array<IcurrentProblem> = Object.keys(Challenges).map((key: string) => Challenges[key]);
         updateData({ problemsList: problemList });

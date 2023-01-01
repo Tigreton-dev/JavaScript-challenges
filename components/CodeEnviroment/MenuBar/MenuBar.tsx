@@ -12,6 +12,7 @@ import Tooltip from '@mui/material/Tooltip';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import Link from 'next/link';
+import ChallengeSelector from './ChallengeSelector';
 
 import Challenges from '../../../data/challenges.json';
 import LanguageMenu from './LanguageMenu';
@@ -62,6 +63,7 @@ const MenuBar = () => {
                 </Button>
 
                 <Stack spacing={2} direction="row" sx={{ position: 'absolute', right: '20px' }}>
+                    <ChallengeSelector />
                     <Tooltip TransitionComponent={Zoom} title="Previous Challenge" arrow>
                         <Button size="small" onClick={prevChallenge}>
                             <ArrowBackIcon />

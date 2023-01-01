@@ -85,6 +85,7 @@ const defaultState: IData = {
     isSolutionCorrect: false,
     currentProblem: defaultProblem,
     problemsList: [],
+    currentChallengeList: [],
     currentLanguage: 'javaScript',
     displayBadge: false,
     runCode: false,

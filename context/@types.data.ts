@@ -40,6 +40,7 @@ export interface IData {
     isSolutionCorrect: boolean;
     currentProblem: IcurrentProblem;
     problemsList: Array<String>;
+    currentChallengeList: Array<IcurrentProblem>;
     currentLanguage: string;
     displayBadge: boolean;
     runCode: boolean;
