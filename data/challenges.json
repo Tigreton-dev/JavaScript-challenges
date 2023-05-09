@@ -12721,5 +12721,229 @@
                 "passed_test": false
             }
         }
+    },
+    "arrayMethods": {
+        "refName": "arrayMethods",
+        "refNumber": 166,
+        "category": "javascript",
+        "difficulty": "Easy",
+        "title": "Array Methods",
+        "tags": ["Easy", "javascript"],
+        "description": "<p>Without calling Array.prototype.map(), Array.prototype.filter(), Array.prototype.reduce(), or Array.prototype.forEach(), implement the following three similar functions on the Array prototype:</p> <p>1. myMap(callback)</p> <p>Without mutating the original array, this function should call the passed callback function on every element of the array and return a new array containing the results of all these calls, in the corresponding order.</p> <p>The callback function can take in up to three parameters:</p> <ol> <li>The current value in the array.</li> <li>The current index in the array.</li> <li>The array itself.</li> </ol> <p>2. myFilter(callback)</p> <p>Without mutating the original array, this function should call the passed callback function on every element of the array and return a new array containing the values of the original array that, when passed to the callback function, returned true. These values should maintain their original order.</p> <p>The callback function takes in the same arguments as the ones that the callback function in myMap takes in.</p> <p>3. myReduce(callback, initialValue)</p> <p>Without mutating the original array, this function should call the passed callback function on every element of the array and return the result of the last call to the callback.</p> <p>The callback function can take in up to four parameters: The accumulator, which is the return value of the previous call to the callback. On the first call to the callback, the accumulator should be set to the initialValue. If the initialValue is undefined, then it should be set to the first value of the array, and the callback should skip the first element in the array and be called directly on the second element.</p> <ol> <li>The current value in the array.</li> <li>The current index in the array.</li> <li>The array itself.</li> </ol>    <p>If the array contains no elements, the initialValue should be returned. Note that this differs slightly from the Array.prototype.reduce function.</p>",
+        "examples": {
+            "example1": {
+                "input": "const array = [1, 2, 3];\nconst mappedArray = array.myMap((value, i, arr) => {\n  return value + i + arr[1];\n});\nconst filteredArray = array.myFilter((value, i, arr) => {\n  return (value + i + arr[1]) > 5;\n});\nconst reducedValue = array.myReduce((accumulator, value, i, arr) => {\n  return accumulator + value + i + arr[1];\n}, 3);\nconsole.log(mappedArray);\nconsole.log(filteredArray);\nconsole.log(reducedValue);",
+                "output": "// Console logs:\n[3, 5, 7] // From myMap.\n[3] // From myFilter.\n18 // From myReduce."
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "Array.prototype.myMap = function (callback) {\n  // Write your code here.\n};\nArray.prototype.myFilter = function (callback) {\n  // Write your code here.\n};\nArray.prototype.myReduce = function (callback, initialValue) {\n  // Write your code here.\n};"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// Implementación de la función map\nfunction map(array, callback) {\n  var newArray = [];\n  for (var i = 0; i < array.length; i++) {\n    newArray.push(callback(array[i], i, array));\n  }\n  return newArray;\n}\n// Implementación de la función filter\nfunction filter(array, callback) {\n  var newArray = [];\n  for (var i = 0; i < array.length; i++) {\n    if (callback(array[i], i, array)) {\n      newArray.push(array[i]);\n    }\n  }\n  return newArray;\n}\n// Implementación de la función reduce\nfunction reduce(array, callback, initialValue) {\n  var accumulator = initialValue !== undefined ? initialValue : array[0];\n  var i = initialValue !== undefined ? 0 : 1;\n  while (i < array.length) {\n    accumulator = callback(accumulator, array[i], i, array);\n    i++;\n  }\n  return accumulator;\n}\n// Implementación de la función forEach\nfunction forEach(array, callback) {\n  for (var i = 0; i < array.length; i++) {\n    callback(array[i], i, array);\n  }\n}"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": [
+                    {
+                        "foo": "bar",
+                        "obj": {
+                            "a": 1,
+                            "b": 2
+                        }
+                    },
+                    25,
+                    "obj.b"
+                ],
+                "test_expected": {
+                    "foo": "bar",
+                    "obj": {
+                        "a": 1,
+                        "b": 25
+                    }
+                },
+                "code_output": null,
+                "passed_test": false
+            }
+        }
+    },
+    "eventTarget": {
+        "refName": "eventTarget",
+        "refNumber": 167,
+        "category": "javascript",
+        "difficulty": "Easy",
+        "title": "Event Target",
+        "tags": ["Easy", "javascript"],
+        "description": "<p>Implement an EventTarget class that has the following methods:</p>\n  <p>addEventListener(type, callback): Adds an EventListener for the specified event type.</p>\n    <p>removeEventListener(type, callback): Removes an EventListener for the specified event type.</p>\n    <p>dispatchEvent(event): Dispatches the specified event and executes all EventListeners associated with it.</p>",
+        "examples": {
+            "example1": {
+                "input": "const array = [1, 2, 3];\nconst mappedArray = array.myMap((value, i, arr) => {\n  return value + i + arr[1];\n});\nconst filteredArray = array.myFilter((value, i, arr) => {\n  return (value + i + arr[1]) > 5;\n});\nconst reducedValue = array.myReduce((accumulator, value, i, arr) => {\n  return accumulator + value + i + arr[1];\n}, 3);\nconsole.log(mappedArray);\nconsole.log(filteredArray);\nconsole.log(reducedValue);",
+                "output": "// Console logs:\n[3, 5, 7] // From myMap.\n[3] // From myFilter.\n18 // From myReduce."
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "class EventTarget {\n  addEventListener(type, callback) {\n  }\n  removeEventListener(type, callback) {\n  }\n  dispatchEvent(event) {\n  }\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "class EventTarget {\n  constructor() {\n    this.listeners = new Map();\n  }\n  addEventListener(type, callback) {\n    if (!this.listeners.has(type)) {\n      this.listeners.set(type, []);\n    }\n    this.listeners.get(type).push(callback);\n  }\n  removeEventListener(type, callback) {\n    if (this.listeners.has(type)) {\n      const callbacks = this.listeners.get(type);\n      const index = callbacks.indexOf(callback);\n      if (index !== -1) {\n        callbacks.splice(index, 1);\n      }\n    }\n  }\n  dispatchEvent(event) {\n    if (this.listeners.has(event.type)) {\n      const callbacks = this.listeners.get(event.type);\n      for (let i = 0; i < callbacks.length; i++) {\n        callbacks[i](event);\n      }\n    }\n  }\n}"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": [
+                    {
+                        "foo": "bar",
+                        "obj": {
+                            "a": 1,
+                            "b": 2
+                        }
+                    },
+                    25,
+                    "obj.b"
+                ],
+                "test_expected": {
+                    "foo": "bar",
+                    "obj": {
+                        "a": 1,
+                        "b": 25
+                    }
+                },
+                "code_output": null,
+                "passed_test": false
+            }
+        }
+    },
+    "thisBainding": {
+        "refName": "thisBainding",
+        "refNumber": 168,
+        "category": "javascript",
+        "difficulty": "Easy",
+        "title": "this Bainding",
+        "tags": ["Easy", "javascript"],
+        "description": "<div class='html'><p> Without calling <span>Function.prototype.call</span>, <span>Function.prototype.apply</span> or <span>Function.prototype.bind</span>, implement the following three similar functions on the <span>Function</span> prototype: </p> <ol> <li> <p><span>myCall(thisContext, ...args)</span></p> <p> <span>myCall</span> should call the original function with <span>thisContext</span> bound to the function's <span>this</span> keyword, passing all of the remaining <span>args</span> as individual arguments to the function. </p> <p> The return value of the original function should be returned by <span>myCall</span>. </p> </li> <li> <p><span>myApply(thisContext, args)</span></p> <p> <span>myApply</span> should call the original function with <span>thisContext</span> bound to the function's <span>this</span> keyword, passing all of the values in the <span>args</span> array as individual arguments to the function. </p> <p> The return value of the original function should be returned by <span>myApply</span>. </p> </li> <li> <p><span>myBind(thisContext, ...args)</span></p> <p> <span>myBind</span> should return a new function that calls the original function with <span>thisContext</span> bound to the function's <span>this</span> keyword, passing all of the remaining <span>args</span> as individual arguments to the function. The new function should accept optional arguments, which should also be passed to the original function, after the <span>args</span> originally passed to <span>myBind</span>. </p> <p> The new function should return the return value of the original function. </p> </li> </ol> <p> You can assume that the <span>thisContext</span> argument passed to each function will always be an object. When binding this object to the <span>this</span> keyword, the original object should be bound, not a clone. You can also assume that the original function will be declared using standard function syntax (i.e., it won't be an arrow function). </p> <p> You should minimize side-effects as much as possible, ensuring that <span>thisContext</span> remains unchanged after calls to these functions and ensuring that standard iteration through properties on <span>thisContext</span> works normally. </p> <p></p> <h3>Sample Usage</h3> </div>",
+        "examples": {
+            "example1": {
+                "input": "const obj = {num: 0};\nfunction logNums(x, y) {\nconsole.log(this.num, x, y);\n}\nlogNums.myCall(obj, 1, 2);\nlogNums.myApply(obj, [1, 2]);\nconst boundFunction = logNums.myBind(obj, 1);\nboundFunction(2);",
+                "output": "// Console logs:\n0 1 2 // From myCall.\n0 1 2 // From myApply.\n0 1 2 // From myBind."
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "Function.prototype.myCall = function (thisContext, ...args) {\n// Write your code here.\n};\nFunction.prototype.myApply = function (thisContext, args = []) {\n// Write your code here.\n};\nFunction.prototype.myBind = function (thisContext, ...args) {\n// Write your code here.\n};"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "// Define myCall on Function.prototype\nFunction.prototype.myCall = function(thisContext, ...args) {\n// Save the original function to a variable\nconst originalFunction = this;\n\n// Call the original function with thisContext bound to the function's this keyword, passing all of the remaining args as individual arguments to the function\nreturn originalFunction.apply(thisContext, args);\n};\n// Define myApply on Function.prototype\nFunction.prototype.myApply = function(thisContext, args) {\n// Save the original function to a variable\nconst originalFunction = this;\n// Call the original function with thisContext bound to the function's this keyword, passing all of the values in the args array as individual arguments to the function\nreturn originalFunction.apply(thisContext, args);\n};\n// Define myBind on Function.prototype\nFunction.prototype.myBind = function(thisContext, ...args) {\n// Save the original function to a variable\nconst originalFunction = this;\n// Return a new function that calls the original function with thisContext bound to the function's this keyword, passing all of the remaining args as individual arguments to the function. The new function should accept optional arguments, which should also be passed to the original function, after the args originally passed to myBind.\nreturn function(...newArgs) {\nreturn originalFunction.apply(thisContext, args.concat(newArgs));\n};\n};"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": [
+                    {
+                        "foo": "bar",
+                        "obj": {
+                            "a": 1,
+                            "b": 2
+                        }
+                    },
+                    25,
+                    "obj.b"
+                ],
+                "test_expected": {
+                    "foo": "bar",
+                    "obj": {
+                        "a": 1,
+                        "b": 25
+                    }
+                },
+                "code_output": null,
+                "passed_test": false
+            }
+        }
+    },
+    "throttle": {
+        "refName": "throttle",
+        "refNumber": 169,
+        "category": "javascript",
+        "difficulty": "Easy",
+        "title": "throttle",
+        "tags": ["Easy", "javascript"],
+        "description": "<p>You are tasked with implementing a throttle function that takes a function as its first argument and a delay time (in milliseconds) as its second argument. The throttle function should return a new function that can be called repeatedly, but ensures that the original function is only executed once per delay time interval.</p>  <p>Requirements</p> <ol><li>The <code>throttle</code> function should return a new function that can be called repeatedly.</li><li>The new function should call the original function at most once per delay time interval.</li><li>If the new function is called again before the delay time interval has passed, it should not call the original function again.</li><li>The new function should pass any arguments it receives to the original function when it is called.</li></ol> <p>Tips</p> <p>Here are some tips that may help you implement the throttle function:</p> <ol><li>You will need to use the <code>setTimeout</code> function to delay the execution of the original function.</li><li>You will need to use closure to store the state of the throttle function between calls.</li><li>You may find it helpful to use the <code>Date.now()</code> function to keep track of the time since the last call to the original function.</li></ol>",
+        "examples": {
+            "example1": {
+                "input": "function logMessage() {\nconsole.log('Message logged!');\n}\nconst throttledLogMessage = throttle(logMessage, 1000);\n// Call the throttled function repeatedly\nsetInterval(throttledLogMessage, 500);",
+                "output": "In this example, the logMessage function is throttled to only execute once per second, even though it is called every half-second in the setInterval loop."
+            }
+        },
+        "hints": {
+            "hint_1": "...",
+            "hint_2": "...",
+            "hint_3": "...",
+            "Optimal_Space__Time_Complexity": "..."
+        },
+        "startedCode": {
+            "javaScript": "function throttle(func, delay) {\n// Implementation goes here\n}"
+        },
+        "solutionCode": {
+            "javaScript": [
+                "function throttle(func, delay) {\nlet lastCallTime = 0;\nlet timerId = null;\nreturn function(...args) {\nconst now = Date.now();\nif (now - lastCallTime >= delay) {\nlastCallTime = now;\nfunc.apply(this, args);\n} else if (!timerId) {\ntimerId = setTimeout(() => {\nlastCallTime = Date.now();\nfunc.apply(this, args);\ntimerId = null;\n}, delay - (now - lastCallTime));\n}\n};\n}"
+            ]
+        },
+        "submittedCode": {
+            "javaScript": ""
+        },
+        "testCases": {
+            "Test_1": {
+                "test_input": [
+                    {
+                        "foo": "bar",
+                        "obj": {
+                            "a": 1,
+                            "b": 2
+                        }
+                    },
+                    25,
+                    "obj.b"
+                ],
+                "test_expected": {
+                    "foo": "bar",
+                    "obj": {
+                        "a": 1,
+                        "b": 25
+                    }
+                },
+                "code_output": null,
+                "passed_test": false
+            }
+        }
     }
 }

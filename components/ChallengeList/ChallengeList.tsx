@@ -23,7 +23,8 @@ export default function ChallengeList() {
         'Graphs',
         'Binary Tree',
         'Dynamic Programming',
-        'Recursion'
+        'Recursion',
+        'javascript'
     ];
 
     React.useEffect(() => {
