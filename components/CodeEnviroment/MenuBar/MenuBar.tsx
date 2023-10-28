@@ -82,7 +82,7 @@ const MenuBar = () => {
     };
 
     return (
-        <AppBar position="static" style={{ flexBasis: '3.5rem', minHeight: '3.5rem' }}>
+        <AppBar position="static" style={{ flexBasis: '3.5rem', minHeight: '3.5rem', marginTop: '0.25rem' }}>
             <Toolbar style={{ flexBasis: '3.5rem', minHeight: '3.5rem' }}>
                 <Button size="large" startIcon={<FormatListBulletedIcon />}>
                     <Link href="/" style={{ color: currentTheme.color, textDecoration: 'none' }}>

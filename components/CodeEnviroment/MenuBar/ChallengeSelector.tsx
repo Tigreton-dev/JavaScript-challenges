@@ -54,6 +54,7 @@ const ChallengeSelector = () => {
         if (tagName === 'Easy') color = 'green';
         if (tagName === 'Medium') color = 'orange';
         if (tagName === 'Hard') color = 'red';
+        if (tagName === 'Extreme Hard') color = 'black';
         return color;
     };
 

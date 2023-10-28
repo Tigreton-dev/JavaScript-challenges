@@ -34,6 +34,7 @@ export default function BoxSx(props: Iprops) {
         if (tagName === 'Easy') color = 'green';
         if (tagName === 'Medium') color = 'orange';
         if (tagName === 'Hard') color = 'red';
+        if (tagName === 'Extreme Hard') color = 'rblacked';
         return color;
     };
 
@@ -41,6 +42,7 @@ export default function BoxSx(props: Iprops) {
         if (difficulty === 'Easy') return 'green';
         if (difficulty === 'Medium') return 'orange';
         if (difficulty === 'Hard') return 'red';
+        if (difficulty === 'Extreme Hard') return 'black';
     };
 
     return (

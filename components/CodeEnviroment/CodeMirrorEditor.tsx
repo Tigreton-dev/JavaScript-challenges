@@ -73,7 +73,7 @@ const CodeMirrorEditor = (props: Iprops) => {
     };
 
     return (
-        <div style={{ margin: '10px', textAlign: 'initial', fontSize: fontSize }}>
+        <div style={{ margin: '10px', marginLeft: '-15px', textAlign: 'initial', fontSize: fontSize }}>
             <Editor
                 height="calc(100vh - 6.5rem - 45px)"
                 defaultLanguage="javascript"

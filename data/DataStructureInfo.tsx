@@ -1,42 +1,64 @@
 import * as React from 'react';
 
+export function ComplexityAnalysis() {
+    return (
+        <div>
+            <h3 id="complexity-analysis">Complexity Analysis</h3>
+            <p>The process of determining how efficient an algorithm is. Complexity analysis usually involves finding both the time complexity and the space complexity of an algorithm.</p>
+            <h3 id="time-complexity">Time Complexity</h3>
+            <p>A measure of how fast an algorithm runs, time complexity is a central concept in the field of algorithms and in coding interviews.</p>
+            <p>It&#39;s expressed using Big O notation.</p>
+            <h3 id="space-complexity">Space Complexity</h3>
+            <p>A measure of how much auxiliary memory an algorithm takes up, space complexity is a central concept in the field of algorithms and in coding interviews.</p>
+            <p>It&#39;s expressed using Big O notation.</p>
+        </div>
+    );
+}
+
+export function BigONotation() {
+    return (
+        <div>
+            <h3 id="big-o-notation">Big O Notation</h3>
+            <p>The notation used to describe the time complexity and space complexity of algorithms.</p>
+            <p>Variables used in Big O notation denote the sizes of inputs to algorithms. For example, O(n) might be the time complexity of an algorithm that traverses through an array of length n; similarly, O(n + m) might be the time complexity of an algorithm that traverses through an array of length n and through a string of length m.</p>
+            <p>The following are examples of common complexities and their Big O notations, ordered from fastest to slowest:</p>
+            <ul>
+                <li>Constant: O(1)</li>
+                <li>Logarithmic: O(log(n))</li>
+                <li>Linear: O(n)</li>
+                <li>Log-linear: O(nlog(n))</li>
+                <li>Quadratic: O(n2)</li>
+                <li>Cubic: O(n3)</li>
+                <li>Exponential: O(2n)</li>
+                <li>Factorial: O(n!)</li>
+            </ul>
+            <p>Note that in the context of coding interviews, Big O notation is usually understood to describe the worst-case complexity of an algorithm, even though the worst-case complexity might differ from the average-case complexity.</p>
+
+        </div>
+    );
+}
+
 export function Array() {
     return (
         <div>
-            <strong>Quick summary</strong>:
+            <p>A linear collection of data values that are accessible at numbered indices, starting at index 0.</p>
+            <p>The following are an array&#39;s standard operations and their corresponding time complexities:</p>
             <ul>
-                <li>a linear collection of elements ordered by links instead of physical placement in memory.</li>
-            </ul>
-            <strong>Important facts</strong>:
-            <ul>
-                <li>
-                    Each element is called a <em>node</em>.
-                    <ul>
-                        <li>
-                            The first node is called the <em>head</em>.
-                        </li>
-                        <li>
-                            The last node is called the <em>tail</em>.
-                        </li>
-                    </ul>
+                <li>Accessing a value at a given index: O(1)</li>
+                <li>Updating a value at a given index: O(1)</li>
+                <li>Inserting a value at the beginning: O(n)</li>
+                <li>Inserting a value in the middle: O(n)</li>
+                <li>Inserting a value at the end:<ul>
+                    <li>amortized O(1) when dealing with a dynamic array</li>
+                    <li>O(n) when dealing with a static array</li>
+                </ul>
                 </li>
-                <li>
-                    Nodes are sequential. Each node stores a reference (pointer) to one or more adjacent nodes:
-                    <ul>
-                        <li>
-                            In a <strong>singly linked list</strong>, each node stores a reference to the next node.
-                        </li>
-                        <li>
-                            In a <strong>doubly linked list</strong>, each node stores references to both the next and
-                            the previous nodes. This enables traversing a list backwards.
-                        </li>
-                        <li>
-                            In a <strong>circularly linked list</strong>, the tail stores a reference to the head.
-                        </li>
-                    </ul>
-                </li>
-                <li>Stacks and queues are usually implemented using linked lists, and less often using arrays.</li>
+                <li>Removing a value at the beginning: O(n)</li>
+                <li>Removing a value in the middle: O(n)</li>
+                <li>Removing a value at the end: O(1)</li>
+                <li>Copying the array: O(n)</li>
             </ul>
+
             <strong>Pros</strong>:
             <ul>
                 <li>Optimized for fast operations on both ends, which ensures constant time insertion and deletion.</li>
@@ -53,21 +75,6 @@ export function Array() {
             <strong>Notable uses</strong>:
             <ul>
                 <li>Implementation of stacks, queues, and graphs.</li>
-            </ul>
-            <strong>Time complexity</strong> (worst case):
-            <ul>
-                <li>
-                    Access: <code>O(n)</code>
-                </li>
-                <li>
-                    Search: <code>O(n)</code>
-                </li>
-                <li>
-                    Insertion: <code>O(1)</code>
-                </li>
-                <li>
-                    Deletion: <code>O(1)</code>
-                </li>
             </ul>
         </div>
     );
@@ -128,20 +135,27 @@ export function LinkedList() {
                 <li>Implementation of stacks, queues, and graphs.</li>
             </ul>
             <strong>Time complexity</strong> (worst case):
+            <p>The following are a singly linked list&#39;s standard operations and their corresponding time complexities:</p>
             <ul>
-                <li>
-                    Access: <code>O(n)</code>
-                </li>
-                <li>
-                    Search: <code>O(n)</code>
-                </li>
-                <li>
-                    Insertion: <code>O(1)</code>
-                </li>
-                <li>
-                    Deletion: <code>O(1)</code>
-                </li>
+                <li>Accessing the head: O(1)</li>
+                <li>Accessing the tail: O(n)</li>
+                <li>Accessing a middle node: O(n)</li>
+                <li>Inserting / Removing the head: O(1)</li>
+                <li>Inserting / Removing the tail: O(n) to access + O(1)</li>
+                <li>Inserting / Removing a middle node: O(n) to access + O(1)
+                    Searching for a value: O(n)</li>
             </ul>
+            <p>The following are a doubly linked list&#39;s standard operations and their corresponding time complexities:</p>
+            <ul>
+                <li>Accessing the head: O(1)</li>
+                <li>Accessing the tail: O(1)</li>
+                <li>Accessing a middle node: O(n)</li>
+                <li>Inserting / Removing the head: O(1)</li>
+                <li>Inserting / Removing the tail: O(1)</li>
+                <li>Inserting / Removing a middle node: O(n) to access + O(1)</li>
+                <li>Searching for a value: O(n)</li>
+            </ul>
+
         </div>
     );
 }
@@ -320,16 +334,16 @@ export function HashTable() {
             <strong>Time complexity</strong> (worst case):
             <ul>
                 <li>
-                    Access: <code>O(n)</code>
+                    Access: <code> O(1) on average; O(n) in the worse case.</code>
                 </li>
                 <li>
-                    Search: <code>O(n)</code>
+                    Search: <code> O(1) on average; O(n) in the worse case.</code>
                 </li>
                 <li>
-                    Insertion: <code>O(n)</code>
+                    Insertion: <code> O(1) on average; O(n) in the worse case.</code>
                 </li>
                 <li>
-                    Deletion: <code>O(n)</code>
+                    Deletion: <code> O(1) on average; O(n) in the worse case.</code>
                 </li>
             </ul>
         </div>
@@ -572,3 +586,5 @@ export function BinarySearch() {
         </div>
     );
 }
+
+

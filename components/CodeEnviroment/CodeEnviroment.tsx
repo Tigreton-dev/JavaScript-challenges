@@ -44,7 +44,15 @@ export default function CodeEnviroment() {
 
     return (
         <ThemeProvider theme={muiTheme(muiThemeProps)}>
-            <div style={{ display: 'flex', flexDirection: 'column', width: '100vw', height: '100vh' }}>
+            <div
+                style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    width: '100vw',
+                    height: '100vh',
+                    backgroundColor: muiThemeProps.tertiary
+                }}
+            >
                 <MenuBar />
                 <Container />
                 <SolutionCodeModal

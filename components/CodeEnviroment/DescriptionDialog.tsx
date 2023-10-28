@@ -9,7 +9,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import { DataContext } from '../../context/dataContext';
 import { DataContextType } from '../../context/@types.data';
 
-import { Array, LinkedList, Queue, Stack, HashTable, Graphs, Tree, BinarySearch } from '../../data/DataStructureInfo';
+import { BigONotation, ComplexityAnalysis, Array, LinkedList, Queue, Stack, HashTable, Graphs, Tree, BinarySearch } from '../../data/DataStructureInfo';
 import {
     SlidingWindow,
     TwoPointers,
@@ -33,6 +33,12 @@ export default function AlertDialog() {
 
     React.useEffect(() => {
         switch (data.dataStructureInfoSelected) {
+            case 'BigONotation':
+                setDataStructureType(<BigONotation />);
+                break;
+            case 'ComplexityAnalysis':
+                setDataStructureType(<ComplexityAnalysis />);
+                break;
             case 'Array':
                 setDataStructureType(<Array />);
                 break;

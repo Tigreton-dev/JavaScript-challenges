@@ -17,6 +17,8 @@ export default function ChallengeList() {
     const categoryBoxRef = React.useRef<any>(null);
     const list = [
         'String',
+        'Searching',
+        'Sorting',
         'Array',
         'Linked List',
         'Stacks & Queues',
@@ -24,6 +26,7 @@ export default function ChallengeList() {
         'Binary Tree',
         'Dynamic Programming',
         'Recursion',
+        'Famous Algorithms',
         'javascript'
     ];
 

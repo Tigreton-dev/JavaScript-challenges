@@ -32,6 +32,7 @@ export interface IcurrentProblem {
         javaScript: string;
     };
     testCases: object;
+    platform?: string;
 }
 
 export interface IData {

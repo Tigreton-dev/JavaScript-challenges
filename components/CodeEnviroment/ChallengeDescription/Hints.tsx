@@ -51,6 +51,12 @@ const Hints = () => {
                     <Typography variant="h6">Data Structure Information</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
+                    <Button variant="outlined" onClick={() => clickHandler('BigONotation')} style={{ margin: '3px' }}>
+                        BigONotation
+                    </Button>
+                    <Button variant="outlined" onClick={() => clickHandler('ComplexityAnalysis')} style={{ margin: '3px' }}>
+                        ComplexityAnalysis
+                    </Button>
                     <Button variant="outlined" onClick={() => clickHandler('Array')} style={{ margin: '3px' }}>
                         Array
                     </Button>

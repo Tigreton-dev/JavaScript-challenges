@@ -10,6 +10,7 @@ import ChallengeDescription from './ChallengeDescription/ChallengeDescription';
 import TestCases from './TestCases';
 import SolutionCode from './SolutionCode';
 import Terminal from './Terminal';
+import Video from './video';
 import { DataContext } from '../../context/dataContext';
 import { DataContextType } from '../../context/@types.data';
 
@@ -69,6 +70,7 @@ const TabHeader = (props: propsInterface) => {
                     value="3"
                 />
                 <Tab label="Terminal" sx={{ fontSize: '1rem', padding: '0.8rem' }} value="4" />
+                <Tab label="Video" sx={{ fontSize: '1rem', padding: '0.8rem' }} value="5" />
             </TabList>
 
             {value === '4' && (
@@ -96,6 +98,9 @@ const TabPanels = () => {
             </TabPanel>
             <TabPanel value="4" sx={{ padding: 0 }}>
                 <Terminal />
+            </TabPanel>
+            <TabPanel value="5" sx={{ padding: 0 }}>
+                <Video />
             </TabPanel>
         </>
     );
