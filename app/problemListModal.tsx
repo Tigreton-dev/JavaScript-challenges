@@ -17,6 +17,7 @@ export default function ProblemList() {
                 size="xl"
                 classNames={{
                     base: "overflow-hidden border border-default-200 bg-gradient-to-br from-white to-default-100 dark:from-black dark:to-default-50 h-[90vh]",
+                    header: "border-b-[1px] border-default-200 p-0",
                 }}
                 backdrop="opaque"
                 isOpen={isOpen}
@@ -71,7 +72,7 @@ function ListBoxComponent() {
     const arr = Array.from({ length: 50 })
     return (
         <div className="w-full">
-            <Listbox variant="flat" aria-label="Listbox menu with sections">
+            <Listbox variant="faded" aria-label="Listbox menu with sections">
                 <ListboxSection title="String">
                     {arr.map((e) => {
                         return (
@@ -80,6 +81,7 @@ function ListBoxComponent() {
                                 description="String base algorithm"
                                 startContent={<ErrorIcon className={iconClasses} />}
                                 endContent={<Chip color="primary" variant="bordered" size="sm">Easy</Chip>}
+
                             >
                                 123. Palindrome permutation
                             </ListboxItem>
@@ -102,7 +104,7 @@ const DropDownContainer = () => {
             }}
         >
             <DropdownTrigger>
-                <Button variant="bordered" radius="sm" size="lg" className="w-[50%] items-center border border-default-200 dark:border-default-100">
+                <Button variant="bordered" size="lg" className="w-[100%] h-16 border-none text3xl rounded-none">
                     String
                     <ArrowDropDownIcon />
                 </Button>
