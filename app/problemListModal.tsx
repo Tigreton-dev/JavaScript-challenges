@@ -14,7 +14,7 @@ export default function ProblemList() {
 
             <Modal
                 scrollBehavior="inside"
-                size="xl"
+                size="lg"
                 classNames={{
                     base: "overflow-hidden border border-default-200 bg-gradient-to-br from-white to-default-100 dark:from-black dark:to-default-50 h-[90vh]",
                     header: "border-b-[1px] border-default-200 p-0",

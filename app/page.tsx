@@ -25,14 +25,21 @@ export default function Home() {
 		// editorRef.current = editor;
 		setTimeout(function () {
 			editor.getAction('editor.action.formatDocument').run();
+			const monacoClasses = ["monaco-editor", "overflow-guard", "monaco-scrollable-element", "monaco-editor-background", "monaco-mouse-cursor-text"]
+			monacoClasses.forEach(function (value, index, array) {
+				const elemento = document.getElementsByClassName(value);
+				elemento[0].style.backgroundColor = "transparent"
+			});
+			const elemento = document.getElementsByClassName("ddd")[0];
+			elemento.style.backgroundColor = "#141414"
+
+			const elemento2 = document.getElementsByClassName("margin")[0];
+			console.log(elemento2)
+			elemento2.style.backgroundColor = "transparent"
+			// const elemento = document.getElementsByClassName('monaco-mouse-cursor-text');
+			// elemento[0].style.backgroundColor = "transparent"
 		}, 300);
 	}
-
-	useEffect(() => {
-		const elemento = document.getElementsByClassName('monaco-editor-background');
-		console.log("DDD", elemento)
-		// elemento.style.color = 'blue'; // Cambia el color del texto a azul
-	}, [])
 
 	return (
 		<main className="">
@@ -62,11 +69,11 @@ export default function Home() {
 						dragInterval={1}
 						direction="vertical"
 					>
-						<div className="border border-default-200 dark:border-default-100 overflow-hidden rounded-lg">
+						<div className="border border-default-200 dark:border-default-100 overflow-hidden rounded-lg bg-gradient-to-br from-white to-default-0 dark:from-black dark:to-default-500">
 							<div className="flex items-center sticky top-0 left-0 px-4 z-10 justify-between h-8 bg-code-background w-full bg-default-100 dark:bg-default-50"><div className="flex items-center gap-2 basis-1/3"><div className="w-3 h-3 rounded-full bg-red-500"></div><div className="w-3 h-3 rounded-full bg-yellow-500"></div><div className="w-3 h-3 rounded-full bg-green-500"></div></div><div className="flex basis-1/3 h-full justify-center items-center"></div><div className="flex basis-1/3"></div></div>
 							<TabCodeEditorComponent />
 							<Editor
-								className="px-0"
+								className="px-0 bg-gradient-to-br from-white to-default-0 dark:from-black dark:to-default-50 ddd"
 								height="calc(100% - 65px)"
 								defaultLanguage="javascript"
 								defaultValue="// some comment"
@@ -88,7 +95,7 @@ export default function Home() {
 								<PlayIcon /> Run code
 							</Button>
 						</div>
-						<div className="border border-default-200 dark:border-default-100 overflow-hidden rounded-lg">
+						<div className="border border-default-200 dark:border-default-100 overflow-hidden rounded-lg bg-gradient-to-br from-white to-default-0 dark:from-black dark:to-default-50">
 							<div className="flex items-center sticky top-0 left-0 px-4 z-10 justify-between h-8 bg-code-background w-full bg-default-100 dark:bg-default-50"><div className="flex items-center gap-2 basis-1/3"><div className="w-3 h-3 rounded-full bg-red-500"></div><div className="w-3 h-3 rounded-full bg-yellow-500"></div><div className="w-3 h-3 rounded-full bg-green-500"></div></div><div className="flex basis-1/3 h-full justify-center items-center"></div><div className="flex basis-1/3"></div>Console</div>
 
 						</div>
