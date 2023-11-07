@@ -14,8 +14,8 @@ const RightSide = () => {
         <div>
             <Split
                 className="splitHorizontal"
-                sizes={[95, 5]}
-                minSize={32}
+                sizes={[100, 0]}
+                minSize={34}
                 expandToMin={false}
                 gutterSize={10}
                 gutterAlign="center"
@@ -35,6 +35,7 @@ export default RightSide;
 function CodeEditorComponent() {
     const { data, updateData } = React.useContext(DataContext);
     const editorRef = useRef(null)
+    const fontSize = data.fontSize;
     const startedCode = data.currentProblem.startedCode.javaScript;
     const monaco = useMonaco();
 
@@ -88,10 +89,15 @@ function CodeEditorComponent() {
 
     }
 
+    const setFullScreen = () => {
+        const isFullScreen = data.isFullScreen;
+        updateData({ isFullScreen: !isFullScreen })
+    }
+
     return (
         <div className="border border-default-200 dark:border-default-100 overflow-hidden rounded-lg bg-gradient-to-br from-white to-default-0 dark:from-black dark:to-default-500">
             <div className="flex items-center sticky top-0 left-0 px-4 z-10 justify-between h-8 bg-code-background w-full bg-default-100 dark:bg-default-50"><div className="flex items-center gap-2 basis-1/3"><div className="w-3 h-3 rounded-full bg-red-500"></div><div className="w-3 h-3 rounded-full bg-yellow-500"></div><div className="w-3 h-3 rounded-full bg-green-500"></div></div><div className="flex basis-1/3 h-full justify-center items-center"></div><div className="flex basis-1/3"></div></div>
-            <TabCodeEditorComponent copyCode={copyCode} resetCode={resetCode} prettifyCode={() => prettifyCode()} onTabChange={(val) => console.log(val)} />
+            <TabCodeEditorComponent setFullScreen={setFullScreen} copyCode={copyCode} resetCode={resetCode} prettifyCode={() => prettifyCode()} onTabChange={(val) => console.log(val)} />
             <Editor
                 className="px-0 bg-gradient-to-br from-white to-default-0 dark:from-black dark:to-default-50 ddd"
                 height="calc(100% - 65px)"
@@ -105,13 +111,13 @@ function CodeEditorComponent() {
                 options={{
                     minimap: { enabled: false },
                     scrollbar: { vertical: 'hidden' },
-                    fontSize: 14,
+                    fontSize: fontSize,
                     codeLens: false,
                     readOnly: false,
                     inlineSuggest: { enabled: false },
                 }}
             />
-            <Button variant="solid" color="primary" aria-label="Take a photo" size="md" radius="sm" className="relative bottom-[6rem] left-[calc(100%-9rem)]">
+            <Button variant="solid" color="primary" aria-label="Take a photo" size="md" radius="sm" className="relative bottom-[5rem] left-[calc(100%-8rem)]">
                 <PlayIcon /> Run code
             </Button>
         </div>

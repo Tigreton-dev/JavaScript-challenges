@@ -1,5 +1,5 @@
 "use client"
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Input, Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button, Dropdown, DropdownTrigger, DropdownSection, DropdownMenu, DropdownItem, cn, Switch, ListboxItem, Listbox } from "@nextui-org/react";
 import { SettingsIcon, GitHubIcon, SearchIcon, MinusIcon, AddIcon, AddNoteIcon, CopyDocumentIcon, EditDocumentIcon, DeleteDocumentIcon, ArrowDropDownIcon } from "./helpers/Icons";
 import ThemeSwitch from "../app/themeSwitch"
@@ -9,11 +9,16 @@ import { DataContext } from './context/dataContext';
 
 export default function NavBar() {
     const { data, updateData } = React.useContext(DataContext);
-	const problemTitle = data.currentProblem.title;
+    const navVarRef = useRef(null);
+    const problemTitle = data.currentProblem.title;
     const refNumber = data.currentProblem.refNumber;
 
+    useEffect(() => {
+        data.isFullScreen ? navVarRef.current.style.display = "none" : navVarRef.current.style.display = "inline"
+    }, [data.isFullScreen])
+
     return (
-        <Navbar maxWidth="full">
+        <Navbar maxWidth="full" ref={navVarRef}>
             <NavbarBrand className="hidden sm:flex gap-4">
                 <Button variant="bordered" aria-label="Take a photo" size="md" radius="sm" className="border border-default-200 dark:border-default-100">
                     AC
@@ -61,49 +66,43 @@ const SettingsContainer = () => {
                     <SettingsIcon />
                 </Button>
             </DropdownTrigger>
-            <DropdownMenu variant="faded" aria-label="Dropdown menu with description">
+            <DropdownMenu variant="light" aria-label="Dropdown menu with description" selectionMode="none" disabledKeys={["Language"]}>
                 <DropdownSection title="SETTINGS">
                     <DropdownItem
-                        key="new"
+                        key="fontSize"
                         endContent={
                             <Dropdown>
                                 <DropdownTrigger>
-                                    <Button
-                                        variant="bordered"
-                                    >
-                                        Open Menu
-                                    </Button>
+                                    <Button variant="bordered">14<ArrowDropDownIcon /></Button>
                                 </DropdownTrigger>
                                 <DropdownMenu aria-label="Static Actions">
-                                    <DropdownItem key="new">New file</DropdownItem>
-                                    <DropdownItem key="copy">Copy link</DropdownItem>
-                                    <DropdownItem key="edit">Edit file</DropdownItem>
-                                    <DropdownItem key="delete" className="text-danger" color="danger">
-                                        Delete file
-                                    </DropdownItem>
+                                    <DropdownItem key="10">10</DropdownItem>
+                                    <DropdownItem key="11">11</DropdownItem>
+                                    <DropdownItem key="12">12</DropdownItem>
+                                    <DropdownItem key="13">13</DropdownItem>
+                                    <DropdownItem key="14">14</DropdownItem>
+                                    <DropdownItem key="15">15</DropdownItem>
+                                    <DropdownItem key="16">16</DropdownItem>
+                                    <DropdownItem key="17">17</DropdownItem>
+                                    <DropdownItem key="18">18</DropdownItem>
+                                    <DropdownItem key="19">19</DropdownItem>
+                                    <DropdownItem key="20">20</DropdownItem>
+
                                 </DropdownMenu>
-                            </Dropdown>}
+                            </Dropdown>
+                        }
                     >
                         Font size
                     </DropdownItem>
                     <DropdownItem
-                        key="copy"
+                        key="Language"
                         endContent={
                             <Dropdown>
                                 <DropdownTrigger>
-                                    <Button
-                                        variant="bordered"
-                                    >
-                                        Open Menu
-                                    </Button>
+                                    <Button variant="bordered">javaScript<ArrowDropDownIcon /></Button>
                                 </DropdownTrigger>
                                 <DropdownMenu aria-label="Static Actions">
-                                    <DropdownItem key="new">New file</DropdownItem>
-                                    <DropdownItem key="copy">Copy link</DropdownItem>
-                                    <DropdownItem key="edit">Edit file</DropdownItem>
-                                    <DropdownItem key="delete" className="text-danger" color="danger">
-                                        Delete file
-                                    </DropdownItem>
+                                    <DropdownItem key="new">javaScript</DropdownItem>
                                 </DropdownMenu>
                             </Dropdown>}
                     >
@@ -114,19 +113,17 @@ const SettingsContainer = () => {
                         endContent={
                             <Dropdown>
                                 <DropdownTrigger>
-                                    <Button
-                                        variant="bordered"
-                                    >
-                                        Open Menu
-                                    </Button>
+                                    <Button variant="bordered">4<ArrowDropDownIcon /></Button>
                                 </DropdownTrigger>
                                 <DropdownMenu aria-label="Static Actions">
-                                    <DropdownItem key="new">New file</DropdownItem>
-                                    <DropdownItem key="copy">Copy link</DropdownItem>
-                                    <DropdownItem key="edit">Edit file</DropdownItem>
-                                    <DropdownItem key="delete" className="text-danger" color="danger">
-                                        Delete file
-                                    </DropdownItem>
+                                    <DropdownItem key="1">1</DropdownItem>
+                                    <DropdownItem key="2">2</DropdownItem>
+                                    <DropdownItem key="3">3</DropdownItem>
+                                    <DropdownItem key="4">4</DropdownItem>
+                                    <DropdownItem key="5">5</DropdownItem>
+                                    <DropdownItem key="6">6</DropdownItem>
+                                    <DropdownItem key="7">7</DropdownItem>
+                                    <DropdownItem key="8">8</DropdownItem>
                                 </DropdownMenu>
                             </Dropdown>}
                     >

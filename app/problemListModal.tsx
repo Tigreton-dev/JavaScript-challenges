@@ -29,9 +29,9 @@ export default function ProblemList() {
                 scrollBehavior="inside"
                 size="lg"
                 classNames={{
-                    base: "overflow-hidden border border-default-200 bg-gradient-to-br from-white to-default-100 dark:from-black dark:to-default-50 h-[90vh]",
+                    base: "overflow-hidden border border-default-200 bg-gradient-to-br from-white to-default-200 dark:from-black dark:to-default-50 h-[90vh]",
                     header: "border-b-[1px] border-default-200 p-0",
-                    footer: "justify-center"
+                    footer: "justify-center border-t-[1px] border-default-200"
                 }}
                 backdrop="opaque"
                 isOpen={isOpen}
@@ -95,6 +95,15 @@ function ListBoxComponent({ list, currentCategory }) {
         updateData({ currentProblem: problem })
     }
 
+    const ChipColor = (tagName: string) => {
+        let color = '#1976d2';
+        if (tagName === 'Easy') color = 'success';
+        if (tagName === 'Medium') color = 'warning';
+        if (tagName === 'Hard') color = 'danger';
+        if (tagName === 'Extreme Hard') color = 'default';
+        return color;
+    };
+
     return (
         <div className="w-full">
             <Listbox variant="faded" aria-label="Listbox menu with sections">
@@ -105,7 +114,7 @@ function ListBoxComponent({ list, currentCategory }) {
                                 key="new"
                                 description="String base algorithm"
                                 startContent={<ErrorIcon className={iconClasses} />}
-                                endContent={<Chip color="success" variant="bordered" size="sm">{challenge.difficulty}</Chip>}
+                                endContent={<Chip color={ChipColor(challenge.difficulty)} variant="bordered" size="sm">{challenge.difficulty}</Chip>}
                                 onClick={() => setCurrentProblem(challenge.refNumber)}
                             >
                                 {`${challenge.refNumber}. ${challenge.title}`}

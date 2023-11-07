@@ -1,8 +1,8 @@
 import React from "react";
 import { Tabs, Tab, Navbar, Button } from "@nextui-org/react";
-import { GalleryIcon, MusicIcon, CodeIcon, CopyIcon, ReloadIcon } from "./helpers/Icons";
+import { GalleryIcon, MusicIcon, CodeIcon, CopyIcon, ReloadIcon, FullScreenIcon } from "./helpers/Icons";
 
-export default function TabCodeEditorComponent({ onTabChange, prettifyCode, resetCode, copyCode }) {
+export default function TabCodeEditorComponent({ onTabChange, prettifyCode, resetCode, copyCode, setFullScreen }) {
     return (
         <Navbar isBlurred={false} maxWidth="full" className="">
             <div className="flex w-full flex-col">
@@ -39,12 +39,15 @@ export default function TabCodeEditorComponent({ onTabChange, prettifyCode, rese
                 </Tabs>
 
             </div>
-            <div className="w-52">
+            <div className="w-72">
                 <Button isIconOnly variant="bordered" aria-label="Take a photo" size="md" radius="sm" className="ml-2 border border-default-200 dark:border-default-100" onClick={() => prettifyCode()}>
                     <CodeIcon />
                 </Button>
                 <Button isIconOnly variant="bordered" aria-label="Take a photo" size="md" radius="sm" className="ml-2 border border-default-200 dark:border-default-100" onClick={() => resetCode()}>
                     <ReloadIcon />
+                </Button>
+                <Button isIconOnly variant="bordered" aria-label="Take a photo" size="md" radius="sm" className="ml-2 border border-default-200 dark:border-default-100" onClick={() => setFullScreen()}>
+                    <FullScreenIcon />
                 </Button>
                 <Button isIconOnly variant="bordered" aria-label="Take a photo" size="md" radius="sm" className="ml-2 border border-default-200 dark:border-default-100" onClick={() => copyCode()}>
                     <CopyIcon />

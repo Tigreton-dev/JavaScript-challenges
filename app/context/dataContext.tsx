@@ -144,7 +144,9 @@ const defaultState = {
         },
         platform: 'structy'
     },
-    currentProblemList: {}
+    currentProblemList: {},
+    fontSize: 14,
+    isFullScreen: false
 };
 
 interface Props {
