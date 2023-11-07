@@ -3,25 +3,25 @@ export function monacoDarkTheme() {
         base: 'vs-dark',
         inherit: true,
         rules: [
-          {
-            token: "identifier",
-            foreground: "9CDCFE"
-          },
-          {
-            token: "identifier.function",
-            foreground: "DCDCAA"
-          },
-          {
-            token: "type",
-            foreground: "1AAFB0"
-          },
-          {
-            token: 'if',
-            foreground: 'ff79c6',
-          },
+            {
+                token: 'identifier',
+                foreground: '9CDCFE'
+            },
+            {
+                token: 'identifier.function',
+                foreground: 'DCDCAA'
+            },
+            {
+                token: 'type',
+                foreground: '1AAFB0'
+            },
+            {
+                token: 'if',
+                foreground: 'ff79c6'
+            }
         ],
         colors: {
-            'editor.background': "#000000",
+            'editor.background': '#000000'
         }
     };
 }

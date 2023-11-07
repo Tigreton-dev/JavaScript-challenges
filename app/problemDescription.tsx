@@ -1,20 +1,21 @@
 import React, { useEffect, useState } from "react";
 import TabComponent from "../app/tabs"
 import { Button, Chip, Accordion, AccordionItem } from "@nextui-org/react";
-import { CheckedIcon, CheckIcon, ErrorIcon } from "../app/Icons"
+import { CheckedIcon, CheckIcon, ErrorIcon } from "./helpers/Icons"
 import Highlight from 'react-highlight';
 import Editor, { DiffEditor, useMonaco, loader } from '@monaco-editor/react';
 import { monacoDarkTheme } from "./monacoThemes";
 import parse from 'html-react-parser';
-
-import problems from "./data.json"
+import { MackOsTitleBar } from "./helpers";
+import { DataContext } from './context/dataContext';
+import beautify from 'js-beautify';
 
 export default function ProblemDescription() {
 	const [index, setIndex] = useState<number>(0);
 
 	return (
 		<div className="border border-default-200 dark:border-default-100 overflow-hidden rounded-lg bg-gradient-to-br from-white to-default-0 dark:from-black dark:to-default-50">
-			<div className="flex items-center sticky top-0 left-0 px-4 z-10 justify-between h-8 bg-code-background w-full bg-default-100 dark:bg-default-50"><div className="flex items-center gap-2 basis-1/3"><div className="w-3 h-3 rounded-full bg-red-500"></div><div className="w-3 h-3 rounded-full bg-yellow-500"></div><div className="w-3 h-3 rounded-full bg-green-500"></div></div><div className="flex basis-1/3 h-full justify-center items-center"></div><div className="flex basis-1/3"></div></div>
+			<MackOsTitleBar />
 			<div className="overflow-scroll h-[100%] pb-12">
 				<TabComponent onTabChange={(i: number) => setIndex(i)} />
 				{index === 0 && <Description />}
@@ -26,7 +27,8 @@ export default function ProblemDescription() {
 }
 
 function Description() {
-	const [problem] = useState(problems.bestBridge)
+	const { data, updateData } = React.useContext(DataContext);
+	const currentProblem = data.currentProblem;
 
 	const ChipColor = (tagName: string) => {
 		let color = '#1976d2';
@@ -41,25 +43,25 @@ function Description() {
 		<div className="px-4">
 			<header className="flex items-center">
 				<CheckedIcon />
-				<h1 className="text-4xl p-4 text-neutral-300">{problem.title}</h1>
+				<h1 className="text-4xl p-4 text-neutral-300">{currentProblem.title}</h1>
 			</header>
-			<Chip color={ChipColor(problem.tags[0])} variant="bordered" className="mr-2">{problem.tags[0]}</Chip>
-			<Chip color="primary" variant="bordered">{problem.tags[1]}</Chip>
+			<Chip color={ChipColor(currentProblem.tags[0])} variant="bordered" className="mr-2">{currentProblem.tags[0]}</Chip>
+			<Chip color="primary" variant="bordered">{currentProblem.tags[1]}</Chip>
 			<div className="text-neutral-400">
-				{parse(problem.description)}
+				{parse(currentProblem.description)}
 				<h3>Example</h3>
 			</div>
 			<div className="border border-default-200 dark:border-default-100 overflow-hidden mb-4 rounded-lg">
-				<div className="flex items-center sticky top-0 left-0 px-4 z-10 justify-between h-8 bg-code-background w-full bg-default-100 dark:bg-default-50"><div className="flex items-center gap-2 basis-1/3"><div className="w-3 h-3 rounded-full bg-red-500"></div><div className="w-3 h-3 rounded-full bg-yellow-500"></div><div className="w-3 h-3 rounded-full bg-green-500"></div></div><div className="flex basis-1/3 h-full justify-center items-center"></div><div className="flex basis-1/3"></div>Input</div>
-				<Highlight language="javascript">{problem.examples.example1.input}</Highlight>
+				<MackOsTitleBar />
+				<Highlight language="javascript">{beautify(currentProblem.examples.example1.input, { indent_size: 3, space_in_empty_paren: true })}</Highlight>
 			</div>
 			<div className="border border-default-200 dark:border-default-100 overflow-hidden rounded-lg">
-				<div className="flex items-center sticky top-0 left-0 px-4 z-10 justify-between h-8 bg-code-background w-full bg-default-100 dark:bg-default-50"><div className="flex items-center gap-2 basis-1/3"><div className="w-3 h-3 rounded-full bg-red-500"></div><div className="w-3 h-3 rounded-full bg-yellow-500"></div><div className="w-3 h-3 rounded-full bg-green-500"></div></div><div className="flex basis-1/3 h-full justify-center items-center"></div><div className="flex basis-1/3"></div>Output</div>
-				<Highlight language="javascript">{problem.examples.example1.output}</Highlight>
+				<MackOsTitleBar />
+				<Highlight language="javascript">{beautify(currentProblem.examples.example1.output, { indent_size: 3, space_in_empty_paren: true })}</Highlight>
 			</div>
 			<section>
 				<h3>Hints</h3>
-				<AccordionComponent hints={problem.hints} />
+				<AccordionComponent hints={currentProblem.hints} />
 			</section>
 		</div>
 	)
@@ -94,7 +96,8 @@ function AccordionComponent({ hints }) {
 }
 
 function SolutionCode() {
-	const [solutionCode] = useState(problems.bestBridge.solutionCode.javaScript)
+	const { data, updateData } = React.useContext(DataContext);
+	const solutionCode = data.currentProblem.solutionCode.javaScript;
 	const monaco = useMonaco();
 
 	function handleEditorWillMount(monaco: any) {
@@ -109,6 +112,20 @@ function SolutionCode() {
 		// editorRef.current = editor;
 		setTimeout(function () {
 			editor.getAction('editor.action.formatDocument').run();
+			const monacoClasses = ["monaco-editor", "overflow-guard", "monaco-scrollable-element", "monaco-editor-background", "monaco-mouse-cursor-text"]
+			monacoClasses.forEach(function (value, index, array) {
+				const elemento = Array.from(document.getElementsByClassName(value));
+				console.log(elemento)
+				elemento.forEach(element => {
+					element.style.backgroundColor = "transparent"
+				});
+			});
+			const elemento = document.getElementsByClassName("ddd")[0];
+			elemento.style.backgroundColor = "#141414"
+
+			const elemento2 = document.getElementsByClassName("margin")[0];
+			console.log(elemento2)
+			elemento2.style.backgroundColor = "transparent"
 		}, 300);
 	}
 
@@ -141,9 +158,11 @@ function SolutionCode() {
 }
 
 function TestCases() {
-	const [testCases] = useState(problems.bestBridge.testCases)
+	const { data, updateData } = React.useContext(DataContext);
+	const testCases = data.currentProblem.testCases
+
 	return (
-		<Accordion selectionMode="multiple" className="p-4">
+		<Accordion selectionMode="multiple" className="p-8">
 			{Object.entries(testCases).map(([key, value], i) => {
 				const { test_input, test_expected, code_output, passed_test } = value;
 				const icon = passed_test ? <CheckIcon /> : <ErrorIcon />;

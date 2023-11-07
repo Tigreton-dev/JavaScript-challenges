@@ -1,9 +1,22 @@
-import React from "react";
-import { Listbox, ListboxItem, ListboxSection, cn, Chip, Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure, Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, Dropdown, DropdownTrigger, DropdownSection, DropdownMenu, DropdownItem } from "@nextui-org/react";
-import { ListIcon, CheckedIcon, CheckIcon, ErrorIcon, DeleteDocumentIcon, CopyDocumentIcon, ArrowDropDownIcon, EditDocumentIcon, AddNoteIcon } from "../app/Icons"
+import React, { useEffect, useState } from "react";
+import { Tabs, Tab, Card, CardBody, Listbox, ListboxItem, ListboxSection, cn, Chip, Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure, Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, Dropdown, DropdownTrigger, DropdownSection, DropdownMenu, DropdownItem } from "@nextui-org/react";
+import { ListIcon, CheckedIcon, CheckIcon, ErrorIcon, DeleteDocumentIcon, CopyDocumentIcon, ArrowDropDownIcon, EditDocumentIcon, AddNoteIcon } from "./helpers/Icons"
+import { getCurrentProblemList, getProblemByRefNumber } from "./data/getData";
+import { DataContext } from './context/dataContext';
 
 export default function ProblemList() {
     const { isOpen, onOpen, onOpenChange } = useDisclosure();
+    const [list, setList] = useState([])
+    const [currentCategory, setCurrentCategory] = useState("String")
+
+    useEffect(() => {
+        const currentList = getCurrentProblemList(currentCategory);
+        setList(currentList)
+    }, [isOpen, currentCategory])
+
+    const setCategory = (category) => {
+        setCurrentCategory(category)
+    }
 
     return (
         <>
@@ -18,6 +31,7 @@ export default function ProblemList() {
                 classNames={{
                     base: "overflow-hidden border border-default-200 bg-gradient-to-br from-white to-default-100 dark:from-black dark:to-default-50 h-[90vh]",
                     header: "border-b-[1px] border-default-200 p-0",
+                    footer: "justify-center"
                 }}
                 backdrop="opaque"
                 isOpen={isOpen}
@@ -49,14 +63,19 @@ export default function ProblemList() {
                             <div className="flex items-center sticky top-0 left-0 px-4 z-10 justify-between h-8 bg-code-background w-full bg-default-100 dark:bg-default-50"><div className="flex items-center gap-2 basis-1/3"><div className="w-3 h-3 rounded-full bg-red-500"></div><div className="w-3 h-3 rounded-full bg-yellow-500"></div><div className="w-3 h-3 rounded-full bg-green-500"></div></div><div className="flex basis-1/3 h-full justify-center items-center"></div><div className="flex basis-1/3"></div></div>
 
                             <ModalHeader className="flex flex-col gap-1 items-center">
-                                <DropDownContainer />
+                                <DropDownContainer setCategory={(category) => setCategory(category)} />
                             </ModalHeader>
 
                             <ModalBody>
-                                <ListBoxComponent />
+                                <ListBoxComponent list={list} currentCategory={currentCategory} />
                             </ModalBody>
                             <ModalFooter>
-
+                                <Tabs variant="solid" aria-label="Tabs variants">
+                                    <Tab key="All" title="All" />
+                                    <Tab key="Easy" title="Easy" />
+                                    <Tab key="Medium" title="Medium" />
+                                    <Tab key="Hard" title="Hard" />
+                                </Tabs>
                             </ModalFooter>
                         </>
                     )}
@@ -67,23 +86,29 @@ export default function ProblemList() {
 }
 
 
-function ListBoxComponent() {
+function ListBoxComponent({ list, currentCategory }) {
     const iconClasses = "text-xl text-default-500 pointer-events-none flex-shrink-0";
-    const arr = Array.from({ length: 50 })
+    const { updateData } = React.useContext(DataContext);
+
+    const setCurrentProblem = (refNumber) => {
+        const problem = getProblemByRefNumber(refNumber)
+        updateData({ currentProblem: problem })
+    }
+
     return (
         <div className="w-full">
             <Listbox variant="faded" aria-label="Listbox menu with sections">
-                <ListboxSection title="String">
-                    {arr.map((e) => {
+                <ListboxSection title={currentCategory}>
+                    {list.map((challenge) => {
                         return (
                             <ListboxItem
                                 key="new"
                                 description="String base algorithm"
                                 startContent={<ErrorIcon className={iconClasses} />}
-                                endContent={<Chip color="primary" variant="bordered" size="sm">Easy</Chip>}
-
+                                endContent={<Chip color="success" variant="bordered" size="sm">{challenge.difficulty}</Chip>}
+                                onClick={() => setCurrentProblem(challenge.refNumber)}
                             >
-                                123. Palindrome permutation
+                                {`${challenge.refNumber}. ${challenge.title}`}
                             </ListboxItem>
                         )
                     })}
@@ -93,8 +118,9 @@ function ListBoxComponent() {
     );
 }
 
-const DropDownContainer = () => {
+const DropDownContainer = ({ setCategory }) => {
     const iconClasses = "text-xl text-default-500 pointer-events-none flex-shrink-0";
+    const categories = ["String", "Array", "Linked list", "Stacks & Queues", "Graphs", "Binary tree", "Dynamic programming", "Recursion", "Searching", "Sorting", "Famous algorithms", "JavaScript"]
     return (
         <Dropdown
             showArrow
@@ -105,109 +131,26 @@ const DropDownContainer = () => {
         >
             <DropdownTrigger>
                 <Button variant="bordered" size="lg" className="w-[100%] h-16 border-none text3xl rounded-none">
-                    String
+                    Select Category
                     <ArrowDropDownIcon />
                 </Button>
 
             </DropdownTrigger>
             <DropdownMenu variant="faded" aria-label="Dropdown menu with description" className="h-96 overflow-scroll">
                 <DropdownSection title="Types">
-                    <DropdownItem
-                        key="new"
-                        shortcut="⌘N"
-                        description="String base Algorithms"
-                        startContent={<AddNoteIcon className={iconClasses} />}
-                    >
-                        String
-                    </DropdownItem>
-                    <DropdownItem
-                        key="copy"
-                        shortcut="⌘C"
-                        description="Array base Algorithms"
-                        startContent={<CopyDocumentIcon className={iconClasses} />}
-                    >
-                        Array
-                    </DropdownItem>
-                    <DropdownItem
-                        key="edit"
-                        shortcut="⌘⇧E"
-                        description="Linked list base Algorithms"
-                        startContent={<EditDocumentIcon className={iconClasses} />}
-                    >
-                        Linked list
-                    </DropdownItem>
-                    <DropdownItem
-                        key="edit"
-                        shortcut="⌘⇧E"
-                        description="Stack & Queues base Algorithms"
-                        startContent={<EditDocumentIcon className={iconClasses} />}
-                    >
-                        Stacks & Queues
-                    </DropdownItem>
-                    <DropdownItem
-                        key="edit"
-                        shortcut="⌘⇧E"
-                        description="Graphs base Algorithms"
-                        startContent={<EditDocumentIcon className={iconClasses} />}
-                    >
-                        Graphs
-                    </DropdownItem>
-                    <DropdownItem
-                        key="edit"
-                        shortcut="⌘⇧E"
-                        description="Binary tree base Algorithms"
-                        startContent={<EditDocumentIcon className={iconClasses} />}
-                    >
-                        Binary tree
-                    </DropdownItem>
-                    <DropdownItem
-                        key="edit"
-                        shortcut="⌘⇧E"
-                        description="Dynamic programming base Algorithms"
-                        startContent={<EditDocumentIcon className={iconClasses} />}
-                    >
-                        Dynamic programming
-                    </DropdownItem>
-                    <DropdownItem
-                        key="edit"
-                        shortcut="⌘⇧E"
-                        description="Recursion base Algorithms"
-                        startContent={<EditDocumentIcon className={iconClasses} />}
-                    >
-                        Recursion
-                    </DropdownItem>
-                    <DropdownItem
-                        key="edit"
-                        shortcut="⌘⇧E"
-                        description="Searching base Algorithms"
-                        startContent={<EditDocumentIcon className={iconClasses} />}
-                    >
-                        Searching
-                    </DropdownItem>
-                    <DropdownItem
-                        key="edit"
-                        shortcut="⌘⇧E"
-                        description="Sorting base Algorithms"
-                        startContent={<EditDocumentIcon className={iconClasses} />}
-                    >
-                        Sorting
-                    </DropdownItem>
-                    <DropdownItem
-                        key="edit"
-                        shortcut="⌘⇧E"
-                        description="List of most famous algorithms"
-                        startContent={<EditDocumentIcon className={iconClasses} />}
-                    >
-                        Famous algorithms
-                    </DropdownItem>
-                    <DropdownItem
-                        key="edit"
-                        shortcut="⌘⇧E"
-                        description="JavaScript base Algorithms"
-                        startContent={<EditDocumentIcon className={iconClasses} />}
-                    >
-                        JavaScript
-                    </DropdownItem>
+                    {categories.map((category, i) => {
+                        return (
+                            <DropdownItem
+                                key={`${i} ${category}`}
+                                shortcut="⌘N"
+                                description={`${category} base Algorithms`}
+                                startContent={<AddNoteIcon className={iconClasses} />}
+                                onClick={() => setCategory(category)}
+                            >
+                                {category}
+                            </DropdownItem>
+                        )
+                    })}
                 </DropdownSection>
             </DropdownMenu>
         </Dropdown>

@@ -1,12 +1,16 @@
 "use client"
 import React from "react";
 import { Input, Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button, Dropdown, DropdownTrigger, DropdownSection, DropdownMenu, DropdownItem, cn, Switch, ListboxItem, Listbox } from "@nextui-org/react";
-import { SettingsIcon, GitHubIcon, SearchIcon, MinusIcon, AddIcon, AddNoteIcon, CopyDocumentIcon, EditDocumentIcon, DeleteDocumentIcon, ArrowDropDownIcon } from "../app/Icons";
+import { SettingsIcon, GitHubIcon, SearchIcon, MinusIcon, AddIcon, AddNoteIcon, CopyDocumentIcon, EditDocumentIcon, DeleteDocumentIcon, ArrowDropDownIcon } from "./helpers/Icons";
 import ThemeSwitch from "../app/themeSwitch"
 import ProblemList from "./problemListModal";
 import SearchModal from "./SearchModal"
+import { DataContext } from './context/dataContext';
 
 export default function NavBar() {
+    const { data, updateData } = React.useContext(DataContext);
+	const problemTitle = data.currentProblem.title;
+    const refNumber = data.currentProblem.refNumber;
 
     return (
         <Navbar maxWidth="full">
@@ -18,11 +22,11 @@ export default function NavBar() {
             </NavbarBrand>
 
             <NavbarContent className="hidden sm:flex gap-4" justify="center">
-                <h3 className="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-unit-4 min-w-unit-20 h-unit-10 text-small gap-unit-2 rounded-small [&>svg]:max-w-[theme(spacing.unit-8)] data-[pressed=true]:scale-[0.97] transition-transform-colors motion-reduce:transition-none bg-transparent text-foreground border border-default-200 dark:border-default-100">123. Palindrome permutation</h3>
+                <h3 className="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-unit-4 min-w-unit-20 h-unit-10 text-small gap-unit-2 rounded-small [&>svg]:max-w-[theme(spacing.unit-8)] data-[pressed=true]:scale-[0.97] transition-transform-colors motion-reduce:transition-none bg-transparent text-foreground border border-default-200 dark:border-default-100">{`${refNumber}. ${problemTitle}`}</h3>
             </NavbarContent>
 
             <NavbarContent justify="end">
-               
+
                 <SearchModal />
                 <Button isIconOnly variant="bordered" aria-label="Take a photo" size="md" radius="sm" className="border border-default-200 dark:border-default-100">
                     <AddIcon />
@@ -40,8 +44,9 @@ export default function NavBar() {
         </Navbar>
     );
 }
+
 const SettingsContainer = () => {
-    const iconClasses = "text-xl text-default-500 pointer-events-none flex-shrink-0";
+
     return (
         <Dropdown
             closeOnSelect={false}

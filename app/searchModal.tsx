@@ -1,6 +1,6 @@
 import React from "react";
 import { Input, Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure } from "@nextui-org/react";
-import { SearchIcon } from "./Icons"
+import { SearchIcon } from "./helpers/Icons"
 export default function SearchModal() {
 	const { isOpen, onOpen, onOpenChange } = useDisclosure();
 

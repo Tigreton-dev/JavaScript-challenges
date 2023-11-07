@@ -1,6 +1,6 @@
 import React from "react";
 import { Tabs, Tab, Chip, Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button } from "@nextui-org/react";
-import { GalleryIcon, VideoIcon, MusicIcon } from "./Icons";
+import { GalleryIcon, VideoIcon, MusicIcon } from "./helpers/Icons";
 
 export default function TabComponent({ onTabChange }) {
 	return (

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSwitch, VisuallyHidden, SwitchProps } from "@nextui-org/react";
-import { MoonIcon, SunIcon } from "../app/Icons";
+import { MoonIcon, SunIcon } from "./helpers/Icons";
 
 const ThemeSwitch = (props: SwitchProps) => {
     const {
