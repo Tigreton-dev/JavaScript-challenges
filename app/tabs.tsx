@@ -4,7 +4,7 @@ import { GalleryIcon, VideoIcon, MusicIcon } from "./helpers/Icons";
 
 export default function TabComponent({ onTabChange }) {
 	return (
-		<Navbar isBlurred={false} maxWidth="full" className="bg-none">
+		<Navbar isBlurred={false} maxWidth="full" className="bg-none h-12">
 			<div className="flex w-full flex-col">
 				<Tabs
 					aria-label="Options"

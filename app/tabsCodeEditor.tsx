@@ -4,7 +4,7 @@ import { GalleryIcon, MusicIcon, CodeIcon, CopyIcon, ReloadIcon, FullScreenIcon 
 
 export default function TabCodeEditorComponent({ onTabChange, prettifyCode, resetCode, copyCode, setFullScreen }) {
     return (
-        <Navbar isBlurred={false} maxWidth="full" className="">
+        <Navbar isBlurred={false} maxWidth="full" className="h-12">
             <div className="flex w-full flex-col">
                 <Tabs
                     aria-label="Options"
@@ -40,16 +40,16 @@ export default function TabCodeEditorComponent({ onTabChange, prettifyCode, rese
 
             </div>
             <div className="w-72">
-                <Button isIconOnly variant="bordered" aria-label="Take a photo" size="md" radius="sm" className="ml-2 border border-default-200 dark:border-default-100" onClick={() => prettifyCode()}>
+                <Button isIconOnly variant="bordered" aria-label="Take a photo" size="sm" radius="sm" className="ml-2 border border-default-200 dark:border-default-100" onClick={() => prettifyCode()}>
                     <CodeIcon />
                 </Button>
-                <Button isIconOnly variant="bordered" aria-label="Take a photo" size="md" radius="sm" className="ml-2 border border-default-200 dark:border-default-100" onClick={() => resetCode()}>
+                <Button isIconOnly variant="bordered" aria-label="Take a photo" size="sm" radius="sm" className="ml-2 border border-default-200 dark:border-default-100" onClick={() => resetCode()}>
                     <ReloadIcon />
                 </Button>
-                <Button isIconOnly variant="bordered" aria-label="Take a photo" size="md" radius="sm" className="ml-2 border border-default-200 dark:border-default-100" onClick={() => setFullScreen()}>
+                <Button isIconOnly variant="bordered" aria-label="Take a photo" size="sm" radius="sm" className="ml-2 border border-default-200 dark:border-default-100" onClick={() => setFullScreen()}>
                     <FullScreenIcon />
                 </Button>
-                <Button isIconOnly variant="bordered" aria-label="Take a photo" size="md" radius="sm" className="ml-2 border border-default-200 dark:border-default-100" onClick={() => copyCode()}>
+                <Button isIconOnly variant="bordered" aria-label="Take a photo" size="sm" radius="sm" className="ml-2 border border-default-200 dark:border-default-100" onClick={() => copyCode()}>
                     <CopyIcon />
                 </Button>
             </div>

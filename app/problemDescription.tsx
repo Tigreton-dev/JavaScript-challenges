@@ -51,11 +51,11 @@ function Description() {
 				{parse(currentProblem.description)}
 				<h3>Example</h3>
 			</div>
-			<div className="border border-default-200 dark:border-default-100 overflow-hidden mb-4 rounded-lg">
+			<div className="border border-default-200 dark:border-default-100 overflow-hidden mb-4 rounded-lg text-sm">
 				<MackOsTitleBar />
 				<Highlight language="javascript">{beautify(currentProblem.examples.example1.input, { indent_size: 3, space_in_empty_paren: true })}</Highlight>
 			</div>
-			<div className="border border-default-200 dark:border-default-100 overflow-hidden rounded-lg">
+			<div className="border border-default-200 dark:border-default-100 overflow-hidden rounded-lg text-sm">
 				<MackOsTitleBar />
 				<Highlight language="javascript">{beautify(currentProblem.examples.example1.output, { indent_size: 3, space_in_empty_paren: true })}</Highlight>
 			</div>
@@ -170,15 +170,15 @@ function TestCases() {
 				return (
 					<AccordionItem startContent={icon} key={i} aria-label={`Test ${i + 1}`} title={`Test ${i + 1}`}>
 						<p className="m-0 mb-2">Input</p>
-						<div className={`shadow-sm shadow-[${color}] border border-default-200 dark:border-default-100 overflow-hidden mb-4 rounded-lg`}>
+						<div className={`shadow-sm shadow-[${color}] border border-default-200 dark:border-default-100 overflow-hidden mb-4 rounded-lg text-md`}>
 							<Highlight language="javascript">{test_input}</Highlight>
 						</div>
 						<p className="m-0 mb-2">Expected output</p>
-						<div className={`shadow-sm shadow-[${color}] border border-default-200 dark:border-default-100 overflow-hidden mb-4 rounded-lg`}>
+						<div className={`shadow-sm shadow-[${color}] border border-default-200 dark:border-default-100 overflow-hidden mb-4 rounded-lg text-md`}>
 							<Highlight language="javascript">{test_expected}</Highlight>
 						</div>
 						<p className="m-0 mb-2">Your output</p>
-						<div className={`shadow-sm shadow-[${color}] border border-default-200 dark:border-default-100 overflow-hidden mb-4 rounded-lg`}>
+						<div className={`shadow-sm shadow-[${color}] border border-default-200 dark:border-default-100 overflow-hidden mb-4 rounded-lg text-sm`}>
 							<Highlight language="javascript">{code_output}</Highlight>
 						</div>
 					</AccordionItem>
