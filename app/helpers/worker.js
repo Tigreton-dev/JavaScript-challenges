@@ -8,13 +8,7 @@ function ejecutarFuncion(event) {
 
 // Manejar el mensaje del hilo principal
 self.onmessage = function (event) {
-    console.log("WORKER");
     // Verificar si el mensaje es un string
-    if (typeof event.data === "string") {
-        ejecutarFuncion(event);
-    }
-};
 
-addEventListener("message", (event: MessageEvent<number>) => {
-    console.log("WORJER");
-});
+    ejecutarFuncion(event);
+};
