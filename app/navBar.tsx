@@ -1,6 +1,6 @@
 "use client"
-import React, { useEffect, useRef } from "react";
-import { Input, Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button, Dropdown, DropdownTrigger, DropdownSection, DropdownMenu, DropdownItem, cn, Switch, ListboxItem, Listbox } from "@nextui-org/react";
+import React, { useEffect, useRef, useState } from "react";
+import { Input, Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button, Dropdown, DropdownTrigger, DropdownSection, DropdownMenu, DropdownItem, cn, Switch, ListboxItem, Listbox, useCardContext } from "@nextui-org/react";
 import { SettingsIcon, GitHubIcon, SearchIcon, MinusIcon, AddIcon, AddNoteIcon, CopyDocumentIcon, EditDocumentIcon, DeleteDocumentIcon, ArrowDropDownIcon } from "./helpers/Icons";
 import ThemeSwitch from "../app/themeSwitch"
 import ProblemList from "./problemListModal";
@@ -17,8 +17,28 @@ export default function NavBar() {
         data.isFullScreen ? navVarRef.current.style.display = "none" : navVarRef.current.style.display = "inline"
     }, [data.isFullScreen])
 
+    const zoomIn = () => {
+        updateData(prevState => {
+            const newAppSize = prevState.appSize + 1
+            return {
+                ...prevState,
+                appSize: newAppSize
+            }
+        })
+    }
+
+    const zoomOut = () => {
+        updateData(prevState => {
+            const newAppSize = prevState.appSize - 1
+            return {
+                ...prevState,
+                appSize: newAppSize
+            }
+        })
+    }
+
     return (
-        <Navbar maxWidth="full" ref={navVarRef}>
+        <Navbar maxWidth="full" ref={navVarRef} className="h-[4rem]">
             <NavbarBrand className="hidden sm:flex gap-4">
                 <Button variant="bordered" aria-label="Take a photo" size="md" radius="sm" className="border border-default-200 dark:border-default-100">
                     AC
@@ -30,13 +50,13 @@ export default function NavBar() {
                 <h3 className="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-unit-4 min-w-unit-20 h-unit-10 text-small gap-unit-2 rounded-small [&>svg]:max-w-[theme(spacing.unit-8)] data-[pressed=true]:scale-[0.97] transition-transform-colors motion-reduce:transition-none bg-transparent text-foreground border border-default-200 dark:border-default-100">{`${refNumber}. ${problemTitle}`}</h3>
             </NavbarContent>
 
-            <NavbarContent justify="end">
+            <NavbarContent justify="end" className="gap-2">
 
                 <SearchModal />
-                <Button isIconOnly variant="bordered" aria-label="Take a photo" size="md" radius="sm" className="border border-default-200 dark:border-default-100">
+                <Button isIconOnly variant="bordered" aria-label="Take a photo" size="md" radius="sm" className="border border-default-200 dark:border-default-100" onClick={zoomIn}>
                     <AddIcon />
                 </Button>
-                <Button isIconOnly variant="bordered" aria-label="Take a photo" size="md" radius="sm" className="border border-default-200 dark:border-default-100">
+                <Button isIconOnly variant="bordered" aria-label="Take a photo" size="md" radius="sm" className="border border-default-200 dark:border-default-100" onClick={zoomOut}>
                     <MinusIcon />
                 </Button>
 
@@ -51,6 +71,13 @@ export default function NavBar() {
 }
 
 const SettingsContainer = () => {
+    const { data, updateData } = React.useContext(DataContext);
+    const [fontSize, setFontSize] = useState(data.fontSize)
+
+    const clickHandler = (newFontSize) => {
+        setFontSize(newFontSize)
+        updateData({ fontSize: newFontSize })
+    }
 
     return (
         <Dropdown
@@ -73,20 +100,20 @@ const SettingsContainer = () => {
                         endContent={
                             <Dropdown>
                                 <DropdownTrigger>
-                                    <Button variant="bordered">14<ArrowDropDownIcon /></Button>
+                                    <Button variant="bordered">{fontSize}<ArrowDropDownIcon /></Button>
                                 </DropdownTrigger>
                                 <DropdownMenu aria-label="Static Actions">
-                                    <DropdownItem key="10">10</DropdownItem>
-                                    <DropdownItem key="11">11</DropdownItem>
-                                    <DropdownItem key="12">12</DropdownItem>
-                                    <DropdownItem key="13">13</DropdownItem>
-                                    <DropdownItem key="14">14</DropdownItem>
-                                    <DropdownItem key="15">15</DropdownItem>
-                                    <DropdownItem key="16">16</DropdownItem>
-                                    <DropdownItem key="17">17</DropdownItem>
-                                    <DropdownItem key="18">18</DropdownItem>
-                                    <DropdownItem key="19">19</DropdownItem>
-                                    <DropdownItem key="20">20</DropdownItem>
+                                    <DropdownItem key="10" onClick={() => clickHandler(10)}>10</DropdownItem>
+                                    <DropdownItem key="11" onClick={() => clickHandler(11)}>11</DropdownItem>
+                                    <DropdownItem key="12" onClick={() => clickHandler(12)}>12</DropdownItem>
+                                    <DropdownItem key="13" onClick={() => clickHandler(13)}>13</DropdownItem>
+                                    <DropdownItem key="14" onClick={() => clickHandler(14)}>14</DropdownItem>
+                                    <DropdownItem key="15" onClick={() => clickHandler(15)}>15</DropdownItem>
+                                    <DropdownItem key="16" onClick={() => clickHandler(16)}>16</DropdownItem>
+                                    <DropdownItem key="17" onClick={() => clickHandler(17)}>17</DropdownItem>
+                                    <DropdownItem key="18" onClick={() => clickHandler(18)}>18</DropdownItem>
+                                    <DropdownItem key="19" onClick={() => clickHandler(19)}>19</DropdownItem>
+                                    <DropdownItem key="20" onClick={() => clickHandler(20)}>20</DropdownItem>
 
                                 </DropdownMenu>
                             </Dropdown>

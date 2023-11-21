@@ -30,9 +30,10 @@ const ThemeSwitch = (props: SwitchProps) => {
                     {...getWrapperProps()}
                     className={slots.wrapper({
                         class: [
-                            "w-8 h-8",
+                            "w-10 h-10",
                             "flex items-center justify-center",
                             "rounded-lg bg-default-100 hover:bg-default-200",
+                            "border border-default-200 dark:border-default-100"
                         ],
                     })}
                 >

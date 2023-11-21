@@ -47,7 +47,7 @@ function Description() {
 			</header>
 			<Chip color={ChipColor(currentProblem.tags[0])} variant="bordered" className="mr-2">{currentProblem.tags[0]}</Chip>
 			<Chip color="primary" variant="bordered">{currentProblem.tags[1]}</Chip>
-			<div className="text-neutral-400">
+			<div className="text-neutral-400 font-extralight">
 				{parse(currentProblem.description)}
 				<h3>Example</h3>
 			</div>
@@ -179,7 +179,7 @@ function TestCases() {
 						</div>
 						<p className="m-0 mb-2">Your output</p>
 						<div className={`shadow-sm shadow-[${color}] border border-default-200 dark:border-default-100 overflow-hidden mb-4 rounded-lg text-sm`}>
-							<Highlight language="javascript">{code_output}</Highlight>
+							<Highlight language="javascript">{String(code_output)}</Highlight>
 						</div>
 					</AccordionItem>
 				)

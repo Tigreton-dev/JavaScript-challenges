@@ -166,13 +166,13 @@ export const CameraIcon = ({
 
 export const AddIcon = () => {
     return (
-        <svg stroke="white" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" font-size="1.2rem" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill="white" stroke="#ffff" stroke-width="2" d="M12,22 L12,2 M2,12 L22,12"></path></svg>
+        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1.2em" width="1.2em" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" stroke="currentColor" stroke-width="2" d="M12,22 L12,2 M2,12 L22,12"></path></svg>
     )
 }
 
 export const MinusIcon = () => {
     return (
-        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg"><path d="M872 474H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h720c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"></path></svg>
+        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg"><path  d="M872 474H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h720c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"></path></svg>
     )
 }
 
@@ -265,7 +265,7 @@ export const CodeIcon = () => {
 
 export const CopyIcon = () => {
     return (
-        <svg aria-hidden="true" fill="none" focusable="false" height="16" role="presentation" viewBox="0 0 24 24" width="16" class="text-white dark:text-zinc-500"><path d="M16 12.9V17.1C16 20.6 14.6 22 11.1 22H6.9C3.4 22 2 20.6 2 17.1V12.9C2 9.4 3.4 8 6.9 8H11.1C14.6 8 16 9.4 16 12.9Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M22 6.9V11.1C22 14.6 20.6 16 17.1 16H16V12.9C16 9.4 14.6 8 11.1 8H8V6.9C8 3.4 9.4 2 12.9 2H17.1C20.6 2 22 3.4 22 6.9Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg>
+        <svg aria-hidden="true" fill="none" focusable="false" height="16" role="presentation" viewBox="0 0 24 24" width="16"><path d="M16 12.9V17.1C16 20.6 14.6 22 11.1 22H6.9C3.4 22 2 20.6 2 17.1V12.9C2 9.4 3.4 8 6.9 8H11.1C14.6 8 16 9.4 16 12.9Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M22 6.9V11.1C22 14.6 20.6 16 17.1 16H16V12.9C16 9.4 14.6 8 11.1 8H8V6.9C8 3.4 9.4 2 12.9 2H17.1C20.6 2 22 3.4 22 6.9Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg>
     )
 }
 

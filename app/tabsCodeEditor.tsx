@@ -39,7 +39,7 @@ export default function TabCodeEditorComponent({ onTabChange, prettifyCode, rese
                 </Tabs>
 
             </div>
-            <div className="w-72">
+            <div className="w-72 flex justify-end">
                 <Button isIconOnly variant="bordered" aria-label="Take a photo" size="sm" radius="sm" className="ml-2 border border-default-200 dark:border-default-100" onClick={() => prettifyCode()}>
                     <CodeIcon />
                 </Button>

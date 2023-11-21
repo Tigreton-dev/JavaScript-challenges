@@ -146,7 +146,9 @@ const defaultState = {
     },
     currentProblemList: {},
     fontSize: 14,
-    isFullScreen: false
+    isFullScreen: false,
+    problemPassesAllTests: false,
+    appSize: 16
 };
 
 interface Props {
@@ -158,9 +160,10 @@ const DataProvider: React.FC<Props> = ({ children }) => {
 
     function updateData(payload: object) {
         setData(data => {
+            const newState = typeof payload === 'function' ? payload(data) : payload;
             return {
                 ...data,
-                ...payload
+                ...newState
             };
         });
     }
