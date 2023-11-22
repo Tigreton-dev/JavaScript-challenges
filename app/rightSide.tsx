@@ -56,23 +56,6 @@ function CodeEditorComponent() {
 
     function handleEditorDidMount(editor: any, monaco: any) {
         editorRef.current = editor;
-        // setTimeout(function () {
-        //     editor.getAction('editor.action.formatDocument').run();
-        //     const monacoClasses = ["monaco-editor", "overflow-guard", "monaco-scrollable-element", "monaco-editor-background", "monaco-mouse-cursor-text"]
-        //     monacoClasses.forEach(function (value, index, array) {
-        //         const elemento = Array.from(document.getElementsByClassName(value));
-        //         console.log(elemento)
-        //         elemento.forEach(element => {
-        //             element.style.backgroundColor = "transparent"
-        //         });
-        //     });
-        //     const elemento = document.getElementsByClassName("ddd")[0];
-        //     elemento.style.backgroundColor = "#141414"
-
-        //     const elemento2 = document.getElementsByClassName("margin")[0];
-        //     console.log(elemento2)
-        //     elemento2.style.backgroundColor = "transparent"
-        // }, 300);
     }
 
     const prettifyCode = () => {
@@ -150,11 +133,11 @@ function CodeEditorComponent() {
                 }}
             />
             {loadingButton ? (
-                <Button isLoading variant="solid" color="primary" aria-label="Take a photo" size="md" radius="sm" className="relative bottom-[5rem] left-[calc(100%-9rem)]" onClick={handleWork}>
+                <Button isLoading variant="bordered" color="primary" aria-label="Take a photo" size="md" radius="sm" className="relative bottom-[5rem] left-[calc(100%-9rem)] border border-cyan-400 text-cyan-400" onClick={handleWork}>
                     Run code
                 </Button>
             ) : (
-                <Button variant="solid" color="primary" aria-label="Take a photo" size="md" radius="sm" className="relative bottom-[5rem] left-[calc(100%-9rem)]" onClick={handleWork}>
+                <Button variant="bordered" color="primary" aria-label="Take a photo" size="md" radius="sm" className="relative bottom-[5rem] left-[calc(100%-9rem)] border border-cyan-400 text-cyan-400" onClick={handleWork}>
                     <PlayIcon /> Run code
                 </Button>
             )}
@@ -193,7 +176,7 @@ function CodeEditorComponent() {
                     {(onClose) => (
                         <>
                             <ModalBody className="items-center p-6 border border-default-200 dark:border-default-100 shadow-lg shadow-green-500">
-                            <CheckedIcon />
+                                <CheckedIcon />
                                 <p>
                                     Well done! Your code passes all tests.
                                 </p>

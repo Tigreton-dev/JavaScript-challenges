@@ -12,9 +12,9 @@ export default function TabCodeEditorComponent({ onTabChange, prettifyCode, rese
                     variant="underlined"
                     classNames={{
                         tabList: "gap-6 w-full relative rounded-none p-0  border-divider",
-                        cursor: "w-full bg-[#22d3ee]",
+                        cursor: "w-full bg-cyan-400",
                         tab: "max-w-fit p-0 h-12",
-                        tabContent: "group-data-[selected=true]:text-[#06b6d4]"
+                        tabContent: "group-data-[selected=true]:text-cyan-400"
                     }}
                 >
                     <Tab

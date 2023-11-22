@@ -14,7 +14,7 @@ export default function ProblemDescription() {
 	const [index, setIndex] = useState<number>(0);
 
 	return (
-		<div className="border border-default-200 dark:border-default-100 overflow-hidden rounded-lg bg-gradient-to-br from-white to-default-0 dark:from-black dark:to-default-50">
+		<div className="border border-default-200 dark:border-default-100 overflow-hidden rounded-lg">
 			<MackOsTitleBar />
 			<div className="overflow-scroll h-[100%] pb-12">
 				<TabComponent onTabChange={(i: number) => setIndex(i)} />
@@ -45,8 +45,8 @@ function Description() {
 				<CheckedIcon />
 				<h1 className="text-4xl p-4 text-neutral-300">{currentProblem.title}</h1>
 			</header>
-			<Chip color={ChipColor(currentProblem.tags[0])} variant="bordered" className="mr-2">{currentProblem.tags[0]}</Chip>
-			<Chip color="primary" variant="bordered">{currentProblem.tags[1]}</Chip>
+			<Chip color={ChipColor(currentProblem.tags[0])} variant="bordered" className="mr-2" classNames={{base:"border",content:"font-extralight"}}>{currentProblem.tags[0]}</Chip>
+			<Chip color="primary" variant="bordered" classNames={{base:"border border-cyan-400",content:"text-cyan-400 font-extralight"}}>{currentProblem.tags[1]}</Chip>
 			<div className="text-neutral-400 font-extralight">
 				{parse(currentProblem.description)}
 				<h3>Example</h3>
@@ -110,23 +110,6 @@ function SolutionCode() {
 
 	function handleEditorDidMount(editor: any, monaco: any) {
 		// editorRef.current = editor;
-		setTimeout(function () {
-			editor.getAction('editor.action.formatDocument').run();
-			const monacoClasses = ["monaco-editor", "overflow-guard", "monaco-scrollable-element", "monaco-editor-background", "monaco-mouse-cursor-text"]
-			monacoClasses.forEach(function (value, index, array) {
-				const elemento = Array.from(document.getElementsByClassName(value));
-				console.log(elemento)
-				elemento.forEach(element => {
-					element.style.backgroundColor = "transparent"
-				});
-			});
-			const elemento = document.getElementsByClassName("ddd")[0];
-			elemento.style.backgroundColor = "#141414"
-
-			const elemento2 = document.getElementsByClassName("margin")[0];
-			console.log(elemento2)
-			elemento2.style.backgroundColor = "transparent"
-		}, 300);
 	}
 
 	return (
