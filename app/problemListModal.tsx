@@ -67,7 +67,7 @@ export default function ProblemList() {
                             </ModalHeader>
 
                             <ModalBody>
-                                <ListBoxComponent list={list} currentCategory={currentCategory} />
+                                <ListBoxComponent list={list} currentCategory={currentCategory} onClose={onClose} />
                             </ModalBody>
                             <ModalFooter>
                                 <Tabs variant="solid" aria-label="Tabs variants">
@@ -86,13 +86,14 @@ export default function ProblemList() {
 }
 
 
-function ListBoxComponent({ list, currentCategory }) {
+function ListBoxComponent({ list, currentCategory, onClose }) {
     const iconClasses = "text-xl text-default-500 pointer-events-none flex-shrink-0";
     const { updateData } = React.useContext(DataContext);
 
     const setCurrentProblem = (refNumber) => {
         const problem = getProblemByRefNumber(refNumber)
         updateData({ currentProblem: problem })
+        onClose()
     }
 
     const ChipColor = (tagName: string) => {
@@ -113,7 +114,7 @@ function ListBoxComponent({ list, currentCategory }) {
                             <ListboxItem
                                 key="new"
                                 description="String base algorithm"
-                                startContent={<ErrorIcon className={iconClasses} />}
+                                startContent={<ErrorIcon size="2rem" className={iconClasses} />}
                                 endContent={<Chip color={ChipColor(challenge.difficulty)} variant="bordered" size="sm">{challenge.difficulty}</Chip>}
                                 onClick={() => setCurrentProblem(challenge.refNumber)}
                             >

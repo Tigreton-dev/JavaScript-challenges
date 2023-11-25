@@ -41,7 +41,7 @@ export default function NavBar() {
         <Navbar maxWidth="full" ref={navVarRef} className="h-[4rem]">
             <NavbarBrand className="hidden sm:flex gap-4">
                 <Button variant="bordered" aria-label="Take a photo" size="md" radius="sm" className="border border-cyan-400 dark:border-cyan-400 text-cyan-400">
-                    AC
+                    Challenges
                 </Button>
                 <ProblemList />
             </NavbarBrand>

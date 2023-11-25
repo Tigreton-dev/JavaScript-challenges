@@ -3,6 +3,9 @@ import TabComponent from "../app/tabs"
 import { Button, Chip, Accordion, AccordionItem } from "@nextui-org/react";
 import { CheckedIcon, CheckIcon, ErrorIcon } from "./helpers/Icons"
 import Highlight from 'react-highlight';
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { vs } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { darkTheme, lightTheme } from "./themesHighlighter"
 import Editor, { DiffEditor, useMonaco, loader } from '@monaco-editor/react';
 import { monacoDarkTheme } from "./monacoThemes";
 import parse from 'html-react-parser';
@@ -42,22 +45,26 @@ function Description() {
 	return (
 		<div className="px-4">
 			<header className="flex items-center">
-				<CheckedIcon />
-				<h1 className="text-4xl p-4 text-neutral-300">{currentProblem.title}</h1>
+				<CheckedIcon size={"2rem"} />
+				<h1 className="text-4xl p-4 dark:text-neutral-300">{currentProblem.title}</h1>
 			</header>
-			<Chip color={ChipColor(currentProblem.tags[0])} variant="bordered" className="mr-2" classNames={{base:"border",content:"font-extralight"}}>{currentProblem.tags[0]}</Chip>
-			<Chip color="primary" variant="bordered" classNames={{base:"border border-cyan-400",content:"text-cyan-400 font-extralight"}}>{currentProblem.tags[1]}</Chip>
-			<div className="text-neutral-400 font-extralight">
+			<Chip color={ChipColor(currentProblem.tags[0])} variant="bordered" className="mr-2" classNames={{ base: "border", content: "font-extralight" }}>{currentProblem.tags[0]}</Chip>
+			<Chip color="primary" variant="bordered" classNames={{ base: "border border-cyan-400", content: "text-cyan-400 font-extralight" }}>{currentProblem.tags[1]}</Chip>
+			<div className="dark:text-neutral-400 font-extralight">
 				{parse(currentProblem.description)}
 				<h3>Example</h3>
 			</div>
 			<div className="border border-default-200 dark:border-default-100 overflow-hidden mb-4 rounded-lg text-sm">
 				<MackOsTitleBar />
-				<Highlight language="javascript">{beautify(currentProblem.examples.example1.input, { indent_size: 3, space_in_empty_paren: true })}</Highlight>
+				<SyntaxHighlighter showLineNumbers={false} language="javascript" style={data.isDarkTheme ? darkTheme : lightTheme}>
+					{beautify(currentProblem.examples.example1.input, { indent_size: 3, space_in_empty_paren: true })}
+				</SyntaxHighlighter>
 			</div>
 			<div className="border border-default-200 dark:border-default-100 overflow-hidden rounded-lg text-sm">
 				<MackOsTitleBar />
-				<Highlight language="javascript">{beautify(currentProblem.examples.example1.output, { indent_size: 3, space_in_empty_paren: true })}</Highlight>
+				<SyntaxHighlighter showLineNumbers={false} language="javascript" style={data.isDarkTheme ? darkTheme : lightTheme}>
+					{beautify(currentProblem.examples.example1.output, { indent_size: 3, space_in_empty_paren: true })}
+				</SyntaxHighlighter>
 			</div>
 			<section>
 				<h3>Hints</h3>
@@ -122,7 +129,7 @@ function SolutionCode() {
 				// value={codeSolutionOnStorage !== null && isSumittedPage ? codeSolutionOnStorage : code.current}
 				beforeMount={handleEditorWillMount}
 				onMount={handleEditorDidMount}
-				theme="my-theme"
+				theme={data.isDarkTheme ? "darkTheme" : "lightTheme"}
 				// onChange={(value: string | undefined) => onChange(value)}
 				options={{
 					minimap: { enabled: false },
@@ -148,21 +155,27 @@ function TestCases() {
 		<Accordion selectionMode="multiple" className="p-8">
 			{Object.entries(testCases).map(([key, value], i) => {
 				const { test_input, test_expected, code_output, passed_test } = value;
-				const icon = passed_test ? <CheckIcon /> : <ErrorIcon />;
+				const icon = passed_test ? <CheckIcon /> : <ErrorIcon size="2rem" />;
 				const color = passed_test ? "#4fd71e8f" : "#ff11009b";
 				return (
 					<AccordionItem startContent={icon} key={i} aria-label={`Test ${i + 1}`} title={`Test ${i + 1}`}>
 						<p className="m-0 mb-2">Input</p>
 						<div className={`shadow-sm shadow-[${color}] border border-default-200 dark:border-default-100 overflow-hidden mb-4 rounded-lg text-md`}>
-							<Highlight language="javascript">{test_input}</Highlight>
+							<SyntaxHighlighter showLineNumbers={false} language="javascript" style={data.isDarkTheme ? darkTheme : lightTheme}>
+								{String(test_input)}
+							</SyntaxHighlighter>
 						</div>
 						<p className="m-0 mb-2">Expected output</p>
 						<div className={`shadow-sm shadow-[${color}] border border-default-200 dark:border-default-100 overflow-hidden mb-4 rounded-lg text-md`}>
-							<Highlight language="javascript">{test_expected}</Highlight>
+							<SyntaxHighlighter showLineNumbers={false} language="javascript" style={data.isDarkTheme ? darkTheme : lightTheme}>
+								{String(test_expected)}
+							</SyntaxHighlighter>
 						</div>
 						<p className="m-0 mb-2">Your output</p>
 						<div className={`shadow-sm shadow-[${color}] border border-default-200 dark:border-default-100 overflow-hidden mb-4 rounded-lg text-sm`}>
-							<Highlight language="javascript">{String(code_output)}</Highlight>
+							<SyntaxHighlighter showLineNumbers={false} language="javascript" style={data.isDarkTheme ? darkTheme : lightTheme}>
+								{String(code_output)}
+							</SyntaxHighlighter>
 						</div>
 					</AccordionItem>
 				)

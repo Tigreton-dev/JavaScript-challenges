@@ -148,7 +148,8 @@ const defaultState = {
     fontSize: 14,
     isFullScreen: false,
     problemPassesAllTests: false,
-    appSize: 16
+    appSize: 16,
+    isDarkTheme: true,
 };
 
 interface Props {
