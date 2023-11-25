@@ -4,24 +4,27 @@ let dynamicFunction = null;
 async function ejecutarFuncion(event) {
     try {
         const data = event.data;
-        const stringFunction = '(' + data.fun + ')';
-        const testCases = data.testCases;
-        dynamicFunction = eval(stringFunction);
-        // dynamicFunction(...testCases.Test_1.test_input);
-        // const stringFunction = '(function(a, b) { return a + b; })';
-        const result = await bucleAsincrono(testCases);
-        console.log("ALL TEST ENDS");
+        const stringFunction = data.fun;
+        const problemData = data.currentProblem;
+        const testCases = problemData.testCases;
+        const result = await bucleAsincrono(problemData, testCases, stringFunction);
+        console.log('ALL TEST ENDS');
         self.postMessage(result);
     } catch (err) {
         console.log(err);
     }
 }
 
-async function bucleAsincrono(testCases) {
+async function bucleAsincrono(problemData, testCases, stringFunction) {
     let passedAllTests = true;
     for (const testCase in testCases) {
         const test = testCases[testCase];
         let { test_input, test_expected, code_output, passed_test } = test;
+        const functionName = problemData.refName;
+        const parametters = obtenerParametrosPorNombre(stringFunction, functionName)
+        const dynamicFunction = eval(
+            `(function wrapperFunction(${parametters}) { ${stringFunction} return ${functionName}(${parametters}) })`
+        );
         code_output = dynamicFunction(...test_input);
         passed_test = code_output === test_expected;
         if (!passed_test) passedAllTests = false;
@@ -29,7 +32,24 @@ async function bucleAsincrono(testCases) {
         console.log(`Iteración completada`);
     }
 
-    return {passedAllTests, testCases}
+    return { passedAllTests, testCases };
+}
+
+function obtenerParametrosPorNombre(codigo, nombreFuncion) {
+    // Crear una expresión regular para encontrar la función por nombre
+    const regex = new RegExp(`\\b${nombreFuncion}\\s*\\((.*?)\\)\\s*\\{`);
+
+    // Encontrar la coincidencia en el código
+    const match = codigo.match(regex);
+
+    // Si se encuentra la función, obtener los parámetros
+    if (match) {
+        const parametros = match[1].split(',').map(param => param.trim());
+        return parametros;
+    } else {
+        // La función no fue encontrada
+        return null;
+    }
 }
 
 // Manejar el mensaje del hilo principal

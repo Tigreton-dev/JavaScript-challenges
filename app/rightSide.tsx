@@ -120,7 +120,7 @@ function CodeEditorComponent() {
     const handleWork = async () => {
         setLoadingButton(true)
         const fun = editorRef?.current?.getValue();
-        const payload = { fun, testCases }
+        const payload = { fun, currentProblem: data.currentProblem }
         workerRef.current?.postMessage(payload)
     }
     
