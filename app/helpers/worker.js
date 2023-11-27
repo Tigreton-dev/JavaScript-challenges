@@ -21,7 +21,7 @@ async function bucleAsincrono(problemData, testCases, stringFunction) {
         const test = testCases[testCase];
         let { test_input, test_expected, code_output, passed_test } = test;
         const functionName = problemData.refName;
-        const parametters = obtenerParametrosPorNombre(stringFunction, functionName)
+        const parametters = obtenerParametrosPorNombre(stringFunction, functionName);
         const dynamicFunction = eval(
             `(function wrapperFunction(${parametters}) { ${stringFunction} return ${functionName}(${parametters}) })`
         );
@@ -30,6 +30,9 @@ async function bucleAsincrono(problemData, testCases, stringFunction) {
         if (!passed_test) passedAllTests = false;
         testCases[testCase] = { test_input, test_expected, code_output, passed_test };
         console.log(`Iteración completada`);
+        console.log('prueba', 'prueba', [1, 2, 3], { a: 23, b: 'dfdf', c: [1, 'fdsg', true] });
+        console.warn('WARN PRUEBA');
+        console.error("ESTO ES Un error de prueba")
     }
 
     return { passedAllTests, testCases };
@@ -52,9 +55,40 @@ function obtenerParametrosPorNombre(codigo, nombreFuncion) {
     }
 }
 
+function logsCapture() {
+    const captureLogs = event => self.postMessage(event);
+    const originalConsoleLog = console.log;
+    console.log = (...args) => {
+        captureLogs({ type: 'log', content: args });
+        originalConsoleLog.apply(console, args);
+    };
+}
+
+function warnCapture() {
+    const captureWarn = event => self.postMessage(event);
+    const originalConsoleWarn = console.warn;
+    console.warn = (...args) => {
+        captureWarn({ type: 'warn', content: args });
+        originalConsoleWarn.apply(console, args);
+    };
+}
+
+function errorCapture() {
+    const captureError = event => self.postMessage(event);
+    const originalConsoleError = console.error;
+    console.error = (...args) => {
+        captureError({ type: 'error', content: args });
+        originalConsoleError.apply(console, args);
+    };
+}
+
 // Manejar el mensaje del hilo principal
 self.onmessage = function (event) {
     // Verificar si el mensaje es un string
 
     ejecutarFuncion(event);
 };
+
+logsCapture();
+warnCapture();
+errorCapture();

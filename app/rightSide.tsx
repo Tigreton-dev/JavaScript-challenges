@@ -8,6 +8,9 @@ import TabCodeEditorComponent from "../app/tabsCodeEditor"
 import { PlayIcon, CheckedIcon, ErrorIcon } from "./helpers/Icons"
 import { DataContext } from './context/dataContext';
 import beautify from 'js-beautify';
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { darkTheme, lightTheme } from "./themesHighlighter"
+import { Warning, ErrorConsole } from "./helpers/Icons";
 
 const RightSide = () => {
 
@@ -98,6 +101,12 @@ function CodeEditorComponent() {
     useEffect(() => {
         workerRef.current = new Worker(new URL('./helpers/worker.js', import.meta.url))
         workerRef.current.onmessage = (event) => {
+            if (event.data?.type === "log" || event.data?.type === "warn" || event.data?.type === "error") {
+                updateData(prevData => {
+                    return { consoleLogs: [...prevData.consoleLogs, event.data] }
+                })
+            }
+            console.log(event.data)
             setTimeout(() => {
                 updateData(prevData => {
                     if (event.data.passedAllTests) {
@@ -123,7 +132,7 @@ function CodeEditorComponent() {
         const payload = { fun, currentProblem: data.currentProblem }
         workerRef.current?.postMessage(payload)
     }
-    
+
     return (
         <div className="border border-default-200 dark:border-default-100 overflow-hidden rounded-lg">
             <div className="flex items-center sticky top-0 left-0 px-4 z-10 justify-between h-8 bg-code-background w-full bg-default-100 dark:bg-default-50"><div className="flex items-center gap-2 basis-1/3"><div className="w-3 h-3 rounded-full bg-red-500"></div><div className="w-3 h-3 rounded-full bg-yellow-500"></div><div className="w-3 h-3 rounded-full bg-green-500"></div></div><div className="flex basis-1/3 h-full justify-center items-center"></div><div className="flex basis-1/3"></div></div>
@@ -156,8 +165,6 @@ function CodeEditorComponent() {
                     <PlayIcon /> Run code
                 </Button>
             )}
-
-
             <Modal
                 backdrop="opaque"
                 isOpen={isOpen}
@@ -215,10 +222,71 @@ function CodeEditorComponent() {
     )
 }
 
+
 function ConsoleComponent() {
+    const { data, updateData } = React.useContext(DataContext);
+
+    const logComponent = (content) => {
+        return (
+            <div className="border-b border-default-200 dark:border-default-100 m-0 pb-4 pt-2 px-4 text-xs font-normal">
+                {content.map(logContent => {
+                    if (typeof logContent !== "string") {
+                        return <SyntaxHighlighter showLineNumbers={false} language="javascript" style={data.isDarkTheme ? darkTheme : lightTheme}>
+                            {beautify(JSON.stringify(logContent), { indent_size: 3, space_in_empty_paren: true })}
+                        </SyntaxHighlighter>
+                    }
+                    return <p className="inline">{logContent} </p>
+                })}
+            </div>
+        )
+    }
+
+    const warnComponent = (content) => {
+        return (
+            <div className="flex align-middle mx-2 m-0 my-2 py-2 px-4 text-xs font-normal bg-[rgba(250,204,21,0.2)] rounded-md text-[rgba(253,224,71,0.9)]">
+                <Warning />
+                {content.map(logContent => {
+                    if (typeof logContent !== "string") {
+                        return <SyntaxHighlighter showLineNumbers={false} language="javascript" style={data.isDarkTheme ? darkTheme : lightTheme}>
+                            {beautify(JSON.stringify(logContent), { indent_size: 3, space_in_empty_paren: true })}
+                        </SyntaxHighlighter>
+                    }
+                    return <p className="inline m-0 ml-2">{logContent} </p>
+                })
+                }
+            </div>
+        )
+    }
+
+    const errorComponent = (content) => {
+        return (
+            <div className="flex align-middle mx-2 m-0 my-2 py-2 px-4 text-xs font-normal bg-[rgba(239,68,68,0.2)] rounded-md text-[rgba(252,165,165,1)]">
+                <ErrorConsole />
+                {content.map(logContent => {
+                    if (typeof logContent !== "string") {
+                        return <SyntaxHighlighter showLineNumbers={false} language="javascript" style={data.isDarkTheme ? darkTheme : lightTheme}>
+                            {beautify(JSON.stringify(logContent), { indent_size: 3, space_in_empty_paren: true })}
+                        </SyntaxHighlighter>
+                    }
+                    return <p className="inline m-0 ml-2">{logContent} </p>
+                })
+                }
+            </div>
+        )
+    }
+
     return (
-        <div className="border border-default-200 dark:border-default-100 overflow-hidden rounded-lg bg-gradient-to-br from-white to-default-0 dark:from-black dark:to-default-50">
+        <div className="border border-default-200 dark:border-default-100 overflow-hidden rounded-lg bg-gradient-to-br from-white to-default-0 dark:from-black dark:to-default-50 overflow-scroll">
             <div className="flex items-center sticky top-0 left-0 px-4 z-10 justify-between h-8 bg-code-background w-full bg-default-100 dark:bg-default-50"><div className="flex items-center gap-2 basis-1/3"><div className="w-3 h-3 rounded-full bg-red-500"></div><div className="w-3 h-3 rounded-full bg-yellow-500"></div><div className="w-3 h-3 rounded-full bg-green-500"></div></div><div className="flex basis-1/3 h-full justify-center items-center"></div><div className="flex basis-1/3"></div>Console</div>
+            {data.consoleLogs.map(log => {
+                if (log.type === "log") {
+                    return logComponent(log.content)
+                } else if (log.type === "warn") {
+                    return warnComponent(log.content)
+                } else if (log.type === "error") {
+                    return errorComponent(log.content)
+                }
+            })}
         </div>
     )
 }

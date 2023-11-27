@@ -83,7 +83,7 @@ export const darkTheme = {
     hljs: {
         display: 'block',
         overflowX: 'auto',
-        background: 'black',
+        background: 'transparent',
         color: '#f8f8f2',
         padding: '0.5em'
     },

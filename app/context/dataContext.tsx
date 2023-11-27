@@ -150,6 +150,8 @@ const defaultState = {
     problemPassesAllTests: false,
     appSize: 16,
     isDarkTheme: true,
+    consoleLogs:[],
+    consoleWarns: []
 };
 
 interface Props {
