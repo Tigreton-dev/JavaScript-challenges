@@ -6,7 +6,7 @@ export default function SearchModal() {
 
 	return (
 		<>
-			<Button onPress={onOpen} variant="bordered" aria-label="Take a photo" size="md" radius="sm" className="border border-default-200 dark:border-default-100">
+			<Button onPress={onOpen} variant="bordered" aria-label="Take a photo" size="md" radius="sm" className="border border-default-300 dark:border-default-100">
 				<SearchIcon />
 				Type to search...
 			</Button>
@@ -17,9 +17,9 @@ export default function SearchModal() {
 				onOpenChange={onOpenChange}
 				placement="top"
 				classNames={{
-					base: "overflow-hidden border border-default-200 bg-gradient-to-br from-white to-default-100 dark:from-black dark:to-default-50 h-[400px]",
-					header: "border-b-[1px] border-default-200",
-					footer: "border-t-[1px] border-default-200",
+					base: "overflow-hidden border border-default-300 bg-gradient-to-br from-white to-default-100 dark:from-black dark:to-default-50 h-[400px]",
+					header: "border-b-[1px] border-default-300",
+					footer: "border-t-[1px] border-default-300",
 					closeButton: "hover:bg-white/5 active:bg-white/10",
 				}}
 				motionProps={{

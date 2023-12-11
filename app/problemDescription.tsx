@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import TabComponent from "../app/tabs"
 import { Button, Chip, Accordion, AccordionItem } from "@nextui-org/react";
-import { CheckedIcon, CheckIcon, ErrorIcon } from "./helpers/Icons"
+import { CheckedIcon, CheckIcon, ErrorIcon, CopyIcon } from "./helpers/Icons"
 import Highlight from 'react-highlight';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { vs } from 'react-syntax-highlighter/dist/esm/styles/hljs';
@@ -17,9 +17,9 @@ export default function ProblemDescription() {
 	const [index, setIndex] = useState<number>(0);
 
 	return (
-		<div className="border border-default-200 dark:border-default-100 overflow-hidden rounded-lg">
+		<div className="border border-default-300 dark:border-default-100 overflow-hidden rounded-lg">
 			<MackOsTitleBar />
-			<div className="overflow-scroll h-[100%] pb-12">
+			<div className="overflow-scroll h-[100%] pb-12 relative">
 				<TabComponent onTabChange={(i: number) => setIndex(i)} />
 				{index === 0 && <Description />}
 				{index === 1 && <SolutionCode />}
@@ -36,9 +36,9 @@ function Description() {
 	const ChipColor = (tagName: string) => {
 		let color = '#1976d2';
 		if (tagName === 'Easy') color = 'success';
-		if (tagName === 'Medium') color = 'orange';
-		if (tagName === 'Hard') color = 'red';
-		if (tagName === 'Extreme Hard') color = 'black';
+		if (tagName === 'Medium') color = 'warning';
+		if (tagName === 'Hard') color = 'danger';
+		if (tagName === 'Extreme Hard') color = 'default';
 		return color;
 	};
 
@@ -46,7 +46,7 @@ function Description() {
 		<div className="px-4">
 			<header className="flex items-center">
 				<CheckedIcon size={"2rem"} />
-				<h1 className="text-4xl p-4 dark:text-neutral-300">{currentProblem.title}</h1>
+				<h1 className="text-4xl p-4 dark:text-neutral-300 font-light">{currentProblem.title}</h1>
 			</header>
 			<Chip color={ChipColor(currentProblem.tags[0])} variant="bordered" className="mr-2" classNames={{ base: "border", content: "font-extralight" }}>{currentProblem.tags[0]}</Chip>
 			<Chip color="primary" variant="bordered" classNames={{ base: "border border-cyan-400", content: "text-cyan-400 font-extralight" }}>{currentProblem.tags[1]}</Chip>
@@ -54,13 +54,13 @@ function Description() {
 				{parse(currentProblem.description)}
 				<h3>Example</h3>
 			</div>
-			<div className="border border-default-200 dark:border-default-100 overflow-hidden mb-4 rounded-lg text-sm">
+			<div className="border border-default-300 dark:border-default-100 overflow-hidden mb-4 rounded-lg text-sm">
 				<MackOsTitleBar />
 				<SyntaxHighlighter showLineNumbers={false} language="javascript" style={data.isDarkTheme ? darkTheme : lightTheme}>
 					{beautify(currentProblem.examples.example1.input, { indent_size: 3, space_in_empty_paren: true })}
 				</SyntaxHighlighter>
 			</div>
-			<div className="border border-default-200 dark:border-default-100 overflow-hidden rounded-lg text-sm">
+			<div className="border border-default-300 dark:border-default-100 overflow-hidden rounded-lg text-sm">
 				<MackOsTitleBar />
 				<SyntaxHighlighter showLineNumbers={false} language="javascript" style={data.isDarkTheme ? darkTheme : lightTheme}>
 					{beautify(currentProblem.examples.example1.output, { indent_size: 3, space_in_empty_paren: true })}
@@ -106,6 +106,7 @@ function SolutionCode() {
 	const { data, updateData } = React.useContext(DataContext);
 	const solutionCode = data.currentProblem.solutionCode.javaScript;
 	const monaco = useMonaco();
+	const editorRef = useRef(null)
 
 	function handleEditorWillMount(monaco: any) {
 		// here is the monaco instance
@@ -116,7 +117,16 @@ function SolutionCode() {
 	}
 
 	function handleEditorDidMount(editor: any, monaco: any) {
-		// editorRef.current = editor;
+		editorRef.current = editor;
+	}
+
+	const clickHandler = async () => {
+		const getCodeValue = editorRef?.current?.getValue();
+        try {
+            await navigator.clipboard.writeText(getCodeValue);
+        } catch (err) {
+            console.error('Failed to copy: ', err);
+        }
 	}
 
 	return (
@@ -140,6 +150,9 @@ function SolutionCode() {
 					inlineSuggest: { enabled: false },
 				}}
 			/>
+			<Button onClick={clickHandler} isIconOnly variant="bordered" aria-label="Take a photo" size="sm" radius="sm" className="absolute top-[0.5rem] right-[20px] z-50 border border-default-300 dark:border-default-100">
+				<CopyIcon />
+			</Button>
 			<Button variant="solid" aria-label="Take a photo" size="md" radius="sm" className="absolute bottom-16 left-16">
 				Solution 1
 			</Button>
@@ -160,26 +173,30 @@ function TestCases() {
 				return (
 					<AccordionItem startContent={icon} key={i} aria-label={`Test ${i + 1}`} title={`Test ${i + 1}`}>
 						<p className="m-0 mb-2">Input</p>
-						<div className={`shadow-sm shadow-[${color}] border border-default-200 dark:border-default-100 overflow-hidden mb-4 rounded-lg text-md`}>
-							<SyntaxHighlighter showLineNumbers={false} language="javascript" style={data.isDarkTheme ? darkTheme : lightTheme}>
-								{String(test_input)}
-							</SyntaxHighlighter>
+						<div className={`shadow-sm shadow-[${color}] border border-default-300 dark:border-default-100 overflow-hidden mb-4 rounded-lg text-sm`}>
+							{test_input.map(e => {
+								return (
+									<SyntaxHighlighter showLineNumbers={false} language="javascript" style={data.isDarkTheme ? darkTheme : lightTheme}>
+										{beautify(JSON.stringify(e), { indent_size: 3, space_in_empty_paren: true })}
+									</SyntaxHighlighter>
+								)
+							})}
 						</div>
 						<p className="m-0 mb-2">Expected output</p>
-						<div className={`shadow-sm shadow-[${color}] border border-default-200 dark:border-default-100 overflow-hidden mb-4 rounded-lg text-md`}>
+						<div className={`shadow-sm shadow-[${color}] border border-default-300 dark:border-default-100 overflow-hidden mb-4 rounded-lg text-sm`}>
 							<SyntaxHighlighter showLineNumbers={false} language="javascript" style={data.isDarkTheme ? darkTheme : lightTheme}>
-								{String(test_expected)}
+								{JSON.stringify(test_expected)}
 							</SyntaxHighlighter>
 						</div>
 						<p className="m-0 mb-2">Your output</p>
-						<div className={`shadow-sm shadow-[${color}] border border-default-200 dark:border-default-100 overflow-hidden mb-4 rounded-lg text-sm`}>
+						<div className={`shadow-sm shadow-[${color}] border border-default-300 dark:border-default-100 overflow-hidden mb-4 rounded-lg text-sm`}>
 							<SyntaxHighlighter showLineNumbers={false} language="javascript" style={data.isDarkTheme ? darkTheme : lightTheme}>
-								{String(code_output)}
+								{JSON.stringify(code_output)}
 							</SyntaxHighlighter>
 						</div>
 					</AccordionItem>
 				)
 			})}
-		</Accordion>
+		</Accordion >
 	);
 }

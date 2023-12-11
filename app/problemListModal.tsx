@@ -20,7 +20,7 @@ export default function ProblemList() {
 
     return (
         <>
-            <Button onPress={onOpen} variant="bordered" aria-label="Take a photo" size="md" radius="sm" className="border border-default-200 dark:border-default-100">
+            <Button onPress={onOpen} variant="bordered" aria-label="Take a photo" size="md" radius="sm" className="border border-default-300 dark:border-default-100">
                 <ListIcon />
                 Problem list
             </Button>
@@ -29,9 +29,9 @@ export default function ProblemList() {
                 scrollBehavior="inside"
                 size="lg"
                 classNames={{
-                    base: "overflow-hidden border border-default-200 bg-gradient-to-br from-white to-default-200 dark:from-black dark:to-default-50 h-[90vh]",
-                    header: "border-b-[1px] border-default-200 p-0",
-                    footer: "justify-center border-t-[1px] border-default-200"
+                    base: "overflow-hidden border border-default-300 bg-[white] dark:bg-[black] h-[90vh]",
+                    header: "border-b-[1px] border-default-300 p-0",
+                    footer: "justify-center border-t-[1px] border-default-300"
                 }}
                 backdrop="opaque"
                 isOpen={isOpen}
@@ -135,7 +135,7 @@ const DropDownContainer = ({ setCategory }) => {
         <Dropdown
             showArrow
             classNames={{
-                base: "py-1 px-1 border border-default-200 bg-gradient-to-br from-white to-default-200 dark:from-default-50 dark:to-black",
+                base: "py-1 px-1 border border-default-300 bg-gradient-to-br from-white to-default-200 dark:from-default-50 dark:to-black",
                 arrow: "bg-default-200",
             }}
         >

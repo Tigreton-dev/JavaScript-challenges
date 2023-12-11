@@ -10,35 +10,36 @@ export default function TabComponent({ onTabChange }) {
 					aria-label="Options"
 					color="primary"
 					variant="underlined"
+					onSelectionChange={(key) => onTabChange(Number(key))}
 					classNames={{
 						tabList: "gap-6 w-full relative rounded-none p-0  border-divider",
 						cursor: "w-full bg-cyan-400",
 						tab: "max-w-fit p-0 h-12",
-						tabContent: "group-data-[selected=true]:text-cyan-400"
+						tabContent: "group-data-[selected=true]:text-cyan-400",
 					}}
 				>
 					<Tab
-						key="photos"
+						key="0"
 						title={
-							<div className="flex items-center space-x-2" onClick={() => onTabChange(0)}>
+							<div className="flex items-center space-x-2">
 								<GalleryIcon />
 								<span>Description</span>
 							</div>
 						}
 					/>
 					<Tab
-						key="music"
+						key="1"
 						title={
-							<div className="flex items-center space-x-2" onClick={() => onTabChange(1)}>
+							<div className="flex items-center space-x-2">
 								<MusicIcon />
 								<span>Solution</span>
 							</div>
 						}
 					/>
 					<Tab
-						key="videos"
+						key="2"
 						title={
-							<div className="flex items-center space-x-2" onClick={() => onTabChange(2)}>
+							<div className="flex items-center space-x-2">
 								<VideoIcon />
 								<span>Test Cases</span>
 							</div>

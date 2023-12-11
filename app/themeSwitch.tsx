@@ -37,7 +37,7 @@ const ThemeSwitch = (props: SwitchProps) => {
                             "w-10 h-10",
                             "flex items-center justify-center",
                             "rounded-lg bg-default-100",
-                            "border border-default-200 dark:border-default-100",
+                            "border border-default-300 dark:border-default-100",
                             "bg-cyan-400 dark:bg-cyan-400"
                         ],
                     })}
