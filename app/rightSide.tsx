@@ -105,21 +105,26 @@ function CodeEditorComponent() {
                 updateData(prevData => {
                     return { consoleLogs: [...prevData.consoleLogs, event.data] }
                 })
+            } else {
+                setTimeout(() => {
+                    updateData(prevData => {
+                        if (event.data.passedAllTests) {
+                            setPassesAllTests(true)
+                            onOpen()
+                            return { problemPassesAllTests: true, currentProblem: { ...prevData.currentProblem, testCases: event.data.testCases } }
+                        } else {
+                            setPassesAllTests(false)
+                            onOpen()
+                            return { currentProblem: { ...prevData.currentProblem, testCases: event.data.testCases } }
+                        }
+                    })
+
+                    setLoadingButton(false)
+                }, 1000);
             }
-            console.log(event.data)
-            setTimeout(() => {
-                updateData(prevData => {
-                    if (event.data.passedAllTests) {
-                        setPassesAllTests(true)
-                        return { problemPassesAllTests: true, currentProblem: { ...prevData.currentProblem, testCases: event.data.testCases } }
-                    } else {
-                        setPassesAllTests(false)
-                        return { currentProblem: { ...prevData.currentProblem, testCases: event.data.testCases } }
-                    }
-                })
-                onOpen()
-                setLoadingButton(false)
-            }, 1000);
+
+
+
         }
         return () => {
             workerRef.current?.terminate()
@@ -194,29 +199,32 @@ function CodeEditorComponent() {
                     }
                 }}
             >
-                {passesAllTests ? (<ModalContent className="bg-[white] dark:bg-[black] border border-default-300 dark:border-default-100 shadow-[0px_0px_8px_0px_rgba(34,197,94,0.5)]">
-                    {(onClose) => (
-                        <>
-                            <ModalBody className="items-center p-6">
-                                <CheckedIcon size="4rem" />
-                                <p className="text-xl text-center">
-                                    Well done!<br />Your code passes all tests
-                                </p>
-                            </ModalBody>
-                        </>
-                    )}
-                </ModalContent>) : (<ModalContent className="bg-[white] dark:bg-[black] border border-default-300 dark:border-default-100 shadow-[0px_0px_8px_0px_rgba(243,18,97,0.5)]">
-                    {(onClose) => (
-                        <>
-                            <ModalBody className="items-center p-6">
-                                <ErrorIcon size="4rem" />
-                                <p className="text-xl text-center">
-                                    Hoops!<br />Your code fail at last one of the tests
-                                </p>
-                            </ModalBody>
-                        </>
-                    )}
-                </ModalContent>)}
+                {passesAllTests ? (
+                    <ModalContent className="bg-[white] dark:bg-[black] border border-default-300 dark:border-default-100 shadow-[0px_0px_8px_0px_rgba(34,197,94,0.5)]">
+                        {(onClose) => (
+                            <>
+                                <ModalBody className="items-center p-6">
+                                    <CheckedIcon size="4rem" />
+                                    <p className="text-xl text-center">
+                                        Well done!<br />Your code passes all tests
+                                    </p>
+                                </ModalBody>
+                            </>
+                        )}
+                    </ModalContent>)
+                    :
+                    (<ModalContent className="bg-[white] dark:bg-[black] border border-default-300 dark:border-default-100 shadow-[0px_0px_8px_0px_rgba(243,18,97,0.5)]">
+                        {(onClose) => (
+                            <>
+                                <ModalBody className="items-center p-6">
+                                    <ErrorIcon size="4rem" />
+                                    <p className="text-xl text-center">
+                                        Hoops!<br />Your code fail at last one of the tests
+                                    </p>
+                                </ModalBody>
+                            </>
+                        )}
+                    </ModalContent>)}
             </Modal>
         </div>
     )

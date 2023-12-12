@@ -26,13 +26,13 @@ async function bucleAsincrono(problemData, testCases, stringFunction) {
             `(function wrapperFunction(${parametters}) { ${stringFunction} return ${functionName}(${parametters}) })`
         );
         code_output = dynamicFunction(...test_input);
-        passed_test = code_output === test_expected;
+        passed_test = JSON.stringify(code_output) === JSON.stringify(test_expected);
         if (!passed_test) passedAllTests = false;
         testCases[testCase] = { test_input, test_expected, code_output, passed_test };
         console.log(`Iteración completada`);
         console.log('prueba', 'prueba', [1, 2, 3], { a: 23, b: 'dfdf', c: [1, 'fdsg', true] });
         console.warn('WARN PRUEBA');
-        console.error("ESTO ES Un error de prueba")
+        console.error('ESTO ES Un error de prueba');
     }
 
     return { passedAllTests, testCases };
