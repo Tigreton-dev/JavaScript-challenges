@@ -12,6 +12,8 @@ import parse from 'html-react-parser';
 import { MackOsTitleBar } from "./helpers";
 import { DataContext } from './context/dataContext';
 import beautify from 'js-beautify';
+import DataStructureModal from "./dataStructureModal"
+import AlgorithmsModel from "./AlgorithmsModel"
 
 export default function ProblemDescription() {
 	const [index, setIndex] = useState<number>(0);
@@ -19,7 +21,7 @@ export default function ProblemDescription() {
 	return (
 		<div className="border border-default-300 dark:border-default-100 overflow-hidden rounded-lg">
 			<MackOsTitleBar />
-			<div className="overflow-scroll h-[100%] pb-12 relative">
+			<div className="overflow-scroll h-[calc(100%-2rem)] relative">
 				<TabComponent onTabChange={(i: number) => setIndex(i)} />
 				{index === 0 && <Description />}
 				{index === 1 && <SolutionCode />}
@@ -75,30 +77,66 @@ function Description() {
 }
 
 function AccordionComponent({ hints }) {
+	const [currentDataStructure, setDataStructure] = useState("");
+	const [currentAlgorithm, setAlgorithm] = useState("");
 	const defaultContent =
 		"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
 
+	const onDataStructureClicked = (type) => {
+		setDataStructure(type)
+	}
+
+	const onAlgorithmClicked = (type) => {
+		setAlgorithm(type)
+	}
+
 	return (
-		<Accordion variant="splitted" selectionMode="multiple" className="px-0">
-			<AccordionItem key="1" aria-label="Hint 1" title="Hint 1">
-				{hints.hint_1}
-			</AccordionItem>
-			<AccordionItem key="2" aria-label="Hint 2" title="Hint 2">
-				{hints.hint_2}
-			</AccordionItem>
-			<AccordionItem key="3" aria-label="Hint 3" title="Hint 3">
-				{hints.hint_3}
-			</AccordionItem>
-			<AccordionItem key="4" aria-label="Optimal Space & Time Complexity" title="Optimal Space & Time Complexity">
-				{defaultContent}
-			</AccordionItem>
-			<AccordionItem key="5" aria-label="Data Structure info" title="Data Structure info">
-				{defaultContent}
-			</AccordionItem>
-			<AccordionItem key="6" aria-label="Algorithm Patterns info" title="Algorithm Patterns info">
-				{defaultContent}
-			</AccordionItem>
-		</Accordion>
+		<div>
+			<DataStructureModal currentDataStructure={currentDataStructure} />
+			<AlgorithmsModel currentAlgorithm={currentAlgorithm} />
+			<Accordion variant="splitted" selectionMode="multiple" className="px-0 mb-2">
+				<AccordionItem key="1" aria-label="Hint 1" title="Hint 1">
+					{hints.hint_1}
+				</AccordionItem>
+				<AccordionItem key="2" aria-label="Hint 2" title="Hint 2">
+					{hints.hint_2}
+				</AccordionItem>
+				<AccordionItem key="3" aria-label="Hint 3" title="Hint 3">
+					{hints.hint_3}
+				</AccordionItem>
+				<AccordionItem key="4" aria-label="Optimal Space & Time Complexity" title="Optimal Space & Time Complexity">
+					{defaultContent}
+				</AccordionItem>
+				<AccordionItem key="5" aria-label="Data Structure info" title="Data Structure info">
+					<Button onClick={() => onDataStructureClicked('BigONotation')}>BigONotation</Button>
+					<Button onClick={() => onDataStructureClicked('ComplexityAnalysis')}>ComplexityAnalysis</Button>
+					<Button onClick={() => onDataStructureClicked('Array')}>Array</Button>
+					<Button onClick={() => onDataStructureClicked('LinkedList')}>LinkedList</Button>
+					<Button onClick={() => onDataStructureClicked('Queue')}>Queue</Button>
+					<Button onClick={() => onDataStructureClicked('Stack')}>Stack</Button>
+					<Button onClick={() => onDataStructureClicked('HashTable')}>HashTable</Button>
+					<Button onClick={() => onDataStructureClicked('Graphs')}>Graphs</Button>
+					<Button onClick={() => onDataStructureClicked('Tree')}>Tree</Button>
+					<Button onClick={() => onDataStructureClicked('BinarySearch')}>BinarySearch</Button>
+				</AccordionItem>
+				<AccordionItem key="6" aria-label="Algorithm Patterns info" title="Algorithm Patterns info">
+					<Button onClick={() => onAlgorithmClicked('SlidingWindow')}>Sliding Window</Button>
+					<Button onClick={() => onAlgorithmClicked('TwoPointers')}>Two Pointers</Button>
+					<Button onClick={() => onAlgorithmClicked('FastSlowPointers')}>Fast and Slow pointers</Button>
+					<Button onClick={() => onAlgorithmClicked('MergeIntervals')}>Merge Intervals</Button>
+					<Button onClick={() => onAlgorithmClicked('CyclicSort')}>Cyclic sort</Button>
+					<Button onClick={() => onAlgorithmClicked('InPlaceReversalOfLinkedList')}>In-place reversal of linked list</Button>
+					<Button onClick={() => onAlgorithmClicked('BFS')}>Tree BFS</Button>
+					<Button onClick={() => onAlgorithmClicked('DFS')}>Tree DFS</Button>
+					<Button onClick={() => onAlgorithmClicked('TwoHeaps')}>Two heaps</Button>
+					<Button onClick={() => onAlgorithmClicked('Subsets')}>Subsets</Button>
+					<Button onClick={() => onAlgorithmClicked('ModifiedBinarySearch')}>Modified binary search</Button>
+					<Button onClick={() => onAlgorithmClicked('TopKElements')}>Top K elements</Button>
+					<Button onClick={() => onAlgorithmClicked('KwayMerge')}>K-way Merge</Button>
+					<Button onClick={() => onAlgorithmClicked('TopologicalSort')}>Topological sort</Button>
+				</AccordionItem>
+			</Accordion>
+		</div>
 	);
 }
 
@@ -107,6 +145,11 @@ function SolutionCode() {
 	const solutionCode = data.currentProblem.solutionCode.javaScript;
 	const monaco = useMonaco();
 	const editorRef = useRef(null)
+	const [currentSolution, setCurrentSolution] = useState(solutionCode[0])
+
+	useEffect(() => {
+		setCurrentSolution(solutionCode[0])
+	}, [solutionCode])
 
 	function handleEditorWillMount(monaco: any) {
 		// here is the monaco instance
@@ -120,22 +163,29 @@ function SolutionCode() {
 		editorRef.current = editor;
 	}
 
-	const clickHandler = async () => {
+	const onDataStructureClicked = async () => {
 		const getCodeValue = editorRef?.current?.getValue();
-        try {
-            await navigator.clipboard.writeText(getCodeValue);
-        } catch (err) {
-            console.error('Failed to copy: ', err);
-        }
+		try {
+			await navigator.clipboard.writeText(getCodeValue);
+		} catch (err) {
+			console.error('Failed to copy: ', err);
+		}
+	}
+
+	const changeSolution = (i) => {
+		const newSolution = solutionCode[i]
+		console.log(newSolution)
+		setCurrentSolution(newSolution)
 	}
 
 	return (
 		<>
 			<Editor
 				className="px-0"
-				height="calc(100% - 65px)"
+				height="calc(100% - 3rem)"
 				defaultLanguage="javascript"
-				defaultValue={solutionCode[0]}
+				defaultValue={currentSolution}
+				value={currentSolution}
 				// value={codeSolutionOnStorage !== null && isSumittedPage ? codeSolutionOnStorage : code.current}
 				beforeMount={handleEditorWillMount}
 				onMount={handleEditorDidMount}
@@ -143,19 +193,29 @@ function SolutionCode() {
 				// onChange={(value: string | undefined) => onChange(value)}
 				options={{
 					minimap: { enabled: false },
-					scrollbar: { vertical: 'hidden' },
+					scrollbar: { vertical: 'hidden', horizontal: 'hidden' },
 					fontSize: 14,
 					codeLens: false,
 					readOnly: true,
 					inlineSuggest: { enabled: false },
 				}}
 			/>
-			<Button onClick={clickHandler} isIconOnly variant="bordered" aria-label="Take a photo" size="sm" radius="sm" className="absolute top-[0.5rem] right-[20px] z-50 border border-default-300 dark:border-default-100">
+			<Button onClick={onDataStructureClicked} isIconOnly variant="bordered" aria-label="Take a photo" size="sm" radius="sm" className="absolute top-[0.5rem] right-[20px] z-50 border border-default-300 dark:border-default-100">
 				<CopyIcon />
 			</Button>
-			<Button variant="solid" aria-label="Take a photo" size="md" radius="sm" className="absolute bottom-16 left-16">
-				Solution 1
-			</Button>
+			<div className="ml-16 absolute bottom-0">
+				{solutionCode.map((solution, i) => {
+					return (
+						<Button onClick={() => changeSolution(i)} variant="solid" aria-label="Take a photo" size="md" radius="sm" className="relative mr-2 bottom-4 z-10">
+							Solution {i + 1}
+						</Button>
+					)
+				})}
+			</div>
+
+
+
+
 		</>
 	)
 }

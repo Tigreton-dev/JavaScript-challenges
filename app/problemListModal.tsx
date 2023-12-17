@@ -130,7 +130,7 @@ function ListBoxComponent({ list, currentCategory, onClose }) {
 
 const DropDownContainer = ({ setCategory }) => {
     const iconClasses = "text-xl text-default-500 pointer-events-none flex-shrink-0";
-    const categories = ["String", "Array", "Linked list", "Stacks & Queues", "Graphs", "Binary tree", "Dynamic programming", "Recursion", "Searching", "Sorting", "Famous algorithms", "JavaScript"]
+    const categories = ["String", "Array", "Linked List", "Stacks & Queues", "Graphs", "Binary Tree", "Dynamic Programming", "Recursion", "Searching", "Sorting", "Famous algorithms", "JavaScript"]
     return (
         <Dropdown
             showArrow
