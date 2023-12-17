@@ -143,8 +143,8 @@ function CodeEditorComponent() {
             <div className="flex items-center sticky top-0 left-0 px-4 z-10 justify-between h-8 bg-code-background w-full bg-default-100 dark:bg-default-50"><div className="flex items-center gap-2 basis-1/3"><div className="w-3 h-3 rounded-full bg-red-500"></div><div className="w-3 h-3 rounded-full bg-yellow-500"></div><div className="w-3 h-3 rounded-full bg-green-500"></div></div><div className="flex basis-1/3 h-full justify-center items-center"></div><div className="flex basis-1/3"></div></div>
             <TabCodeEditorComponent setFullScreen={setFullScreen} copyCode={copyCode} resetCode={resetCode} prettifyCode={() => prettifyCode()} onTabChange={(val) => console.log(val)} />
             <Editor
-                className="px-0 pt-5 bg-gradient-to-br from-white to-default-0 dark:from-black dark:to-default-50 ddd"
-                height="calc(100% - 65px)"
+                className="px-0 pt-5 bg-white dark:bg-black"
+                height="calc(100% - 80px)"
                 defaultLanguage="javascript"
                 // defaultValue={startedCode}
                 value={startedCode !== null ? startedCode : "aa"}
@@ -162,11 +162,11 @@ function CodeEditorComponent() {
                 }}
             />
             {loadingButton ? (
-                <Button isLoading variant="bordered" color="primary" aria-label="Take a photo" size="md" radius="sm" className="relative bottom-[4.5rem] left-[calc(100%-9rem)] border border-cyan-400 text-cyan-400 bg-[white] dark:bg-[rgb(0,0,0)]" onClick={handleWork}>
+                <Button isLoading variant="bordered" color="primary" aria-label="Take a photo" size="md" radius="sm" className="relative bottom-[4rem] left-[calc(100%-9rem)] border border-cyan-400 text-cyan-400 bg-[white] dark:bg-[rgb(0,0,0)]" onClick={handleWork}>
                     Run code
                 </Button>
             ) : (
-                <Button variant="bordered" color="primary" aria-label="Take a photo" size="md" radius="sm" className="relative bottom-[4.5rem] left-[calc(100%-9rem)] border border-cyan-400 text-cyan-400 bg-[white] dark:bg-[black]" onClick={handleWork}>
+                <Button variant="bordered" color="primary" aria-label="Take a photo" size="md" radius="sm" className="relative bottom-[4rem] left-[calc(100%-9rem)] border border-cyan-400 text-cyan-400 bg-[white] dark:bg-[black]" onClick={handleWork}>
                     <PlayIcon /> Run code
                 </Button>
             )}

@@ -8,7 +8,7 @@ async function ejecutarFuncion(event) {
         const problemData = data.currentProblem;
         const testCases = problemData.testCases;
         const result = await bucleAsincrono(problemData, testCases, stringFunction);
-        console.log('ALL TEST ENDS');
+        console.log('<----- ALL TEST ENDS ----->');
         self.postMessage(result);
     } catch (err) {
         console.log(err);
@@ -29,10 +29,6 @@ async function bucleAsincrono(problemData, testCases, stringFunction) {
         passed_test = JSON.stringify(code_output) === JSON.stringify(test_expected);
         if (!passed_test) passedAllTests = false;
         testCases[testCase] = { test_input, test_expected, code_output, passed_test };
-        console.log(`Iteración completada`);
-        console.log('prueba', 'prueba', [1, 2, 3], { a: 23, b: 'dfdf', c: [1, 'fdsg', true] });
-        console.warn('WARN PRUEBA');
-        console.error('ESTO ES Un error de prueba');
     }
 
     return { passedAllTests, testCases };

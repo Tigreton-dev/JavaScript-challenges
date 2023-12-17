@@ -27,15 +27,6 @@ export default function TabCodeEditorComponent({ onTabChange, prettifyCode, rese
                             </div>
                         }
                     />
-                    <Tab
-                        key="1"
-                        title={
-                            <div className="flex items-center space-x-2">
-                                <MusicIcon />
-                                <span>Submitted Solution</span>
-                            </div>
-                        }
-                    />
 
                 </Tabs>
 

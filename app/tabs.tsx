@@ -1,6 +1,7 @@
 import React from "react";
 import { Tabs, Tab, Chip, Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button } from "@nextui-org/react";
-import { GalleryIcon, VideoIcon, MusicIcon } from "./helpers/Icons";
+import { DescriptionIcon, VideoIcon, MusicIcon, TestIcon, CheckSolutionIcon } from "./helpers/Icons";
+
 
 export default function TabComponent({ onTabChange }) {
 	return (
@@ -22,7 +23,7 @@ export default function TabComponent({ onTabChange }) {
 						key="0"
 						title={
 							<div className="flex items-center space-x-2">
-								<GalleryIcon />
+								<DescriptionIcon />
 								<span>Description</span>
 							</div>
 						}
@@ -31,7 +32,7 @@ export default function TabComponent({ onTabChange }) {
 						key="1"
 						title={
 							<div className="flex items-center space-x-2">
-								<MusicIcon />
+								<CheckSolutionIcon />
 								<span>Solution</span>
 							</div>
 						}
@@ -40,12 +41,12 @@ export default function TabComponent({ onTabChange }) {
 						key="2"
 						title={
 							<div className="flex items-center space-x-2">
-								<VideoIcon />
+								<TestIcon />
 								<span>Test Cases</span>
 							</div>
 						}
 					/>
-					<Tab
+					{/* <Tab
 						key="bb"
 						title={
 							<div className="flex items-center space-x-2">
@@ -53,7 +54,7 @@ export default function TabComponent({ onTabChange }) {
 								<span>Video</span>
 							</div>
 						}
-					/>
+					/> */}
 				</Tabs>
 
 			</div>
