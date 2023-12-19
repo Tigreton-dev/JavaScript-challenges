@@ -1,14 +1,8 @@
 <div align="center">
 
 <a href="javascript-challenges-pearl.vercel.app/" target="_blank">
-  <img src="./public/images/editor.png" width="80%">
+  <img src="./public/images/captura.png" width="80%">
 </a>
-
-![GitHub releases](https://img.shields.io/github/release/Tigreton-dev/JavaScript-challenges)
-![GitHub stars](https://img.shields.io/github/stars/Tigreton-dev/JavaScript-challenges)
-![GitHub issues](https://img.shields.io/github/issues/Tigreton-dev/JavaScript-challenges)
-![GitHub license](https://img.shields.io/github/license/Tigreton-dev/JavaScript-challenges)
-[![Required Node.JS >= 14.18.0 || >=16.0.0](https://img.shields.io/static/v1?label=node&message=14.18.0%20||%20%3E=16.0.0&logo=node.js&color=3f893e)](https://nodejs.org/about/releases)
 
 </div>
 
@@ -16,18 +10,18 @@
 
 > ### Coding out algorithm problems is the best way to increase your algorithms skills!!!
 
-This Online Code platform provide over 160 coding questions classified in 8 Categories and 3 difficulty levels to maximize the understanding of algorithms and data structures.
+This Online Code platform provide coding questions classified in deferent Categories and in 3 difficulty levels to maximize the understanding of algorithms and data structures.
 
-The workspace lets you type out your answers and run them against a test suite, on your browser. And if you get stuck, the platform provide some hints to help you out. If your still stuck, the platform provide a solution with the best time & space complexity.
+The workspace lets you type out your answers and run them against a test suite, on your browser. If you get stuck, the platform provide a solution with the best time & space complexity.
 
 ## 📦 Packages:
 
 -   ⚡️ [Nextjs](https://nextjs.org/) - The React Framework for Production.
 -   ⚒️ [React 18](https://es.reactjs.org/) - A JavaScript library for building user interfaces.
 -   💙 [Typescript](https://www.typescriptlang.org/) - A superset of JavaScript.
--   💖 [MUI](https://mui.com/) - suite of UI tools.
+-   💖 [NextUi](https://nextui.org/) - suite of UI tools.
 -   🌐 [Vercel](https://vercel.com/) - a cloud platform to host deploy and scale automatically.
--   ⬛ [React-codemirror](https://codemirror.net/) - CodeMirror component for React.
+-   ⬛ [monaco editor react](https://monaco-react.surenatoyan.com/) - Monaco editor SDK for React.
 
 ## 🚀 Getting Started:
 

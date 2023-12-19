@@ -1,70 +1,40 @@
 {
-    "name": "Code Challenges",
-    "version": "1.0.0",
-    "private": false,
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/Tigreton-dev/JavaScript-challenges"
-    },
-    "scripts": {
-        "dev": "next dev",
-        "build": "next build",
-        "start": "next start",
-        "lint": "next lint",
-        "check-types": "tsc --pretty --noEmit",
-        "check-format": "prettier --check .",
-        "check-lint": "eslint . --ext ts --ext tsx --ext js",
-        "format": "prettier --write .",
-        "test-all": "npm run check-format && npm run check-lint && npm run check-types && npm run build",
-        "prepare": "husky install"
-    },
-    "lint-staged": {
-        "*.{js, jsx, ts, tsx}": "eslint --cache --fix",
-        "*.{js, css, md}": "prettier --write"
-    },
-    "engines": {
-        "npm": ">=7.0.0",
-        "node": ">=14.0.0"
-    },
-    "dependencies": {
-        "@codemirror/lang-javascript": "^6.0.2",
-        "@codemirror/lang-json": "^6.0.0",
-        "@emotion/cache": "^11.10.1",
-        "@emotion/react": "^11.10.0",
-        "@emotion/server": "^11.10.0",
-        "@emotion/styled": "^11.10.0",
-        "@fontsource/roboto": "^4.5.8",
-        "@monaco-editor/react": "^4.4.6",
-        "@mui/icons-material": "^5.8.4",
-        "@mui/lab": "^5.0.0-alpha.94",
-        "@mui/material": "^5.10.0",
-        "@uiw/codemirror-themes": "^4.11.4",
-        "@uiw/react-codemirror": "^4.11.4",
-        "eslint-config-prettier": "^8.5.0",
-        "eslint-plugin-prettier": "^4.2.1",
-        "eslint4b-prebuilt": "^6.7.2",
-        "highlight.js": "^11.9.0",
-        "html-react-parser": "^3.0.1",
-        "js-beautify": "^1.14.5",
-        "next": "^13.0.0",
-        "react": "^18.2.0",
-        "react-dom": "^18.2.0",
-        "react-highlight": "^0.15.0",
-        "react-json-editor-ajrm": "^2.5.13",
-        "react-split": "^2.0.14",
-        "swr": "^1.3.0"
-    },
-    "devDependencies": {
-        "@types/node": "18.6.5",
-        "@types/react": "18.0.17",
-        "@types/react-dom": "18.0.6",
-        "@types/react-highlight": "^0.12.6",
-        "eslint": "8.21.0",
-        "eslint-config-next": "^13.0.0",
-        "eslint-config-prettier": "^8.5.0",
-        "eslint-plugin-prettier": "^4.2.1",
-        "husky": "^8.0.0",
-        "prettier": "^2.7.1",
-        "typescript": "4.7.4"
-    }
+  "name": "challenges",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@monaco-editor/react": "^4.6.0",
+    "@nextui-org/react": "^2.1.13",
+    "canvas-confetti": "^1.9.0",
+    "framer-motion": "^10.16.4",
+    "highlight.js": "^11.9.0",
+    "html-react-parser": "^5.0.6",
+    "js-beautify": "^1.14.11",
+    "next": "14.0.1",
+    "next-themes": "^0.2.1",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-highlight": "^0.15.0",
+    "react-icons": "^4.11.0",
+    "react-split": "^2.0.14",
+    "react-syntax-highlighter": "^15.5.0",
+    "ts-standard": "^12.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10.0.1",
+    "eslint": "^8",
+    "eslint-config-next": "14.0.1",
+    "postcss": "^8",
+    "tailwindcss": "^3.3.0",
+    "typescript": "^5"
+  }
 }
