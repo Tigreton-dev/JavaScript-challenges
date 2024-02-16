@@ -17,7 +17,10 @@ async function ejecutarFuncion(event) {
 
 async function bucleAsincrono(problemData, testCases, stringFunction) {
     let passedAllTests = true;
+    let i = 1;
     for (const testCase in testCases) {
+        console.log(`<----- TEST CASE ${i} ----->`);
+        i++;
         const test = testCases[testCase];
         let { test_input, test_expected, code_output, passed_test } = test;
         const functionName = problemData.refName;
