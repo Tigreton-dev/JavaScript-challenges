@@ -22,19 +22,19 @@ export default function AccordionComponent({ hints }) {
             <DataStructureModal currentDataStructure={currentDataStructure} />
             <AlgorithmsModel currentAlgorithm={currentAlgorithm} />
             <Accordion variant="splitted" selectionMode="multiple" className="px-0 mb-2">
-                <AccordionItem key="1" aria-label="Hint 1" title="Hint 1">
+                <AccordionItem key="1" aria-label="Hint 1" title="Hint 1" className="border border-default-300 dark:border-default-100 rounded-lg bg-black">
                     {hints.hint_1}
                 </AccordionItem>
-                <AccordionItem key="2" aria-label="Hint 2" title="Hint 2">
+                <AccordionItem key="2" aria-label="Hint 2" title="Hint 2" className="border border-default-300 dark:border-default-100 rounded-lg">
                     {hints.hint_2}
                 </AccordionItem>
-                <AccordionItem key="3" aria-label="Hint 3" title="Hint 3">
+                <AccordionItem key="3" aria-label="Hint 3" title="Hint 3" className="border border-default-300 dark:border-default-100 rounded-lg">
                     {hints.hint_3}
                 </AccordionItem>
-                <AccordionItem key="4" aria-label="Optimal Space & Time Complexity" title="Optimal Space & Time Complexity">
+                <AccordionItem key="4" aria-label="Optimal Space & Time Complexity" title="Optimal Space & Time Complexity" className="border border-default-300 dark:border-default-100 rounded-lg">
                     {defaultContent}
                 </AccordionItem>
-                <AccordionItem key="5" aria-label="Data Structure info" title="Data Structure info">
+                <AccordionItem key="5" aria-label="Data Structure info" title="Data Structure info" className="border border-default-300 dark:border-default-100 rounded-lg">
                     <Button onClick={() => onDataStructureClicked('BigONotation')}>BigONotation</Button>
                     <Button onClick={() => onDataStructureClicked('ComplexityAnalysis')}>ComplexityAnalysis</Button>
                     <Button onClick={() => onDataStructureClicked('Array')}>Array</Button>
@@ -46,7 +46,7 @@ export default function AccordionComponent({ hints }) {
                     <Button onClick={() => onDataStructureClicked('Tree')}>Tree</Button>
                     <Button onClick={() => onDataStructureClicked('BinarySearch')}>BinarySearch</Button>
                 </AccordionItem>
-                <AccordionItem key="6" aria-label="Algorithm Patterns info" title="Algorithm Patterns info">
+                <AccordionItem key="6" aria-label="Algorithm Patterns info" title="Algorithm Patterns info" className="border border-default-300 dark:border-default-100 rounded-lg">
                     <Button onClick={() => onAlgorithmClicked('SlidingWindow')}>Sliding Window</Button>
                     <Button onClick={() => onAlgorithmClicked('TwoPointers')}>Two Pointers</Button>
                     <Button onClick={() => onAlgorithmClicked('FastSlowPointers')}>Fast and Slow pointers</Button>
