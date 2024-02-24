@@ -44,7 +44,7 @@ export default function SolutionCode() {
 	return (
 		<>
 			<Editor
-				className="px-0"
+				className="px-0 pt-5"
 				height="calc(100% - 3rem)"
 				defaultLanguage="javascript"
 				defaultValue={currentSolution}
