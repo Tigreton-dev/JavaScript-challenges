@@ -9,15 +9,20 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@auth/pg-adapter": "^0.6.0",
     "@monaco-editor/react": "^4.6.0",
     "@nextui-org/react": "^2.1.13",
+    "@vercel/blob": "^0.22.0",
+    "@vercel/postgres": "^0.7.2",
     "canvas-confetti": "^1.9.0",
     "framer-motion": "^10.16.4",
     "highlight.js": "^11.9.0",
     "html-react-parser": "^5.0.6",
     "js-beautify": "^1.14.11",
     "next": "14.0.1",
+    "next-auth": "^4.24.6",
     "next-themes": "^0.2.1",
+    "pg": "^8.11.3",
     "react": "^18",
     "react-dom": "^18",
     "react-highlight": "^0.15.0",
@@ -33,8 +38,9 @@
     "eslint": "^8",
     "eslint-config-next": "14.0.1",
     "postcss": "^8",
+    "prisma": "^5.10.2",
     "tailwindcss": "^3.3.0",
-    "typescript": "^5",
-    "ts-standard": "^12.0.2"
+    "ts-standard": "^12.0.2",
+    "typescript": "^5"
   }
 }

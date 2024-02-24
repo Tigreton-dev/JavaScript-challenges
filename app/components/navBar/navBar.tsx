@@ -5,6 +5,7 @@ import ThemeSwitch from "./themeSwitch"
 import ProblemList from "./problemListModal";
 import SearchModal from "./searchModal"
 import { DataContext } from '../../context/dataContext';
+import SigninButton from "../signInButton";
 
 export default function NavBar() {
     const { data, updateData } = React.useContext(DataContext);
@@ -61,6 +62,7 @@ export default function NavBar() {
 
                 <SettingsContainer />
                 <ThemeSwitch />
+                <SigninButton />
                 <Button isIconOnly variant="bordered" aria-label="Take a photo" size="md" radius="sm" className="border border-default-300 dark:border-default-100">
                     <GitHubIcon />
                 </Button>
