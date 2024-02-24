@@ -7,7 +7,6 @@ import DevelopmentEnvironment from "../../components/codeEditor/developmentEnvir
 import { DataContext } from '../../context/dataContext';
 import Firework from "../../components/firework";
 import { usePathname } from 'next/navigation'
-import { getProblemByRefName } from "../../data/getData"
 
 export default function ProblemPage() {
     const { data, updateData } = React.useContext(DataContext);
@@ -17,14 +16,24 @@ export default function ProblemPage() {
     const [isProblemSet, setProblem] = useState(false)
 
     useEffect(() => {
-        setProblem(() => false)
-        const pathnameSplited = pathname.split("/");
-        const problemNameId = pathnameSplited[pathnameSplited.length - 1];
-        const problem = getProblemByRefName(problemNameId)
-        updateData({ currentProblem: problem })
-        setTimeout(() => {
-            setProblem(() => true)
-        }, 500);
+        async function getData() {
+            setProblem(() => false)
+            const pathnameSplited = pathname.split("/");
+            const problemNameId = pathnameSplited[pathnameSplited.length - 1];
+            const response = await fetch(`../../api/`, {
+                method: 'GET',
+                headers: {
+                    'problemNameId': `${problemNameId}`,
+                }
+            });
+            const problem = await response.json();
+            updateData({ currentProblem: problem })
+            setTimeout(() => {
+                setProblem(() => true)
+            }, 500);
+        }
+
+        getData()
     }, []);
 
     useEffect(() => {
@@ -38,7 +47,6 @@ export default function ProblemPage() {
     }, [data.appSize])
 
     return (
-
         <main className="h-[100vh] flex flex-col overflow-hidden" ref={mainRef}>
             <NavBar />
             {isProblemSet ? <>
@@ -60,7 +68,6 @@ export default function ProblemPage() {
                 </Split>
                 <Firework />
             </> : <p>Loading problem...</p>}
-
         </main>
     );
 }
