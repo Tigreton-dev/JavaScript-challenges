@@ -1,6 +1,6 @@
 import React from "react";
 import { Tabs, Tab, Navbar, Button } from "@nextui-org/react";
-import { DescriptionIcon, GalleryIcon, MusicIcon, CodeIcon, CopyIcon, ReloadIcon, FullScreenIcon } from "../../helpers/Icons";
+import { DescriptionIcon, CodeIcon, CopyIcon, ReloadIcon, FullScreenIcon } from "../../helpers/Icons";
 
 export default function TabCodeEditorComponent({ onTabChange, prettifyCode, resetCode, copyCode, setFullScreen }) {
     return (
