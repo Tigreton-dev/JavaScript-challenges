@@ -11,7 +11,7 @@ async function ejecutarFuncion(event) {
         console.log('<----- ALL TEST ENDS ----->');
         self.postMessage(result);
     } catch (err) {
-        console.log(err);
+        console.error(err);
     }
 }
 
