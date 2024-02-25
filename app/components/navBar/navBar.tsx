@@ -60,7 +60,6 @@ export default function NavBar() {
                     <MinusIcon />
                 </Button>
 
-                <SettingsContainer />
                 <ThemeSwitch />
                 <SigninButton />
                 <Button isIconOnly variant="bordered" aria-label="Take a photo" size="md" radius="sm" className="border border-default-300 dark:border-default-100">
@@ -69,102 +68,4 @@ export default function NavBar() {
             </NavbarContent>
         </Navbar>
     );
-}
-
-const SettingsContainer = () => {
-    const { data, updateData } = React.useContext(DataContext);
-    const [fontSize, setFontSize] = useState(data.fontSize)
-
-    const clickHandler = (newFontSize) => {
-        setFontSize(newFontSize)
-        updateData({ fontSize: newFontSize })
-    }
-
-    return (
-        <Dropdown
-            closeOnSelect={false}
-            showArrow
-            classNames={{
-                base: "py-1 px-1 border border-default-300 bg-gradient-to-br from-white to-default-200 dark:from-default-50 dark:to-black",
-                arrow: "bg-default-200",
-            }}
-        >
-            <DropdownTrigger>
-                <Button isIconOnly variant="bordered" aria-label="Take a photo" size="md" radius="sm" className="border border-default-300 dark:border-default-100">
-                    <SettingsIcon />
-                </Button>
-            </DropdownTrigger>
-            <DropdownMenu variant="light" aria-label="Dropdown menu with description" selectionMode="none" disabledKeys={["Language"]}>
-                <DropdownSection title="SETTINGS">
-                    <DropdownItem
-                        key="fontSize"
-                        endContent={
-                            <Dropdown>
-                                <DropdownTrigger>
-                                    <Button variant="bordered">{fontSize}<ArrowDropDownIcon /></Button>
-                                </DropdownTrigger>
-                                <DropdownMenu aria-label="Static Actions">
-                                    <DropdownItem key="10" onClick={() => clickHandler(10)}>10</DropdownItem>
-                                    <DropdownItem key="11" onClick={() => clickHandler(11)}>11</DropdownItem>
-                                    <DropdownItem key="12" onClick={() => clickHandler(12)}>12</DropdownItem>
-                                    <DropdownItem key="13" onClick={() => clickHandler(13)}>13</DropdownItem>
-                                    <DropdownItem key="14" onClick={() => clickHandler(14)}>14</DropdownItem>
-                                    <DropdownItem key="15" onClick={() => clickHandler(15)}>15</DropdownItem>
-                                    <DropdownItem key="16" onClick={() => clickHandler(16)}>16</DropdownItem>
-                                    <DropdownItem key="17" onClick={() => clickHandler(17)}>17</DropdownItem>
-                                    <DropdownItem key="18" onClick={() => clickHandler(18)}>18</DropdownItem>
-                                    <DropdownItem key="19" onClick={() => clickHandler(19)}>19</DropdownItem>
-                                    <DropdownItem key="20" onClick={() => clickHandler(20)}>20</DropdownItem>
-
-                                </DropdownMenu>
-                            </Dropdown>
-                        }
-                    >
-                        Font size
-                    </DropdownItem>
-                    <DropdownItem
-                        key="Language"
-                        endContent={
-                            <Dropdown>
-                                <DropdownTrigger>
-                                    <Button variant="bordered">javaScript<ArrowDropDownIcon /></Button>
-                                </DropdownTrigger>
-                                <DropdownMenu aria-label="Static Actions">
-                                    <DropdownItem key="new">javaScript</DropdownItem>
-                                </DropdownMenu>
-                            </Dropdown>}
-                    >
-                        Language
-                    </DropdownItem>
-                    <DropdownItem
-                        key="edit"
-                        endContent={
-                            <Dropdown>
-                                <DropdownTrigger>
-                                    <Button variant="bordered">4<ArrowDropDownIcon /></Button>
-                                </DropdownTrigger>
-                                <DropdownMenu aria-label="Static Actions">
-                                    <DropdownItem key="1">1</DropdownItem>
-                                    <DropdownItem key="2">2</DropdownItem>
-                                    <DropdownItem key="3">3</DropdownItem>
-                                    <DropdownItem key="4">4</DropdownItem>
-                                    <DropdownItem key="5">5</DropdownItem>
-                                    <DropdownItem key="6">6</DropdownItem>
-                                    <DropdownItem key="7">7</DropdownItem>
-                                    <DropdownItem key="8">8</DropdownItem>
-                                </DropdownMenu>
-                            </Dropdown>}
-                    >
-                        Tab size
-                    </DropdownItem>
-                    <DropdownItem
-                        key="edit"
-                        endContent={<Switch defaultSelected aria-label="Automatic updates" />}
-                    >
-                        Syntax highlights
-                    </DropdownItem>
-                </DropdownSection>
-            </DropdownMenu>
-        </Dropdown>
-    )
 }
