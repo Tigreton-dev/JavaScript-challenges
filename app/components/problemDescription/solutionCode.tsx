@@ -1,19 +1,35 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Button } from "@nextui-org/react";
-import { CopyIcon } from "../../helpers/Icons"
+import { CopyIcon, CopiedTick } from "../../helpers/Icons"
 import Editor from '@monaco-editor/react';
 import { monacoDarkTheme } from "../codeEditor/monacoThemes";
 import { DataContext } from '../../context/dataContext';
+import beautify from 'js-beautify';
 
 export default function SolutionCode() {
 	const { data } = React.useContext(DataContext);
+	const tabSize = data.tabSize;
+	const fontSize = data.fontSize;
 	const solutionCode = data.currentProblem.solutionCode.javaScript;
+	const currentSolutionCode = beautify(data.currentProblem.solutionCode.javaScript[0], { indent_size: tabSize, space_in_empty_paren: true });
 	const editorRef = useRef(null)
-	const [currentSolution, setCurrentSolution] = useState(solutionCode[0])
+	const [currentSolution, setCurrentSolution] = useState(currentSolutionCode)
+	const [isClipBoardClicked, setIsClipBoardClicked] = useState(false)
 
 	useEffect(() => {
-		setCurrentSolution(solutionCode[0])
+		setCurrentSolution(currentSolutionCode)
 	}, [solutionCode])
+
+	useEffect(()=> {
+		prettifyCode()
+    }, [tabSize, fontSize])
+
+	const prettifyCode = () => {
+        if (editorRef.current !== null) editorRef.current.getModel().updateOptions({ tabSize: tabSize, indentSize: tabSize })
+        const getCodeValue = editorRef?.current?.getValue()
+        const prettifyCode = beautify(getCodeValue, { indent_size: tabSize, space_in_empty_paren: true })
+        editorRef?.current?.setValue(prettifyCode)
+    }
 
 	function handleEditorWillMount(monaco: any) {
 		// here is the monaco instance
@@ -31,6 +47,10 @@ export default function SolutionCode() {
 		const getCodeValue = editorRef?.current?.getValue();
 		try {
 			await navigator.clipboard.writeText(getCodeValue);
+			setIsClipBoardClicked(true)
+			setTimeout(() => {
+				setIsClipBoardClicked(false)
+			}, 4000);
 		} catch (err) {
 			console.error('Failed to copy: ', err);
 		}
@@ -57,14 +77,14 @@ export default function SolutionCode() {
 				options={{
 					minimap: { enabled: false },
 					scrollbar: { vertical: 'hidden', horizontal: 'hidden' },
-					fontSize: 14,
+					fontSize: fontSize,
 					codeLens: false,
 					readOnly: true,
 					inlineSuggest: { enabled: false },
 				}}
 			/>
 			<Button onClick={onDataStructureClicked} isIconOnly variant="bordered" aria-label="Take a photo" size="sm" radius="sm" className="absolute top-[0.5rem] right-[20px] z-50 border border-default-300 dark:border-default-100">
-				<CopyIcon />
+				{isClipBoardClicked ? <CopiedTick /> : <CopyIcon />}
 			</Button>
 			<div className="ml-16 absolute bottom-0">
 				{solutionCode.map((solution: string, i: number) => {

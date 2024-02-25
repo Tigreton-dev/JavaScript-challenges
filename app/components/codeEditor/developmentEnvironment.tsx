@@ -39,7 +39,9 @@ function CodeEditorComponent() {
     const { data, updateData } = React.useContext(DataContext);
     const editorRef = useRef(null)
     const fontSize = data.fontSize;
-    const startedCode = data.currentProblem.startedCode.javaScript;
+    const tabSize = data.tabSize;
+    const SyntaxHighlighter = data.SyntaxHighlighter
+    const startedCode = useRef(beautify(data.currentProblem.startedCode.javaScript, { indent_size: tabSize, space_in_empty_paren: true }))
     const testCases = data.currentProblem.testCases;
     const monaco = useMonaco();
     const [monacoEditor, setMonacoEditor] = useState(null);
@@ -47,6 +49,7 @@ function CodeEditorComponent() {
     const { isOpen, onOpen, onOpenChange } = useDisclosure();
     const [loadingButton, setLoadingButton] = useState(false)
     const [passesAllTests, setPassesAllTests] = useState(false)
+    const [isClipBoardClicked, setIsClipBoardClicked] = useState(false)
 
     useEffect(() => {
         if (monacoEditor === null) return
@@ -54,9 +57,18 @@ function CodeEditorComponent() {
         monacoEditor.editor.defineTheme('my-theme', theme);
     }, [data.isDarkTheme])
 
+    useEffect(() =>{
+        prettifyCode()
+    }, [tabSize])
+
+    useEffect(() =>{
+        if (editorRef.current !== null) editorRef.current.getModel().updateOptions({ defaultLanguage: "" })
+    }, [SyntaxHighlighter])
+
 
     function handleEditorWillMount(monaco: any) {
         // here is the monaco instance do something before editor is mounted
+
         setMonacoEditor(monaco)
         const darkTheme = monacoDarkTheme()
         const lightTheme = monacoLightTheme()
@@ -67,24 +79,32 @@ function CodeEditorComponent() {
 
     function handleEditorDidMount(editor: any, monaco: any) {
         editorRef.current = editor;
+        editor.getModel().updateOptions({ tabSize: tabSize, indentSize: tabSize })
+        console.log(editor.getModel())
     }
 
     const prettifyCode = () => {
         // editorRef?.current?.getAction('editor.action.formatDocument').run();
+        if (editorRef.current !== null) editorRef.current.getModel().updateOptions({ tabSize: tabSize, indentSize: tabSize })
         const getCodeValue = editorRef?.current?.getValue()
-        const pretifyCode = beautify(getCodeValue, { indent_size: 4, space_in_empty_paren: true })
-        editorRef?.current?.setValue(pretifyCode)
+        const prettifyCode = beautify(getCodeValue, { indent_size: tabSize, space_in_empty_paren: true })
+        editorRef?.current?.setValue(prettifyCode)
     }
 
     const resetCode = () => {
-        const pretifyCode = beautify(startedCode, { indent_size: 4, space_in_empty_paren: true })
+        const pretifyCode = beautify(startedCode.current, { indent_size: tabSize, space_in_empty_paren: true })
         editorRef?.current?.setValue(pretifyCode)
     }
 
     const copyCode = async () => {
-        const getCodeValue = editorRef?.current?.getValue();
+        const getCodeValue = beautify(editorRef?.current?.getValue(), { indent_size: tabSize, space_in_empty_paren: true });
+
         try {
             await navigator.clipboard.writeText(getCodeValue);
+            setIsClipBoardClicked(true)
+			setTimeout(() => {
+				setIsClipBoardClicked(false)
+			}, 4000);
         } catch (err) {
             console.error('Failed to copy: ', err);
         }
@@ -100,9 +120,42 @@ function CodeEditorComponent() {
         workerRef.current = new Worker(new URL('../../helpers/worker.js', import.meta.url))
         workerRef.current.onmessage = (event) => {
             if (event.data?.type === "log" || event.data?.type === "warn" || event.data?.type === "error") {
-                updateData(prevData => {
-                    return { consoleLogs: [...prevData.consoleLogs, event.data] }
-                })
+                if(event.data.content[0] instanceof InternalError ) {
+                    updateData(prevData => {
+                        return { consoleLogs: [...prevData.consoleLogs, {type: "error", content: [`InternalError: ${event.data.content[0].message}`]}] }
+                    })
+                }
+                else if(event.data.content[0] instanceof RangeError ) {
+                    updateData(prevData => {
+                        return { consoleLogs: [...prevData.consoleLogs, {type: "error", content: [`RangeError: ${event.data.content[0].message}`]}] }
+                    })
+                }
+                else if(event.data.content[0] instanceof ReferenceError ) {
+                    updateData(prevData => {
+                        return { consoleLogs: [...prevData.consoleLogs, {type: "error", content: [`ReferenceError: ${event.data.content[0].message}`]}] }
+                    })
+                }
+                else if(event.data.content[0] instanceof TypeError ) {
+                    updateData(prevData => {
+                        return { consoleLogs: [...prevData.consoleLogs, {type: "error", content: [`TypeError: ${event.data.content[0].message}`]}] }
+                    })
+                }
+                else if(event.data.content[0] instanceof SyntaxError ) {
+                    updateData(prevData => {
+                        return { consoleLogs: [...prevData.consoleLogs, {type: "error", content: [`SyntaxError: ${event.data.content[0].message}`]}] }
+                    })
+                }
+                else if(event.data.content[0] instanceof URIError ) {
+                    updateData(prevData => {
+                        return { consoleLogs: [...prevData.consoleLogs, {type: "error", content: [`URIError: ${event.data.content[0].message}`]}] }
+                    })
+                }else {
+                    updateData(prevData => {
+                        return { consoleLogs: [...prevData.consoleLogs, event.data] }
+                    })
+                }
+               
+                setTimeout(() => {setLoadingButton(false)}, 1000);
             } else {
                 setTimeout(() => {
                     updateData(prevData => {
@@ -139,13 +192,13 @@ function CodeEditorComponent() {
     return (
         <div className="border border-default-300 dark:border-default-100 overflow-hidden rounded-lg">
             <div className="flex items-center sticky top-0 left-0 px-4 z-10 justify-between h-8 bg-code-background w-full bg-default-100 dark:bg-default-50"><div className="flex items-center gap-2 basis-1/3"><div className="w-3 h-3 rounded-full bg-red-500"></div><div className="w-3 h-3 rounded-full bg-yellow-500"></div><div className="w-3 h-3 rounded-full bg-green-500"></div></div><div className="flex basis-1/3 h-full justify-center items-center"></div><div className="flex basis-1/3"></div></div>
-            <TabCodeEditorComponent setFullScreen={setFullScreen} copyCode={copyCode} resetCode={resetCode} prettifyCode={() => prettifyCode()} onTabChange={(val) => console.log(val)} />
+            <TabCodeEditorComponent isClipBoardClicked={isClipBoardClicked} setFullScreen={setFullScreen} copyCode={copyCode} resetCode={resetCode} prettifyCode={() => prettifyCode()} onTabChange={(val) => console.log(val)} />
             <Editor
                 className="px-0 pt-5 bg-white dark:bg-black"
                 height="calc(100% - 80px)"
-                defaultLanguage="javascript"
+                defaultLanguage={"javascript"}
                 // defaultValue={startedCode}
-                value={startedCode !== null ? startedCode : "aa"}
+                value={startedCode.current !== null ? startedCode.current : "aa"}
                 beforeMount={handleEditorWillMount}
                 onMount={handleEditorDidMount}
                 theme={data.isDarkTheme ? "darkTheme" : "lightTheme"}
@@ -157,7 +210,6 @@ function CodeEditorComponent() {
                     codeLens: false,
                     readOnly: false,
                     inlineSuggest: { enabled: false },
-                    tabSize: 4
                 }}
             />
             {loadingButton ? (
@@ -239,7 +291,7 @@ function ConsoleComponent() {
                 {content.map(logContent => {
                     if (typeof logContent !== "string") {
                         return <SyntaxHighlighter showLineNumbers={false} language="javascript" style={data.isDarkTheme ? darkTheme : lightTheme}>
-                            {beautify(JSON.stringify(logContent), { indent_size: 3, space_in_empty_paren: true })}
+                            {beautify(JSON.stringify(logContent.message), { indent_size: 3, space_in_empty_paren: true })}
                         </SyntaxHighlighter>
                     }
                     return <p className="inline">{logContent} </p>
@@ -255,7 +307,7 @@ function ConsoleComponent() {
                 {content.map(logContent => {
                     if (typeof logContent !== "string") {
                         return <SyntaxHighlighter showLineNumbers={false} language="javascript" style={data.isDarkTheme ? darkTheme : lightTheme}>
-                            {beautify(JSON.stringify(logContent), { indent_size: 3, space_in_empty_paren: true })}
+                            {beautify(JSON.stringify(logContent.message), { indent_size: 3, space_in_empty_paren: true })}
                         </SyntaxHighlighter>
                     }
                     return <p className="inline m-0 ml-2">{logContent} </p>
