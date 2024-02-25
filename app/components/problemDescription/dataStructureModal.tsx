@@ -43,7 +43,7 @@ export default function DataStructureModal({ currentDataStructure }) {
                         },
                     }
                 }}
-                className="h-[80vh]"
+                className="h-[80vh] border border-default-300 dark:border-default-100 "
             >
                 <ModalContent>
                     {(onClose) => (
