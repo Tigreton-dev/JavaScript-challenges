@@ -1,22 +1,10 @@
 import NextAuth from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
-import vercelPostgresAdapter from './vercelPostgresAdapter';
-
-import PostgresAdapter from '@auth/pg-adapter';
-import { Pool } from 'pg';
-
-const pool = new Pool({
-    host: 'localhost',
-    user: 'database-user',
-    max: 20,
-    idleTimeoutMillis: 30000,
-    connectionTimeoutMillis: 2000
-});
+import { createAccount, createUser } from './users';
 
 const handler = NextAuth({
     debug: true,
     // secret: process.env.NEXT_AUTH as string,
-    adapter: PostgresAdapter(pool),
     providers: [
         GoogleProvider({
             clientId: process.env.GOOGLE_CLIENT_ID as string,
@@ -29,7 +17,40 @@ const handler = NextAuth({
                 }
             }
         })
-    ]
+    ],
+    callbacks: {
+        async signIn({ user, account, profile, email, credentials }) {
+            console.log('SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS', user, account, profile, email, credentials);
+
+            const timestampInSeconds = account.expires_at;
+            const date = new Date(timestampInSeconds * 1000).toISOString();
+
+            const accountPayload = {
+                userId: user.id,
+                providerId: account.provider,
+                providerType: account.type,
+                providerAccountId: account.providerAccountId,
+                accessToken: account.access_token,
+                expiresAt: date,
+                refreshToken: account.refresh_token,
+                scope: account.scope,
+                tokenType: account.token_type,
+                idToken: account.id_token
+            };
+            await createAccount(accountPayload);
+            await createUser(user);
+            return true;
+        }
+        // async redirect({ url, baseUrl }) {
+        //     return baseUrl;
+        // },
+        // async session({ session, token, user }) {
+        //     return session;
+        // },
+        // async jwt({ token, user, account, profile, isNewUser }) {
+        //     return token;
+        // }
+    }
 });
 
 export { handler as GET, handler as POST };
