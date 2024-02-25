@@ -1,8 +1,9 @@
-import React from "react";
-import { Tabs, Tab, Navbar, Button } from "@nextui-org/react";
-import { DescriptionIcon, CodeIcon, CopyIcon, ReloadIcon, FullScreenIcon } from "../../helpers/Icons";
+import React, {useState} from "react";
+import { Tabs, Tab, Navbar, Button, DropdownTrigger } from "@nextui-org/react";
+import { SettingsIcon, DescriptionIcon, CodeIcon, CopiedTick, CopyIcon, ReloadIcon, FullScreenIcon } from "../../helpers/Icons";
+import SettingsCodeEditor from "./SettingsCodeEditor"
 
-export default function TabCodeEditorComponent({ onTabChange, prettifyCode, resetCode, copyCode, setFullScreen }) {
+export default function TabCodeEditorComponent({ isClipBoardClicked, onTabChange, prettifyCode, resetCode, copyCode, setFullScreen }) {
     return (
         <Navbar isBlurred={false} maxWidth="full" className="h-12">
             <div className="flex w-full flex-col">
@@ -42,8 +43,9 @@ export default function TabCodeEditorComponent({ onTabChange, prettifyCode, rese
                     <FullScreenIcon />
                 </Button>
                 <Button isIconOnly variant="bordered" aria-label="Take a photo" size="sm" radius="sm" className="ml-2 border border-default-300 dark:border-default-100" onClick={() => copyCode()}>
-                    <CopyIcon />
+                {isClipBoardClicked ? <CopiedTick /> : <CopyIcon />}
                 </Button>
+                <SettingsCodeEditor />
             </div>
         </Navbar>
     );
