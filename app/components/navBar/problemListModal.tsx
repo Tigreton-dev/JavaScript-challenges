@@ -35,9 +35,10 @@ export default function ProblemList({ openOnRender }) {
 
             <Modal
                 scrollBehavior="inside"
-                size="lg"
+                size="xl"
                 classNames={{
-                    base: "overflow-hidden border border-default-300 bg-[white] dark:bg-[black] h-[90vh]",
+                    wrapper: "overflow-hidden",
+                    base: "overflow-hidden border border-default-300 bg-[white] dark:bg-[black] min-h-[95vh]",
                     header: "border-b-[1px] border-default-300 p-0",
                     footer: "justify-center border-t-[1px] border-default-300"
                 }}
