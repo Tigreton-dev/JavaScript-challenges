@@ -20,7 +20,6 @@ const handler = NextAuth({
     ],
     callbacks: {
         async signIn({ user, account, profile, email, credentials }) {
-            console.log('SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS', user, account, profile, email, credentials);
 
             const timestampInSeconds = account.expires_at;
             const date = new Date(timestampInSeconds * 1000).toISOString();
