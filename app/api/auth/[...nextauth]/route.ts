@@ -2,7 +2,7 @@ import NextAuth from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
 import { createAccount, createUser } from './users';
 
-const handler = NextAuth({
+const authOptions = {
     debug: true,
     // secret: process.env.NEXT_AUTH as string,
     providers: [
@@ -20,7 +20,6 @@ const handler = NextAuth({
     ],
     callbacks: {
         async signIn({ user, account, profile, email, credentials }) {
-
             const timestampInSeconds = account.expires_at;
             const date = new Date(timestampInSeconds * 1000).toISOString();
 
@@ -39,17 +38,22 @@ const handler = NextAuth({
             await createAccount(accountPayload);
             await createUser(user);
             return true;
+        },
+        // async jwt({ token, user, account, profile, isNewUser }) {
+        //     if (user !== undefined) {
+        //         token.userId = user.id;
+        //     }
+        //     return token;
+        // },
+        async session({ session, token, user }) {
+            session.user.id = token.sub;
+            return session;
         }
         // async redirect({ url, baseUrl }) {
         //     return baseUrl;
         // },
-        // async session({ session, token, user }) {
-        //     return session;
-        // },
-        // async jwt({ token, user, account, profile, isNewUser }) {
-        //     return token;
-        // }
     }
-});
+};
+const handler = NextAuth(authOptions);
 
-export { handler as GET, handler as POST };
+export { handler as GET, handler as POST, handler as authOptions };
