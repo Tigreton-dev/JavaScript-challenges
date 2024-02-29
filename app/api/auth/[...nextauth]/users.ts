@@ -48,12 +48,28 @@ export async function createAccount(payload) {
             tokenType,
             idToken
         } = payload;
+        const existAccount = getAccount(userId);
+        if (existAccount) return true;
         const { rows } = await sql`
         INSERT INTO account (user_id, provider_id, provider_type, provider_account_id, refresh_token, access_token, expires_at, token_type, scope, id_token)
         VALUES (${userId}, ${providerId}, ${providerType}, ${providerAccountId}, ${refreshToken}, ${accessToken}, ${expiresAt}, ${tokenType}, ${scope}, ${idToken})
         RETURNING id;
       `;
         return rows;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+async function getAccount(id: string) {
+    try {
+        const { rows } = await sql`SELECT * FROM account WHERE user_id = ${id};`;
+        return {
+            ...rows[0],
+            id: rows[0].id.toString(),
+            emailVerified: rows[0].email_verified,
+            email: rows[0].email
+        };
     } catch (error) {
         console.log(error);
     }
