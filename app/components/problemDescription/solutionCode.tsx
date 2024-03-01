@@ -10,9 +10,11 @@ export default function SolutionCode() {
 	const { data } = React.useContext(DataContext);
 	const tabSize = data.tabSize;
 	const fontSize = data.fontSize;
+	const highlights = data.highlights
 	const solutionCode = data.currentProblem.solutionCode.javaScript;
 	const currentSolutionCode = beautify(data.currentProblem.solutionCode.javaScript[0], { indent_size: tabSize, space_in_empty_paren: true });
 	const editorRef = useRef(null)
+	const [monacoEditor, setMonacoEditor] = useState(null);
 	const [currentSolution, setCurrentSolution] = useState(currentSolutionCode)
 	const [isClipBoardClicked, setIsClipBoardClicked] = useState(false)
 
@@ -24,6 +26,17 @@ export default function SolutionCode() {
 		prettifyCode()
     }, [tabSize, fontSize])
 
+	useEffect(() =>{
+        if (editorRef.current === null) return 
+        const model = editorRef.current.getModel()
+        if (highlights) {
+            if (monacoEditor !== null) monacoEditor.editor.setModelLanguage(model, 'javascript');
+        } else {
+            if (editorRef.current !== null) monacoEditor.editor.setModelLanguage(model, '');
+        }
+       
+    }, [highlights])
+
 	const prettifyCode = () => {
         if (editorRef.current !== null) editorRef.current.getModel().updateOptions({ tabSize: tabSize, indentSize: tabSize })
         const getCodeValue = editorRef?.current?.getValue()
@@ -34,6 +47,7 @@ export default function SolutionCode() {
 	function handleEditorWillMount(monaco: any) {
 		// here is the monaco instance
 		// do something before editor is mounted
+		setMonacoEditor(monaco)
 		const theme = monacoDarkTheme()
 		monaco.editor.defineTheme('my-theme', theme);
 		monaco.languages.typescript.javascriptDefaults.setEagerModelSync(true);
