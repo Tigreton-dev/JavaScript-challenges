@@ -1,16 +1,17 @@
 "use client";
 import React, { useEffect, useRef, useCallback, useState } from "react";
 import Split from 'react-split'
-import { Button, user, Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, useDisclosure } from "@nextui-org/react";
+import { Button, user, Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, useDisclosure, Spinner } from "@nextui-org/react";
 import Editor, { useMonaco, loader } from '@monaco-editor/react';
 import { monacoDarkTheme, monacoLightTheme } from "./monacoThemes"
 import TabCodeEditorComponent from "./tabsCodeEditor"
-import { PlayIcon, CheckedIcon, ErrorIcon } from "../../helpers/Icons"
+import { PlayIcon, CheckedIcon, ErrorIcon, BinIcon } from "../../helpers/Icons"
 import { DataContext } from '../../context/dataContext';
 import beautify from 'js-beautify';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { darkTheme, lightTheme } from "../../helpers/themesHighlighter"
 import { Warning, ErrorConsole } from "../../helpers/Icons";
+import { signIn, signOut, useSession } from "next-auth/react";
 
 const DevelopmentEnvironment = () => {
     return (
@@ -18,11 +19,11 @@ const DevelopmentEnvironment = () => {
             <Split
                 className="splitHorizontal"
                 sizes={[100, 0]}
-                minSize={34}
+                minSize={35}
                 expandToMin={false}
                 gutterSize={10}
                 gutterAlign="center"
-                snapOffset={30}
+                snapOffset={50}
                 dragInterval={1}
                 direction="vertical"
             >
@@ -40,9 +41,10 @@ function CodeEditorComponent() {
     const editorRef = useRef(null)
     const fontSize = data.fontSize;
     const tabSize = data.tabSize;
-    const SyntaxHighlighter = data.SyntaxHighlighter
+    const highlights = data.highlights
     const startedCode = useRef(beautify(data.currentProblem.startedCode.javaScript, { indent_size: tabSize, space_in_empty_paren: true }))
     const testCases = data.currentProblem.testCases;
+    const challengeId = data.currentProblem.refNumber;
     const monaco = useMonaco();
     const [monacoEditor, setMonacoEditor] = useState(null);
     const workerRef = useRef()
@@ -50,6 +52,8 @@ function CodeEditorComponent() {
     const [loadingButton, setLoadingButton] = useState(false)
     const [passesAllTests, setPassesAllTests] = useState(false)
     const [isClipBoardClicked, setIsClipBoardClicked] = useState(false)
+    const [isSubmittedCode, setSubmittedCode] = useState(true)
+    const { data: session } = useSession();
 
     useEffect(() => {
         if (monacoEditor === null) return
@@ -62,8 +66,15 @@ function CodeEditorComponent() {
     }, [tabSize])
 
     useEffect(() =>{
-        if (editorRef.current !== null) editorRef.current.getModel().updateOptions({ defaultLanguage: "" })
-    }, [SyntaxHighlighter])
+        if (editorRef.current === null) return 
+        const model = editorRef.current.getModel()
+        if (highlights) {
+            if (monacoEditor !== null) monacoEditor.editor.setModelLanguage(model, 'javascript');
+        } else {
+            if (editorRef.current !== null) monacoEditor.editor.setModelLanguage(model, '');
+        }
+       
+    }, [highlights])
 
 
     function handleEditorWillMount(monaco: any) {
@@ -80,7 +91,6 @@ function CodeEditorComponent() {
     function handleEditorDidMount(editor: any, monaco: any) {
         editorRef.current = editor;
         editor.getModel().updateOptions({ tabSize: tabSize, indentSize: tabSize })
-        console.log(editor.getModel())
     }
 
     const prettifyCode = () => {
@@ -189,6 +199,27 @@ function CodeEditorComponent() {
         workerRef.current?.postMessage(payload)
     }
 
+    const submitCode = async () => {
+        setSubmittedCode(() => false)
+        const codeToSubmit = beautify(editorRef?.current?.getValue(), { indent_size: tabSize, space_in_empty_paren: true });
+        const response = await fetch(`../../api/submittingCode/`, {
+            method: 'GET',
+            headers: {
+                'challenge_id': challengeId,
+                'submitted_code': codeToSubmit.replace(/\r\n|\r|\n/g, "\\n"),
+                "user_id": session.user.id
+            }
+        });
+        const submittedCode = await response.json();
+        const currentProblem = structuredClone(data.currentProblem)
+        const updateCurrentProblem = {
+            ...currentProblem,
+            submittedCode: submittedCode.code
+        }
+        updateData({ currentProblem: updateCurrentProblem })
+        setSubmittedCode(() => true)
+    }
+
     return (
         <div className="border border-default-300 dark:border-default-100 overflow-hidden rounded-lg">
             <div className="flex items-center sticky top-0 left-0 px-4 z-10 justify-between h-8 bg-code-background w-full bg-default-100 dark:bg-default-50"><div className="flex items-center gap-2 basis-1/3"><div className="w-3 h-3 rounded-full bg-red-500"></div><div className="w-3 h-3 rounded-full bg-yellow-500"></div><div className="w-3 h-3 rounded-full bg-green-500"></div></div><div className="flex basis-1/3 h-full justify-center items-center"></div><div className="flex basis-1/3"></div></div>
@@ -256,9 +287,17 @@ function CodeEditorComponent() {
                             <>
                                 <ModalBody className="items-center p-6">
                                     <CheckedIcon size="4rem" />
+                                    <div className="flex flex-col">
+
                                     <p className="text-xl text-center">
                                         Well done!<br />Your code passes all tests
                                     </p>
+                                    <Button variant="bordered" color="primary" aria-label="Take a photo" size="md" radius="sm" className="relative bottom-[4rem] left-[calc(100%-9rem)] border border-cyan-400 text-cyan-400 bg-[white] dark:bg-[black]" onClick={submitCode}>
+                                        <PlayIcon /> Submit Code
+                                    </Button>
+                                    {!isSubmittedCode ? <Spinner label="Loading..." color="warning" /> : null}
+                                    </div>
+                                    
                                 </ModalBody>
                             </>
                         )}
@@ -284,17 +323,27 @@ function CodeEditorComponent() {
 
 function ConsoleComponent() {
     const { data, updateData } = React.useContext(DataContext);
+    const consoleLogs = data.consoleLogs;
+
+    const removeLogs = () => {
+        updateData({consoleLogs: []})
+    }
 
     const logComponent = (content) => {
         return (
             <div className="border-b border-default-300 dark:border-default-100 m-0 pb-4 pt-2 px-4 text-xs font-normal">
                 {content.map(logContent => {
-                    if (typeof logContent !== "string") {
+                    if (Array.isArray(logContent)) {
                         return <SyntaxHighlighter showLineNumbers={false} language="javascript" style={data.isDarkTheme ? darkTheme : lightTheme}>
-                            {beautify(JSON.stringify(logContent.message), { indent_size: 3, space_in_empty_paren: true })}
+                        {beautify(JSON.stringify(logContent), { indent_size: 3, space_in_empty_paren: true })}
                         </SyntaxHighlighter>
-                    }
-                    return <p className="inline">{logContent} </p>
+                    } else if (typeof logContent === "object") {
+                        return <SyntaxHighlighter showLineNumbers={false} language="javascript" style={data.isDarkTheme ? darkTheme : lightTheme}>
+                            {beautify(JSON.stringify(logContent), { indent_size: 3, space_in_empty_paren: true })}
+                        </SyntaxHighlighter>
+                    } else if (typeof logContent === "number" || typeof logContent === "boolean") {
+                        return <p className="inline text-green-400">{logContent.toString()} </p>
+                    } else if(typeof logContent === "string") return <p className="inline">{logContent} </p>
                 })}
             </div>
         )
@@ -305,14 +354,18 @@ function ConsoleComponent() {
             <div className="flex align-middle mx-2 m-0 my-2 py-2 px-4 text-xs font-normal bg-[rgba(250,204,21,0.6)] dark:bg-[rgba(250,204,21,0.2)] rounded-md text-[rgba(136,119,33,0.9)] dark:text-[rgba(253,224,71,0.9)]">
                 <Warning />
                 {content.map(logContent => {
-                    if (typeof logContent !== "string") {
+                    if (Array.isArray(logContent)) {
                         return <SyntaxHighlighter showLineNumbers={false} language="javascript" style={data.isDarkTheme ? darkTheme : lightTheme}>
-                            {beautify(JSON.stringify(logContent.message), { indent_size: 3, space_in_empty_paren: true })}
+                        {beautify(JSON.stringify(logContent), { indent_size: 3, space_in_empty_paren: true })}
                         </SyntaxHighlighter>
-                    }
-                    return <p className="inline m-0 ml-2">{logContent} </p>
-                })
-                }
+                    } else if (typeof logContent === "object") {
+                        return <SyntaxHighlighter showLineNumbers={false} language="javascript" style={data.isDarkTheme ? darkTheme : lightTheme}>
+                            {beautify(JSON.stringify(logContent), { indent_size: 3, space_in_empty_paren: true })}
+                        </SyntaxHighlighter>
+                    } else if (typeof logContent === "number" || typeof logContent === "boolean") {
+                        return <p className="inline text-green-400">{logContent.toString()} </p>
+                    } else if(typeof logContent === "string") return <p className="inline">{logContent} </p>
+                })}
             </div>
         )
     }
@@ -322,30 +375,39 @@ function ConsoleComponent() {
             <div className="flex align-middle mx-2 m-0 my-2 py-2 px-4 text-xs font-normal bg-[rgba(239,68,68,0.6)] dark:bg-[rgba(239,68,68,0.2)] rounded-md text-[rgba(185,28,28,1)] dark:text-[rgba(252,165,165,1)]">
                 <ErrorConsole />
                 {content.map(logContent => {
-                    if (typeof logContent !== "string") {
+                    if (Array.isArray(logContent)) {
+                        return <SyntaxHighlighter showLineNumbers={false} language="javascript" style={data.isDarkTheme ? darkTheme : lightTheme}>
+                        {beautify(JSON.stringify(logContent), { indent_size: 3, space_in_empty_paren: true })}
+                        </SyntaxHighlighter>
+                    } else if (typeof logContent === "object") {
                         return <SyntaxHighlighter showLineNumbers={false} language="javascript" style={data.isDarkTheme ? darkTheme : lightTheme}>
                             {beautify(JSON.stringify(logContent), { indent_size: 3, space_in_empty_paren: true })}
                         </SyntaxHighlighter>
-                    }
-                    return <p className="inline m-0 ml-2">{logContent} </p>
-                })
-                }
+                    } else if (typeof logContent === "number" || typeof logContent === "boolean") {
+                        return <p className="inline text-green-400">{logContent.toString()} </p>
+                    } else if(typeof logContent === "string") return <p className="inline">{logContent} </p>
+                })}
             </div>
         )
     }
 
     return (
-        <div className="border border-default-300 dark:border-default-100 overflow-hidden rounded-lg bg-gradient-to-br from-white to-default-0 dark:from-black dark:to-default-50 overflow-scroll">
-            <div className="flex items-center sticky top-0 left-0 px-4 z-10 justify-between h-8 bg-code-background w-full bg-default-100 dark:bg-default-50"><div className="flex items-center gap-2 basis-1/3"><div className="w-3 h-3 rounded-full bg-red-500"></div><div className="w-3 h-3 rounded-full bg-yellow-500"></div><div className="w-3 h-3 rounded-full bg-green-500"></div></div><div className="flex basis-1/3 h-full justify-center items-center"></div><div className="flex basis-1/3"></div>Console</div>
-            {data.consoleLogs.map(log => {
-                if (log.type === "log") {
-                    return logComponent(log.content)
-                } else if (log.type === "warn") {
-                    return warnComponent(log.content)
-                } else if (log.type === "error") {
-                    return errorComponent(log.content)
-                }
-            })}
+        <div className="flex flex-col border border-default-300 dark:border-default-100 rounded-lg bg-gradient-to-br from-white to-default-0 dark:from-black dark:to-default-50 overflow-hidden">
+            <div className="flex flex-shrink-0 items-center sticky top-0 left-0 px-4 z-10 justify-between h-8 bg-code-background w-full bg-default-100 dark:bg-default-50"><div className="flex items-center gap-2 basis-1/3"><div className="w-3 h-3 rounded-full bg-red-500"></div><div className="w-3 h-3 rounded-full bg-yellow-500"></div><div className="w-3 h-3 rounded-full bg-green-500"></div></div><div className="flex basis-1/3 h-full justify-center items-center"></div><div className="flex basis-1/3"></div>Console</div>
+            <Button isIconOnly variant="bordered" aria-label="Take a photo" size="sm" radius="sm" className="self-end flex-shrink-0 m-2 border border-default-300 dark:border-default-100" onClick={() => removeLogs()}>
+                <BinIcon />
+            </Button>
+            <div className="flex flex-col border-t border-default-300 dark:border-default-100 overflow-scroll">
+                {consoleLogs.map(log => {
+                    if (log.type === "log") {
+                        return logComponent(log.content)
+                    } else if (log.type === "warn") {
+                        return warnComponent(log.content)
+                    } else if (log.type === "error") {
+                        return errorComponent(log.content)
+                    }
+                })}
+            </div>
         </div>
     )
 }
