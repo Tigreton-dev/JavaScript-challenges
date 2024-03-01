@@ -1,6 +1,6 @@
 import React from "react";
 import { Chip } from "@nextui-org/react";
-import { CheckedIcon } from "../../helpers/Icons"
+import { CheckedIcon, ErrorIcon, RoundedErrorIcon } from "../../helpers/Icons"
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { darkTheme, lightTheme } from "../../helpers/themesHighlighter"
 import parse from 'html-react-parser';
@@ -25,7 +25,8 @@ export default function Description() {
 	return (
 		<div className="px-4">
 			<header className="flex items-center">
-				<CheckedIcon size={"2rem"} />
+				{typeof currentProblem.submittedCode === "string" ? <CheckedIcon size={"2rem"} /> : <RoundedErrorIcon size={"2.3rem"} />}
+				
 				<h1 className="text-4xl p-4 dark:text-neutral-300 font-light">{currentProblem.title}</h1>
 			</header>
 			<Chip color={ChipColor(currentProblem.tags[0])} variant="bordered" className="mr-2" classNames={{ base: "border", content: "font-extralight" }}>{currentProblem.tags[0]}</Chip>
