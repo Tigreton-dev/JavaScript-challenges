@@ -23,7 +23,7 @@ const defaultState: DefaultStateType = {
     currentProblemList: {},
     fontSize: 14,
     tabSize: 3,
-    SyntaxHighlighter: true,
+    highlights: true,
     isFullScreen: false,
     problemPassesAllTests: false,
     appSize: 16,
