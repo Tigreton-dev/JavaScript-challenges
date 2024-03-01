@@ -15,7 +15,6 @@ const ThemeSwitch = (props: SwitchProps) => {
     } = useSwitch(props);
 
     useEffect(() => {
-        console.log(isSelected)
         const element = Array.from(document.getElementsByTagName("html"))[0]
         const classToRemove = isSelected ? "dark" : "light"
         const classToAdd = isSelected ? "light" : "dark"
