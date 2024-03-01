@@ -26,7 +26,7 @@ export default function SettingsCodeEditor() {
     const switchHandler = () => {
         setIsSelected(isSelected => {
             const updateValue = !isSelected
-            updateData({ SyntaxHighlighter: updateValue })
+            updateData({ highlights: updateValue })
             return updateValue
         })
     }
