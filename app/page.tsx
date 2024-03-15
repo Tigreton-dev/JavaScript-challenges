@@ -1,11 +1,10 @@
-'use client'
-import ProblemList from "./components/navBar/problemListModal";
+import ChallengeListModal from "./components/ChallengeListModal/ChallengeListModal"
 
 export default function Home() {
 
 	return (
 		<main className="h-[100vh] flex flex-col overflow-hidden">
-			<ProblemList openOnRender={true} />
+			<ChallengeListModal openOnRender={true} />
 		</main>
 	);
 }
