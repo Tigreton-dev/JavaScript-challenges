@@ -1,34 +1,22 @@
-import { sql } from '@vercel/postgres';
 import { Account } from 'next-auth';
 import { Adapter, AdapterAccount, AdapterSession, AdapterUser, VerificationToken } from 'next-auth/adapters';
+import { kv } from '@vercel/kv';
 
 export async function createUser(user: Omit<AdapterUser, 'id'>): Promise<AdapterUser> {
     try {
         const userExist = await getUser(user.id);
-        if (userExist) return true;
-        const { rows } =
-            await sql`INSERT INTO "user" (Id, Name, Email, Image) VALUES (${user.id}, ${user.name}, ${user.email}, ${user.image}) RETURNING id, name, email, email_verified, image`;
-        const newUser: AdapterUser = {
-            ...rows[0],
-            id: rows[0].id.toString(),
-            emailVerified: rows[0].email_verified,
-            email: rows[0].email
-        };
-        return newUser;
+        if (userExist.length) return;
+        await kv.hset(`user:${user.id}`, { id: user.id, name: user.name, email: user.email, image: user.image });
     } catch (error) {
+        // Handle errors
         console.log(error);
     }
 }
 
 async function getUser(id: string) {
     try {
-        const { rows } = await sql`SELECT * FROM "user" WHERE id = ${id};`;
-        return {
-            ...rows[0],
-            id: rows[0].id.toString(),
-            emailVerified: rows[0].email_verified,
-            email: rows[0].email
-        };
+        const userId = await kv.hget(`user:${id}`, 'id');
+        return userId;
     } catch (error) {
         console.log(error);
     }
@@ -48,28 +36,29 @@ export async function createAccount(payload) {
             tokenType,
             idToken
         } = payload;
-        const existAccount = getAccount(userId);
-        if (existAccount) return true;
-        const { rows } = await sql`
-        INSERT INTO account (user_id, provider_id, provider_type, provider_account_id, refresh_token, access_token, expires_at, token_type, scope, id_token)
-        VALUES (${userId}, ${providerId}, ${providerType}, ${providerAccountId}, ${refreshToken}, ${accessToken}, ${expiresAt}, ${tokenType}, ${scope}, ${idToken})
-        RETURNING id;
-      `;
-        return rows;
+        const existAccount = await getAccount(providerAccountId);
+        if (existAccount !== null) return;
+        await kv.hset(`account:${providerAccountId}`, {
+            userId,
+            providerId,
+            providerType,
+            providerAccountId,
+            accessToken,
+            expiresAt,
+            refreshToken,
+            scope,
+            tokenType,
+            idToken
+        });
     } catch (error) {
         console.log(error);
     }
 }
 
-async function getAccount(id: string) {
+async function getAccount(providerAccountId: string) {
     try {
-        const { rows } = await sql`SELECT * FROM account WHERE user_id = ${id};`;
-        return {
-            ...rows[0],
-            id: rows[0].id.toString(),
-            emailVerified: rows[0].email_verified,
-            email: rows[0].email
-        };
+        const accountId = await kv.hget(`account:${providerAccountId}`, 'providerAccountId');
+        return accountId;
     } catch (error) {
         console.log(error);
     }
@@ -77,9 +66,8 @@ async function getAccount(id: string) {
 
 async function createToken({ expires, session_token, user_id }) {
     try {
-        const { rows } =
-            await sql`INSERT INTO auth_session (expires, session_token, user_id) VALUES (${expires}, ${session_token}, ${user_id}) RETURNING user;
-      `;
+        const accountId = await kv.hset(`auth_session:${user_id}`, {expires, session_token, user_id});
+        return accountId;
     } catch (error) {
         console.log(error);
     }
