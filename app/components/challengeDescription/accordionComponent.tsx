@@ -91,6 +91,7 @@ export default function AccordionComponent({ hints }) {
                     {dataStructureList.map(dataStructure => {
                         return (
                             <Button
+                            key={dataStructure}
                                 variant="bordered"
                                 aria-label="Take a photo"
                                 size="md"
@@ -112,6 +113,7 @@ export default function AccordionComponent({ hints }) {
                      {algorithmList.map(algorithm => {
                         return (
                             <Button
+                            key={algorithm}
                                 variant="bordered"
                                 aria-label="Take a photo"
                                 size="md"
