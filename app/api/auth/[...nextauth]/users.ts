@@ -72,19 +72,3 @@ async function createToken({ expires, session_token, user_id }) {
         console.log(error);
     }
 }
-
-//Return verification token from the database and delete it so it cannot be used again.
-async function useVerificationToken({ identifier, token }: { identifier: string; token: string }) {
-    try {
-        const { rows } =
-            await sql`SELECT * FROM verification_tokens WHERE identifier = ${identifier} AND token = ${token} AND expires > NOW()`;
-        await sql`DELETE FROM verification_tokens WHERE identifier = ${identifier} AND token = ${token}`;
-        return {
-            expires: rows[0].expires,
-            identifier: rows[0].identifier,
-            token: rows[0].token
-        };
-    } catch (error) {
-        console.log(error);
-    }
-}
