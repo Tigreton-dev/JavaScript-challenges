@@ -132,7 +132,7 @@ export default function Console() {
 
     return (
         <>
-            <div className="flex flex-col border-t border-default-300 dark:border-default-100 overflow-scroll h-[calc(100%-2rem)]">
+            <div className="flex flex-col  overflow-scroll h-[calc(100%-2rem)]">
             <Button
                 isIconOnly
                 variant="bordered"
