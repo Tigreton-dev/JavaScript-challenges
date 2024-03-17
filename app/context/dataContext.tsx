@@ -6,7 +6,7 @@ interface DefaultStateType {
     currentProblemList: Record<string, any>;
     fontSize: number;
     isFullScreen: boolean;
-    problemPassesAllTests: boolean;
+    passesAllTests: boolean;
     appSize: number;
     isDarkTheme: boolean;
     consoleLogs: string[];
@@ -25,7 +25,7 @@ const defaultState: DefaultStateType = {
     tabSize: 3,
     highlights: true,
     isFullScreen: false,
-    problemPassesAllTests: false,
+    passesAllTests: null,
     appSize: 16,
     isDarkTheme: true,
     consoleLogs: [],
