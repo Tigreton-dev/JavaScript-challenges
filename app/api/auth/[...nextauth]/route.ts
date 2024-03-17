@@ -9,20 +9,19 @@ const authOptions = {
         GoogleProvider({
             clientId: process.env.GOOGLE_CLIENT_ID as string,
             clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
-            authorization: {
-                params: {
-                    prompt: 'consent',
-                    access_type: 'offline',
-                    response_type: 'code'
-                }
-            }
+            // authorization: {
+            //     params: {
+            //         prompt: 'consent',
+            //         access_type: 'offline',
+            //         response_type: 'code'
+            //     }
+            // }
         })
     ],
     callbacks: {
         async signIn({ user, account, profile, email, credentials }) {
             const timestampInSeconds = account.expires_at;
             const date = new Date(timestampInSeconds * 1000).toISOString();
-
             const accountPayload = {
                 userId: user.id,
                 providerId: account.provider,
@@ -54,6 +53,7 @@ const authOptions = {
         // },
     }
 };
+
 const handler = NextAuth(authOptions);
 
-export { handler as GET, handler as POST, handler as authOptions };
+export { handler as GET, handler as POST, authOptions };
