@@ -48,11 +48,11 @@ export default function DataStructureModal({ currentDataStructure }) {
                 <ModalContent>
                     {(onClose) => (
                         <>
-                            <ModalHeader className="flex flex-col gap-1">{currentDataStructure}</ModalHeader>
-                            <ModalBody className="overflow-scroll">
+                            <ModalHeader className="flex flex-col gap-1 bg-[white] dark:bg-[black]">{currentDataStructure}</ModalHeader>
+                            <ModalBody className="overflow-scroll bg-[white] dark:bg-[black]">
                                 {dataStructureInfo}
                             </ModalBody>
-                            <ModalFooter>
+                            <ModalFooter className="bg-[white] dark:bg-[black]">
                             </ModalFooter>
                         </>
                     )}

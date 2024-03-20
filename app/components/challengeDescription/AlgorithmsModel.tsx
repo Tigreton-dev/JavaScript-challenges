@@ -43,16 +43,16 @@ export default function AlgorithmsModel({ currentAlgorithm }) {
                         },
                     }
                 }}
-                className="h-[80vh] border border-default-300 dark:border-default-100 "
+                className="h-[80vh] border border-default-300 dark:border-default-100 bg-[dark]"
             >
                 <ModalContent>
                     {(onClose) => (
                         <>
-                            <ModalHeader className="flex flex-col gap-1">{currentAlgorithm}</ModalHeader>
-                            <ModalBody className="overflow-scroll">
+                            <ModalHeader className="flex flex-col gap-1 bg-[white] dark:bg-[black]">{currentAlgorithm}</ModalHeader>
+                            <ModalBody className="overflow-scroll bg-[white] dark:bg-[black]">
                                 {algorithmInfo}
                             </ModalBody>
-                            <ModalFooter>
+                            <ModalFooter className="bg-[white] dark:bg-[black]">
                             </ModalFooter>
                         </>
                     )}
