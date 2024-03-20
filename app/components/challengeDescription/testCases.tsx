@@ -95,7 +95,7 @@ export default function TestCases({ challengeId }) {
                             title={`Test #${i + 1}`}
                             className=" m-0 p-0 font-medium"
                         >
-                            <p className="m-0 mb-0">Input</p>
+                            <p className="m-0 mb-2">Input</p>
                             <div
                                 className={`shadow-sm shadow-[${color}] border border-default-300 dark:border-default-100 overflow-hidden mb-4 rounded-lg text-sm`}
                             >
