@@ -5,11 +5,13 @@ import NavBar from '../../components/navBar/navBar';
 import ChallengeDescription from '../../components/challengeDescription';
 import ChallengeSolution from '../../components/challengeSolution';
 import SplitComponent from '../../components/splitComponent';
-import { Spinner } from '@nextui-org/react';
+import { CircularProgress } from '@nextui-org/react';
 import { signIn, signOut, useSession } from 'next-auth/react';
-import Firework from "../../components/firework"
+import Firework from '../../components/firework';
+import { DataContext } from '../../context/dataContext';
 
 export default function ProblemPage({ params }) {
+    const { data, updateData } = React.useContext(DataContext);
     const { id } = params;
     const { data: session, status } = useSession();
     const [currentChallenge, setCurrentChallenge] = useState(null);
@@ -25,19 +27,26 @@ export default function ProblemPage({ params }) {
             });
             const challenge = await response.json();
             setCurrentChallenge(challenge);
+            updateData({ testCases: challenge.testCases, passesAllTests: null });
         }
-        if(status !== "loading") getData()
+        if (status !== 'loading') getData();
     }, [status]);
 
-    if (currentChallenge === null)
+    if (currentChallenge === null) {
         return (
-            <Spinner
-                label="Loading"
-                size="lg"
-                classNames={{ wrapper: 'w-20 h-20', circle1: 'border-4', circle2: 'border-4' }}
-                className="h-[100%] basolute left-[50%] top-[50%]"
-            />
+            <div className="w-[100vw] h-[100vh]">
+                <CircularProgress
+                    aria-label="Loading"
+                    label="Loading"
+                    size="lg"
+                    className="absolute left-[50%] top-[50%] translate-y-[-50%] translate-x-[-50%]"
+                    classNames={{
+                        svg: 'w-[6rem] h-[6rem]'
+                    }}
+                />
+            </div>
         );
+    }
 
     return (
         <main className="h-[100vh] flex flex-col overflow-hidden">
