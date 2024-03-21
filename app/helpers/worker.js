@@ -5,9 +5,9 @@ async function ejecutarFuncion(event) {
     try {
         const data = event.data;
         const stringFunction = data.fun;
-        const problemData = data.currentProblem;
-        const testCases = problemData.testCases;
-        const result = await bucleAsincrono(problemData, testCases, stringFunction);
+        const testCases = data.testCases;
+        const refName = data.refName;
+        const result = await bucleAsincrono(refName, testCases, stringFunction);
         console.log('<----- ALL TEST ENDS ----->');
         self.postMessage(result);
     } catch (err) {
@@ -15,7 +15,7 @@ async function ejecutarFuncion(event) {
     }
 }
 
-async function bucleAsincrono(problemData, testCases, stringFunction) {
+async function bucleAsincrono(refName, testCases, stringFunction) {
     let passedAllTests = true;
     let i = 1;
     for (const testCase in testCases) {
@@ -23,7 +23,7 @@ async function bucleAsincrono(problemData, testCases, stringFunction) {
         i++;
         const test = testCases[testCase];
         let { test_input, test_expected, code_output, passed_test } = test;
-        const functionName = problemData.refName;
+        const functionName = refName;
         const parametters = obtenerParametrosPorNombre(stringFunction, functionName);
         const dynamicFunction = eval(
             `(function wrapperFunction(${parametters}) { ${stringFunction} return ${functionName}(${parametters}) })`
@@ -81,10 +81,7 @@ function errorCapture() {
     };
 }
 
-// Manejar el mensaje del hilo principal
 self.onmessage = function (event) {
-    // Verificar si el mensaje es un string
-
     ejecutarFuncion(event);
 };
 
