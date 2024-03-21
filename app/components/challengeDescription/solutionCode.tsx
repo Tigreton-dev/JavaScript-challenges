@@ -6,6 +6,9 @@ import { monacoDarkTheme, monacoLightTheme } from './monacoThemes';
 import { DataContext } from '../../context/dataContext';
 import beautify from 'js-beautify';
 
+import { getHighlighter } from 'shiki';
+import { shikiToMonaco } from '@shikijs/monaco';
+
 export default function SolutionCode({currentChallenge}) {
 	const { data } = React.useContext(DataContext);
     const { tabSize, fontSize, highlights, isDarkTheme } = data;
@@ -17,13 +20,20 @@ export default function SolutionCode({currentChallenge}) {
     const monaco = useMonaco();
     const monacoEditor = useRef(null);
 
-    const handleEditorWillMount = (monaco: any) => {
+    const handleEditorWillMount = async (monaco: any) => {
         monacoEditor.current = monaco;
-        const darkTheme = monacoDarkTheme();
-        const lightTheme = monacoLightTheme();
-        monaco.editor.defineTheme('lightTheme', lightTheme);
-        monaco.editor.defineTheme('darkTheme', darkTheme);
+        // const darkTheme = monacoDarkTheme();
+        // const lightTheme = monacoLightTheme();
+        // monaco.editor.defineTheme('lightTheme', lightTheme);
+        // monaco.editor.defineTheme('darkTheme', darkTheme);
         monaco.languages.typescript.javascriptDefaults.setEagerModelSync(true);
+        monaco.languages.register({ id: 'javascript' });
+
+        const highlighter = await getHighlighter({
+            themes: ["dark-plus", "light-plus"],
+            langs: ['javascript']
+        });
+        shikiToMonaco(highlighter, monaco);
     };
 
     const handleEditorDidMount = (editor: any, monaco: any) => {
@@ -88,7 +98,7 @@ export default function SolutionCode({currentChallenge}) {
 				value={currentSolution}
 				beforeMount={handleEditorWillMount}
 				onMount={handleEditorDidMount}
-				theme={isDarkTheme ? "darkTheme" : "lightTheme"}
+				theme={isDarkTheme ? "dark-plus" : "light-plus"}
 				// onChange={(value: string | undefined) => onChange(value)}
 				options={{
 					minimap: { enabled: false },
@@ -97,6 +107,7 @@ export default function SolutionCode({currentChallenge}) {
 					codeLens: false,
 					readOnly: true,
 					inlineSuggest: { enabled: false },
+                    contextmenu: false
 				}}
 			/>
 			<Button onClick={copyCode} isIconOnly variant="bordered" aria-label="Take a photo" size="sm" radius="sm" className="absolute top-[0.5rem] right-[20px] z-50 border border-default-300 dark:border-default-100">
