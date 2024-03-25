@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure } from "@nextui-org/react";
 
-export default function DataStructureModal({ currentDataStructure }) {
+export default function AlgorithmsModel({ currentAlgorithm }) {
     const { isOpen, onOpen, onOpenChange } = useDisclosure();
-    const [dataStructureInfo, setDataStructureInfo] = useState("")
+    const [algorithmInfo, setAlgorithmInfo] = useState("")
 
     useEffect(() => {
-        if (currentDataStructure === "") return
+        if (currentAlgorithm === "") return
         const importSpecificComponent = async () => {
-            const module = await import('./data/DataStructureInfo');
-            setDataStructureInfo(module[currentDataStructure]);
+            const module = await import('../../data/AlgorithmsPatters');
+            setAlgorithmInfo(module[currentAlgorithm]);
             onOpen()
         };
 
         importSpecificComponent()
-    }, [currentDataStructure])
+    }, [currentAlgorithm])
 
     return (
         <>
@@ -43,16 +43,16 @@ export default function DataStructureModal({ currentDataStructure }) {
                         },
                     }
                 }}
-                className="h-[80vh]"
+                className="h-[80vh] border border-default-300 dark:border-default-100 bg-[dark]"
             >
                 <ModalContent>
                     {(onClose) => (
                         <>
-                            <ModalHeader className="flex flex-col gap-1">{currentDataStructure}</ModalHeader>
-                            <ModalBody className="overflow-scroll">
-                                {dataStructureInfo}
+                            <ModalHeader className="flex flex-col gap-1 bg-[white] dark:bg-[black]">{currentAlgorithm}</ModalHeader>
+                            <ModalBody className="overflow-scroll bg-[white] dark:bg-[black]">
+                                {algorithmInfo}
                             </ModalBody>
-                            <ModalFooter>
+                            <ModalFooter className="bg-[white] dark:bg-[black]">
                             </ModalFooter>
                         </>
                     )}

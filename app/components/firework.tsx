@@ -1,10 +1,10 @@
 import React, { FC, useRef, useEffect } from "react";
 import { create, CreateTypes } from "canvas-confetti";
-import { DataContext } from "./context/dataContext";
+import { DataContext } from "../context/dataContext";
 
 const Firework: FC = () => {
     const { data, updateData } = React.useContext(DataContext);
-    const problemPassesAllTests = data.problemPassesAllTests
+    const passesAllTests = data.passesAllTests
     const componentRef = useRef(null)
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const fireRef = useRef<CreateTypes | null>(null);
@@ -16,14 +16,13 @@ const Firework: FC = () => {
     }, []);
 
     useEffect(() => {
-        if (!problemPassesAllTests) return
+        if (!passesAllTests) return
         componentRef.current.classList.remove("hidden")
         fire()
-        updateData({ problemPassesAllTests: false })
         setTimeout(() => {
             componentRef.current.classList.add("hidden")
         }, 4000);
-    }, [problemPassesAllTests])
+    }, [passesAllTests])
 
     const fire = () => {
         if (fireRef.current) {

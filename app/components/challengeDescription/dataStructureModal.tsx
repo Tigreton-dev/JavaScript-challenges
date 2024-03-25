@@ -1,25 +1,25 @@
 import React, { useEffect, useState } from "react";
 import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure } from "@nextui-org/react";
 
-export default function AlgorithmsModel({ currentAlgorithm}) {
+export default function DataStructureModal({ currentDataStructure }) {
     const { isOpen, onOpen, onOpenChange } = useDisclosure();
-    const [algorithmInfo, setAlgorithmInfo] = useState("")
+    const [dataStructureInfo, setDataStructureInfo] = useState("")
 
     useEffect(() => {
-        if (currentAlgorithm === "") return
+        if (currentDataStructure === "") return
         const importSpecificComponent = async () => {
-            const module = await import('./data/AlgorithmsPatters');
-            setAlgorithmInfo(module[currentAlgorithm]);
+            const module = await import('../../data/DataStructureInfo');
+            setDataStructureInfo(module[currentDataStructure]);
             onOpen()
         };
 
         importSpecificComponent()
-    }, [currentAlgorithm])
+    }, [currentDataStructure])
 
     return (
         <>
             <Modal
-            size="xl"
+                size="xl"
                 backdrop="opaque"
                 isOpen={isOpen}
                 onOpenChange={onOpenChange}
@@ -43,16 +43,16 @@ export default function AlgorithmsModel({ currentAlgorithm}) {
                         },
                     }
                 }}
-                className="h-[80vh]"
+                className="h-[80vh] border border-default-300 dark:border-default-100 "
             >
                 <ModalContent>
                     {(onClose) => (
                         <>
-                            <ModalHeader className="flex flex-col gap-1">{currentAlgorithm}</ModalHeader>
-                            <ModalBody className="overflow-scroll">
-                                {algorithmInfo}
+                            <ModalHeader className="flex flex-col gap-1 bg-[white] dark:bg-[black]">{currentDataStructure}</ModalHeader>
+                            <ModalBody className="overflow-scroll bg-[white] dark:bg-[black]">
+                                {dataStructureInfo}
                             </ModalBody>
-                            <ModalFooter>
+                            <ModalFooter className="bg-[white] dark:bg-[black]">
                             </ModalFooter>
                         </>
                     )}

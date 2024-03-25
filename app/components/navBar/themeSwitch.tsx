@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useSwitch, VisuallyHidden, SwitchProps } from "@nextui-org/react";
-import { MoonIcon, SunIcon } from "./helpers/Icons";
-import { DataContext } from "./context/dataContext";
+import { MoonIcon, SunIcon } from "../../helpers/Icons";
+import { DataContext } from "../../context/dataContext";
 
 const ThemeSwitch = (props: SwitchProps) => {
     const { data, updateData } = React.useContext(DataContext);
@@ -15,7 +15,6 @@ const ThemeSwitch = (props: SwitchProps) => {
     } = useSwitch(props);
 
     useEffect(() => {
-        console.log(isSelected)
         const element = Array.from(document.getElementsByTagName("html"))[0]
         const classToRemove = isSelected ? "dark" : "light"
         const classToAdd = isSelected ? "light" : "dark"

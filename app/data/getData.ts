@@ -18,3 +18,10 @@ export function getProblemByRefNumber(refNumber) {
         if (currChallenge.refNumber === refNumber) return currChallenge;
     }
 }
+
+export function getProblemByRefName(refName: string) {
+    for (const challenge in challenges) {
+        const currChallenge = challenges[challenge];
+        if (currChallenge.refName === refName) return currChallenge;
+    }
+}

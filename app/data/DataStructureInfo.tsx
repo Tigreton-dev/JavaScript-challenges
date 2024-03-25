@@ -1,29 +1,5 @@
 import * as React from 'react';
 
-export function ComplexityAnalysis() {
-    return (
-        <div>
-            <h3 id="complexity-analysis">Complexity Analysis</h3>
-            <p>
-                The process of determining how efficient an algorithm is. Complexity analysis usually involves finding
-                both the time complexity and the space complexity of an algorithm.
-            </p>
-            <h3 id="time-complexity">Time Complexity</h3>
-            <p>
-                A measure of how fast an algorithm runs, time complexity is a central concept in the field of algorithms
-                and in coding interviews.
-            </p>
-            <p>It&#39;s expressed using Big O notation.</p>
-            <h3 id="space-complexity">Space Complexity</h3>
-            <p>
-                A measure of how much auxiliary memory an algorithm takes up, space complexity is a central concept in
-                the field of algorithms and in coding interviews.
-            </p>
-            <p>It&#39;s expressed using Big O notation.</p>
-        </div>
-    );
-}
-
 export function BigONotation() {
     return (
         <div>
@@ -54,6 +30,30 @@ export function BigONotation() {
                 worst-case complexity of an algorithm, even though the worst-case complexity might differ from the
                 average-case complexity.
             </p>
+        </div>
+    );
+}
+
+export function ComplexityAnalysis() {
+    return (
+        <div>
+            <h3 id="complexity-analysis">Complexity Analysis</h3>
+            <p>
+                The process of determining how efficient an algorithm is. Complexity analysis usually involves finding
+                both the time complexity and the space complexity of an algorithm.
+            </p>
+            <h3 id="time-complexity">Time Complexity</h3>
+            <p>
+                A measure of how fast an algorithm runs, time complexity is a central concept in the field of algorithms
+                and in coding interviews.
+            </p>
+            <p>It&#39;s expressed using Big O notation.</p>
+            <h3 id="space-complexity">Space Complexity</h3>
+            <p>
+                A measure of how much auxiliary memory an algorithm takes up, space complexity is a central concept in
+                the field of algorithms and in coding interviews.
+            </p>
+            <p>It&#39;s expressed using Big O notation.</p>
         </div>
     );
 }

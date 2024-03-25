@@ -1,0 +1,1392 @@
+{
+  "String": {
+    "Easy": [
+      [
+        "Uncompress",
+        "Easy"
+      ],
+      [
+        "Most Frequent Char",
+        "Easy"
+      ],
+      [
+        "Lexical Order",
+        "Easy"
+      ],
+      [
+        "Detect Dictionary",
+        "Easy"
+      ],
+      [
+        "Token Replace",
+        "Easy"
+      ]
+    ],
+    "All": [
+      [
+        "Uncompress",
+        "Easy"
+      ],
+      [
+        "Most Frequent Char",
+        "Easy"
+      ],
+      [
+        "Lexical Order",
+        "Easy"
+      ],
+      [
+        "Detect Dictionary",
+        "Easy"
+      ],
+      [
+        "Token Replace",
+        "Easy"
+      ],
+      [
+        "Token Transform",
+        "Medium"
+      ]
+    ],
+    "Medium": [
+      [
+        "Token Transform",
+        "Medium"
+      ]
+    ]
+  },
+  "All": {
+    "Easy": [
+      [
+        "Uncompress",
+        "Easy"
+      ],
+      [
+        "Most Frequent Char",
+        "Easy"
+      ],
+      [
+        "Pair Sum",
+        "Easy"
+      ],
+      [
+        "Intersection",
+        "Easy"
+      ],
+      [
+        "Five Sort",
+        "Easy"
+      ],
+      [
+        "Zipper Lists",
+        "Easy"
+      ],
+      [
+        "Merge Lists",
+        "Easy"
+      ],
+      [
+        "Is Univalue List",
+        "Easy"
+      ],
+      [
+        "Longest Streak",
+        "Easy"
+      ],
+      [
+        "Remove Node",
+        "Easy"
+      ],
+      [
+        "Insert Node",
+        "Easy"
+      ],
+      [
+        "Depth First Values",
+        "Easy"
+      ],
+      [
+        "Breadth First Values",
+        "Easy"
+      ],
+      [
+        "Tree Sum",
+        "Easy"
+      ],
+      [
+        "Tree Includes",
+        "Easy"
+      ],
+      [
+        "Tree Min Value",
+        "Easy"
+      ],
+      [
+        "Max Root To Leaf Path Sum",
+        "Easy"
+      ],
+      [
+        "Tree Path Finder",
+        "Easy"
+      ],
+      [
+        "Tree Value Count",
+        "Easy"
+      ],
+      [
+        "How High",
+        "Easy"
+      ],
+      [
+        "Bottom Right Value",
+        "Easy"
+      ],
+      [
+        "All Tree Paths",
+        "Easy"
+      ],
+      [
+        "Tree Levels",
+        "Easy"
+      ],
+      [
+        "Level Averages",
+        "Easy"
+      ],
+      [
+        "Leaf List",
+        "Easy"
+      ],
+      [
+        "Has Path",
+        "Easy"
+      ],
+      [
+        "Connect Components Count",
+        "Easy"
+      ],
+      [
+        "Largest Component",
+        "Easy"
+      ],
+      [
+        "Shortest Path",
+        "Easy"
+      ],
+      [
+        "Island Count",
+        "Easy"
+      ],
+      [
+        "Minimum Island",
+        "Easy"
+      ],
+      [
+        "Closest Carrot",
+        "Easy"
+      ],
+      [
+        "Longest Path",
+        "Easy"
+      ],
+      [
+        "Semesters Required",
+        "Easy"
+      ],
+      [
+        "Best Bridge",
+        "Easy"
+      ],
+      [
+        "Has Cycle",
+        "Easy"
+      ],
+      [
+        "Prereqs Possible",
+        "Easy"
+      ],
+      [
+        "Sum Possible",
+        "Easy"
+      ],
+      [
+        "Min Change",
+        "Easy"
+      ],
+      [
+        "Count Paths",
+        "Easy"
+      ],
+      [
+        "Max Path Sum",
+        "Easy"
+      ],
+      [
+        "Summing Squares",
+        "Easy"
+      ],
+      [
+        "Counting Change",
+        "Easy"
+      ],
+      [
+        "Array Stepper",
+        "Easy"
+      ],
+      [
+        "Max Palin Subsequence",
+        "Easy"
+      ],
+      [
+        "Overlap Subsequence",
+        "Easy"
+      ],
+      [
+        "Can Concat",
+        "Easy"
+      ],
+      [
+        "Quickest Concat",
+        "Easy"
+      ],
+      [
+        "Paired Parentheses",
+        "Easy"
+      ],
+      [
+        "Befitting Brackets",
+        "Easy"
+      ],
+      [
+        "Decompress Braces",
+        "Easy"
+      ],
+      [
+        "Nesting Score",
+        "Easy"
+      ],
+      [
+        "SubSets",
+        "Easy"
+      ],
+      [
+        "Permutations",
+        "Easy"
+      ],
+      [
+        "Create Combinations",
+        "Easy"
+      ],
+      [
+        "Parenthetical Possibilities",
+        "Easy"
+      ],
+      [
+        "Substitute Synonyms",
+        "Easy"
+      ],
+      [
+        "Linked Palindrome",
+        "Easy"
+      ],
+      [
+        "lowest Common Ancestor",
+        "Easy"
+      ],
+      [
+        "Flip Tree",
+        "Easy"
+      ],
+      [
+        "Lefty Nodes",
+        "Easy"
+      ],
+      [
+        "Can Color",
+        "Easy"
+      ],
+      [
+        "Tolerant Teams",
+        "Easy"
+      ],
+      [
+        "Rare Routing",
+        "Easy"
+      ],
+      [
+        "Max Increasing Subseq",
+        "Easy"
+      ],
+      [
+        "Positioning Plants",
+        "Easy"
+      ],
+      [
+        "Breaking Boundaries",
+        "Easy"
+      ],
+      [
+        "Merge Sort",
+        "Easy"
+      ],
+      [
+        "Combine Intervals",
+        "Easy"
+      ],
+      [
+        "Binary Search Tree Includes",
+        "Easy"
+      ],
+      [
+        "Is Binary Search Tree",
+        "Easy"
+      ],
+      [
+        "Post Order",
+        "Easy"
+      ],
+      [
+        "Build Tree In Post",
+        "Easy"
+      ],
+      [
+        "Build Tree In Pre",
+        "Easy"
+      ],
+      [
+        "Lexical Order",
+        "Easy"
+      ],
+      [
+        "Detect Dictionary",
+        "Easy"
+      ],
+      [
+        "Topological Order",
+        "Easy"
+      ],
+      [
+        "Safe Cracking",
+        "Easy"
+      ],
+      [
+        "String Search",
+        "Easy"
+      ],
+      [
+        "Token Replace",
+        "Easy"
+      ]
+    ],
+    "All": [
+      [
+        "Uncompress",
+        "Easy"
+      ],
+      [
+        "Most Frequent Char",
+        "Easy"
+      ],
+      [
+        "Pair Sum",
+        "Easy"
+      ],
+      [
+        "Intersection",
+        "Easy"
+      ],
+      [
+        "Five Sort",
+        "Easy"
+      ],
+      [
+        "Zipper Lists",
+        "Easy"
+      ],
+      [
+        "Merge Lists",
+        "Easy"
+      ],
+      [
+        "Is Univalue List",
+        "Easy"
+      ],
+      [
+        "Longest Streak",
+        "Easy"
+      ],
+      [
+        "Remove Node",
+        "Easy"
+      ],
+      [
+        "Insert Node",
+        "Easy"
+      ],
+      [
+        "Depth First Values",
+        "Easy"
+      ],
+      [
+        "Breadth First Values",
+        "Easy"
+      ],
+      [
+        "Tree Sum",
+        "Easy"
+      ],
+      [
+        "Tree Includes",
+        "Easy"
+      ],
+      [
+        "Tree Min Value",
+        "Easy"
+      ],
+      [
+        "Max Root To Leaf Path Sum",
+        "Easy"
+      ],
+      [
+        "Tree Path Finder",
+        "Easy"
+      ],
+      [
+        "Tree Value Count",
+        "Easy"
+      ],
+      [
+        "How High",
+        "Easy"
+      ],
+      [
+        "Bottom Right Value",
+        "Easy"
+      ],
+      [
+        "All Tree Paths",
+        "Easy"
+      ],
+      [
+        "Tree Levels",
+        "Easy"
+      ],
+      [
+        "Level Averages",
+        "Easy"
+      ],
+      [
+        "Leaf List",
+        "Easy"
+      ],
+      [
+        "Has Path",
+        "Easy"
+      ],
+      [
+        "Connect Components Count",
+        "Easy"
+      ],
+      [
+        "Largest Component",
+        "Easy"
+      ],
+      [
+        "Shortest Path",
+        "Easy"
+      ],
+      [
+        "Island Count",
+        "Easy"
+      ],
+      [
+        "Minimum Island",
+        "Easy"
+      ],
+      [
+        "Closest Carrot",
+        "Easy"
+      ],
+      [
+        "Longest Path",
+        "Easy"
+      ],
+      [
+        "Semesters Required",
+        "Easy"
+      ],
+      [
+        "Best Bridge",
+        "Easy"
+      ],
+      [
+        "Has Cycle",
+        "Easy"
+      ],
+      [
+        "Prereqs Possible",
+        "Easy"
+      ],
+      [
+        "Sum Possible",
+        "Easy"
+      ],
+      [
+        "Min Change",
+        "Easy"
+      ],
+      [
+        "Count Paths",
+        "Easy"
+      ],
+      [
+        "Max Path Sum",
+        "Easy"
+      ],
+      [
+        "Summing Squares",
+        "Easy"
+      ],
+      [
+        "Counting Change",
+        "Easy"
+      ],
+      [
+        "Array Stepper",
+        "Easy"
+      ],
+      [
+        "Max Palin Subsequence",
+        "Easy"
+      ],
+      [
+        "Overlap Subsequence",
+        "Easy"
+      ],
+      [
+        "Can Concat",
+        "Easy"
+      ],
+      [
+        "Quickest Concat",
+        "Easy"
+      ],
+      [
+        "Paired Parentheses",
+        "Easy"
+      ],
+      [
+        "Befitting Brackets",
+        "Easy"
+      ],
+      [
+        "Decompress Braces",
+        "Easy"
+      ],
+      [
+        "Nesting Score",
+        "Easy"
+      ],
+      [
+        "SubSets",
+        "Easy"
+      ],
+      [
+        "Permutations",
+        "Easy"
+      ],
+      [
+        "Create Combinations",
+        "Easy"
+      ],
+      [
+        "Parenthetical Possibilities",
+        "Easy"
+      ],
+      [
+        "Substitute Synonyms",
+        "Easy"
+      ],
+      [
+        "Linked Palindrome",
+        "Easy"
+      ],
+      [
+        "Linked List Cycle",
+        "Medium"
+      ],
+      [
+        "lowest Common Ancestor",
+        "Easy"
+      ],
+      [
+        "Flip Tree",
+        "Easy"
+      ],
+      [
+        "Lefty Nodes",
+        "Easy"
+      ],
+      [
+        "Can Color",
+        "Easy"
+      ],
+      [
+        "Tolerant Teams",
+        "Easy"
+      ],
+      [
+        "Rare Routing",
+        "Easy"
+      ],
+      [
+        "Max Increasing Subseq",
+        "Easy"
+      ],
+      [
+        "Positioning Plants",
+        "Easy"
+      ],
+      [
+        "Breaking Boundaries",
+        "Easy"
+      ],
+      [
+        "Merge Sort",
+        "Easy"
+      ],
+      [
+        "Combine Intervals",
+        "Easy"
+      ],
+      [
+        "Binary Search",
+        "Medium"
+      ],
+      [
+        "Binary Search Tree Includes",
+        "Easy"
+      ],
+      [
+        "Is Binary Search Tree",
+        "Easy"
+      ],
+      [
+        "Post Order",
+        "Easy"
+      ],
+      [
+        "Build Tree In Post",
+        "Easy"
+      ],
+      [
+        "Build Tree In Pre",
+        "Easy"
+      ],
+      [
+        "Lexical Order",
+        "Easy"
+      ],
+      [
+        "Detect Dictionary",
+        "Easy"
+      ],
+      [
+        "Topological Order",
+        "Easy"
+      ],
+      [
+        "Safe Cracking",
+        "Easy"
+      ],
+      [
+        "String Search",
+        "Easy"
+      ],
+      [
+        "Token Replace",
+        "Easy"
+      ],
+      [
+        "Token Transform",
+        "Medium"
+      ]
+    ],
+    "Medium": [
+      [
+        "Linked List Cycle",
+        "Medium"
+      ],
+      [
+        "Binary Search",
+        "Medium"
+      ],
+      [
+        "Token Transform",
+        "Medium"
+      ]
+    ]
+  },
+  "Array": {
+    "Easy": [
+      [
+        "Pair Sum",
+        "Easy"
+      ],
+      [
+        "Five Sort",
+        "Easy"
+      ],
+      [
+        "Merge Sort",
+        "Easy"
+      ],
+      [
+        "Combine Intervals",
+        "Easy"
+      ]
+    ],
+    "All": [
+      [
+        "Pair Sum",
+        "Easy"
+      ],
+      [
+        "Five Sort",
+        "Easy"
+      ],
+      [
+        "Merge Sort",
+        "Easy"
+      ],
+      [
+        "Combine Intervals",
+        "Easy"
+      ],
+      [
+        "Binary Search",
+        "Medium"
+      ]
+    ],
+    "Medium": [
+      [
+        "Binary Search",
+        "Medium"
+      ]
+    ]
+  },
+  "Linked List": {
+    "Easy": [
+      [
+        "Intersection",
+        "Easy"
+      ],
+      [
+        "Zipper Lists",
+        "Easy"
+      ],
+      [
+        "Merge Lists",
+        "Easy"
+      ],
+      [
+        "Is Univalue List",
+        "Easy"
+      ],
+      [
+        "Longest Streak",
+        "Easy"
+      ],
+      [
+        "Remove Node",
+        "Easy"
+      ],
+      [
+        "Insert Node",
+        "Easy"
+      ],
+      [
+        "Linked Palindrome",
+        "Easy"
+      ]
+    ],
+    "All": [
+      [
+        "Intersection",
+        "Easy"
+      ],
+      [
+        "Zipper Lists",
+        "Easy"
+      ],
+      [
+        "Merge Lists",
+        "Easy"
+      ],
+      [
+        "Is Univalue List",
+        "Easy"
+      ],
+      [
+        "Longest Streak",
+        "Easy"
+      ],
+      [
+        "Remove Node",
+        "Easy"
+      ],
+      [
+        "Insert Node",
+        "Easy"
+      ],
+      [
+        "Linked Palindrome",
+        "Easy"
+      ],
+      [
+        "Linked List Cycle",
+        "Medium"
+      ]
+    ],
+    "Medium": [
+      [
+        "Linked List Cycle",
+        "Medium"
+      ]
+    ]
+  },
+  "Binary Tree": {
+    "Easy": [
+      [
+        "Depth First Values",
+        "Easy"
+      ],
+      [
+        "Breadth First Values",
+        "Easy"
+      ],
+      [
+        "Tree Sum",
+        "Easy"
+      ],
+      [
+        "Tree Includes",
+        "Easy"
+      ],
+      [
+        "Tree Min Value",
+        "Easy"
+      ],
+      [
+        "Max Root To Leaf Path Sum",
+        "Easy"
+      ],
+      [
+        "Tree Path Finder",
+        "Easy"
+      ],
+      [
+        "Tree Value Count",
+        "Easy"
+      ],
+      [
+        "How High",
+        "Easy"
+      ],
+      [
+        "Bottom Right Value",
+        "Easy"
+      ],
+      [
+        "All Tree Paths",
+        "Easy"
+      ],
+      [
+        "Tree Levels",
+        "Easy"
+      ],
+      [
+        "Level Averages",
+        "Easy"
+      ],
+      [
+        "Leaf List",
+        "Easy"
+      ],
+      [
+        "lowest Common Ancestor",
+        "Easy"
+      ],
+      [
+        "Flip Tree",
+        "Easy"
+      ],
+      [
+        "Lefty Nodes",
+        "Easy"
+      ],
+      [
+        "Binary Search Tree Includes",
+        "Easy"
+      ],
+      [
+        "Is Binary Search Tree",
+        "Easy"
+      ],
+      [
+        "Post Order",
+        "Easy"
+      ],
+      [
+        "Build Tree In Post",
+        "Easy"
+      ],
+      [
+        "Build Tree In Pre",
+        "Easy"
+      ]
+    ],
+    "All": [
+      [
+        "Depth First Values",
+        "Easy"
+      ],
+      [
+        "Breadth First Values",
+        "Easy"
+      ],
+      [
+        "Tree Sum",
+        "Easy"
+      ],
+      [
+        "Tree Includes",
+        "Easy"
+      ],
+      [
+        "Tree Min Value",
+        "Easy"
+      ],
+      [
+        "Max Root To Leaf Path Sum",
+        "Easy"
+      ],
+      [
+        "Tree Path Finder",
+        "Easy"
+      ],
+      [
+        "Tree Value Count",
+        "Easy"
+      ],
+      [
+        "How High",
+        "Easy"
+      ],
+      [
+        "Bottom Right Value",
+        "Easy"
+      ],
+      [
+        "All Tree Paths",
+        "Easy"
+      ],
+      [
+        "Tree Levels",
+        "Easy"
+      ],
+      [
+        "Level Averages",
+        "Easy"
+      ],
+      [
+        "Leaf List",
+        "Easy"
+      ],
+      [
+        "lowest Common Ancestor",
+        "Easy"
+      ],
+      [
+        "Flip Tree",
+        "Easy"
+      ],
+      [
+        "Lefty Nodes",
+        "Easy"
+      ],
+      [
+        "Binary Search Tree Includes",
+        "Easy"
+      ],
+      [
+        "Is Binary Search Tree",
+        "Easy"
+      ],
+      [
+        "Post Order",
+        "Easy"
+      ],
+      [
+        "Build Tree In Post",
+        "Easy"
+      ],
+      [
+        "Build Tree In Pre",
+        "Easy"
+      ]
+    ]
+  },
+  "Graphs": {
+    "Easy": [
+      [
+        "Has Path",
+        "Easy"
+      ],
+      [
+        "Connect Components Count",
+        "Easy"
+      ],
+      [
+        "Largest Component",
+        "Easy"
+      ],
+      [
+        "Shortest Path",
+        "Easy"
+      ],
+      [
+        "Island Count",
+        "Easy"
+      ],
+      [
+        "Minimum Island",
+        "Easy"
+      ],
+      [
+        "Closest Carrot",
+        "Easy"
+      ],
+      [
+        "Longest Path",
+        "Easy"
+      ],
+      [
+        "Semesters Required",
+        "Easy"
+      ],
+      [
+        "Best Bridge",
+        "Easy"
+      ],
+      [
+        "Has Cycle",
+        "Easy"
+      ],
+      [
+        "Prereqs Possible",
+        "Easy"
+      ],
+      [
+        "Can Color",
+        "Easy"
+      ],
+      [
+        "Tolerant Teams",
+        "Easy"
+      ],
+      [
+        "Rare Routing",
+        "Easy"
+      ],
+      [
+        "Topological Order",
+        "Easy"
+      ],
+      [
+        "Safe Cracking",
+        "Easy"
+      ],
+      [
+        "String Search",
+        "Easy"
+      ]
+    ],
+    "All": [
+      [
+        "Has Path",
+        "Easy"
+      ],
+      [
+        "Connect Components Count",
+        "Easy"
+      ],
+      [
+        "Largest Component",
+        "Easy"
+      ],
+      [
+        "Shortest Path",
+        "Easy"
+      ],
+      [
+        "Island Count",
+        "Easy"
+      ],
+      [
+        "Minimum Island",
+        "Easy"
+      ],
+      [
+        "Closest Carrot",
+        "Easy"
+      ],
+      [
+        "Longest Path",
+        "Easy"
+      ],
+      [
+        "Semesters Required",
+        "Easy"
+      ],
+      [
+        "Best Bridge",
+        "Easy"
+      ],
+      [
+        "Has Cycle",
+        "Easy"
+      ],
+      [
+        "Prereqs Possible",
+        "Easy"
+      ],
+      [
+        "Can Color",
+        "Easy"
+      ],
+      [
+        "Tolerant Teams",
+        "Easy"
+      ],
+      [
+        "Rare Routing",
+        "Easy"
+      ],
+      [
+        "Topological Order",
+        "Easy"
+      ],
+      [
+        "Safe Cracking",
+        "Easy"
+      ],
+      [
+        "String Search",
+        "Easy"
+      ]
+    ]
+  },
+  "Dynamic Programming": {
+    "Easy": [
+      [
+        "Sum Possible",
+        "Easy"
+      ],
+      [
+        "Min Change",
+        "Easy"
+      ],
+      [
+        "Count Paths",
+        "Easy"
+      ],
+      [
+        "Max Path Sum",
+        "Easy"
+      ],
+      [
+        "Summing Squares",
+        "Easy"
+      ],
+      [
+        "Counting Change",
+        "Easy"
+      ],
+      [
+        "Array Stepper",
+        "Easy"
+      ],
+      [
+        "Max Palin Subsequence",
+        "Easy"
+      ],
+      [
+        "Overlap Subsequence",
+        "Easy"
+      ],
+      [
+        "Can Concat",
+        "Easy"
+      ],
+      [
+        "Quickest Concat",
+        "Easy"
+      ],
+      [
+        "Max Increasing Subseq",
+        "Easy"
+      ],
+      [
+        "Positioning Plants",
+        "Easy"
+      ],
+      [
+        "Breaking Boundaries",
+        "Easy"
+      ]
+    ],
+    "All": [
+      [
+        "Sum Possible",
+        "Easy"
+      ],
+      [
+        "Min Change",
+        "Easy"
+      ],
+      [
+        "Count Paths",
+        "Easy"
+      ],
+      [
+        "Max Path Sum",
+        "Easy"
+      ],
+      [
+        "Summing Squares",
+        "Easy"
+      ],
+      [
+        "Counting Change",
+        "Easy"
+      ],
+      [
+        "Array Stepper",
+        "Easy"
+      ],
+      [
+        "Max Palin Subsequence",
+        "Easy"
+      ],
+      [
+        "Overlap Subsequence",
+        "Easy"
+      ],
+      [
+        "Can Concat",
+        "Easy"
+      ],
+      [
+        "Quickest Concat",
+        "Easy"
+      ],
+      [
+        "Max Increasing Subseq",
+        "Easy"
+      ],
+      [
+        "Positioning Plants",
+        "Easy"
+      ],
+      [
+        "Breaking Boundaries",
+        "Easy"
+      ]
+    ]
+  },
+  "Stacks & Queues": {
+    "Easy": [
+      [
+        "Paired Parentheses",
+        "Easy"
+      ],
+      [
+        "Befitting Brackets",
+        "Easy"
+      ],
+      [
+        "Decompress Braces",
+        "Easy"
+      ],
+      [
+        "Nesting Score",
+        "Easy"
+      ]
+    ],
+    "All": [
+      [
+        "Paired Parentheses",
+        "Easy"
+      ],
+      [
+        "Befitting Brackets",
+        "Easy"
+      ],
+      [
+        "Decompress Braces",
+        "Easy"
+      ],
+      [
+        "Nesting Score",
+        "Easy"
+      ]
+    ]
+  },
+  "Recursion": {
+    "Easy": [
+      [
+        "SubSets",
+        "Easy"
+      ],
+      [
+        "Permutations",
+        "Easy"
+      ],
+      [
+        "Create Combinations",
+        "Easy"
+      ],
+      [
+        "Parenthetical Possibilities",
+        "Easy"
+      ],
+      [
+        "Substitute Synonyms",
+        "Easy"
+      ]
+    ],
+    "All": [
+      [
+        "SubSets",
+        "Easy"
+      ],
+      [
+        "Permutations",
+        "Easy"
+      ],
+      [
+        "Create Combinations",
+        "Easy"
+      ],
+      [
+        "Parenthetical Possibilities",
+        "Easy"
+      ],
+      [
+        "Substitute Synonyms",
+        "Easy"
+      ]
+    ]
+  }
+}
